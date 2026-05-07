@@ -63,7 +63,11 @@ jobs:
         run: gem install jekyll
 
       - name: Run IG Publisher
-        run: java -jar publisher.jar -ig ./ -tx https://tx.fhir.org -no-sushi
+        run: java -jar publisher.jar \
+            -ig fsh-generated/resources/ImplementationGuide-RES-Q-FHIR-IG.json \
+            -fhirver 5.0.0 \
+            -tx https://tx.fhir.org \
+            -no-sushi
 
       - name: Prepare Pages output
         run: |
