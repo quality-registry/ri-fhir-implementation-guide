@@ -48,6 +48,9 @@ jobs:
       - name: Compile FSH with SUSHI
         run: npx fsh-sushi . --log-level info
 
+      - name: Verify generated ImplementationGuide
+        run: test -f fsh-generated/resources/ImplementationGuide-tecnomod.resq.stroke.json
+
       - name: Download IG Publisher
         run: |
           curl -L -o publisher.jar \
@@ -63,7 +66,7 @@ jobs:
         run: gem install jekyll
 
       - name: Run IG Publisher
-        run: java -jar publisher.jar -ig ./ -tx https://tx.fhir.org -no-sushi
+        run: java -jar publisher.jar -ig . -fhirver 5.0.0 -tx https://tx.fhir.org -no-sushi
 
       - name: Prepare Pages output
         run: |
