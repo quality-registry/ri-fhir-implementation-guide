@@ -1,0 +1,27 @@
+{
+  "name": "igtest-git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecnomod-um/SK-FHIR-IG.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tecnomod-um/SK-FHIR-IG/issues"
+  },
+  "homepage": "https://github.com/tecnomod-um/SK-FHIR-IG#readme",
+  "devDependencies": {
+    "fsh-sushi": "^3.16.3"
+  },
+  "overrides": {
+    "simple-swizzle": "0.2.2"
+  }
+}

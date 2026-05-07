@@ -1,0 +1,24 @@
+id: tecnomod.resq.stroke
+canonical: http://tecnomod-um.org
+name: RESQStrokeIG
+title: RESQ Stroke Registry Implementation Guide
+status: draft
+version: 1.0.0
+fhirVersion: 5.0.0
+copyrightYear: 2026
+releaseLabel: ci-build
+publisher:
+  name: Tecnomod / Universidad de Murcia
+  url: http://tecnomod-um.org
+jurisdiction: urn:iso:std:iso:3166#ES "Spain"
+dependencies:
+  hl7.fhir.uv.extensions.r5: 5.2.0
+parameters:
+  path-resource:
+    - input/resources
+  path-pages:
+    - input/pagecontent
+menu:
+  Home: index.html
+  Artifacts: artifacts.html
+  Downloads: downloads.html

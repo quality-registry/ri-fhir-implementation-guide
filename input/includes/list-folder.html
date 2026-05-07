@@ -1,0 +1,104 @@
+<ul class="list">
+{%- assign dir          = include.dir          | default: '' -%}
+{%- assign srcpath      = include.srcpath      | default: '' -%}
+{%- assign nameContains = include.nameContains | default: '' -%}
+{%- assign excludeIndex = include.excludeIndex | default: true -%}
+{%- assign navSection   = include.navSection   | default: '' -%}
+
+{%- assign pages = site.pages -%}
+{%- assign out = '' | split: '' -%}
+
+{%- comment %} Selección inicial por carpeta (dir) o por ruta fuente (srcpath) {% endcomment -%}
+{%- if dir != '' -%}
+  {%- assign first = dir | slice: 0, 1 -%}
+  {%- unless first == '/' -%}{%- assign dir = '/' | append: dir -%}{%- endunless -%}
+  {%- assign last = dir | slice: -1, 1 -%}
+  {%- unless last == '/' -%}{%- assign dir = dir | append: '/' -%}{%- endunless -%}
+  {%- assign dlen = dir | size -%}
+  {%- assign idxurl = dir | append: 'index.html' -%}
+
+  {%- for p in pages -%}
+    {%- assign url_nb = p.url | default: '' -%}
+    {%- if url_nb != '' -%}
+      {%- assign prefix = url_nb | slice: 0, dlen -%}
+      {%- if prefix == dir -%}
+        {%- assign out = out | push: p -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- elsif srcpath != '' -%}
+  {%- for p in pages -%}
+    {%- if p.path and p.path contains srcpath -%}
+      {%- assign out = out | push: p -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign out = pages -%}
+{%- endif -%}
+
+{%- comment %} Filtrado por navSection (si lo pasas) {% endcomment -%}
+{%- if navSection != '' -%}
+  {%- assign out = out | where: 'navSection', navSection -%}
+{%- endif -%}
+
+{%- comment %} Excluir index de la carpeta cuando proceda {% endcomment -%}
+{%- if excludeIndex and dir != '' -%}
+  {%- assign idxurl = dir | append: 'index.html' -%}
+  {%- assign out = out | where_exp:'p','p.url != idxurl' -%}
+{%- endif -%}
+
+{%- comment %} No listarse a sí misma y quedarse solo con páginas HTML generadas {% endcomment -%}
+{%- assign out = out | where_exp:'p','p.url != page.url' -%}
+{%- assign out = out | where_exp:'p','p.url and p.url contains ".html"' -%}
+
+{%- comment %} Mantener solo las páginas canónicas de ValueSet (sin json/xml/ttl/testing/change.history) {% endcomment -%}
+{%- assign filtered = '' | split: '' -%}
+{%- for p in out -%}
+  {%- assign fname = p.name | default: p.path | downcase -%}
+  {%- unless fname contains '.json.' 
+        or fname contains '.xml.' 
+        or fname contains '.ttl.' 
+        or fname contains '.change.history.' 
+        or fname contains '-testing.' -%}
+    {%- assign filtered = filtered | push: p -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign out = filtered -%}
+
+{%- comment %} Filtro por nombre (opcional) {% endcomment -%}
+{%- if nameContains != '' -%}
+  {%- assign needle = nameContains | downcase -%}
+  {%- assign filtered = '' | split: '' -%}
+  {%- for p in out -%}
+    {%- assign fname = p.name | default: p.path | downcase -%}
+    {%- if fname contains needle -%}
+      {%- assign filtered = filtered | push: p -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign out = filtered -%}
+{%- endif -%}
+
+{%- comment %} Orden: primero por weight (si existe), luego por title {% endcomment -%}
+{%- assign out = out | uniq -%}
+{%- assign with_weight = out | where_exp:'p','p.weight != nil' -%}
+{%- assign without_weight = out | where_exp:'p','p.weight == nil' -%}
+{%- assign with_weight = with_weight | sort: 'weight' | sort: 'title' -%}
+{%- assign without_weight = without_weight | sort: 'title' -%}
+{%- assign out = with_weight | concat: without_weight -%}
+
+{%- for p in out -%}
+  {%- assign title = p.title | default: p.name | default: p.url -%}
+  {%- assign href = p.url | default: '' -%}
+  {%- if href != '' -%}
+    {%- assign href_rel = href -%}
+    {%- if href_rel != '' and href_rel | slice: 0, 1 == '/' -%}
+      {%- assign href_rel = href_rel | slice: 1, href_rel.size -%}
+    {%- endif -%}
+    <li><a href="{{ href_rel }}">{{ title }}</a></li>
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if out == empty -%}
+  <li><em>No entries found{% if dir != '' %} in {{ dir }}{% endif %}{% if srcpath != '' %} (srcpath={{ srcpath }}){% endif %}{% if nameContains != '' %} (name contains '{{ nameContains }}'){% endif %}{% if navSection != '' %} (navSection='{{ navSection }}'){% endif %}</em></li>
+{%- endif -%}
+</ul>
