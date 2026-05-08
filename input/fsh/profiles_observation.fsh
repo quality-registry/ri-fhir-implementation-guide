@@ -1,93 +1,30 @@
 // -----------------------------------------------------------------------------
-// Clinical condition and observation profiles
+// Observation profiles
 // -----------------------------------------------------------------------------
-
-Profile: StrokeDiagnosisConditionProfile
-Parent: Condition
-Id: stroke-diagnosis-condition-profile
-Title: "Stroke Diagnosis Condition Profile"
-Description: "Index stroke diagnosis profile aligned with build_stroke_diagnosis_condition_profile()."
-* ^url = "http://tecnomod-um.org/StructureDefinition/stroke-diagnosis-condition-profile"
-* ^status = #active
-* subject 1..1 MS
-* subject only Reference(RESQPatientProfile)
-* encounter 1..1 MS
-* encounter only Reference(StrokeEncounterProfile)
-* clinicalStatus 1..1 MS
-* clinicalStatus = ConditionClinicalCS#active
-* verificationStatus 1..1 MS
-* verificationStatus from http://hl7.org/fhir/ValueSet/condition-ver-status (required)
-* code 1..1 MS
-* code from StrokeTypeVS (extensible)
-* bodySite 0..* MS
-* bodySite from BodySitesVS (extensible)
-* evidence 0..* MS
-* onset[x] 0..1 MS
-* onset[x] only dateTime
-* extension contains IschemicStrokeEtiologyExt named ischemicStrokeEtiology 0..1 MS
-  and IschemicStrokeEtiologyKnownExt named ischemicStrokeEtiologyKnown 0..1 MS
-  and HemorrhagicStrokeBleedingReasonExt named hemorrhagicStrokeBleedingReason 0..1 MS
-  and HemorrhagicStrokeBleedingReasonFoundExt named hemorrhagicStrokeBleedingReasonFound 0..1 MS
-  and WakeupStrokeExt named wakeupStroke 1..1 MS
-
-Profile: StrokeRiskFactorConditionProfile
-Parent: Condition
-Id: stroke-risk-factor-condition-profile
-Title: "Stroke Risk Factor Condition Profile"
-Description: "Risk factor Condition profile aligned with build_risk_factor_condition_profile()."
-* ^url = "http://tecnomod-um.org/StructureDefinition/stroke-risk-factor-condition-profile"
-* ^status = #active
-* subject 1..1 MS
-* subject only Reference(RESQPatientProfile)
-* encounter 1..1 MS
-* encounter only Reference(StrokeEncounterProfile)
-* clinicalStatus 1..1 MS
-* clinicalStatus from ClinicalStatusCodesVS (required)
-* verificationStatus 0..1 MS
-* code 1..1 MS
-* code from RiskFactorVS (extensible)
-
-Profile: PostStrokeComplicationConditionProfile
-Parent: Condition
-Id: post-stroke-complication-condition-profile
-Title: "Post-Stroke Complication Condition Profile"
-Description: "Post-stroke complication Condition profile aligned with build_post_stroke_conditions()."
-* ^url = "http://tecnomod-um.org/StructureDefinition/post-stroke-complication-condition-profile"
-* ^status = #active
-* subject 1..1 MS
-* subject only Reference(RESQPatientProfile)
-* encounter 1..1 MS
-* encounter only Reference(StrokeEncounterProfile)
-* clinicalStatus 1..1 MS
-* clinicalStatus from ClinicalStatusCodesVS (required)
-* code 1..1 MS
-* code from PostStrokeComplicationsVS (extensible)
 
 Profile: BaseStrokeObservation
 Parent: Observation
 Id: base-stroke-observation
 Title: "Base Stroke Observation Profile"
-Description: "Base profile for stroke registry observations: subject and encounter required; status is normally final."
+Description: "Base profile for RES-Q stroke observations. It requires final status, patient, encounter and observation code so derived profiles share a consistent registry context."
 * ^url = "http://tecnomod-um.org/StructureDefinition/base-stroke-observation"
-* ^status = #active
-* status 1..1 MS
-* status = #final
-* subject 1..1 MS
-* subject only Reference(RESQPatientProfile)
-* encounter 1..1 MS
-* encounter only Reference(StrokeEncounterProfile)
-* code 1..1 MS
+* insert RESQProfileMetadata
+* ^purpose = "Provides a common observation scaffold for stroke scores, process metrics, laboratory values, imaging findings and follow-up measurements."
+* insert RESQObservationCore
 
 Profile: VitalSignObservationProfile
 Parent: BaseStrokeObservation
 Id: vital-sign-observation-profile
 Title: "Vital Sign Observation Profile"
-Description: "Blood pressure observation aligned with build_observation_vital_signs()."
+Description: "Observation profile for vital signs in the acute stroke pathway, especially blood pressure components."
 * ^url = "http://tecnomod-um.org/StructureDefinition/vital-sign-observation-profile"
+* insert RESQProfileMetadata
 * category 1..* MS
 * category = ObservationCategoryCS#vital-signs
+* category ^short = "Vital signs category"
 * code from VitalSignsVS (extensible)
 * component 1..* MS
+* component ^short = "Vital-sign component such as systolic or diastolic blood pressure"
 * component.code 1..1 MS
 * component.code from VitalSignsVS (extensible)
 * component.value[x] 1..1 MS
@@ -98,14 +35,17 @@ Profile: FunctionalScoreObservationProfile
 Parent: BaseStrokeObservation
 Id: functional-score-observation-profile
 Title: "Functional Score Observation Profile"
-Description: "Functional score profile for mRS, NIHSS, ASPECTS, GCS-like score categories, Hunt-Hess, ABCD2, CHA2DS2-VASc and THRIVE."
+Description: "Observation profile for functional or severity scores such as mRS, NIHSS, ASPECTS, Hunt-Hess, ABCD2, CHA2DS2-VASc and THRIVE."
 * ^url = "http://tecnomod-um.org/StructureDefinition/functional-score-observation-profile"
+* insert RESQProfileMetadata
 * category 0..* MS
 * category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
 * code 1..1 MS
 * code from FunctionalScoreVS (extensible)
+* code ^short = "Functional or severity score instrument"
 * value[x] 0..1 MS
 * value[x] only integer or CodeableConcept or Quantity
+* value[x] ^short = "Recorded score value"
 * valueCodeableConcept from MRsScoreVS (extensible)
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
@@ -113,8 +53,9 @@ Profile: GlasgowComaScaleObservationProfile
 Parent: FunctionalScoreObservationProfile
 Id: glasgow-coma-scale-observation-profile
 Title: "Glasgow Coma Scale Observation Profile"
-Description: "GCS score/profile generated from build_observation_glasgow_coma_scale()."
+Description: "Specialized functional score profile for Glasgow Coma Scale values captured by the registry."
 * ^url = "http://tecnomod-um.org/StructureDefinition/glasgow-coma-scale-observation-profile"
+* insert RESQProfileMetadata
 * code from GlasgowComaScaleVS (extensible)
 * value[x] only integer or CodeableConcept
 * valueCodeableConcept from GCSScoreVS (extensible)
@@ -123,111 +64,139 @@ Profile: SpecificFindingObservationProfile
 Parent: BaseStrokeObservation
 Id: specific-finding-observation-profile
 Title: "Specific Finding Observation Profile"
-Description: "Generic profile for specific imaging/procedure/clinical findings including mTICI, bleeding volume, carotid stenosis, occlusion and AF/flutter."
+Description: "Observation profile for specific clinical, imaging or procedural findings including mTICI, bleeding volume, carotid stenosis, occlusion and atrial fibrillation/flutter."
 * ^url = "http://tecnomod-um.org/StructureDefinition/specific-finding-observation-profile"
+* insert RESQProfileMetadata
 * category 0..* MS
 * code 1..1 MS
 * code from SpecificFindingVS (extensible)
+* code ^short = "Specific stroke finding"
 * value[x] 0..1 MS
 * value[x] only boolean or integer or CodeableConcept or Quantity
+* value[x] ^short = "Finding value"
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
+* bodyStructure ^short = "Anatomical structure associated with the finding"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Profile: TimingMetricObservationProfile
 Parent: BaseStrokeObservation
 Id: timing-metric-observation-profile
 Title: "Timing Metric Observation Profile"
-Description: "Timing/process metric profile for door-to-needle, door-to-groin, onset-to-door and related indicators."
+Description: "Observation profile for stroke time metrics and process indicators such as door-to-needle, door-to-groin, onset-to-door and related measures."
 * ^url = "http://tecnomod-um.org/StructureDefinition/timing-metric-observation-profile"
+* insert RESQProfileMetadata
 * code 1..1 MS
 * code from TimingMetricCodesVS (required)
+* code ^short = "Timing or process metric"
 * value[x] 1..1 MS
 * value[x] only Quantity or boolean
+* value[x] ^short = "Metric duration/value or yes/no indicator"
 * valueQuantity.system 0..1 MS
+* valueQuantity.system = UCUM (exactly)
 * valueQuantity.code 0..1 MS
 * partOf 0..* MS
 * partOf only Reference(Procedure or MedicationAdministration)
+* partOf ^short = "Procedure or administration measured by this timing metric"
 
 Profile: AnaliticsObservationProfile
 Parent: BaseStrokeObservation
 Id: analitics-observation-profile
 Title: "Analytics Observation Profile"
-Description: "Laboratory/analytics observations for glucose, cholesterol, INR and related laboratory findings. The id preserves the original spelling used in the Python profile URL."
+Description: "Laboratory/analytics observation profile for glucose, cholesterol, INR and related findings. The id preserves the original spelling used in the Python profile URL."
 * ^url = "http://tecnomod-um.org/StructureDefinition/analitics-observation-profile"
+* insert RESQProfileMetadata
 * category 0..* MS
 * code 1..1 MS
 * code from AnaliticsCodesVS (extensible)
+* code ^short = "Laboratory or analytics concept"
 * value[x] 0..1 MS
 * value[x] only Quantity or CodeableConcept or boolean
+* value[x] ^short = "Laboratory value or coded/boolean result"
 * method 0..1 MS
 * method from ObservationMethodsVS (extensible)
+* method ^short = "Measurement or assessment method"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Profile: FeverObservationProfile
 Parent: BaseStrokeObservation
 Id: fever-observation-profile
 Title: "Fever Observation Profile"
-Description: "Fever observation profile aligned with build_observation_fever()."
+Description: "Observation profile for fever presence or temperature values during the stroke pathway."
 * ^url = "http://tecnomod-um.org/StructureDefinition/fever-observation-profile"
+* insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean or Quantity
+* value[x] ^short = "Fever indicator or temperature measurement"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Profile: HyperglycemiaObservationProfile
 Parent: BaseStrokeObservation
 Id: hyperglycemia-observation-profile
 Title: "Hyperglycemia Observation Profile"
-Description: "Hyperglycemia monitoring/check observations aligned with build_observation_hyperglycemia_measurement_checks()."
+Description: "Observation profile for hyperglycemia monitoring, checks and measured values."
 * ^url = "http://tecnomod-um.org/StructureDefinition/hyperglycemia-observation-profile"
+* insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean or Quantity or integer
+* value[x] ^short = "Hyperglycemia indicator or measured value"
 
 Profile: GlucoseGE10ObservationProfile
 Parent: BaseStrokeObservation
 Id: glucose-ge10-observation-profile
 Title: "Glucose >= 10 Observation Profile"
-Description: "Boolean indicator for glucose >= 10 mmol/L."
+Description: "Boolean observation profile indicating whether glucose was greater than or equal to 10 mmol/L."
 * ^url = "http://tecnomod-um.org/StructureDefinition/glucose-ge10-observation-profile"
+* insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean
 * valueBoolean 1..1 MS
+* valueBoolean ^short = "Glucose >= 10 mmol/L indicator"
 
 Profile: HighestHyperglycemiaValueObservationProfile
 Parent: BaseStrokeObservation
 Id: highest-hyperglycemia-value-observation-profile
 Title: "Highest Hyperglycemia Value Observation Profile"
-Description: "Highest hyperglycemia value observation profile."
+Description: "Observation profile for the highest recorded hyperglycemia value in the relevant stroke care interval."
 * ^url = "http://tecnomod-um.org/StructureDefinition/highest-hyperglycemia-value-observation-profile"
+* insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
 * value[x] only Quantity
 * valueQuantity 1..1 MS
+* valueQuantity ^short = "Highest glucose value"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Profile: TIAClinicalSymptomsObservationProfile
 Parent: BaseStrokeObservation
 Id: tia-clinical-symptoms-observation-profile
 Title: "TIA Clinical Symptoms Observation Profile"
-Description: "TIA symptoms observation profile aligned with build_tia_clinical_symptomps_observation()."
+Description: "Observation profile for TIA clinical symptoms and their recorded values."
 * ^url = "http://tecnomod-um.org/StructureDefinition/tia-clinical-symptoms-observation-profile"
+* insert RESQProfileMetadata
 * code from TiaClinicalSymptomsVS (extensible)
 * value[x] 0..1 MS
 * value[x] only Quantity or CodeableConcept or boolean
+* value[x] ^short = "TIA symptom value, duration or indicator"
 
 Profile: PatientVentilatedObservationProfile
 Parent: BaseStrokeObservation
 Id: patient-ventilated-observation-profile
 Title: "Patient Ventilated Observation Profile"
-Description: "Ventilation observation profile for post-acute/acute context."
+Description: "Observation profile for recording whether the patient was ventilated in acute or post-acute care."
 * ^url = "http://tecnomod-um.org/StructureDefinition/patient-ventilated-observation-profile"
+* insert RESQProfileMetadata
 * code from ObservationMethodsVS (extensible)
 * value[x] only boolean
+* valueBoolean 1..1 MS
+* valueBoolean ^short = "Patient ventilated indicator"
 * extension contains RequiredPostAcuteCareExt named requiredPostAcuteCare 0..1 MS
 
 Profile: ThreeMonthContactModeObservationProfile
 Parent: BaseStrokeObservation
 Id: three-month-contact-mode-observation-profile
 Title: "Three-Month Contact Mode Observation Profile"
-Description: "Observation profile for contact mode at three-month follow-up."
+Description: "Observation profile for the modality used to obtain three-month follow-up information."
 * ^url = "http://tecnomod-um.org/StructureDefinition/three-month-contact-mode-observation-profile"
+* insert RESQProfileMetadata
 * code from ThreeMonthContactModeVS (required)
+* code ^short = "Three-month contact mode"
