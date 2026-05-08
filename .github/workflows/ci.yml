@@ -80,7 +80,7 @@ jobs:
         run: gem install jekyll
 
       - name: Run IG Publisher
-        run: java -jar publisher.jar -ig ig.ini -tx https://tx.fhir.org -no-sushi
+        run: java -jar publisher.jar -ig ./ -tx https://tx.fhir.org -no-sushi
 
       - name: Upload IG package (tgz)
         uses: actions/upload-artifact@v4
