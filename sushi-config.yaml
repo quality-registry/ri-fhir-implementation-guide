@@ -1,4 +1,4 @@
-id: hl7.RESQ-FHIR-IG
+id: hl7.fhir.RESQ-FHIR-IG
 canonical: http://tecnomod-um.org
 name: RESQStrokeIG
 title: RESQ Stroke Registry Implementation Guide
