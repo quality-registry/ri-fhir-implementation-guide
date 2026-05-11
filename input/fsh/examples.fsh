@@ -37,6 +37,6 @@ Usage: #example
 * encounter = Reference(ExampleStrokeEncounter)
 * code = TimingMetricCodesCS#D2N "Door to Needle"
 * valueQuantity.value = 38
-* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.system = "https://ucum.org/ucum"
 * valueQuantity.code = #min
 * valueQuantity.unit = "minute"
