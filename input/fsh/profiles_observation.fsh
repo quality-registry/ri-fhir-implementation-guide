@@ -58,7 +58,7 @@ Description: "Specialized functional score profile for Glasgow Coma Scale values
 * insert RESQProfileMetadata
 * code from GlasgowComaScaleVS (extensible)
 * value[x] only integer or CodeableConcept
-* valueCodeableConcept from GCSScoreVS (extensible)
+* interpretation from GCSScoreVS (extensible)
 
 Profile: SpecificFindingObservationProfile
 Parent: BaseStrokeObservation
@@ -200,3 +200,12 @@ Description: "Observation profile for the modality used to obtain three-month fo
 * insert RESQProfileMetadata
 * code from ThreeMonthContactModeVS (required)
 * code ^short = "Three-month contact mode"
+
+Profile: AppointmentManagementObservationProfile
+Parent: BaseStrokeObservation
+Id: appointment-management-observation-profile
+Title: "Appointment Management Observation Profile"
+Description: "Observation profile for recording whether a three-month follow-up appointment was scheduled or attended."
+* ^url = "http://tecnomod-um.org/StructureDefinition/appointment-management-observation-profile"
+* insert RESQProfileMetadata
+* code from ThreeMonthContactModeVS (extensible)

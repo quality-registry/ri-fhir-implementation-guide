@@ -18,7 +18,7 @@ Description: "Generic MedicationAdministration profile for acute stroke treatmen
 * medication from MedicationsVS (extensible)
 * medication ^short = "Administered medication"
 * occurence[x] 1..1 MS
-* occurence[x] only dateTime
+* occurence[x] only Period or dateTime
 * occurence[x] ^short = "Administration date/time"
 * reason 0..* MS
 * reason only CodeableReference(Condition or Observation)
