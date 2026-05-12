@@ -99,7 +99,7 @@ Description: "Timing or phase context for procedure execution, such as acute/pos
 * ^context[0].expression = "Procedure"
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1 MS
-* valueCodeableConcept from ProcedureTimingContextVS (extensible)
+* valueCodeableConcept from AssessmentContextVS (extensible)
 
 Extension: AssessmentTimingExt
 Id: assessment-timing-ext

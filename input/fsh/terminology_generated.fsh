@@ -480,6 +480,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #post-stroke "Post-Stroke"
 * #last-10-years "During Last 10 Years"
 * #discharge-or-7-days "Discharge or 7 Days After Admission"
+* #unknown "Unknown/Not Applicable"
+* #acute "Acute Phase (<24h)"
 
 CodeSystem: MticiCodeCS
 Id: mtici-code-cs
@@ -1495,6 +1497,10 @@ Description: "Allowed coded values for AssessmentContext"
 * include AssessmentContextCS#post-stroke "Post-Stroke"
 * include AssessmentContextCS#last-10-years "During Last 10 Years"
 * include AssessmentContextCS#discharge-or-7-days "Discharge or 7 Days After Admission"
+* include AssessmentContextCS#unknown "Unknown/Not Applicable"
+* include AssessmentContextCS#acute "Acute Phase (<24h)"
+* include sct#281381003 "More than 24 hours after admission (qualifier value)"
+
 
 ValueSet: SpecificFindingVS
 Id: specific-finding-vs

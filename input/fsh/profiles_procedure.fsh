@@ -104,6 +104,8 @@ Description: "Procedure profile for swallowing screening, including screening ty
 * status 1..1 MS
 * insert RESQPatientSubject
 * insert RESQEncounterContext
+* obeys stroke-swallow-completed-requires-post-acute-care
+* obeys stroke-swallow-not-done-requires-status-reason
 * code 0..1 MS
 * code from SwallowingScreeningTypeVS (extensible)
 * code ^short = "Swallowing screening type"
@@ -114,7 +116,17 @@ Description: "Procedure profile for swallowing screening, including screening ty
 * performer ^short = "Screening performer"
 * performer.actor only Reference(RESQPractitionerRoleProfile)
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
-  and PostAcuteCareRequiredExt named postAcuteCareRequired 1..1 MS
+  and PostAcuteCareRequiredExt named postAcuteCareRequired 0..1 MS
+
+Invariant: stroke-swallow-completed-requires-post-acute-care
+Description: "If the swallowing screening procedure is completed, post-acute care required extension SHALL be present."
+Severity: #error
+Expression: "status != 'completed' or extension.where(url = 'http://tecnomod-um.org/StructureDefinition/post-acute-care-required-ext').exists()"
+
+Invariant: stroke-swallow-not-done-requires-status-reason
+Description: "If the swallowing screening procedure was not done, statusReason SHALL be present."
+Severity: #error
+Expression: "status != 'not-done' or statusReason.exists()"
 
 Profile: StrokeVTEProcedureProfile
 Parent: Procedure
@@ -147,6 +159,6 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * statusReason 0..1 MS
 * statusReason from ProcedureNotDoneReasonVS (extensible)
 * occurrence[x] 0..1 MS
-* occurrence[x] only dateTime or Period or Range
+* occurrence[x] only (dateTime or Period or Range)
 * occurrence[x] ^short = "Procedure date/time, interval or timing range"
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
