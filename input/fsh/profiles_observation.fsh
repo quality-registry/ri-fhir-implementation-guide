@@ -69,8 +69,8 @@ Description: "Specialized functional score profile for Glasgow Coma Scale compon
 * code = SCT#386557006 "Glasgow coma scale finding (finding)"
 * value[x] 1..1 MS
 * value[x] only CodeableConcept
-* basedOn 0..* MS
-* basedOn only Reference(Observation)
+* derivedFrom 0..* MS
+* derivedFrom only Reference(Observation)
 
 
 Profile: SpecificFindingObservationProfile
