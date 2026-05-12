@@ -543,6 +543,17 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #wake-up "Wake Up Stroke"
 * #in-hospital "In Hospital Stroke"
 
+CodeSystem: LocationCS
+Id: location-cs
+Title: "LocationCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/location-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/location-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #other "Other Location"
+
+
 CodeSystem: SymptomsCS
 Id: symptoms-cs
 Title: "SymptomsCs CodeSystem"
@@ -801,6 +812,7 @@ Description: "Allowed coded values for Locations"
 * include V3RoleCode#NS "Neurosurgery unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
 * include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Location"
 
 ValueSet: HospitalizedInVS
 Id: hospitalized-in-vs
