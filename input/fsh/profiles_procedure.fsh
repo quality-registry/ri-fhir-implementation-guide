@@ -159,6 +159,6 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * statusReason 0..1 MS
 * statusReason from ProcedureNotDoneReasonVS (extensible)
 * occurrence[x] 0..1 MS
-* occurrence[x] only (dateTime or Period or Range)
+* occurrence[x] only dateTime or Period or Range
 * occurrence[x] ^short = "Procedure date/time, interval or timing range"
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS

@@ -1499,7 +1499,7 @@ Description: "Allowed coded values for AssessmentContext"
 * include AssessmentContextCS#discharge-or-7-days "Discharge or 7 Days After Admission"
 * include AssessmentContextCS#unknown "Unknown/Not Applicable"
 * include AssessmentContextCS#acute "Acute Phase (<24h)"
-* include sct#281381003 "More than 24 hours after admission (qualifier value)"
+* include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
 
 ValueSet: SpecificFindingVS

@@ -90,7 +90,7 @@ Description: "Observation profile for stroke time metrics and process indicators
 * code from TimingMetricCodesVS (required)
 * code ^short = "Timing or process metric"
 * value[x] 1..1 MS
-* value[x] only (Quantity or boolean)
+* value[x] only Quantity or boolean
 * value[x] ^short = "Metric duration/value or yes/no indicator"
 * valueQuantity.system 0..1 MS
 * valueQuantity.system = UCUM (exactly)
@@ -111,7 +111,7 @@ Description: "Laboratory/analytics observation profile for glucose, cholesterol,
 * code from AnaliticsCodesVS (extensible)
 * code ^short = "Laboratory or analytics concept"
 * value[x] 0..1 MS
-* value[x] only (Quantity or CodeableConcept or boolean)
+* value[x] only Quantity or CodeableConcept or boolean
 * value[x] ^short = "Laboratory value or coded/boolean result"
 * method 0..1 MS
 * method from ObservationMethodsVS (extensible)
@@ -126,7 +126,7 @@ Description: "Observation profile for fever presence or temperature values durin
 * ^url = "http://tecnomod-um.org/StructureDefinition/fever-observation-profile"
 * insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
-* value[x] only (boolean or Quantity)
+* value[x] only boolean or Quantity
 * value[x] ^short = "Fever indicator or temperature measurement"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
@@ -138,7 +138,7 @@ Description: "Observation profile for hyperglycemia monitoring, checks and measu
 * ^url = "http://tecnomod-um.org/StructureDefinition/hyperglycemia-observation-profile"
 * insert RESQProfileMetadata
 * code from AnaliticsCodesVS (extensible)
-* value[x] only (boolean or Quantity or integer)
+* value[x] only boolean or Quantity or integer
 * value[x] ^short = "Hyperglycemia indicator or measured value"
 
 Profile: GlucoseGE10ObservationProfile
@@ -175,7 +175,7 @@ Description: "Observation profile for TIA clinical symptoms and their recorded v
 * insert RESQProfileMetadata
 * code from TiaClinicalSymptomsVS (extensible)
 * value[x] 0..1 MS
-* value[x] only (Quantity or CodeableConcept or boolean)
+* value[x] only Quantity or CodeableConcept or boolean
 * value[x] ^short = "TIA symptom value, duration or indicator"
 
 Profile: PatientVentilatedObservationProfile
