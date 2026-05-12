@@ -282,6 +282,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #HRAD "radiology unit"
 * #ER "Emergency room"
 * #OF "Outpatient facility"
+* #other "Other department"
 
 CodeSystem: MticiScoreCS
 Id: mtici-score-cs
@@ -1169,7 +1170,7 @@ Description: "Allowed coded values for FirstContactPlace"
 * include FirstContactPlaceCS#HRAD "radiology unit"
 * include FirstContactPlaceCS#ER "Emergency room"
 * include FirstContactPlaceCS#OF "Outpatient facility"
-* include V3RoleCode#other "Other Department"
+* include FirstContactPlaceCS#other "Other Department"
 
 ValueSet: MTiciScoreVS
 Id: mtici-score-vs
@@ -1716,7 +1717,8 @@ Description: "Allowed coded values for GlasgowComaScale"
 * include SCT#54185009 "Glasgow coma scale, 13 (finding)"
 * include SCT#26734006 "Glasgow coma scale, 14 (finding)"
 * include SCT#70040003 "Glasgow coma scale, 15 (finding)"
-* include SCT#248241002 "Glasgow coma scale (observable entity)"
+* include SCT#386557006 "Glasgow coma scale finding (finding)"
+* include SCT#248241002 "Glasgow coma score (observable entity)"
 
 ValueSet: NotMedicationReasonVS
 Id: not-medication-reason-vs

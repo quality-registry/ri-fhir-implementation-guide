@@ -46,19 +46,32 @@ Description: "Observation profile for functional or severity scores such as mRS,
 * value[x] 0..1 MS
 * value[x] only integer or CodeableConcept or Quantity
 * value[x] ^short = "Recorded score value"
-* valueCodeableConcept from MRsScoreVS (extensible)
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
+
+Profile: GlasgowComaScoreObservationProfile
+Parent: FunctionalScoreObservationProfile
+Id: glasgow-coma-score-observation-profile
+Title: "Glasgow Coma Score Observation Profile"
+Description: "Specialized functional score profile for Glasgow Coma Score values captured by the registry."
+* ^url = "http://tecnomod-um.org/StructureDefinition/glasgow-coma-score-observation-profile"
+* insert RESQProfileMetadata
+* code = SCT#248241002 "Glasgow coma score (observable entity)"
+* value[x] 1..1 MS
+* value[x] only integer
 
 Profile: GlasgowComaScaleObservationProfile
 Parent: FunctionalScoreObservationProfile
 Id: glasgow-coma-scale-observation-profile
 Title: "Glasgow Coma Scale Observation Profile"
-Description: "Specialized functional score profile for Glasgow Coma Scale values captured by the registry."
+Description: "Specialized functional score profile for Glasgow Coma Scale component values captured by the registry."
 * ^url = "http://tecnomod-um.org/StructureDefinition/glasgow-coma-scale-observation-profile"
 * insert RESQProfileMetadata
-* code from GlasgowComaScaleVS (extensible)
-* value[x] only integer
-* interpretation from GCSScoreVS (extensible)
+* code = SCT#386557006 "Glasgow coma scale finding (finding)"
+* value[x] 1..1 MS
+* value[x] only CodeableConcept
+* basedOn 0..* MS
+* basedOn only Reference(Observation)
+
 
 Profile: SpecificFindingObservationProfile
 Parent: BaseStrokeObservation
