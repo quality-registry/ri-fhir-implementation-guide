@@ -1704,9 +1704,9 @@ Description: "Allowed coded values for AnaliticsCodes"
 * include TimingMetricCodesCS#hyperglycemia-day-1 "Hyperglycemia Checks Day 1"
 * include TimingMetricCodesCS#hyperglycemia-day-2 "Hyperglycemia Checks Day 2"
 * include TimingMetricCodesCS#hyperglycemia-day-3 "Hyperglycemia Checks Day 3"
-* include TimingMetricCodesCS#fever-day-1 "Temperature Checks Day 1"
-* include TimingMetricCodesCS#fever-day-2 "Temperature Checks Day 2"
-* include TimingMetricCodesCS#fever-day-3 "Temperature Checks Day 3"
+* include TimingMetricCodesCS#temperature-checks-day-1 "Temperature Checks Day 1"
+* include TimingMetricCodesCS#temperature-checks-day-2 "Temperature Checks Day 2"
+* include TimingMetricCodesCS#temperature-checks-day-3 "Temperature Checks Day 3"
 
 ValueSet: GlasgowComaScaleVS
 Id: glasgow-coma-scale-vs
