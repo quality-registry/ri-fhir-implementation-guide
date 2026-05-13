@@ -57,8 +57,7 @@ Description: "MedicationAdministration profile for insulin administered in respo
 * medication.concept = SCT#67866001 "Insulin (substance)"
 * reason 1..* MS
 * reason only CodeableReference(HighestHyperglycemiaValueObservationProfile or HyperglycemiaObservationProfile)
-* extension contains AssessmentTimingExt named insulinTiming 0..1 MS
-* extension[insulinTiming].valueCodeableConcept from InsulinOnHyperglycemiaTimingVS (required)
+* extension[assessmentTiming].valueCodeableConcept from InsulinOnHyperglycemiaTimingVS (required)
 
 Profile: NimodipineMedicationAdministrationProfile
 Parent: StrokeMedicationAdministrationProfile

@@ -308,6 +308,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
+* #appointment "Follow-up Appointment Status"
 * #scheduled "Scheduled"
 * #not-recommended "Not Recommended"
 * #not-scheduled "Not Scheduled"
@@ -647,6 +648,7 @@ Description: "Allowed coded values for ManagementAppointment"
 * include ManagementAppointmentCS#scheduled "Scheduled"
 * include ManagementAppointmentCS#not-recommended "Not Recommended"
 * include ManagementAppointmentCS#not-scheduled "Not Scheduled"
+* include ManagementAppointmentCS#appointment "Follow-up Appointment Status"
 
 ValueSet: AdmissionDepartmentVS
 Id: admission-department-vs
@@ -1093,8 +1095,8 @@ Description: "Allowed coded values for ScreeningPerformer"
 * ^url = "http://tecnomod-um.org/ValueSet/screening-performer-vs"
 * ^status = #active
 * ^experimental = false
-* include PractitionerRoleCS#nurse "Nurse"
-* include PractitionerRoleCS#physician "Physician"
+* include SCT#106292003 "Professional nurse (occupation)"
+* include SCT#309343006 "Physician (occupation)"
 * include SCT#223366009 "Healthcare professional (occupation)"
 * include SCT#159026005 "Speech and language therapist"
 
@@ -1526,6 +1528,7 @@ Description: "Allowed coded values for SpecificFinding"
 * include SCT#230690007 "Cerebrovascular accident (disorder)"
 * include SCT#230706003 "Hemorrhagic cerebral infarction (disorder)"
 * include SpecificFindingCS#no-finding "No Finding"
+* include SCT#49436004 "Atrial fibrillation (disorder)"
 
 ValueSet: IchTreatmentVS
 Id: ich-treatment-vs
@@ -1698,6 +1701,12 @@ Description: "Allowed coded values for AnaliticsCodes"
 * include SCT#80394007 "Hyperglycemia (disorder)"
 * include AnalyticsCodesCS#ge10 "Glucose > 10 mmol/L"
 * include AnalyticsCodesCS#highest-hyperglycemia-value "Highest Hyperglycemia Value"
+* include TimingMetricCodesCS#hyperglycemia-day-1 "Hyperglycemia Checks Day 1"
+* include TimingMetricCodesCS#hyperglycemia-day-2 "Hyperglycemia Checks Day 2"
+* include TimingMetricCodesCS#hyperglycemia-day-3 "Hyperglycemia Checks Day 3"
+* include TimingMetricCodesCS#fever-day-1 "Temperature Checks Day 1"
+* include TimingMetricCodesCS#fever-day-2 "Temperature Checks Day 2"
+* include TimingMetricCodesCS#fever-day-3 "Temperature Checks Day 3"
 
 ValueSet: GlasgowComaScaleVS
 Id: glasgow-coma-scale-vs
