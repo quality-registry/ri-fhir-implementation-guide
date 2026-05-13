@@ -103,11 +103,8 @@ Description: "Observation profile for stroke time metrics and process indicators
 * code from TimingMetricCodesVS (required)
 * code ^short = "Timing or process metric"
 * value[x] 1..1 MS
-* value[x] only Quantity or boolean
+* value[x] only Quantity or boolean 
 * value[x] ^short = "Metric duration/value or yes/no indicator"
-* valueQuantity.system 0..1 MS
-* valueQuantity.system = UCUM (exactly)
-* valueQuantity.code 0..1 MS
 * partOf 0..* MS
 * partOf only Reference(Procedure or MedicationAdministration)
 * partOf ^short = "Procedure or administration measured by this timing metric"

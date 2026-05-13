@@ -1481,6 +1481,8 @@ Description: "Allowed coded values for FunctionalScore"
 * include SCT#713678009 "Congestive heart failure, hypertension, age 2, diabetes mellitus, stroke 2, vascular disease, age, sex category stroke risk score (observable entity)"
 * include FunctionalScoreCS#thrive "Totaled Health Risks in Vascular Events Score"
 * include SCT#445518008 "Age at onset of clinical finding (observable entity)"
+* include SCT#386557006 "Glasgow coma scale finding (finding)"
+* include SCT#248241002 "Glasgow coma score (observable entity)"
 
 ValueSet: AssessmentContextVS
 Id: assessment-context-vs
