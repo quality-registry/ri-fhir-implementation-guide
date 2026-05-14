@@ -1108,7 +1108,7 @@ Description: "Allowed coded values for SwallowingScreeningTiming"
 * ^status = #active
 * ^experimental = false
 * include SwallowScreenTimeCS#T4H "Within 4 Hours"
-* include AssessmentTimingCS#post-acute "Acute Phase (<24h)"
+* include ProcedureTimingContextCS#post-acute "Acute Phase (<24h)"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
 ValueSet: SwallowingScreeningTypeVS
