@@ -218,4 +218,4 @@ Title: "Appointment Management Observation Profile"
 Description: "Observation profile for recording whether a three-month follow-up appointment was scheduled or attended."
 * ^url = "http://tecnomod-um.org/StructureDefinition/appointment-management-observation-profile"
 * insert RESQProfileMetadata
-* code from ThreeMonthContactModeVS (extensible)
+* code from ManagementAppointmentVS (extensible)
