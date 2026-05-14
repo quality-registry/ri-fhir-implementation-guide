@@ -484,6 +484,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #discharge-or-7-days "Discharge or 7 Days After Admission"
 * #unknown "Unknown/Not Applicable"
 * #acute "Acute Phase (<24h)"
+* #T4H "Within 4 Hours"
 
 
 CodeSystem: MticiCodeCS
@@ -1506,7 +1507,7 @@ Description: "Allowed coded values for AssessmentContext"
 * include AssessmentContextCS#unknown "Unknown/Not Applicable"
 * include AssessmentContextCS#acute "Acute Phase (<24h)"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
-* include SwallowScreenTimeCS#T4H "Within 4 Hours"
+* include AssessmentContextCS#T4H "Within 4 Hours"
 
 ValueSet: SpecificFindingVS
 Id: specific-finding-vs
