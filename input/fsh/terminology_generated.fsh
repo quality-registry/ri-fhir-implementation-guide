@@ -282,7 +282,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #HRAD "radiology unit"
 * #ER "Emergency room"
 * #OF "Outpatient facility"
-* #other "Other department"
+
 
 CodeSystem: MticiScoreCS
 Id: mtici-score-cs
@@ -663,7 +663,7 @@ Description: "Allowed coded values for AdmissionDepartment"
 * include V3RoleCode#NS "Neurosurgery unit"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
-* include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Location"
 
 ValueSet: AdmissionPathwayVS
 Id: admission-pathway-vs
@@ -790,7 +790,7 @@ Description: "Allowed coded values for IvtApplicationDepartment"
 * include V3RoleCode#HRAD "radiology unit"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#ER "Emergency room"
-* include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Department"
 
 ValueSet: IvtDrugVS
 Id: ivt-drug-vs
@@ -818,7 +818,6 @@ Description: "Allowed coded values for Locations"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#NS "Neurosurgery unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
-* include V3RoleCode#other "Other Department"
 * include LocationCS#other "Other Location"
 
 ValueSet: HospitalizedInVS
@@ -1026,6 +1025,8 @@ Description: "Allowed coded values for ProcedureNotDoneReason"
 * include StrokeProcNotDoneReasonCS#location-hematoma "Location of Hematoma"
 * include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery Not Available"
 * include StrokeProcNotDoneReasonCS#not-required "Not Required"
+* include StrokeProcNotDoneReasonCS#low-aspect-score "Low ASPECTS Score"
+* include StrokeProcNotDoneReasonCS#transfer-ivt "Transferred elsewhere to perform IVT"
 
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
@@ -1171,10 +1172,10 @@ Description: "Allowed coded values for FirstContactPlace"
 * ^url = "http://tecnomod-um.org/ValueSet/first-contact-place-vs"
 * ^status = #active
 * ^experimental = false
-* include FirstContactPlaceCS#HRAD "radiology unit"
-* include FirstContactPlaceCS#ER "Emergency room"
-* include FirstContactPlaceCS#OF "Outpatient facility"
-* include FirstContactPlaceCS#other "Other Department"
+* include V3RoleCode#HRAD "radiology unit"
+* include V3RoleCode#ER "Emergency room"
+* include V3RoleCode#OF "Outpatient facility"
+* include LocationCS#other "Other Location"
 
 ValueSet: MTiciScoreVS
 Id: mtici-score-vs
