@@ -308,7 +308,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
-* #appointment "Follow-up Appointment Status"
+* #follow-up-appointment "Follow-up Appointment Status"
 * #scheduled "Scheduled"
 * #not-recommended "Not Recommended"
 * #not-scheduled "Not Scheduled"
@@ -485,6 +485,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #unknown "Unknown/Not Applicable"
 * #acute "Acute Phase (<24h)"
 
+
 CodeSystem: MticiCodeCS
 Id: mtici-code-cs
 Title: "MticiCodeCs CodeSystem"
@@ -648,7 +649,7 @@ Description: "Allowed coded values for ManagementAppointment"
 * include ManagementAppointmentCS#scheduled "Scheduled"
 * include ManagementAppointmentCS#not-recommended "Not Recommended"
 * include ManagementAppointmentCS#not-scheduled "Not Scheduled"
-* include ManagementAppointmentCS#appointment "Follow-up Appointment Status"
+* include ManagementAppointmentCS#follow-up-appointment "Follow-up Appointment Status"
 
 ValueSet: AdmissionDepartmentVS
 Id: admission-department-vs
