@@ -808,7 +808,7 @@ ValueSet: LocationsVS
 Id: locations-vs
 Title: "Locations ValueSet"
 Description: "Allowed coded values for Locations"
-* ^url = "http://tecnomod-um.org/ValueSet/locations-vs"
+* ^url = "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#ER "Emergency room"
