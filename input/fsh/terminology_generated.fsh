@@ -779,6 +779,8 @@ Description: "Allowed coded values for Medications"
 * include SCT#67866001 "Insulin (substance)"
 * include SCT#387502003 "Nimodipine (substance)"
 * include MedicationCS#none-medication "No Medication"
+* include SCT#372912004 "Substance with 3-hydroxy-3-methylglutaryl-coenzyme A reductase inhibitor mechanism of action (substance)"
+
 
 ValueSet: IvtApplicationDepartmentVS
 Id: ivt-application-department-vs
@@ -1027,6 +1029,10 @@ Description: "Allowed coded values for ProcedureNotDoneReason"
 * include StrokeProcNotDoneReasonCS#not-required "Not Required"
 * include StrokeProcNotDoneReasonCS#low-aspect-score "Low ASPECTS Score"
 * include StrokeProcNotDoneReasonCS#transfer-ivt "Transferred elsewhere to perform IVT"
+* include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
+* include StrokeProcNotDoneReasonCS#lesion-developed "Lesion Developed"
+* include StrokeProcNotDoneReasonCS#previous-bleeding "Previous Bleeding"
+* include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
 
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
@@ -1202,53 +1208,22 @@ Description: "Allowed coded values for Nimodipinetiming"
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
-ValueSet: NoAnticoagulantReversalReasonVS
-Id: no-anticoagulant-reversal-reason-vs
-Title: "NoAnticoagulantReversalReason ValueSet"
-Description: "Allowed coded values for NoAnticoagulantReversalReason"
-* ^url = "http://tecnomod-um.org/ValueSet/no-anticoagulant-reversal-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include NotMedicationReasonCS#Not-Consent "Patient or family did not consent"
-* include NotMedicationReasonCS#"Cost of drug" "Cost of drug"
-* include NotMedicationReasonCS#Not-Available "Drug not available"
-* include NotMedicationReasonCS#Not-Licensed "Antidote not licenced for specific indication"
-* include NotMedicationReasonCS#Not-Criteria "Not met criteria for specific agent"
-* include NotMedicationReasonCS#Forgot "Patient did not use anticoagulant before ICH (forgot to take a pill)"
-* include NotMedicationReasonCS#Not-Reported "Reason for not giving anticoagulant reversal not reported"
-
-ValueSet: NoAnticoagulantReasonVS
-Id: no-anticoagulant-reason-vs
-Title: "NoAnticoagulantReason ValueSet"
-Description: "Allowed coded values for NoAnticoagulantReason"
-* ^url = "http://tecnomod-um.org/ValueSet/no-anticoagulant-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include SCT#609328004 "Allergy disposition (finding)"
-* include SCT#36456004 "Mental state finding (finding)"
-* include NotMedicationReasonCS#Not-Consent "Patient or family did not consent"
-* include SCT#131148009 "Bleeding (finding)"
-* include SCT#129839007 "At increased risk for falls (finding)"
-* include SCT#401207004 "Medication side effects present (finding)"
-* include SCT#300936002 "Terminal illness (finding)"
-* include SCT#397943006 "Planned (qualifier value)"
-
-ValueSet: NoIchTreatmentReasonVS
-Id: no-ich-treatment-reason-vs
-Title: "NoIchTreatmentReason ValueSet"
-Description: "Allowed coded values for NoIchTreatmentReason"
-* ^url = "http://tecnomod-um.org/ValueSet/no-ich-treatment-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#size-hematoma "Contraindication in hematoma size"
-* include StrokeProcNotDoneReasonCS#location-hematoma "Contraindication in hematoma location"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#cost "Cost of procedure"
-* include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery facility is not available"
-* include StrokeProcNotDoneReasonCS#specialist-unavailable "Specialist Not Available"
-* include SCT#170969009 "Prognosis bad (finding)"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
+// ValueSet: NoIchTreatmentReasonVS
+// Id: no-ich-treatment-reason-vs
+// Title: "NoIchTreatmentReason ValueSet"
+// Description: "Allowed coded values for NoIchTreatmentReason"
+// * ^url = "http://tecnomod-um.org/ValueSet/no-ich-treatment-reason-vs"
+// * ^status = #active
+// * ^experimental = false
+// * include StrokeProcNotDoneReasonCS#size-hematoma "Contraindication in hematoma size"
+// * include StrokeProcNotDoneReasonCS#location-hematoma "Contraindication in hematoma location"
+// * include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
+// * include StrokeProcNotDoneReasonCS#cost "Cost of procedure"
+// * include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery facility is not available"
+// * include StrokeProcNotDoneReasonCS#specialist-unavailable "Specialist Not Available"
+// * include SCT#170969009 "Prognosis bad (finding)"
+// * include StrokeProcNotDoneReasonCS#other "Other Reason"
+// * include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
 
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
@@ -1270,49 +1245,6 @@ Description: "Allowed coded values for ParacetamolOnFeverTiming"
 * ^experimental = false
 * include TimingCS#within-1-hours "Within 1 Hour"
 * include TimingCS#after-1-hours "After 1 Hour"
-
-ValueSet: NoThrombectomyReasonVS
-Id: no-thrombectomy-reason-vs
-Title: "NoThrombectomyReason ValueSet"
-Description: "Allowed coded values for NoThrombectomyReason"
-* ^url = "http://tecnomod-um.org/ValueSet/no-thrombectomy-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#done-elsewhere "Done Elsewhere"
-* include StrokeProcNotDoneReasonCS#time-window "Time window"
-* include StrokeProcNotDoneReasonCS#mild-deficit "Mild Deficit"
-* include StrokeProcNotDoneReasonCS#no-lvo "No Large Vessel Occlusion (LVO)"
-* include StrokeProcNotDoneReasonCS#disability "Disability"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#cost "Cost / No Insurance"
-* include StrokeProcNotDoneReasonCS#transfer "Transferred to Another Facility"
-* include StrokeProcNotDoneReasonCS#unavailable "Not Available"
-* include StrokeProcNotDoneReasonCS#technically-not-possible "Technically Not Possible"
-* include StrokeProcNotDoneReasonCS#no-angiography "Angiography Not Performed"
-* include StrokeProcNotDoneReasonCS#transfer-ivt "Transferred elsewhere to perform IVT"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#low-aspect-score "Low ASPECT Score"
-
-ValueSet: NoThrombolysisReasonVS
-Id: no-thrombolysis-reason-vs
-Title: "NoThrombolysisReason ValueSet"
-Description: "Allowed coded values for NoThrombolysisReason"
-* ^url = "http://tecnomod-um.org/ValueSet/no-thrombolysis-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#done-elsewhere "Done Elsewhere"
-* include StrokeProcNotDoneReasonCS#time-window "Time window"
-* include StrokeProcNotDoneReasonCS#mild-deficit "Mild Deficit"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#only-mt "Only Mechanical Thrombectomy Considered"
-* include StrokeProcNotDoneReasonCS#cost "Cost / No Insurance"
-* include StrokeProcNotDoneReasonCS#transfer "Transferred to Another Facility"
-* include StrokeProcNotDoneReasonCS#unavailable "Not Available"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#lesion-developed "Lesion Developed"
-* include StrokeProcNotDoneReasonCS#disability "Disability"
-* include StrokeProcNotDoneReasonCS#previous-bleeding "Previous Bleeding"
-* include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
 
 ValueSet: TecnetplaseBrandVS
 Id: tecnetplase-brand-vs
@@ -1413,25 +1345,25 @@ Description: "Allowed coded values for Bool"
 * include FHIRBoolCS#true "True"
 * include FHIRBoolCS#false "False"
 
-ValueSet: DischargeMedicationVS
-Id: discharge-medication-vs
-Title: "DischargeMedication ValueSet"
-Description: "Allowed coded values for DischargeMedication"
-* ^url = "http://tecnomod-um.org/ValueSet/discharge-medication-vs"
-* ^status = #active
-* ^experimental = false
-* include DischargeMedicationCS#antiplatelet "Any Antiplatelet"
-* include DischargeMedicationCS#anticoagulant "Any Anticoagulant"
-* include DischargeMedicationCS#asa "Aspirin"
-* include DischargeMedicationCS#heparin "Heparin"
-* include DischargeMedicationCS#warfarin "Warfarin"
-* include DischargeMedicationCS#statin "Statin"
-* include DischargeMedicationCS#antidiabetics "Antidiabetics"
-* include DischargeMedicationCS#antihypertensive "Antihypertensive"
-* include DischargeMedicationCS#other-antiplatelet "Other Antiplatelet"
-* include DischargeMedicationCS#clopidogrel "Clopidogrel"
-* include DischargeMedicationCS#contraception "Contraception"
-* include DischargeMedicationCS#other "Other"
+// ValueSet: DischargeMedicationVS
+// Id: discharge-medication-vs
+// Title: "DischargeMedication ValueSet"
+// Description: "Allowed coded values for DischargeMedication"
+// * ^url = "http://tecnomod-um.org/ValueSet/discharge-medication-vs"
+// * ^status = #active
+// * ^experimental = false
+// * include DischargeMedicationCS#antiplatelet "Any Antiplatelet"
+// * include DischargeMedicationCS#anticoagulant "Any Anticoagulant"
+// * include DischargeMedicationCS#asa "Aspirin"
+// * include DischargeMedicationCS#heparin "Heparin"
+// * include DischargeMedicationCS#warfarin "Warfarin"
+// * include DischargeMedicationCS#statin "Statin"
+// * include DischargeMedicationCS#antidiabetics "Antidiabetics"
+// * include DischargeMedicationCS#antihypertensive "Antihypertensive"
+// * include DischargeMedicationCS#other-antiplatelet "Other Antiplatelet"
+// * include DischargeMedicationCS#clopidogrel "Clopidogrel"
+// * include DischargeMedicationCS#contraception "Contraception"
+// * include DischargeMedicationCS#other "Other"
 
 ValueSet: InsulinOnHyperglycemiaTimingVS
 Id: insulin-on-hyperglycemia-timing-vs

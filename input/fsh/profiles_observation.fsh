@@ -114,7 +114,7 @@ Parent: BaseStrokeObservation
 Id: analitics-observation-profile
 Title: "Analytics Observation Profile"
 Description: "Laboratory/analytics observation profile for glucose, cholesterol, INR and related findings. The id preserves the original spelling used in the Python profile URL."
-* ^url = "http://tecnomod-um.org/StructureDefinition/analitics-observation-profile"
+* ^url = "http://tecnomod-um.org/StructureDefinition/analytics-observation-profile"
 * insert RESQProfileMetadata
 * category 0..* MS
 * code 1..1 MS
