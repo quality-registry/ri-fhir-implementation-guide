@@ -1352,7 +1352,7 @@ Description: "Allowed coded values for Bool"
 // * ^url = "http://tecnomod-um.org/ValueSet/discharge-medication-vs"
 // * ^status = #active
 // * ^experimental = false
-// * include DischargeMedicationCS#antiplatelet "Any Antiplatelet"
+// * include DischargeMedicationCS#antiplatelet "any Antiplatelet"
 // * include DischargeMedicationCS#anticoagulant "Any Anticoagulant"
 // * include DischargeMedicationCS#asa "Aspirin"
 // * include DischargeMedicationCS#heparin "Heparin"
