@@ -22,5 +22,5 @@ Description: "MedicationRequest profile for medications prescribed or recommende
 * insert RESQPatientSubject
 * insert RESQEncounterContext
 * medication 1..1 MS
-* medication from MedicationVS (extensible)
+* medication from MedicationsVS (extensible)
 * medication ^short = "Medication requested at discharge"
