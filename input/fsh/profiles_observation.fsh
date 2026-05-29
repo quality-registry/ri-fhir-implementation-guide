@@ -201,6 +201,26 @@ Description: "Observation profile for recording whether the patient was ventilat
 * valueBoolean ^short = "Patient ventilated indicator"
 * extension contains RequiredPostAcuteCareExt named requiredPostAcuteCare 0..1 MS
 
+
+Profile: NoAnticoagulantDischargeReasonObservationProfile
+Parent: BaseStrokeObservation
+Id: no-anticoagulant-discharge-reason-observation-profile
+Title: "No Anticoagulant Discharge Reason Observation Profile"
+Description: "Observation profile for recording the reason for not prescribing anticoagulants at discharge after ischemic stroke or TIA."
+* ^url = "http://tecnomod-um.org/StructureDefinition/no-anticoagulant-discharge-reason-observation-profile"
+* insert RESQProfileMetadata
+* code from NotMedicationReasonVS (extensible)
+* value[x] only CodeableConcept
+* value[x] ^short = "Reason for no anticoagulant prescription at discharge"
+
+
+
+
+
+
+
+
+
 Profile: ThreeMonthContactModeObservationProfile
 Parent: BaseStrokeObservation
 Id: three-month-contact-mode-observation-profile

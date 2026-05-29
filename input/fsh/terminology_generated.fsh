@@ -34,12 +34,13 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
-* #ems-gp "EMS from GP"
-* #priv-transport "Private Transportation"
-* #stroke-center "Stroke Center"
-* #another-hosp "Another Hospital"
-* #priv-transport-gp "Private Transportation from GP"
-* #in-hospital-stroke "In-Hospital Stroke"
+* #ems-home "patient arrived by EMS/ambulance from home/scene"
+* #ems-gp "patient arrived by EMS/ambulance from general practitioner/outpatient office/community service"
+* #priv-transport "patient arrived by private transportation from home/scene"
+* #stroke-center "patient arrived from stroke treating center"
+* #another-hosp "patient arrived from hospital that is not stroke treating center"
+* #priv-transport-gp "patient arrived by private transportation from general practitioner/outpatient office/community service"
+* #in-hospital-stroke "stroke while hospitalized in another department of the same hospital"
 
 CodeSystem: CarotidEndarterectomyTimingCS
 Id: carotid-endarterectomy-timing-cs
@@ -558,6 +559,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^experimental = false
 * ^caseSensitive = false
 * #other "Other Location"
+* #unknown "Unknown Location"
 
 
 CodeSystem: SymptomsCS
@@ -664,6 +666,7 @@ Description: "Allowed coded values for AdmissionDepartment"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
 * include LocationCS#other "Other Location"
+* include LocationCS#unknown "Unknown Location"
 
 ValueSet: AdmissionPathwayVS
 Id: admission-pathway-vs
