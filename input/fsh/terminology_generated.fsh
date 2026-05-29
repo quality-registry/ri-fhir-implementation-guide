@@ -1337,6 +1337,9 @@ Description: "Allowed coded values for RiskFactor"
 * include SCT#8392000 "Non-smoker (finding)"
 * include SCT#8517006 "Ex-smoker (finding)"
 * include SCT#429098002 "Thromboembolism of vein (disorder)"
+* include SCT#66590003 "Alcohol dependence (disorder)"
+* include SCT#73430006 "Sleep apnea (disorder)"
+
 
 ValueSet: BoolVS
 Id: bool-vs
