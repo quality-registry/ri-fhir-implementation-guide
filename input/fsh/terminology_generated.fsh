@@ -343,23 +343,6 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #Not-Reported "Reason for not giving anticoagulant reversal not reported"
 * #not-required "Not Required"
 
-CodeSystem: TenecteplaseBrandCS
-Id: tenecteplase-brand-cs
-Title: "TenecteplaseBrandCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py"
-* ^url = "http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs"
-* ^status = #active
-* ^experimental = false
-* ^caseSensitive = false
-* #metalyse "Metalyse (Boehringer Ingelheim International)"
-* #tenectase "Tenectase (Gennova Biopharmaceuticals)"
-* #tnkase "TNKase (Genentech/Roche)"
-* #supralase "Supraplase (Cadila Pharmaceuticals)"
-* #velix "Velix (Emcure Pharmaceuticals)"
-* #tenectelex "Tenectelex (Abbott Healthcare)"
-* #telyse "Telyse (Cipla)"
-* #tenepact "Tenepact (Glenmark Pharmaceuticals)"
-* #other "Other Tenecteplase Brand"
 
 CodeSystem: RiskFactorCS
 Id: risk-factor-cs
@@ -1230,22 +1213,6 @@ Description: "Allowed coded values for Nimodipinetiming"
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
-Valueset: TeneceteplaseBrandVS
-Id: teneceteplase-brand-vs
-Title: "TeneceteplaseBrand ValueSet"
-Description: "Allowed coded values for TeneceteplaseBrand"
-* ^url = "http://tecnomod-um.org/ValueSet/teneceteplase-brand-vs"
-* ^status = #active
-* ^experimental = false
-* include TenecteplaseBrandCS#metalyse "Metalyse (Boehringer Ingelheim International)"
-* include TenecteplaseBrandCS#tenectase "Tenectase (Gennova Biopharmaceuticals)"
-* include TenecteplaseBrandCS#tnkase "TNKase (Genentech/Roche)"
-* include TenecteplaseBrandCS#supralase "Supraplase (Cadila Pharmaceuticals)"
-* include TenecteplaseBrandCS#velix "Velix (Emcure Pharmaceuticals)"
-* include TenecteplaseBrandCS#tenectelex "Tenectelex (Abbott Healthcare)"
-* include TenecteplaseBrandCS#telyse "Telyse (Cipla)"
-* include TenecteplaseBrandCS#tenepact "Tenepact (Glenmark Pharmaceuticals)"
-
 
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
@@ -1268,11 +1235,11 @@ Description: "Allowed coded values for ParacetamolOnFeverTiming"
 * include TimingCS#within-1-hours "Within 1 Hour"
 * include TimingCS#after-1-hours "After 1 Hour"
 
-ValueSet: TecnetplaseBrandVS
-Id: tecnetplase-brand-vs
-Title: "TecnetplaseBrand ValueSet"
-Description: "Allowed coded values for TecnetplaseBrand"
-* ^url = "http://tecnomod-um.org/ValueSet/tecnetplase-brand-vs"
+ValueSet: TenecteplaseBrandVS
+Id: tenecteplase-brand-vs
+Title: "TenecteplaseBrand ValueSet"
+Description: "Allowed coded values for TenecteplaseBrand"
+* ^url = "http://tecnomod-um.org/ValueSet/tenecteplase-brand-vs"
 * ^status = #active
 * ^experimental = false
 * include TenecteplaseBrandCS#metalyse "Metalyse (Boehringer Ingelheim International)"
