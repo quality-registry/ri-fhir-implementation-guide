@@ -20,7 +20,7 @@ Description: "Boolean flag indicating whether the Encounter corresponds to the f
 * ^url = "http://tecnomod-um.org/StructureDefinition/first-hospital-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
-* value[x] only boolean
+* value[x] only Reference
 * valueReference 1..1 MS
 
 Extension: EmsPrenotificationExt
