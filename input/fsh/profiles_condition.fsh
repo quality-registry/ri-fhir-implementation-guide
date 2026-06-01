@@ -15,7 +15,7 @@ Description: "Condition profile for the index stroke diagnosis. It captures stro
 * clinicalStatus 1..1 MS
 * clinicalStatus = ConditionClinicalCS#active
 * clinicalStatus ^short = "Active index diagnosis"
-* verificationStatus 1..1 MS
+* verificationStatus 0..1 MS
 * verificationStatus from http://hl7.org/fhir/ValueSet/condition-ver-status (required)
 * verificationStatus ^short = "Verification state of diagnosis"
 * code 1..1 MS
