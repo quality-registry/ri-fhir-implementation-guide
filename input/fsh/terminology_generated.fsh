@@ -346,7 +346,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TenecteplaseBrandCS
 Id: tenecteplase-brand-cs
 Title: "TenecteplaseBrandCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs."
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py"
 * ^url = "http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs"
 * ^status = #active
 * ^experimental = false
@@ -604,6 +604,25 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^caseSensitive = false
 * #ge10 "Glucose > 10 mmol/L"
 * #highest-hyperglycemia-value "Highest Hyperglycemia Value"
+
+
+CodeSystem: TenecteplaseBrandCS
+Id: tenecteplase-brand-cs
+Title: "TenecteplaseBrandCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #metalyse "Metalyse (Boehringer Ingelheim International)"
+* #tenectase "Tenectase (Gennova Biopharmaceuticals)"
+* #tnkase "TNKase (Genentech/Roche)"
+* #supralase "Supraplase (Cadila Pharmaceuticals)"
+* #velix "Velix (Emcure Pharmaceuticals)"
+* #tenectelex "Tenectelex (Abbott Healthcare)"
+* #telyse "Telyse (Cipla)"
+* #tenepact "Tenepact (Glenmark Pharmaceuticals)"
+* #other "Other"
 
 ValueSet: SexVS
 Id: sex-vs
@@ -1211,22 +1230,22 @@ Description: "Allowed coded values for Nimodipinetiming"
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
-// ValueSet: NoIchTreatmentReasonVS
-// Id: no-ich-treatment-reason-vs
-// Title: "NoIchTreatmentReason ValueSet"
-// Description: "Allowed coded values for NoIchTreatmentReason"
-// * ^url = "http://tecnomod-um.org/ValueSet/no-ich-treatment-reason-vs"
-// * ^status = #active
-// * ^experimental = false
-// * include StrokeProcNotDoneReasonCS#size-hematoma "Contraindication in hematoma size"
-// * include StrokeProcNotDoneReasonCS#location-hematoma "Contraindication in hematoma location"
-// * include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-// * include StrokeProcNotDoneReasonCS#cost "Cost of procedure"
-// * include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery facility is not available"
-// * include StrokeProcNotDoneReasonCS#specialist-unavailable "Specialist Not Available"
-// * include SCT#170969009 "Prognosis bad (finding)"
-// * include StrokeProcNotDoneReasonCS#other "Other Reason"
-// * include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
+Valueset: TeneceteplaseBrandVS
+Id: teneceteplase-brand-vs
+Title: "TeneceteplaseBrand ValueSet"
+Description: "Allowed coded values for TeneceteplaseBrand"
+* ^url = "http://tecnomod-um.org/ValueSet/teneceteplase-brand-vs"
+* ^status = #active
+* ^experimental = false
+* include TenecteplaseBrandCS#metalyse "Metalyse (Boehringer Ingelheim International)"
+* include TenecteplaseBrandCS#tenectase "Tenectase (Gennova Biopharmaceuticals)"
+* include TenecteplaseBrandCS#tnkase "TNKase (Genentech/Roche)"
+* include TenecteplaseBrandCS#supralase "Supraplase (Cadila Pharmaceuticals)"
+* include TenecteplaseBrandCS#velix "Velix (Emcure Pharmaceuticals)"
+* include TenecteplaseBrandCS#tenectelex "Tenectelex (Abbott Healthcare)"
+* include TenecteplaseBrandCS#telyse "Telyse (Cipla)"
+* include TenecteplaseBrandCS#tenepact "Tenepact (Glenmark Pharmaceuticals)"
+
 
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
@@ -1694,6 +1713,7 @@ Description: "Allowed coded values for NotMedicationReason"
 * include NotMedicationReasonCS#Not-Licensed "Medication not licensed"
 * include NotMedicationReasonCS#Not-Criteria "Patient does not meet criteria for medication"
 * include NotMedicationReasonCS#Forgot "Patient forgot to take medication"
+
 
 
 // Supplemental ValueSet for the shared procedure-timing-context-cs system used by ProcedureTimingContextExt.
