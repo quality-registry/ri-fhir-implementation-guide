@@ -21,7 +21,7 @@ Description: "Boolean flag indicating whether the Encounter corresponds to the f
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
 * value[x] only boolean
-* valueBoolean 1..1 MS
+* valueReference 1..1 MS
 
 Extension: EmsPrenotificationExt
 Id: ems-prenotification-ext
