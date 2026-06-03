@@ -78,19 +78,30 @@ Parent: BaseStrokeObservation
 Id: specific-finding-observation-profile
 Title: "Specific Finding Observation Profile"
 Description: "Observation profile for specific clinical, imaging or procedural findings including mTICI, bleeding volume, carotid stenosis, occlusion and atrial fibrillation/flutter."
+
 * ^url = "http://tecnomod-um.org/StructureDefinition/specific-finding-observation-profile"
 * insert RESQProfileMetadata
+
+* obeys mtici-value-must-use-mtici-score-vs
+* obeys af-flutter-value-must-use-af-flutter-vs
+
 * category 0..* MS
+
 * code 1..1 MS
 * code from SpecificFindingVS (extensible)
 * code ^short = "Specific stroke finding"
+
 * value[x] 0..1 MS
 * value[x] only boolean or integer or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
-* valueCodeableConcept code from SpecificFindingValueCodeableConceptVS (extensible)
+
+* valueCodeableConcept from SpecificFindingValueCodeableConceptVS (extensible)
+* valueCodeableConcept ^short = "Coded finding value, such as mTICI score or atrial fibrillation/flutter status"
+
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
 * bodyStructure ^short = "Anatomical structure associated with the finding"
+
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Invariant: mtici-value-must-use-mtici-score-vs
