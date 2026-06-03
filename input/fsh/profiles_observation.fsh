@@ -87,8 +87,8 @@ Description: "Observation profile for specific clinical, imaging or procedural f
 * value[x] 0..1 MS
 * value[x] only boolean or integer or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
-* valueCodeableConcept include code from AtrialFibrillationOrFlutterVS
-* valueCodeableConcept include code from MTiciScoreVS
+* valueCodeableConcept code from AtrialFibrillationOrFlutterVS
+* valueCodeableConcept code from MTiciScoreVS
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
 * bodyStructure ^short = "Anatomical structure associated with the finding"
