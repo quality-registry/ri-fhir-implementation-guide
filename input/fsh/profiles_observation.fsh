@@ -87,7 +87,8 @@ Description: "Observation profile for specific clinical, imaging or procedural f
 * value[x] 0..1 MS
 * value[x] only boolean or integer or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
-* valueCodeableConcept from AtrialFibrillationOrFlutterVS or MTiciScoreVS
+* valueCodeableConcept include code from AtrialFibrillationOrFlutterVS
+* valueCodeableConcept include code from MTiciScoreVS
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
 * bodyStructure ^short = "Anatomical structure associated with the finding"
@@ -222,7 +223,7 @@ Title: "Patient Ventilated Observation Profile"
 Description: "Observation profile for recording whether the patient was ventilated in acute or post-acute care."
 * ^url = "http://tecnomod-um.org/StructureDefinition/patient-ventilated-observation-profile"
 * insert RESQProfileMetadata
-* code from ObservationMethodsVS (extensible)
+* code = SCT#40617009 "Artificial ventilation (regime/therapy)"
 * value[x] only boolean
 * valueBoolean 1..1 MS
 * valueBoolean ^short = "Patient ventilated indicator"
