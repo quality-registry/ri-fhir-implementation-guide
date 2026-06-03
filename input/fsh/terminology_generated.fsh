@@ -1014,15 +1014,15 @@ Description: "Allowed coded values for VteProcedures"
 // * include SCT#40617009 "Artificial ventilation (regime/therapy)"
 // * include SCT#385660001 "Not done (qualifier value)"
 
-ValueSet: SpecificFindingValueCodeableConceptVS
-Id: specific-finding-value-codeableconcept-vs
-Title: "Specific Finding Value CodeableConcept ValueSet"
-Description: "Allowed coded values for specific finding observations."
-* ^url = "http://tecnomod-um.org/ValueSet/specific-finding-value-codeableconcept-vs"
-* ^status = #active
+// ValueSet: SpecificFindingValueCodeableConceptVS
+// Id: specific-finding-value-codeableconcept-vs
+// Title: "Specific Finding Value CodeableConcept ValueSet"
+// Description: "Allowed coded values for specific finding observations."
+// * ^url = "http://tecnomod-um.org/ValueSet/specific-finding-value-codeableconcept-vs"
+// * ^status = #active
 
-* include codes from valueset MTiciScoreVS
-* include codes from valueset AtrialFibrillationOrFlutterVS
+// * include codes from valueset MTiciScoreVS
+// * include codes from valueset AtrialFibrillationOrFlutterVS
 
 ValueSet: ProcedureNotDoneReasonVS
 Id: procedure-not-done-reason-vs

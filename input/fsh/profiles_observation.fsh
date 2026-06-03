@@ -95,7 +95,8 @@ Description: "Observation profile for specific clinical, imaging or procedural f
 * value[x] only boolean or integer or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
 
-* valueCodeableConcept from SpecificFindingValueCodeableConceptVS (extensible)
+* valueCodeableConcept from MTiciScoreVS
+* valueCodeableConcept from AtrialFibrillationOrFlutterVS
 * valueCodeableConcept ^short = "Coded finding value, such as mTICI score or atrial fibrillation/flutter status"
 
 * bodyStructure 0..1 MS
