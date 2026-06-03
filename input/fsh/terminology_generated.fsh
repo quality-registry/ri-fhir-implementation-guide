@@ -588,6 +588,16 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #ge10 "Glucose > 10 mmol/L"
 * #highest-hyperglycemia-value "Highest Hyperglycemia Value"
 
+CodeSystem: VitalSignsCS
+Id: vital-signs-cs
+Title: "VitalSignsCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/vital-signs-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/vital-signs-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #highest-sys-bp "Highest Systolic Blood Pressure"
+
 
 CodeSystem: TenecteplaseBrandCS
 Id: tenecteplase-brand-cs
@@ -971,6 +981,7 @@ Description: "Allowed coded values for AtrialFibrillationOrFlutter"
 * ^status = #active
 * ^experimental = false
 * include SCT#410515003 "Known present (qualifier value)"
+* include SCT#260373001 "Detected (qualifier value)"
 * include SCT#410516002 "Known absent (qualifier value)"
 * include SCT#261665006 "Unknown (qualifier value)"
 
@@ -991,16 +1002,17 @@ Description: "Allowed coded values for VteProcedures"
 * include SCT#443464003 "Low molecular weight heparin therapy (procedure)"
 * include SCT#421728001 "Administration of prophylactic anticoagulant (procedure)"
 
-ValueSet: ObservationMethodsVS
-Id: observation-methods-vs
-Title: "ObservationMethods ValueSet"
-Description: "Allowed coded values for ObservationMethods"
-* ^url = "http://tecnomod-um.org/ValueSet/observation-methods-vs"
-* ^status = #active
-* ^experimental = false
-* include SCT#15220000 "Laboratory test (procedure)"
-* include SCT#405262001 "Point of care (qualifier value)"
-* include SCT#40617009 "Artificial ventilation (regime/therapy)"
+// ValueSet: ObservationMethodsVS
+// Id: observation-methods-vs
+// Title: "ObservationMethods ValueSet"
+// Description: "Allowed coded values for ObservationMethods"
+// * ^url = "http://tecnomod-um.org/ValueSet/observation-methods-vs"
+// * ^status = #active
+// * ^experimental = false
+// * include SCT#15220000 "Laboratory test (procedure)"
+// * include SCT#405262001 "Point of care (qualifier value)"
+// * include SCT#40617009 "Artificial ventilation (regime/therapy)"
+// * include SCT#385660001 "Not done (qualifier value)"
 
 ValueSet: ProcedureNotDoneReasonVS
 Id: procedure-not-done-reason-vs
@@ -1377,6 +1389,7 @@ Description: "Allowed coded values for VitalSigns"
 * include SCT#271649006 "Systolic blood pressure (observable entity)"
 * include SCT#271650006 "Diastolic blood pressure (observable entity)"
 * include SCT#61746007 "Taking patient vital signs (procedure)"
+* include VitalSignsCS#highest-sys-bp "Highest Systolic Blood Pressure"
 
 
 ValueSet: MRsScoreVS

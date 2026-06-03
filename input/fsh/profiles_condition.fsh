@@ -31,7 +31,7 @@ Description: "Condition profile for the index stroke diagnosis. It captures stro
 * onset[x] ^short = "Stroke onset or last-known-well date/time"
 * extension contains IschemicStrokeEtiologyExt named ischemicStrokeEtiology 0..1 MS
   and IschemicStrokeEtiologyKnownExt named ischemicStrokeEtiologyKnown 0..1 MS
-  and HemorrhagicStrokeBleedingReasonExt named hemorrhagicStrokeBleedingReason 0..1 MS
+  and HemorrhagicStrokeBleedingReasonExt named hemorrhagicStrokeBleedingReason 0..* MS
   and HemorrhagicStrokeBleedingReasonFoundExt named hemorrhagicStrokeBleedingReasonFound 0..1 MS
   and WakeupStrokeExt named wakeupStroke 1..1 MS
 * extension[ischemicStrokeEtiology] ^short = "Known ischemic stroke etiology"

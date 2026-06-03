@@ -12,6 +12,8 @@ Description: "Procedure profile for brain imaging performed in the stroke pathwa
 * ^purpose = "Represents acute or follow-up neuroimaging procedures used to diagnose, treat or monitor stroke."
 * status 1..1 MS
 * status ^short = "Imaging procedure status"
+* statusReason 0..1 MS
+* statusReason from ProcedureNotDoneReasonVS (extensible)
 * insert RESQPatientSubject
 * insert RESQEncounterContext
 * code 0..1 MS
@@ -35,6 +37,8 @@ Description: "Procedure profile for carotid imaging used in post-stroke assessme
 * ^url = "http://tecnomod-um.org/StructureDefinition/stroke-carotid-imaging-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
+* statusReason 0..1 MS
+* statusReason from ProcedureNotDoneReasonVS (extensible)
 * insert RESQPatientSubject
 * insert RESQEncounterContext
 * code 1..1 MS
@@ -52,6 +56,8 @@ Description: "Procedure profile for carotid endarterectomy and its timing window
 * ^url = "http://tecnomod-um.org/StructureDefinition/stroke-carotid-endarterectomy-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
+* statusReason 0..1 MS
+* statusReason from ProcedureNotDoneReasonVS (extensible)
 * insert RESQPatientSubject
 * insert RESQEncounterContext
 * code 1..1 MS
@@ -155,7 +161,8 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * reason 0..* MS
 * reason ^short = "Clinical reason for treatment"
 * code 1..1 MS
-* code from IchTreatmentVS (extensible)
+* include codes from valueset IchTreatmentVS
+* include codes from valueset PostStrokeProceduresVS
 * code ^short = "Treatment, rehabilitation or neurosurgical procedure"
 * statusReason 0..1 MS
 * statusReason from ProcedureNotDoneReasonVS (extensible)
@@ -163,3 +170,8 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * occurrence[x] only dateTime or Period or Range
 * occurrence[x] ^short = "Procedure date/time, interval or timing range"
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
+
+Invariant: stroke-treatment-poststroke-timing-required
+Description: "If Procedure.code belongs to PostStrokeProceduresVS, procedureTimingContext must be present with AssessmentContextCS#post-stroke."
+Severity: #error
+Expression: "code.memberOf('http://tecnomod-um.org/ValueSet/post-stroke-procedures-vs').not() or extension.where(url = 'http://tecnomod-um.org/StructureDefinition/procedure-timing-context-ext').value.ofType(CodeableConcept).coding.where(system = 'http://tecnomod-um.org/CodeSystem/assessment-context-cs' and code = 'post-stroke').exists()"

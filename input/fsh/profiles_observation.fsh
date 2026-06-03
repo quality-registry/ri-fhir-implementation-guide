@@ -87,10 +87,22 @@ Description: "Observation profile for specific clinical, imaging or procedural f
 * value[x] 0..1 MS
 * value[x] only boolean or integer or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
+* valueCodeableConcept from AtrialFibrillationOrFlutterVS or MTiciScoreVS
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
 * bodyStructure ^short = "Anatomical structure associated with the finding"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
+
+Invariant: mtici-value-must-use-mtici-score-vs
+Description: "If Observation.code is mTICI, valueCodeableConcept must belong to MTiciScoreVS."
+Severity: #error
+Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/specific-finding-cs' and code = 'mtici').exists().not() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/mtici-score-vs')"
+
+Invariant: af-flutter-value-must-use-af-flutter-vs
+Description: "If Observation.code is atrial fibrillation/flutter, valueCodeableConcept must belong to AtrialFibrillationOrFlutterVS."
+Severity: #error
+Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/specific-finding-cs' and code = 'atrial-fibrillation-flutter').exists().not() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/atrial-fibrillation-or-flutter-vs')"
+
 
 Profile: TimingMetricObservationProfile
 Parent: BaseStrokeObservation
@@ -124,7 +136,7 @@ Description: "Laboratory/analytics observation profile for glucose, cholesterol,
 * value[x] only Quantity or CodeableConcept or boolean
 * value[x] ^short = "Laboratory value or coded/boolean result"
 * method 0..1 MS
-* method from ObservationMethodsVS (extensible)
+* method from INRmodeVS (extensible)
 * method ^short = "Measurement or assessment method"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
@@ -151,6 +163,7 @@ Description: "Observation profile for hyperglycemia monitoring, checks and measu
 * value[x] only boolean or Quantity or integer
 * value[x] ^short = "Hyperglycemia indicator or measured value"
 
+
 Profile: GlucoseGE10ObservationProfile
 Parent: BaseStrokeObservation
 Id: glucose-ge10-observation-profile
@@ -170,11 +183,25 @@ Title: "Highest Hyperglycemia Value Observation Profile"
 Description: "Observation profile for the highest recorded hyperglycemia value in the relevant stroke care interval."
 * ^url = "http://tecnomod-um.org/StructureDefinition/highest-hyperglycemia-value-observation-profile"
 * insert RESQProfileMetadata
-* code from AnaliticsCodesVS (extensible)
+* code = AnalyticsCodesCS#highest-hyperglycemia-value "Highest Hyperglycemia Value"
 * value[x] only Quantity
 * valueQuantity 1..1 MS
 * valueQuantity ^short = "Highest glucose value"
-* extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
+* extension contains ObservationTimingContextExt named observationTimingContext 1..1 MS
+
+Profile: SystolicBloodPressureHighestValueObservationProfile
+Parent: BaseStrokeObservation
+Id: highest-systolic-blood-pressure-value-observation-profile
+Title: "Systolic Blood Pressure Highest Value Observation Profile"
+Description: "Observation profile for the highest recorded systolic blood pressure value in the relevant stroke care interval."
+* ^url = "http://tecnomod-um.org/StructureDefinition/highest-systolic-blood-pressure-value-observation-profile"
+* insert RESQProfileMetadata
+* code = VitalSignsCS#highest-sys-bp "Highest Systolic Blood Pressure"
+* value[x] only Quantity
+* valueQuantity 1..1 MS
+* valueQuantity ^short = "Highest systolic blood pressure value"
+* extension contains ObservationTimingContextExt named observationTimingContext 1..1 MS
+
 
 Profile: TIAClinicalSymptomsObservationProfile
 Parent: BaseStrokeObservation
@@ -212,13 +239,6 @@ Description: "Observation profile for recording the reason for not prescribing a
 * code from NotMedicationReasonVS (extensible)
 * value[x] only CodeableConcept
 * value[x] ^short = "Reason for no anticoagulant prescription at discharge"
-
-
-
-
-
-
-
 
 
 Profile: ThreeMonthContactModeObservationProfile
