@@ -11,5 +11,5 @@ Description: "Medication profile for tenecteplase with a specific brand name, us
 * code ^short = "Tenecteplase medication with specific brand name"
 * ingredient 0..* MS
 * ingredient.item 1..1 MS
-* ingredient.item.concept = SCT#387066007 "Tenecteplase (substance)"
+* ingredient.item.concept = SCT#127967007 "Product containing tenecteplase (medicinal product)"
 * ingredient.isActive = true
