@@ -161,7 +161,6 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * reason 0..* MS
 * reason ^short = "Clinical reason for treatment"
 * code 1..1 MS
-* code from IchTreatmentVS
 * code from PostStrokeProceduresVS
 * code ^short = "Treatment, rehabilitation or neurosurgical procedure"
 * statusReason 0..1 MS

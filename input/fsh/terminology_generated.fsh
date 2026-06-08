@@ -1498,6 +1498,18 @@ Description: "Allowed coded values for IchTreatment"
 * include SCT#182764009 "Anticoagulant therapy (procedure)"
 * include IchTreatmentCS#other "Other Treatment"
 
+
+ValueSet: PostStrokeProceduresVS
+Id: post-stroke-procedures-vs
+Title: "PostStrokeProcedures ValueSet"
+Description: "Allowed coded values for PostStrokeProcedures"
+* ^url = "http://tecnomod-um.org/ValueSet/post-stroke-procedures-vs"
+* ^status = #active
+* ^experimental = false
+* include codes from PostAcuteCareVS
+* include codes from ICHTreatmentVS
+
+
 ValueSet: StrokeCircumstanceVS
 Id: stroke-circumstance-vs
 Title: "StrokeCircumstance ValueSet"
