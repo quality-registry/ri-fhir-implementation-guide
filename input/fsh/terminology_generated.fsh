@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// CodeSystems and ValueSets generated from scripts.enum_models.ConceptEnum
+// CodeSystems and ValueSets generated
 // -----------------------------------------------------------------------------
 
 CodeSystem: YesNoNotRequiredCS
