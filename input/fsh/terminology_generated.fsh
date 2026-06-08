@@ -1507,7 +1507,7 @@ Description: "Allowed coded values for PostStrokeProcedures"
 * ^status = #active
 * ^experimental = false
 * include codes from valueset PostStrokeProceduresVS
-* include codes from valueset ICHTreatmentVS
+* include codes from valueset IchTreatmentVS
 
 
 ValueSet: StrokeCircumstanceVS
