@@ -1,4 +1,4 @@
-id: tecnomod.resq.stroke
+id: RESQ-FHIR-IG
 canonical: http://tecnomod-um.org
 name: RESQStrokeIG
 title: RESQ Stroke Registry Implementation Guide
@@ -20,5 +20,12 @@ parameters:
     - input/pagecontent
 menu:
   Home: index.html
+  Guide:
+    Resource Map: resource-map.html
+    Modeling Decisions: modeling.html
+  Resources:
+    Profiles: profiles.html
+    Extensions: extensions.html
+    Terminology: terminology.html
   Artifacts: artifacts.html
   Downloads: downloads.html

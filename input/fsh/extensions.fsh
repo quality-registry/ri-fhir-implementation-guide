@@ -20,8 +20,8 @@ Description: "Boolean flag indicating whether the Encounter corresponds to the f
 * ^url = "http://tecnomod-um.org/StructureDefinition/first-hospital-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
-* value[x] only boolean
-* valueBoolean 1..1 MS
+* value[x] only Reference
+* valueReference 1..1 MS
 
 Extension: EmsPrenotificationExt
 Id: ems-prenotification-ext
@@ -99,7 +99,7 @@ Description: "Timing or phase context for procedure execution, such as acute/pos
 * ^context[0].expression = "Procedure"
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1 MS
-* valueCodeableConcept from ProcedureTimingContextVS (extensible)
+* valueCodeableConcept from AssessmentContextVS (extensible)
 
 Extension: AssessmentTimingExt
 Id: assessment-timing-ext

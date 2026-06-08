@@ -8,12 +8,18 @@ Usage: #example
 * identifier.value = "patient-001"
 * extension[genderSnomed].valueCodeableConcept = SCT#248153007 "Male (finding)"
 
+Instance: OrganizationExample
+InstanceOf: Organization
+Usage: #example
+* identifier.value = "organization-001"
+* name = "Example Healthcare Organization"
+
 Instance: ExampleStrokeEncounter
 InstanceOf: StrokeEncounterProfile
 Usage: #example
 * status = #completed
 * subject = Reference(ExampleRESQPatient)
-* extension[firstHospital].valueBoolean = true
+* extension[firstHospital].valueReference = Reference(OrganizationExample)
 * extension[requiredPostAcuteCare].valueBoolean = false
 * extension[emsPrenotification].valueBoolean = true
 * admission.admitSource = StrokeArrivalModeCS#ems-gp "EMS from GP"

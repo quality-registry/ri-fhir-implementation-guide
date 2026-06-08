@@ -34,12 +34,13 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
-* #ems-gp "EMS from GP"
-* #priv-transport "Private Transportation"
-* #stroke-center "Stroke Center"
-* #another-hosp "Another Hospital"
-* #priv-transport-gp "Private Transportation from GP"
-* #in-hospital-stroke "In-Hospital Stroke"
+* #ems-home "patient arrived by EMS/ambulance from home/scene"
+* #ems-gp "patient arrived by EMS/ambulance from general practitioner/outpatient office/community service"
+* #priv-transport "patient arrived by private transportation from home/scene"
+* #stroke-center "patient arrived from stroke treating center"
+* #another-hosp "patient arrived from hospital that is not stroke treating center"
+* #priv-transport-gp "patient arrived by private transportation from general practitioner/outpatient office/community service"
+* #in-hospital-stroke "stroke while hospitalized in another department of the same hospital"
 
 CodeSystem: CarotidEndarterectomyTimingCS
 Id: carotid-endarterectomy-timing-cs
@@ -283,6 +284,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #ER "Emergency room"
 * #OF "Outpatient facility"
 
+
 CodeSystem: MticiScoreCS
 Id: mtici-score-cs
 Title: "MticiScoreCs CodeSystem"
@@ -298,6 +300,19 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #2c "Grade 2c: Near complete perfusion except for slow flow or distal emboli in a few distal cortical vessels"
 * #3 "Grade 3: Complete antegrade reperfusion of the previously occluded target artery ischemic territory, with absence of visualized occlusion in all distal branches"
 * #not-confirmed "Occlusion Not Confirmed"
+
+CodeSystem: ManagementAppointmentCS
+Id: management-appointment-cs
+Title: "ManagementAppointmentCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/management-appointment-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/management-appointment-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #follow-up-appointment "Follow-up Appointment Status"
+* #scheduled "Scheduled"
+* #not-recommended "Not Recommended"
+* #not-scheduled "Not Scheduled"
 
 CodeSystem: TimingCS
 Id: timing-cs
@@ -328,23 +343,6 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #Not-Reported "Reason for not giving anticoagulant reversal not reported"
 * #not-required "Not Required"
 
-CodeSystem: TenecteplaseBrandCS
-Id: tenecteplase-brand-cs
-Title: "TenecteplaseBrandCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs."
-* ^url = "http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs"
-* ^status = #active
-* ^experimental = false
-* ^caseSensitive = false
-* #metalyse "Metalyse (Boehringer Ingelheim International)"
-* #tenectase "Tenectase (Gennova Biopharmaceuticals)"
-* #tnkase "TNKase (Genentech/Roche)"
-* #supralase "Supraplase (Cadila Pharmaceuticals)"
-* #velix "Velix (Emcure Pharmaceuticals)"
-* #tenectelex "Tenectelex (Abbott Healthcare)"
-* #telyse "Telyse (Cipla)"
-* #tenepact "Tenepact (Glenmark Pharmaceuticals)"
-* #other "Other Tenecteplase Brand"
 
 CodeSystem: RiskFactorCS
 Id: risk-factor-cs
@@ -468,6 +466,10 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #post-stroke "Post-Stroke"
 * #last-10-years "During Last 10 Years"
 * #discharge-or-7-days "Discharge or 7 Days After Admission"
+* #unknown "Unknown/Not Applicable"
+* #acute "Acute Phase (<24h)"
+* #T4H "Within 4 Hours"
+
 
 CodeSystem: MticiCodeCS
 Id: mtici-code-cs
@@ -531,6 +533,18 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #wake-up "Wake Up Stroke"
 * #in-hospital "In Hospital Stroke"
 
+CodeSystem: LocationCS
+Id: location-cs
+Title: "LocationCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/location-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/location-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #other "Other Location"
+* #unknown "Unknown Location"
+
+
 CodeSystem: SymptomsCS
 Id: symptoms-cs
 Title: "SymptomsCs CodeSystem"
@@ -574,10 +588,39 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #ge10 "Glucose > 10 mmol/L"
 * #highest-hyperglycemia-value "Highest Hyperglycemia Value"
 
+CodeSystem: VitalSignsCS
+Id: vital-signs-cs
+Title: "VitalSignsCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/vital-signs-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/vital-signs-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #highest-sys-bp "Highest Systolic Blood Pressure"
+
+
+CodeSystem: TenecteplaseBrandCS
+Id: tenecteplase-brand-cs
+Title: "TenecteplaseBrandCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/tenecteplase-brand-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #metalyse "Metalyse (Boehringer Ingelheim International)"
+* #tenectase "Tenectase (Gennova Biopharmaceuticals)"
+* #tnkase "TNKase (Genentech/Roche)"
+* #supralase "Supraplase (Cadila Pharmaceuticals)"
+* #velix "Velix (Emcure Pharmaceuticals)"
+* #tenectelex "Tenectelex (Abbott Healthcare)"
+* #telyse "Telyse (Cipla)"
+* #tenepact "Tenepact (Glenmark Pharmaceuticals)"
+* #other "Other"
+
 ValueSet: SexVS
 Id: sex-vs
 Title: "Sex ValueSet"
-Description: "Allowed coded values for Sex, generated from enum_models.py."
+Description: "Allowed coded values for Sex"
 * ^url = "http://tecnomod-um.org/ValueSet/sex-vs"
 * ^status = #active
 * ^experimental = false
@@ -588,7 +631,7 @@ Description: "Allowed coded values for Sex, generated from enum_models.py."
 ValueSet: OccupationalTherapyVS
 Id: occupational-therapy-vs
 Title: "OccupationalTherapy ValueSet"
-Description: "Allowed coded values for OccupationalTherapy, generated from enum_models.py."
+Description: "Allowed coded values for OccupationalTherapy"
 * ^url = "http://tecnomod-um.org/ValueSet/occupational-therapy-vs"
 * ^status = #active
 * ^experimental = false
@@ -600,7 +643,7 @@ Description: "Allowed coded values for OccupationalTherapy, generated from enum_
 ValueSet: ThreeMonthContactModeVS
 Id: three-month-contact-mode-vs
 Title: "ThreeMonthContactMode ValueSet"
-Description: "Allowed coded values for ThreeMonthContactMode, generated from enum_models.py."
+Description: "Allowed coded values for ThreeMonthContactMode"
 * ^url = "http://tecnomod-um.org/ValueSet/three-month-contact-mode-vs"
 * ^status = #active
 * ^experimental = false
@@ -611,10 +654,22 @@ Description: "Allowed coded values for ThreeMonthContactMode, generated from enu
 * include ThreeMonthContactModeCS#no-response "No Response"
 * include ThreeMonthContactModeCS#not-contacted "Not Contacted"
 
+ValueSet: ManagementAppointmentVS
+Id: management-appointment-vs
+Title: "ManagementAppointment ValueSet"
+Description: "Allowed coded values for ManagementAppointment"
+* ^url = "http://tecnomod-um.org/ValueSet/management-appointment-vs"
+* ^status = #active
+* ^experimental = false
+* include ManagementAppointmentCS#scheduled "Scheduled"
+* include ManagementAppointmentCS#not-recommended "Not Recommended"
+* include ManagementAppointmentCS#not-scheduled "Not Scheduled"
+* include ManagementAppointmentCS#follow-up-appointment "Follow-up Appointment Status"
+
 ValueSet: AdmissionDepartmentVS
 Id: admission-department-vs
 Title: "AdmissionDepartment ValueSet"
-Description: "Allowed coded values for AdmissionDepartment, generated from enum_models.py."
+Description: "Allowed coded values for AdmissionDepartment"
 * ^url = "http://tecnomod-um.org/ValueSet/admission-department-vs"
 * ^status = #active
 * ^experimental = false
@@ -622,12 +677,13 @@ Description: "Allowed coded values for AdmissionDepartment, generated from enum_
 * include V3RoleCode#NS "Neurosurgery unit"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
-* include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Location"
+* include LocationCS#unknown "Unknown Location"
 
 ValueSet: AdmissionPathwayVS
 Id: admission-pathway-vs
 Title: "AdmissionPathway ValueSet"
-Description: "Allowed coded values for AdmissionPathway, generated from enum_models.py."
+Description: "Allowed coded values for AdmissionPathway"
 * ^url = "http://tecnomod-um.org/ValueSet/admission-pathway-vs"
 * ^status = #active
 * ^experimental = false
@@ -641,7 +697,7 @@ Description: "Allowed coded values for AdmissionPathway, generated from enum_mod
 ValueSet: CarotidEndarterectomyTimingVS
 Id: carotid-endarterectomy-timing-vs
 Title: "CarotidEndarterectomyTiming ValueSet"
-Description: "Allowed coded values for CarotidEndarterectomyTiming, generated from enum_models.py."
+Description: "Allowed coded values for CarotidEndarterectomyTiming"
 * ^url = "http://tecnomod-um.org/ValueSet/carotid-endarterectomy-timing-vs"
 * ^status = #active
 * ^experimental = false
@@ -652,7 +708,7 @@ Description: "Allowed coded values for CarotidEndarterectomyTiming, generated fr
 ValueSet: AnticoagulantReversalVS
 Id: anticoagulant-reversal-vs
 Title: "AnticoagulantReversal ValueSet"
-Description: "Allowed coded values for AnticoagulantReversal, generated from enum_models.py."
+Description: "Allowed coded values for AnticoagulantReversal"
 * ^url = "http://tecnomod-um.org/ValueSet/anticoagulant-reversal-vs"
 * ^status = #active
 * ^experimental = false
@@ -671,7 +727,7 @@ Description: "Allowed coded values for AnticoagulantReversal, generated from enu
 ValueSet: CarotidStenosisLevelVS
 Id: carotid-stenosis-level-vs
 Title: "CarotidStenosisLevel ValueSet"
-Description: "Allowed coded values for CarotidStenosisLevel, generated from enum_models.py."
+Description: "Allowed coded values for CarotidStenosisLevel"
 * ^url = "http://tecnomod-um.org/ValueSet/carotid-stenosis-level-vs"
 * ^status = #active
 * ^experimental = false
@@ -683,7 +739,7 @@ Description: "Allowed coded values for CarotidStenosisLevel, generated from enum
 ValueSet: GCSScoreVS
 Id: gcsscore-vs
 Title: "GCSScore ValueSet"
-Description: "Allowed coded values for GCSScore, generated from enum_models.py."
+Description: "Allowed coded values for GCSScore"
 * ^url = "http://tecnomod-um.org/ValueSet/gcsscore-vs"
 * ^status = #active
 * ^experimental = false
@@ -694,7 +750,7 @@ Description: "Allowed coded values for GCSScore, generated from enum_models.py."
 ValueSet: HemorrhagicTransformationTypeVS
 Id: hemorrhagic-transformation-type-vs
 Title: "HemorrhagicTransformationType ValueSet"
-Description: "Allowed coded values for HemorrhagicTransformationType, generated from enum_models.py."
+Description: "Allowed coded values for HemorrhagicTransformationType"
 * ^url = "http://tecnomod-um.org/ValueSet/hemorrhagic-transformation-type-vs"
 * ^status = #active
 * ^experimental = false
@@ -706,7 +762,7 @@ Description: "Allowed coded values for HemorrhagicTransformationType, generated 
 ValueSet: MedicationsVS
 Id: medications-vs
 Title: "Medications ValueSet"
-Description: "Allowed coded values for Medications, generated from enum_models.py."
+Description: "Allowed coded values for Medications"
 * ^url = "http://tecnomod-um.org/ValueSet/medications-vs"
 * ^status = #active
 * ^experimental = false
@@ -738,23 +794,25 @@ Description: "Allowed coded values for Medications, generated from enum_models.p
 * include SCT#67866001 "Insulin (substance)"
 * include SCT#387502003 "Nimodipine (substance)"
 * include MedicationCS#none-medication "No Medication"
+* include SCT#372912004 "Substance with 3-hydroxy-3-methylglutaryl-coenzyme A reductase inhibitor mechanism of action (substance)"
+
 
 ValueSet: IvtApplicationDepartmentVS
 Id: ivt-application-department-vs
 Title: "IvtApplicationDepartment ValueSet"
-Description: "Allowed coded values for IvtApplicationDepartment, generated from enum_models.py."
+Description: "Allowed coded values for IvtApplicationDepartment"
 * ^url = "http://tecnomod-um.org/ValueSet/ivt-application-department-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#HRAD "radiology unit"
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#ER "Emergency room"
-* include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Department"
 
 ValueSet: IvtDrugVS
 Id: ivt-drug-vs
 Title: "IvtDrug ValueSet"
-Description: "Allowed coded values for IvtDrug, generated from enum_models.py."
+Description: "Allowed coded values for IvtDrug"
 * ^url = "http://tecnomod-um.org/ValueSet/ivt-drug-vs"
 * ^status = #active
 * ^experimental = false
@@ -766,8 +824,8 @@ Description: "Allowed coded values for IvtDrug, generated from enum_models.py."
 ValueSet: LocationsVS
 Id: locations-vs
 Title: "Locations ValueSet"
-Description: "Allowed coded values for Locations, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/locations-vs"
+Description: "Allowed coded values for Locations"
+* ^url = "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#ER "Emergency room"
@@ -777,12 +835,12 @@ Description: "Allowed coded values for Locations, generated from enum_models.py.
 * include V3RoleCode#ICU "Intensive Care Unit"
 * include V3RoleCode#NS "Neurosurgery unit"
 * include V3RoleCode#GIM "General internal medicine clinic"
-* include V3RoleCode#other "Other Department"
+* include LocationCS#other "Other Location"
 
 ValueSet: HospitalizedInVS
 Id: hospitalized-in-vs
 Title: "HospitalizedIn ValueSet"
-Description: "Allowed coded values for HospitalizedIn, generated from enum_models.py."
+Description: "Allowed coded values for HospitalizedIn"
 * ^url = "http://tecnomod-um.org/ValueSet/hospitalized-in-vs"
 * ^status = #active
 * ^experimental = false
@@ -793,7 +851,7 @@ Description: "Allowed coded values for HospitalizedIn, generated from enum_model
 ValueSet: INRmodeVS
 Id: inrmode-vs
 Title: "INRmode ValueSet"
-Description: "Allowed coded values for INRmode, generated from enum_models.py."
+Description: "Allowed coded values for INRmode"
 * ^url = "http://tecnomod-um.org/ValueSet/inrmode-vs"
 * ^status = #active
 * ^experimental = false
@@ -804,7 +862,7 @@ Description: "Allowed coded values for INRmode, generated from enum_models.py."
 ValueSet: InHospitalVS
 Id: in-hospital-vs
 Title: "InHospital ValueSet"
-Description: "Allowed coded values for InHospital, generated from enum_models.py."
+Description: "Allowed coded values for InHospital"
 * ^url = "http://tecnomod-um.org/ValueSet/in-hospital-vs"
 * ^status = #active
 * ^experimental = false
@@ -815,7 +873,7 @@ Description: "Allowed coded values for InHospital, generated from enum_models.py
 ValueSet: ImagingTypeVS
 Id: imaging-type-vs
 Title: "ImagingType ValueSet"
-Description: "Allowed coded values for ImagingType, generated from enum_models.py."
+Description: "Allowed coded values for ImagingType"
 * ^url = "http://tecnomod-um.org/ValueSet/imaging-type-vs"
 * ^status = #active
 * ^experimental = false
@@ -830,7 +888,7 @@ Description: "Allowed coded values for ImagingType, generated from enum_models.p
 ValueSet: StrokeTypeVS
 Id: stroke-type-vs
 Title: "StrokeType ValueSet"
-Description: "Allowed coded values for StrokeType, generated from enum_models.py."
+Description: "Allowed coded values for StrokeType"
 * ^url = "http://tecnomod-um.org/ValueSet/stroke-type-vs"
 * ^status = #active
 * ^experimental = false
@@ -845,7 +903,7 @@ Description: "Allowed coded values for StrokeType, generated from enum_models.py
 ValueSet: StrokeEtiologyVS
 Id: stroke-etiology-vs
 Title: "StrokeEtiology ValueSet"
-Description: "Allowed coded values for StrokeEtiology, generated from enum_models.py."
+Description: "Allowed coded values for StrokeEtiology"
 * ^url = "http://tecnomod-um.org/ValueSet/stroke-etiology-vs"
 * ^status = #active
 * ^experimental = false
@@ -863,7 +921,7 @@ Description: "Allowed coded values for StrokeEtiology, generated from enum_model
 ValueSet: StrokeEtiologyOtherVS
 Id: stroke-etiology-other-vs
 Title: "StrokeEtiologyOther ValueSet"
-Description: "Allowed coded values for StrokeEtiologyOther, generated from enum_models.py."
+Description: "Allowed coded values for StrokeEtiologyOther"
 * ^url = "http://tecnomod-um.org/ValueSet/stroke-etiology-other-vs"
 * ^status = #active
 * ^experimental = false
@@ -886,7 +944,7 @@ Description: "Allowed coded values for StrokeEtiologyOther, generated from enum_
 ValueSet: MimicsDiagnosisVS
 Id: mimics-diagnosis-vs
 Title: "MimicsDiagnosis ValueSet"
-Description: "Allowed coded values for MimicsDiagnosis, generated from enum_models.py."
+Description: "Allowed coded values for MimicsDiagnosis"
 * ^url = "http://tecnomod-um.org/ValueSet/mimics-diagnosis-vs"
 * ^status = #active
 * ^experimental = false
@@ -900,7 +958,7 @@ Description: "Allowed coded values for MimicsDiagnosis, generated from enum_mode
 ValueSet: BleedingReasonVS
 Id: bleeding-reason-vs
 Title: "BleedingReason ValueSet"
-Description: "Allowed coded values for BleedingReason, generated from enum_models.py."
+Description: "Allowed coded values for BleedingReason"
 * ^url = "http://tecnomod-um.org/ValueSet/bleeding-reason-vs"
 * ^status = #active
 * ^experimental = false
@@ -918,18 +976,19 @@ Description: "Allowed coded values for BleedingReason, generated from enum_model
 ValueSet: AtrialFibrillationOrFlutterVS
 Id: atrial-fibrillation-or-flutter-vs
 Title: "AtrialFibrillationOrFlutter ValueSet"
-Description: "Allowed coded values for AtrialFibrillationOrFlutter, generated from enum_models.py."
+Description: "Allowed coded values for AtrialFibrillationOrFlutter"
 * ^url = "http://tecnomod-um.org/ValueSet/atrial-fibrillation-or-flutter-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#410515003 "Known present (qualifier value)"
+* include SCT#260373001 "Detected (qualifier value)"
 * include SCT#410516002 "Known absent (qualifier value)"
 * include SCT#261665006 "Unknown (qualifier value)"
 
 ValueSet: VteProceduresVS
 Id: vte-procedures-vs
 Title: "VteProcedures ValueSet"
-Description: "Allowed coded values for VteProcedures, generated from enum_models.py."
+Description: "Allowed coded values for VteProcedures"
 * ^url = "http://tecnomod-um.org/ValueSet/vte-procedures-vs"
 * ^status = #active
 * ^experimental = false
@@ -943,21 +1002,32 @@ Description: "Allowed coded values for VteProcedures, generated from enum_models
 * include SCT#443464003 "Low molecular weight heparin therapy (procedure)"
 * include SCT#421728001 "Administration of prophylactic anticoagulant (procedure)"
 
-ValueSet: ObservationMethodsVS
-Id: observation-methods-vs
-Title: "ObservationMethods ValueSet"
-Description: "Allowed coded values for ObservationMethods, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/observation-methods-vs"
-* ^status = #active
-* ^experimental = false
-* include SCT#15220000 "Laboratory test (procedure)"
-* include SCT#405262001 "Point of care (qualifier value)"
-* include SCT#40617009 "Artificial ventilation (regime/therapy)"
+// ValueSet: ObservationMethodsVS
+// Id: observation-methods-vs
+// Title: "ObservationMethods ValueSet"
+// Description: "Allowed coded values for ObservationMethods"
+// * ^url = "http://tecnomod-um.org/ValueSet/observation-methods-vs"
+// * ^status = #active
+// * ^experimental = false
+// * include SCT#15220000 "Laboratory test (procedure)"
+// * include SCT#405262001 "Point of care (qualifier value)"
+// * include SCT#40617009 "Artificial ventilation (regime/therapy)"
+// * include SCT#385660001 "Not done (qualifier value)"
+
+// ValueSet: SpecificFindingValueCodeableConceptVS
+// Id: specific-finding-value-codeableconcept-vs
+// Title: "Specific Finding Value CodeableConcept ValueSet"
+// Description: "Allowed coded values for specific finding observations."
+// * ^url = "http://tecnomod-um.org/ValueSet/specific-finding-value-codeableconcept-vs"
+// * ^status = #active
+
+// * include codes from valueset MTiciScoreVS
+// * include codes from valueset AtrialFibrillationOrFlutterVS
 
 ValueSet: ProcedureNotDoneReasonVS
 Id: procedure-not-done-reason-vs
 Title: "ProcedureNotDoneReason ValueSet"
-Description: "Allowed coded values for ProcedureNotDoneReason, generated from enum_models.py."
+Description: "Allowed coded values for ProcedureNotDoneReason"
 * ^url = "http://tecnomod-um.org/ValueSet/procedure-not-done-reason-vs"
 * ^status = #active
 * ^experimental = false
@@ -984,11 +1054,17 @@ Description: "Allowed coded values for ProcedureNotDoneReason, generated from en
 * include StrokeProcNotDoneReasonCS#location-hematoma "Location of Hematoma"
 * include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery Not Available"
 * include StrokeProcNotDoneReasonCS#not-required "Not Required"
+* include StrokeProcNotDoneReasonCS#low-aspect-score "Low ASPECTS Score"
+* include StrokeProcNotDoneReasonCS#transfer-ivt "Transferred elsewhere to perform IVT"
+* include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
+* include StrokeProcNotDoneReasonCS#lesion-developed "Lesion Developed"
+* include StrokeProcNotDoneReasonCS#previous-bleeding "Previous Bleeding"
+* include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
 
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
 Title: "PostStrokeProcedures ValueSet"
-Description: "Allowed coded values for PostStrokeProcedures, generated from enum_models.py."
+Description: "Allowed coded values for PostStrokeProcedures"
 * ^url = "http://tecnomod-um.org/ValueSet/post-stroke-procedures-vs"
 * ^status = #active
 * ^experimental = false
@@ -1001,7 +1077,7 @@ Description: "Allowed coded values for PostStrokeProcedures, generated from enum
 ValueSet: PostNeurosurgeryImagingVS
 Id: post-neurosurgery-imaging-vs
 Title: "PostNeurosurgeryImaging ValueSet"
-Description: "Allowed coded values for PostNeurosurgeryImaging, generated from enum_models.py."
+Description: "Allowed coded values for PostNeurosurgeryImaging"
 * ^url = "http://tecnomod-um.org/ValueSet/post-neurosurgery-imaging-vs"
 * ^status = #active
 * ^experimental = false
@@ -1012,7 +1088,7 @@ Description: "Allowed coded values for PostNeurosurgeryImaging, generated from e
 ValueSet: PostRecanalizationImagingVS
 Id: post-recanalization-imaging-vs
 Title: "PostRecanalizationImaging ValueSet"
-Description: "Allowed coded values for PostRecanalizationImaging, generated from enum_models.py."
+Description: "Allowed coded values for PostRecanalizationImaging"
 * ^url = "http://tecnomod-um.org/ValueSet/post-recanalization-imaging-vs"
 * ^status = #active
 * ^experimental = false
@@ -1023,7 +1099,7 @@ Description: "Allowed coded values for PostRecanalizationImaging, generated from
 ValueSet: PostStrokeComplicationsVS
 Id: post-stroke-complications-vs
 Title: "PostStrokeComplications ValueSet"
-Description: "Allowed coded values for PostStrokeComplications, generated from enum_models.py."
+Description: "Allowed coded values for PostStrokeComplications"
 * ^url = "http://tecnomod-um.org/ValueSet/post-stroke-complications-vs"
 * ^status = #active
 * ^experimental = false
@@ -1040,7 +1116,7 @@ Description: "Allowed coded values for PostStrokeComplications, generated from e
 ValueSet: SwallowingScreeningDoneVS
 Id: swallowing-screening-done-vs
 Title: "SwallowingScreeningDone ValueSet"
-Description: "Allowed coded values for SwallowingScreeningDone, generated from enum_models.py."
+Description: "Allowed coded values for SwallowingScreeningDone"
 * ^url = "http://tecnomod-um.org/ValueSet/swallowing-screening-done-vs"
 * ^status = #active
 * ^experimental = false
@@ -1051,19 +1127,19 @@ Description: "Allowed coded values for SwallowingScreeningDone, generated from e
 ValueSet: ScreeningPerformerVS
 Id: screening-performer-vs
 Title: "ScreeningPerformer ValueSet"
-Description: "Allowed coded values for ScreeningPerformer, generated from enum_models.py."
+Description: "Allowed coded values for ScreeningPerformer"
 * ^url = "http://tecnomod-um.org/ValueSet/screening-performer-vs"
 * ^status = #active
 * ^experimental = false
-* include PractitionerRoleCS#nurse "Nurse"
-* include PractitionerRoleCS#physician "Physician"
+* include SCT#106292003 "Professional nurse (occupation)"
+* include SCT#309343006 "Physician (occupation)"
 * include SCT#223366009 "Healthcare professional (occupation)"
 * include SCT#159026005 "Speech and language therapist"
 
 ValueSet: SwallowingScreeningTimingVS
 Id: swallowing-screening-timing-vs
 Title: "SwallowingScreeningTiming ValueSet"
-Description: "Allowed coded values for SwallowingScreeningTiming, generated from enum_models.py."
+Description: "Allowed coded values for SwallowingScreeningTiming"
 * ^url = "http://tecnomod-um.org/ValueSet/swallowing-screening-timing-vs"
 * ^status = #active
 * ^experimental = false
@@ -1074,7 +1150,7 @@ Description: "Allowed coded values for SwallowingScreeningTiming, generated from
 ValueSet: SwallowingScreeningTypeVS
 Id: swallowing-screening-type-vs
 Title: "SwallowingScreeningType ValueSet"
-Description: "Allowed coded values for SwallowingScreeningType, generated from enum_models.py."
+Description: "Allowed coded values for SwallowingScreeningType"
 * ^url = "http://tecnomod-um.org/ValueSet/swallowing-screening-type-vs"
 * ^status = #active
 * ^experimental = false
@@ -1087,7 +1163,7 @@ Description: "Allowed coded values for SwallowingScreeningType, generated from e
 ValueSet: DischargeDestinationVS
 Id: discharge-destination-vs
 Title: "DischargeDestination ValueSet"
-Description: "Allowed coded values for DischargeDestination, generated from enum_models.py."
+Description: "Allowed coded values for DischargeDestination"
 * ^url = "http://tecnomod-um.org/ValueSet/discharge-destination-vs"
 * ^status = #active
 * ^experimental = false
@@ -1101,7 +1177,7 @@ Description: "Allowed coded values for DischargeDestination, generated from enum
 ValueSet: DischargeFacilityDepartmentVS
 Id: discharge-facility-department-vs
 Title: "DischargeFacilityDepartment ValueSet"
-Description: "Allowed coded values for DischargeFacilityDepartment, generated from enum_models.py."
+Description: "Allowed coded values for DischargeFacilityDepartment"
 * ^url = "http://tecnomod-um.org/ValueSet/discharge-facility-department-vs"
 * ^status = #active
 * ^experimental = false
@@ -1113,7 +1189,7 @@ Description: "Allowed coded values for DischargeFacilityDepartment, generated fr
 ValueSet: DischargeFacilityTypeVS
 Id: discharge-facility-type-vs
 Title: "DischargeFacilityType ValueSet"
-Description: "Allowed coded values for DischargeFacilityType, generated from enum_models.py."
+Description: "Allowed coded values for DischargeFacilityType"
 * ^url = "http://tecnomod-um.org/ValueSet/discharge-facility-type-vs"
 * ^status = #active
 * ^experimental = false
@@ -1125,19 +1201,19 @@ Description: "Allowed coded values for DischargeFacilityType, generated from enu
 ValueSet: FirstContactPlaceVS
 Id: first-contact-place-vs
 Title: "FirstContactPlace ValueSet"
-Description: "Allowed coded values for FirstContactPlace, generated from enum_models.py."
+Description: "Allowed coded values for FirstContactPlace"
 * ^url = "http://tecnomod-um.org/ValueSet/first-contact-place-vs"
 * ^status = #active
 * ^experimental = false
-* include FirstContactPlaceCS#HRAD "radiology unit"
-* include FirstContactPlaceCS#ER "Emergency room"
-* include FirstContactPlaceCS#OF "Outpatient facility"
-* include V3RoleCode#other "Other Department"
+* include V3RoleCode#HRAD "radiology unit"
+* include V3RoleCode#ER "Emergency room"
+* include V3RoleCode#OF "Outpatient facility"
+* include LocationCS#other "Other Location"
 
 ValueSet: MTiciScoreVS
 Id: mtici-score-vs
 Title: "MTiciScore ValueSet"
-Description: "Allowed coded values for MTiciScore, generated from enum_models.py."
+Description: "Allowed coded values for MTiciScore"
 * ^url = "http://tecnomod-um.org/ValueSet/mtici-score-vs"
 * ^status = #active
 * ^experimental = false
@@ -1152,65 +1228,18 @@ Description: "Allowed coded values for MTiciScore, generated from enum_models.py
 ValueSet: NimodipinetimingVS
 Id: nimodipinetiming-vs
 Title: "Nimodipinetiming ValueSet"
-Description: "Allowed coded values for Nimodipinetiming, generated from enum_models.py."
+Description: "Allowed coded values for Nimodipinetiming"
 * ^url = "http://tecnomod-um.org/ValueSet/nimodipinetiming-vs"
 * ^status = #active
 * ^experimental = false
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
-ValueSet: NoAnticoagulantReversalReasonVS
-Id: no-anticoagulant-reversal-reason-vs
-Title: "NoAnticoagulantReversalReason ValueSet"
-Description: "Allowed coded values for NoAnticoagulantReversalReason, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/no-anticoagulant-reversal-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include NotMedicationReasonCS#Not-Consent "Patient or family did not consent"
-* include NotMedicationReasonCS#"Cost of drug" "Cost of drug"
-* include NotMedicationReasonCS#Not-Available "Drug not available"
-* include NotMedicationReasonCS#Not-Licensed "Antidote not licenced for specific indication"
-* include NotMedicationReasonCS#Not-Criteria "Not met criteria for specific agent"
-* include NotMedicationReasonCS#Forgot "Patient did not use anticoagulant before ICH (forgot to take a pill)"
-* include NotMedicationReasonCS#Not-Reported "Reason for not giving anticoagulant reversal not reported"
-
-ValueSet: NoAnticoagulantReasonVS
-Id: no-anticoagulant-reason-vs
-Title: "NoAnticoagulantReason ValueSet"
-Description: "Allowed coded values for NoAnticoagulantReason, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/no-anticoagulant-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include SCT#609328004 "Allergy disposition (finding)"
-* include SCT#36456004 "Mental state finding (finding)"
-* include NotMedicationReasonCS#Not-Consent "Patient or family did not consent"
-* include SCT#131148009 "Bleeding (finding)"
-* include SCT#129839007 "At increased risk for falls (finding)"
-* include SCT#401207004 "Medication side effects present (finding)"
-* include SCT#300936002 "Terminal illness (finding)"
-* include SCT#397943006 "Planned (qualifier value)"
-
-ValueSet: NoIchTreatmentReasonVS
-Id: no-ich-treatment-reason-vs
-Title: "NoIchTreatmentReason ValueSet"
-Description: "Allowed coded values for NoIchTreatmentReason, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/no-ich-treatment-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#size-hematoma "Contraindication in hematoma size"
-* include StrokeProcNotDoneReasonCS#location-hematoma "Contraindication in hematoma location"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#cost "Cost of procedure"
-* include StrokeProcNotDoneReasonCS#neurosurgery-unavailable "Neurosurgery facility is not available"
-* include StrokeProcNotDoneReasonCS#specialist-unavailable "Specialist Not Available"
-* include SCT#170969009 "Prognosis bad (finding)"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#not-reported "Reason for not treating not reported"
 
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
 Title: "ParacetamolOnFever ValueSet"
-Description: "Allowed coded values for ParacetamolOnFever, generated from enum_models.py."
+Description: "Allowed coded values for ParacetamolOnFever"
 * ^url = "http://tecnomod-um.org/ValueSet/paracetamol-on-fever-vs"
 * ^status = #active
 * ^experimental = false
@@ -1221,61 +1250,18 @@ Description: "Allowed coded values for ParacetamolOnFever, generated from enum_m
 ValueSet: ParacetamolOnFeverTimingVS
 Id: paracetamol-on-fever-timing-vs
 Title: "ParacetamolOnFeverTiming ValueSet"
-Description: "Allowed coded values for ParacetamolOnFeverTiming, generated from enum_models.py."
+Description: "Allowed coded values for ParacetamolOnFeverTiming"
 * ^url = "http://tecnomod-um.org/ValueSet/paracetamol-on-fever-timing-vs"
 * ^status = #active
 * ^experimental = false
 * include TimingCS#within-1-hours "Within 1 Hour"
 * include TimingCS#after-1-hours "After 1 Hour"
 
-ValueSet: NoThrombectomyReasonVS
-Id: no-thrombectomy-reason-vs
-Title: "NoThrombectomyReason ValueSet"
-Description: "Allowed coded values for NoThrombectomyReason, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/no-thrombectomy-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#done-elsewhere "Done Elsewhere"
-* include StrokeProcNotDoneReasonCS#time-window "Time window"
-* include StrokeProcNotDoneReasonCS#mild-deficit "Mild Deficit"
-* include StrokeProcNotDoneReasonCS#no-lvo "No Large Vessel Occlusion (LVO)"
-* include StrokeProcNotDoneReasonCS#disability "Disability"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#cost "Cost / No Insurance"
-* include StrokeProcNotDoneReasonCS#transfer "Transferred to Another Facility"
-* include StrokeProcNotDoneReasonCS#unavailable "Not Available"
-* include StrokeProcNotDoneReasonCS#technically-not-possible "Technically Not Possible"
-* include StrokeProcNotDoneReasonCS#no-angiography "Angiography Not Performed"
-* include StrokeProcNotDoneReasonCS#transfer-ivt "Transferred elsewhere to perform IVT"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#low-aspect-score "Low ASPECT Score"
-
-ValueSet: NoThrombolysisReasonVS
-Id: no-thrombolysis-reason-vs
-Title: "NoThrombolysisReason ValueSet"
-Description: "Allowed coded values for NoThrombolysisReason, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/no-thrombolysis-reason-vs"
-* ^status = #active
-* ^experimental = false
-* include StrokeProcNotDoneReasonCS#done-elsewhere "Done Elsewhere"
-* include StrokeProcNotDoneReasonCS#time-window "Time window"
-* include StrokeProcNotDoneReasonCS#mild-deficit "Mild Deficit"
-* include StrokeProcNotDoneReasonCS#consent "Patient or family did not consent"
-* include StrokeProcNotDoneReasonCS#only-mt "Only Mechanical Thrombectomy Considered"
-* include StrokeProcNotDoneReasonCS#cost "Cost / No Insurance"
-* include StrokeProcNotDoneReasonCS#transfer "Transferred to Another Facility"
-* include StrokeProcNotDoneReasonCS#unavailable "Not Available"
-* include StrokeProcNotDoneReasonCS#other "Other Reason"
-* include StrokeProcNotDoneReasonCS#lesion-developed "Lesion Developed"
-* include StrokeProcNotDoneReasonCS#disability "Disability"
-* include StrokeProcNotDoneReasonCS#previous-bleeding "Previous Bleeding"
-* include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
-
-ValueSet: TecnetplaseBrandVS
-Id: tecnetplase-brand-vs
-Title: "TecnetplaseBrand ValueSet"
-Description: "Allowed coded values for TecnetplaseBrand, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/tecnetplase-brand-vs"
+ValueSet: TenecteplaseBrandVS
+Id: tenecteplase-brand-vs
+Title: "TenecteplaseBrand ValueSet"
+Description: "Allowed coded values for TenecteplaseBrand"
+* ^url = "http://tecnomod-um.org/ValueSet/tenecteplase-brand-vs"
 * ^status = #active
 * ^experimental = false
 * include TenecteplaseBrandCS#metalyse "Metalyse (Boehringer Ingelheim International)"
@@ -1291,7 +1277,7 @@ Description: "Allowed coded values for TecnetplaseBrand, generated from enum_mod
 ValueSet: LateralityVS
 Id: laterality-vs
 Title: "Laterality ValueSet"
-Description: "Allowed coded values for Laterality, generated from enum_models.py."
+Description: "Allowed coded values for Laterality"
 * ^url = "http://tecnomod-um.org/ValueSet/laterality-vs"
 * ^status = #active
 * ^experimental = false
@@ -1314,7 +1300,7 @@ Description: "Allowed coded values for Laterality, generated from enum_models.py
 ValueSet: BodySitesVS
 Id: body-sites-vs
 Title: "BodySites ValueSet"
-Description: "Allowed coded values for BodySites, generated from enum_models.py."
+Description: "Allowed coded values for BodySites"
 * ^url = "http://tecnomod-um.org/ValueSet/body-sites-vs"
 * ^status = #active
 * ^experimental = false
@@ -1339,7 +1325,7 @@ Description: "Allowed coded values for BodySites, generated from enum_models.py.
 ValueSet: RiskFactorVS
 Id: risk-factor-vs
 Title: "RiskFactor ValueSet"
-Description: "Allowed coded values for RiskFactor, generated from enum_models.py."
+Description: "Allowed coded values for RiskFactor"
 * ^url = "http://tecnomod-um.org/ValueSet/risk-factor-vs"
 * ^status = #active
 * ^experimental = false
@@ -1359,41 +1345,44 @@ Description: "Allowed coded values for RiskFactor, generated from enum_models.py
 * include SCT#8392000 "Non-smoker (finding)"
 * include SCT#8517006 "Ex-smoker (finding)"
 * include SCT#429098002 "Thromboembolism of vein (disorder)"
+* include SCT#66590003 "Alcohol dependence (disorder)"
+* include SCT#73430006 "Sleep apnea (disorder)"
+
 
 ValueSet: BoolVS
 Id: bool-vs
 Title: "Bool ValueSet"
-Description: "Allowed coded values for Bool, generated from enum_models.py."
+Description: "Allowed coded values for Bool"
 * ^url = "http://tecnomod-um.org/ValueSet/bool-vs"
 * ^status = #active
 * ^experimental = false
 * include FHIRBoolCS#true "True"
 * include FHIRBoolCS#false "False"
 
-ValueSet: DischargeMedicationVS
-Id: discharge-medication-vs
-Title: "DischargeMedication ValueSet"
-Description: "Allowed coded values for DischargeMedication, generated from enum_models.py."
-* ^url = "http://tecnomod-um.org/ValueSet/discharge-medication-vs"
-* ^status = #active
-* ^experimental = false
-* include DischargeMedicationCS#antiplatelet "Any Antiplatelet"
-* include DischargeMedicationCS#anticoagulant "Any Anticoagulant"
-* include DischargeMedicationCS#asa "Aspirin"
-* include DischargeMedicationCS#heparin "Heparin"
-* include DischargeMedicationCS#warfarin "Warfarin"
-* include DischargeMedicationCS#statin "Statin"
-* include DischargeMedicationCS#antidiabetics "Antidiabetics"
-* include DischargeMedicationCS#antihypertensive "Antihypertensive"
-* include DischargeMedicationCS#other-antiplatelet "Other Antiplatelet"
-* include DischargeMedicationCS#clopidogrel "Clopidogrel"
-* include DischargeMedicationCS#contraception "Contraception"
-* include DischargeMedicationCS#other "Other"
+// ValueSet: DischargeMedicationVS
+// Id: discharge-medication-vs
+// Title: "DischargeMedication ValueSet"
+// Description: "Allowed coded values for DischargeMedication"
+// * ^url = "http://tecnomod-um.org/ValueSet/discharge-medication-vs"
+// * ^status = #active
+// * ^experimental = false
+// * include DischargeMedicationCS#antiplatelet "any Antiplatelet"
+// * include DischargeMedicationCS#anticoagulant "Any Anticoagulant"
+// * include DischargeMedicationCS#asa "Aspirin"
+// * include DischargeMedicationCS#heparin "Heparin"
+// * include DischargeMedicationCS#warfarin "Warfarin"
+// * include DischargeMedicationCS#statin "Statin"
+// * include DischargeMedicationCS#antidiabetics "Antidiabetics"
+// * include DischargeMedicationCS#antihypertensive "Antihypertensive"
+// * include DischargeMedicationCS#other-antiplatelet "Other Antiplatelet"
+// * include DischargeMedicationCS#clopidogrel "Clopidogrel"
+// * include DischargeMedicationCS#contraception "Contraception"
+// * include DischargeMedicationCS#other "Other"
 
 ValueSet: InsulinOnHyperglycemiaTimingVS
 Id: insulin-on-hyperglycemia-timing-vs
 Title: "InsulinOnHyperglycemiaTiming ValueSet"
-Description: "Allowed coded values for InsulinOnHyperglycemiaTiming, generated from enum_models.py."
+Description: "Allowed coded values for InsulinOnHyperglycemiaTiming"
 * ^url = "http://tecnomod-um.org/ValueSet/insulin-on-hyperglycemia-timing-vs"
 * ^status = #active
 * ^experimental = false
@@ -1403,19 +1392,20 @@ Description: "Allowed coded values for InsulinOnHyperglycemiaTiming, generated f
 ValueSet: VitalSignsVS
 Id: vital-signs-vs
 Title: "VitalSigns ValueSet"
-Description: "Allowed coded values for VitalSigns, generated from enum_models.py."
+Description: "Allowed coded values for VitalSigns"
 * ^url = "http://tecnomod-um.org/ValueSet/vital-signs-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#271649006 "Systolic blood pressure (observable entity)"
 * include SCT#271650006 "Diastolic blood pressure (observable entity)"
 * include SCT#61746007 "Taking patient vital signs (procedure)"
-* include TimingMetricCodesCS#sys-bp-lt-140 "Systolic Blood Pressure < 140 mmHg"
+* include VitalSignsCS#highest-sys-bp "Highest Systolic Blood Pressure"
+
 
 ValueSet: MRsScoreVS
 Id: mrs-score-vs
 Title: "MRsScore ValueSet"
-Description: "Allowed coded values for MRsScore, generated from enum_models.py."
+Description: "Allowed coded values for MRsScore"
 * ^url = "http://tecnomod-um.org/ValueSet/mrs-score-vs"
 * ^status = #active
 * ^experimental = false
@@ -1430,7 +1420,7 @@ Description: "Allowed coded values for MRsScore, generated from enum_models.py."
 ValueSet: FunctionalScoreVS
 Id: functional-score-vs
 Title: "FunctionalScore ValueSet"
-Description: "Allowed coded values for FunctionalScore, generated from enum_models.py."
+Description: "Allowed coded values for FunctionalScore"
 * ^url = "http://tecnomod-um.org/ValueSet/functional-score-vs"
 * ^status = #active
 * ^experimental = false
@@ -1443,11 +1433,13 @@ Description: "Allowed coded values for FunctionalScore, generated from enum_mode
 * include SCT#713678009 "Congestive heart failure, hypertension, age 2, diabetes mellitus, stroke 2, vascular disease, age, sex category stroke risk score (observable entity)"
 * include FunctionalScoreCS#thrive "Totaled Health Risks in Vascular Events Score"
 * include SCT#445518008 "Age at onset of clinical finding (observable entity)"
+* include SCT#386557006 "Glasgow coma scale finding (finding)"
+* include SCT#248241002 "Glasgow coma score (observable entity)"
 
 ValueSet: AssessmentContextVS
 Id: assessment-context-vs
 Title: "AssessmentContext ValueSet"
-Description: "Allowed coded values for AssessmentContext, generated from enum_models.py."
+Description: "Allowed coded values for AssessmentContext"
 * ^url = "http://tecnomod-um.org/ValueSet/assessment-context-vs"
 * ^status = #active
 * ^experimental = false
@@ -1460,11 +1452,15 @@ Description: "Allowed coded values for AssessmentContext, generated from enum_mo
 * include AssessmentContextCS#post-stroke "Post-Stroke"
 * include AssessmentContextCS#last-10-years "During Last 10 Years"
 * include AssessmentContextCS#discharge-or-7-days "Discharge or 7 Days After Admission"
+* include AssessmentContextCS#unknown "Unknown/Not Applicable"
+* include AssessmentContextCS#acute "Acute Phase (<24h)"
+* include SCT#281381003 "More than 24 hours after admission (qualifier value)"
+* include AssessmentContextCS#T4H "Within 4 Hours"
 
 ValueSet: SpecificFindingVS
 Id: specific-finding-vs
 Title: "SpecificFinding ValueSet"
-Description: "Allowed coded values for SpecificFinding, generated from enum_models.py."
+Description: "Allowed coded values for SpecificFinding"
 * ^url = "http://tecnomod-um.org/ValueSet/specific-finding-vs"
 * ^status = #active
 * ^experimental = false
@@ -1482,11 +1478,12 @@ Description: "Allowed coded values for SpecificFinding, generated from enum_mode
 * include SCT#230690007 "Cerebrovascular accident (disorder)"
 * include SCT#230706003 "Hemorrhagic cerebral infarction (disorder)"
 * include SpecificFindingCS#no-finding "No Finding"
+* include SCT#49436004 "Atrial fibrillation (disorder)"
 
 ValueSet: IchTreatmentVS
 Id: ich-treatment-vs
 Title: "IchTreatment ValueSet"
-Description: "Allowed coded values for IchTreatment, generated from enum_models.py."
+Description: "Allowed coded values for IchTreatment"
 * ^url = "http://tecnomod-um.org/ValueSet/ich-treatment-vs"
 * ^status = #active
 * ^experimental = false
@@ -1504,7 +1501,7 @@ Description: "Allowed coded values for IchTreatment, generated from enum_models.
 ValueSet: StrokeCircumstanceVS
 Id: stroke-circumstance-vs
 Title: "StrokeCircumstance ValueSet"
-Description: "Allowed coded values for StrokeCircumstance, generated from enum_models.py."
+Description: "Allowed coded values for StrokeCircumstance"
 * ^url = "http://tecnomod-um.org/ValueSet/stroke-circumstance-vs"
 * ^status = #active
 * ^experimental = false
@@ -1514,7 +1511,7 @@ Description: "Allowed coded values for StrokeCircumstance, generated from enum_m
 ValueSet: PostAcuteCareVS
 Id: post-acute-care-vs
 Title: "PostAcuteCare ValueSet"
-Description: "Allowed coded values for PostAcuteCare, generated from enum_models.py."
+Description: "Allowed coded values for PostAcuteCare"
 * ^url = "http://tecnomod-um.org/ValueSet/post-acute-care-vs"
 * ^status = #active
 * ^experimental = false
@@ -1525,7 +1522,7 @@ Description: "Allowed coded values for PostAcuteCare, generated from enum_models
 ValueSet: PerforationProceduresVS
 Id: perforation-procedures-vs
 Title: "PerforationProcedures ValueSet"
-Description: "Allowed coded values for PerforationProcedures, generated from enum_models.py."
+Description: "Allowed coded values for PerforationProcedures"
 * ^url = "http://tecnomod-um.org/ValueSet/perforation-procedures-vs"
 * ^status = #active
 * ^experimental = false
@@ -1537,7 +1534,7 @@ Description: "Allowed coded values for PerforationProcedures, generated from enu
 ValueSet: TimingMetricCodesVS
 Id: timing-metric-codes-vs
 Title: "TimingMetricCodes ValueSet"
-Description: "Allowed coded values for TimingMetricCodes, generated from enum_models.py."
+Description: "Allowed coded values for TimingMetricCodes"
 * ^url = "http://tecnomod-um.org/ValueSet/timing-metric-codes-vs"
 * ^status = #active
 * ^experimental = false
@@ -1566,11 +1563,12 @@ Description: "Allowed coded values for TimingMetricCodes, generated from enum_mo
 * include TimingMetricCodesCS#discharge-or-7-days "At Discharge or at 7 Days"
 * include TimingMetricCodesCS#D2AnticoagulantReversal "Door to Anticoagulant Reversal"
 * include TimingMetricCodesCS#"IV-Antihypertensive-to-SysBP<140" "IV Antihypertensive to Systolic Blood Pressure < 140 mmHg"
+* include TimingMetricCodesCS#sys-bp-lt-140 "Systolic Blood Pressure < 140 mmHg"
 
 ValueSet: TiaClinicalSymptomsVS
 Id: tia-clinical-symptoms-vs
 Title: "TiaClinicalSymptoms ValueSet"
-Description: "Allowed coded values for TiaClinicalSymptoms, generated from enum_models.py."
+Description: "Allowed coded values for TiaClinicalSymptoms"
 * ^url = "http://tecnomod-um.org/ValueSet/tia-clinical-symptoms-vs"
 * ^status = #active
 * ^experimental = false
@@ -1581,7 +1579,7 @@ Description: "Allowed coded values for TiaClinicalSymptoms, generated from enum_
 ValueSet: TiaSymptomDurationVS
 Id: tia-symptom-duration-vs
 Title: "TiaSymptomDuration ValueSet"
-Description: "Allowed coded values for TiaSymptomDuration, generated from enum_models.py."
+Description: "Allowed coded values for TiaSymptomDuration"
 * ^url = "http://tecnomod-um.org/ValueSet/tia-symptom-duration-vs"
 * ^status = #active
 * ^experimental = false
@@ -1592,7 +1590,7 @@ Description: "Allowed coded values for TiaSymptomDuration, generated from enum_m
 ValueSet: ThrombectomyComplicationsVS
 Id: thrombectomy-complications-vs
 Title: "ThrombectomyComplications ValueSet"
-Description: "Allowed coded values for ThrombectomyComplications, generated from enum_models.py."
+Description: "Allowed coded values for ThrombectomyComplications"
 * ^url = "http://tecnomod-um.org/ValueSet/thrombectomy-complications-vs"
 * ^status = #active
 * ^experimental = false
@@ -1605,7 +1603,7 @@ Description: "Allowed coded values for ThrombectomyComplications, generated from
 ValueSet: UnitofMeasurementVS
 Id: unitof-measurement-vs
 Title: "UnitofMeasurement ValueSet"
-Description: "Allowed coded values for UnitofMeasurement, generated from enum_models.py."
+Description: "Allowed coded values for UnitofMeasurement"
 * ^url = "http://tecnomod-um.org/ValueSet/unitof-measurement-vs"
 * ^status = #active
 * ^experimental = false
@@ -1619,7 +1617,7 @@ Description: "Allowed coded values for UnitofMeasurement, generated from enum_mo
 ValueSet: AdherenceCodesVS
 Id: adherence-codes-vs
 Title: "AdherenceCodes ValueSet"
-Description: "Allowed coded values for AdherenceCodes, generated from enum_models.py."
+Description: "Allowed coded values for AdherenceCodes"
 * ^url = "http://tecnomod-um.org/ValueSet/adherence-codes-vs"
 * ^status = #active
 * ^experimental = false
@@ -1630,7 +1628,7 @@ Description: "Allowed coded values for AdherenceCodes, generated from enum_model
 ValueSet: ClinicalStatusCodesVS
 Id: clinical-status-codes-vs
 Title: "ClinicalStatusCodes ValueSet"
-Description: "Allowed coded values for ClinicalStatusCodes, generated from enum_models.py."
+Description: "Allowed coded values for ClinicalStatusCodes"
 * ^url = "http://tecnomod-um.org/ValueSet/clinical-status-codes-vs"
 * ^status = #active
 * ^experimental = false
@@ -1642,7 +1640,7 @@ Description: "Allowed coded values for ClinicalStatusCodes, generated from enum_
 ValueSet: AnaliticsCodesVS
 Id: analitics-codes-vs
 Title: "AnaliticsCodes ValueSet"
-Description: "Allowed coded values for AnaliticsCodes, generated from enum_models.py."
+Description: "Allowed coded values for AnaliticsCodes"
 * ^url = "http://tecnomod-um.org/ValueSet/analitics-codes-vs"
 * ^status = #active
 * ^experimental = false
@@ -1653,11 +1651,17 @@ Description: "Allowed coded values for AnaliticsCodes, generated from enum_model
 * include SCT#80394007 "Hyperglycemia (disorder)"
 * include AnalyticsCodesCS#ge10 "Glucose > 10 mmol/L"
 * include AnalyticsCodesCS#highest-hyperglycemia-value "Highest Hyperglycemia Value"
+* include TimingMetricCodesCS#hyperglycemia-day-1 "Hyperglycemia Checks Day 1"
+* include TimingMetricCodesCS#hyperglycemia-day-2 "Hyperglycemia Checks Day 2"
+* include TimingMetricCodesCS#hyperglycemia-day-3 "Hyperglycemia Checks Day 3"
+* include TimingMetricCodesCS#temperature-checks-day-1 "Temperature Checks Day 1"
+* include TimingMetricCodesCS#temperature-checks-day-2 "Temperature Checks Day 2"
+* include TimingMetricCodesCS#temperature-checks-day-3 "Temperature Checks Day 3"
 
 ValueSet: GlasgowComaScaleVS
 Id: glasgow-coma-scale-vs
 Title: "GlasgowComaScale ValueSet"
-Description: "Allowed coded values for GlasgowComaScale, generated from enum_models.py."
+Description: "Allowed coded values for GlasgowComaScale"
 * ^url = "http://tecnomod-um.org/ValueSet/glasgow-coma-scale-vs"
 * ^status = #active
 * ^experimental = false
@@ -1674,12 +1678,13 @@ Description: "Allowed coded values for GlasgowComaScale, generated from enum_mod
 * include SCT#54185009 "Glasgow coma scale, 13 (finding)"
 * include SCT#26734006 "Glasgow coma scale, 14 (finding)"
 * include SCT#70040003 "Glasgow coma scale, 15 (finding)"
-* include SCT#248241002 "Glasgow coma scale (observable entity)"
+* include SCT#386557006 "Glasgow coma scale finding (finding)"
+* include SCT#248241002 "Glasgow coma score (observable entity)"
 
 ValueSet: NotMedicationReasonVS
 Id: not-medication-reason-vs
 Title: "NotMedicationReason ValueSet"
-Description: "Allowed coded values for NotMedicationReason, generated from enum_models.py."
+Description: "Allowed coded values for NotMedicationReason"
 * ^url = "http://tecnomod-um.org/ValueSet/not-medication-reason-vs"
 * ^status = #active
 * ^experimental = false
@@ -1691,12 +1696,14 @@ Description: "Allowed coded values for NotMedicationReason, generated from enum_
 * include SCT#401207004 "Medication side effects present (finding)"
 * include SCT#397943006 "Planned (qualifier value)"
 * include SCT#300936002 "Terminal illness (finding)"
+* include SCT#413560001 "Anticoagulation not indicated (situation)"
 * include NotMedicationReasonCS#Not-Consent "Patient or family did not consent"
 * include NotMedicationReasonCS#"Cost of drug" "Cost of drug"
 * include NotMedicationReasonCS#Not-Available "Medication not available"
 * include NotMedicationReasonCS#Not-Licensed "Medication not licensed"
 * include NotMedicationReasonCS#Not-Criteria "Patient does not meet criteria for medication"
 * include NotMedicationReasonCS#Forgot "Patient forgot to take medication"
+
 
 
 // Supplemental ValueSet for the shared procedure-timing-context-cs system used by ProcedureTimingContextExt.

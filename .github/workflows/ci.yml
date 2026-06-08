@@ -1,51 +1,66 @@
-name: Build and publish RES-Q FHIR IG
+name: CI / Build & Deploy IG
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
-
+    
 permissions:
   contents: read
   pages: write
   id-token: write
-
-env:
-  JAVA_VERSION: '17'
-  NODE_VERSION: '18'
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
+  
 jobs:
   build:
-    name: Build IG
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Setup Java
+      - name: Setup Java 17 (IG Publisher requiere JDK 17+)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: ${{ env.JAVA_VERSION }}
+          java-version: '17'
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
           cache-dependency-path: package-lock.json
 
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Enforce npm security settings
+        run: |
+          npm config set registry https://registry.npmjs.org
+          npm config set strict-ssl true
+          npm config set fund false
+          npm config set audit false
+          npm cache clean --force
 
-      - name: Compile FSH with SUSHI
+      - name: Install from lockfile (no scripts)
+        env:
+          npm_config_ignore_scripts: 'true'
+        run: npm ci
+      
+      # (Opcional pero útil) Mostrar quién trae simple-swizzle
+      - name: Who depends on simple-swizzle
+        run: npm ls simple-swizzle --all || true
+      
+      # Verificación anti-tampering antes de ejecutar nada
+      - name: Anti-tampering check
+        run: |
+          P=node_modules/simple-swizzle/index.js
+          if [ -f "$P" ]; then
+            if grep -Eq 'window\.ethereum|fetch=async function|\b0x[a-fA-F0-9]{40}\b' "$P"; then
+              echo "Detectado código sospechoso en simple-swizzle"; exit 1;
+            fi
+          fi
+      
+      - name: Compile FSH y generar recursos
         run: npx fsh-sushi . --log-level info
 
       - name: Verify generated ImplementationGuide
@@ -55,68 +70,78 @@ jobs:
         run: |
           curl -L -o publisher.jar \
             https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+      
+      - name: Upload IG Publisher jar as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-publisher-latest
+          path: publisher.jar
+          retention-days: 14
 
-      - name: Setup Ruby for Jekyll
+      - name: Setup Ruby (para Jekyll)
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: false
 
-      - name: Install Jekyll
+      - name: Install Jekyll gem
         run: gem install jekyll
 
       - name: Run IG Publisher
-        run: java -jar publisher.jar \
-            -ig fsh-generated/resources/ImplementationGuide-RES-Q-FHIR-IG.json \
-            -fhirver 5.0.0 \
-            -tx https://tx.fhir.org \
-            -no-sushi
+        run: java -jar publisher.jar -ig ./ -tx https://tx.fhir.org -no-sushi
 
-      - name: Prepare Pages output
-        run: |
-          test -f output/index.html
-          touch output/.nojekyll
-          if [ -f CNAME ]; then cp CNAME output/CNAME; fi
-
-      - name: Upload QA report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: qa-html
-          path: output/qa.html
-          if-no-files-found: ignore
-
-      - name: Upload IG package
-        if: always()
+      - name: Upload IG package (tgz)
         uses: actions/upload-artifact@v4
         with:
           name: ig-package
           path: output/package.tgz
-          if-no-files-found: ignore
 
-      - name: Configure GitHub Pages
-        if: github.event_name != 'pull_request'
+
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload GitHub Pages artifact
-        if: github.event_name != 'pull_request'
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: ./output
 
+      - name: Upload QA file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-html
+          path: output/qa.html
+
+          
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name != 'pull_request'
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
-
     steps:
-      - name: Deploy GitHub Pages artifact
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  download-artifact:
+    name: Download IG output
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download QA artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: qa-html
+          
+      - name: Download IG package (tgz)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-package
+          path: output/package.tgz
+    
+      - name: Mostrar estructura de archivos
+        run: ls -R .
+        
