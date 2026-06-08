@@ -1499,14 +1499,14 @@ Description: "Allowed coded values for IchTreatment"
 * include IchTreatmentCS#other "Other Treatment"
 
 
-ValueSet: PostStrokeProceduresVS
-Id: post-stroke-procedures-vs
+ValueSet: StrokeTreatmentProcedureVS
+Id: stroke-treatment-procedure-vs
 Title: "PostStrokeProcedures ValueSet"
 Description: "Allowed coded values for PostStrokeProcedures"
-* ^url = "http://tecnomod-um.org/ValueSet/post-stroke-procedures-vs"
+* ^url = "http://tecnomod-um.org/ValueSet/stroke-treatment-procedure-vs"
 * ^status = #active
 * ^experimental = false
-* include codes from valueset PostAcuteCareVS
+* include codes from valueset PostStrokeProceduresVS
 * include codes from valueset ICHTreatmentVS
 
 
