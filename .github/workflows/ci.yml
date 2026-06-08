@@ -62,7 +62,10 @@ jobs:
       
       - name: Compile FSH y generar recursos
         run: npx fsh-sushi . --log-level info
-      
+
+      - name: Verify generated ImplementationGuide
+        run: test -f fsh-generated/resources/ImplementationGuide-tecnomod.resq.stroke.json
+
       - name: Download IG Publisher
         run: |
           curl -L -o publisher.jar \
