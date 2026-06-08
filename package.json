@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tecnomod-um/SK-FHIR-IG.git"
+    "url": "git+https://github.com/tecnomod-um/RESQFHIRIG.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/tecnomod-um/SK-FHIR-IG/issues"
+    "url": "https://github.com/tecnomod-um/RESQFHIRIG/issues"
   },
-  "homepage": "https://github.com/tecnomod-um/SK-FHIR-IG#readme",
+  "homepage": "https://github.com/tecnomod-um/RESQFHIRIG#readme",
   "devDependencies": {
     "fsh-sushi": "^3.16.3"
   },

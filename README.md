@@ -6,7 +6,7 @@ Este es el repositorio del RES-Q FHIR Implementation Guide.
 
 El Implementation Guide se publica automáticamente en:
 - **URL personalizada**: https://www.tecnomod-um.org
-- **URL de GitHub Pages**: https://tecnomod-um.github.io/RES-Q-FHIR-IG
+- **URL de GitHub Pages**: https://tecnomod-um.github.io/RESQFHIR-IG
 
 ## Configuración DNS
 
