@@ -1506,8 +1506,8 @@ Description: "Allowed coded values for PostStrokeProcedures"
 * ^url = "http://tecnomod-um.org/ValueSet/post-stroke-procedures-vs"
 * ^status = #active
 * ^experimental = false
-* include codes from PostAcuteCareVS
-* include codes from ICHTreatmentVS
+* include codes from valueset PostAcuteCareVS
+* include codes from valueset ICHTreatmentVS
 
 
 ValueSet: StrokeCircumstanceVS
