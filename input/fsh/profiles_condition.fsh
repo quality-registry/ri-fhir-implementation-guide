@@ -12,33 +12,75 @@ Description: "Condition profile for the index stroke diagnosis. It captures stro
 * ^purpose = "Represents the principal clinical diagnosis around which the registry episode is organized."
 * insert RESQPatientSubject
 * insert RESQEncounterContext
+* obeys ischemic-etiology-only-for-ischemic-stroke
+* obeys hemorrhagic-bleeding-reason-only-for-hemorrhagic-stroke
+* obeys wakeup-stroke-true-should-have-onset
+* obeys tia-should-have-evidence
+* obeys mimic-diagnosis-should-not-have-stroke-specific-extensions
+
+* category 1..* MS
+* category = ConditionCategoryCS#encounter-diagnosis
+* category ^short = "Encounter diagnosis"
+
 * clinicalStatus 1..1 MS
 * clinicalStatus = ConditionClinicalCS#active
 * clinicalStatus ^short = "Active index diagnosis"
+
 * verificationStatus 0..1 MS
 * verificationStatus from http://hl7.org/fhir/ValueSet/condition-ver-status (required)
 * verificationStatus ^short = "Verification state of diagnosis"
+
 * code 1..1 MS
-* code from StrokeTypeVS (extensible)
-* code ^short = "Stroke diagnosis type"
+* code from StrokeDiagnosisCodeVS (extensible)
+* code ^short = "Final diagnosis code for the stroke episode, including stroke mimics"
+
 * bodySite 0..* MS
 * bodySite from BodySitesVS (extensible)
 * bodySite ^short = "Anatomical site of stroke involvement"
+
 * evidence 0..* MS
 * evidence ^short = "Diagnostic evidence supporting the stroke diagnosis"
+
 * onset[x] 0..1 MS
 * onset[x] only dateTime
 * onset[x] ^short = "Stroke onset or last-known-well date/time"
+
 * extension contains IschemicStrokeEtiologyExt named ischemicStrokeEtiology 0..1 MS
-  and IschemicStrokeEtiologyKnownExt named ischemicStrokeEtiologyKnown 0..1 MS
   and HemorrhagicStrokeBleedingReasonExt named hemorrhagicStrokeBleedingReason 0..* MS
-  and HemorrhagicStrokeBleedingReasonFoundExt named hemorrhagicStrokeBleedingReasonFound 0..1 MS
   and WakeupStrokeExt named wakeupStroke 1..1 MS
 * extension[ischemicStrokeEtiology] ^short = "Known ischemic stroke etiology"
 * extension[ischemicStrokeEtiologyKnown] ^short = "Known/unknown state for ischemic etiology"
 * extension[hemorrhagicStrokeBleedingReason] ^short = "Known hemorrhagic bleeding reason"
 * extension[hemorrhagicStrokeBleedingReasonFound] ^short = "Known/unknown state for bleeding reason"
 * extension[wakeupStroke] ^short = "Wake-up stroke indicator"
+
+Invariant: ischemic-etiology-only-for-ischemic-stroke
+Description: "Ischemic stroke etiology extension should only be present when the diagnosis code is ischemic stroke."
+Severity: #error
+Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and code = '422504002').exists()"
+
+Invariant: hemorrhagic-bleeding-reason-only-for-hemorrhagic-stroke
+Description: "Hemorrhagic bleeding reason extension should only be present when the diagnosis code is hemorrhagic stroke or subarachnoid hemorrhage."
+Severity: #error
+Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
+
+Invariant: hemorrhagic-bleeding-reason-only-for-hemorrhagic-stroke
+Description: "Hemorrhagic bleeding reason extension should only be present when the diagnosis code is hemorrhagic stroke or subarachnoid hemorrhage."
+Severity: #error
+Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
+
+Invariant: wakeup-stroke-true-should-have-onset
+Description: "If wake-up stroke is true, onsetDateTime should be populated with the last-known-well or sleep timestamp."
+Severity: #warning
+Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/wakeup-stroke-ext').value.ofType(boolean) != true or onset.exists()"
+
+Invariant: mimic-diagnosis-should-not-have-stroke-specific-extensions
+Description: "If the diagnosis code belongs to MimicsDiagnosisVS, stroke-specific etiology or hemorrhagic bleeding reason extensions should not be present."
+Severity: #error
+Expression: "code.memberOf('http://tecnomod-um.org/ValueSet/mimics-diagnosis-vs').not() or (extension.where(url = 'http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() and extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not())"
+
+
+
 
 Profile: StrokeRiskFactorConditionProfile
 Parent: Condition

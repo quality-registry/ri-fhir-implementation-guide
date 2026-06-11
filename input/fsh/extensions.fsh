@@ -60,13 +60,29 @@ Description: "Boolean indicator used by Procedure builders to mark post-acute-ca
 Extension: DischargeDepartmentServiceExt
 Id: discharge-department-service-ext
 Title: "Discharge department or service"
-Description: "Department/service or facility type receiving the patient at discharge."
+Description: "Department, unit or service receiving the patient at discharge."
 * ^url = "http://tecnomod-um.org/StructureDefinition/discharge-department-service-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
+
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1 MS
 * valueCodeableConcept from DischargeFacilityDepartmentVS (extensible)
+* valueCodeableConcept ^short = "Receiving department, unit or service at discharge"
+
+Extension: DischargeFacilityTypeExt
+Id: discharge-facility-type-ext
+Title: "Discharge facility type"
+Description: "Type of facility or transfer destination receiving the patient at discharge."
+* ^url = "http://tecnomod-um.org/StructureDefinition/discharge-facility-type-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "Encounter"
+
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1 MS
+* valueCodeableConcept from DischargeFacilityTypeVS (extensible)
+* valueCodeableConcept ^short = "Type of facility or transfer destination after discharge"
+
 
 Extension: InitialCareIntensityExt
 Id: initial-care-intensity-ext
@@ -114,19 +130,8 @@ Description: "Timing category used by medication-administration builders, e.g. i
 Extension: IschemicStrokeEtiologyExt
 Id: ischemic-stroke-etiology-ext
 Title: "Ischemic stroke etiology"
-Description: "Etiology of ischemic stroke when known."
+Description: "Etiology of ischemic stroke, including undetermined when the etiology is not known."
 * ^url = "http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-ext"
-* ^context[0].type = #element
-* ^context[0].expression = "Condition"
-* value[x] only CodeableConcept
-* valueCodeableConcept 1..1 MS
-* valueCodeableConcept from StrokeEtiologyVS (required)
-
-Extension: IschemicStrokeEtiologyKnownExt
-Id: ischemic-stroke-etiology-known-ext
-Title: "Ischemic stroke etiology known/unknown coded state"
-Description: "Coded state used when the Python builder represents unknown or undetermined ischemic stroke etiology."
-* ^url = "http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-known-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Condition"
 * value[x] only CodeableConcept
@@ -136,19 +141,8 @@ Description: "Coded state used when the Python builder represents unknown or und
 Extension: HemorrhagicStrokeBleedingReasonExt
 Id: hemorrhagic-stroke-bleeding-reason-ext
 Title: "Hemorrhagic stroke bleeding reason"
-Description: "Reason or underlying cause identified for hemorrhagic stroke."
+Description: "Reason or underlying cause identified for hemorrhagic stroke, including undetermined when no reason is found."
 * ^url = "http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext"
-* ^context[0].type = #element
-* ^context[0].expression = "Condition"
-* value[x] only CodeableConcept
-* valueCodeableConcept 1..1 MS
-* valueCodeableConcept from BleedingReasonVS (required)
-
-Extension: HemorrhagicStrokeBleedingReasonFoundExt
-Id: hemorrhagic-stroke-bleeding-reason-found-ext
-Title: "Hemorrhagic stroke bleeding reason found coded state"
-Description: "Coded state used when bleeding reason is not found/undetermined in the source model."
-* ^url = "http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-found-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Condition"
 * value[x] only CodeableConcept

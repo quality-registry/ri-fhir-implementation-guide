@@ -32,8 +32,11 @@ Description: "Index encounter for an acute stroke episode in the RES-Q registry.
 * extension contains FirstHospitalExt named firstHospital 1..1 MS
   and RequiredPostAcuteCareExt named requiredPostAcuteCare 1..1 MS
   and EmsPrenotificationExt named emsPrenotification 1..1 MS
+  and DischargeFacilityTypeExt named dischargeFacilityType 0..1 MS
   and DischargeDepartmentServiceExt named dischargeDepartmentService 0..1 MS
+
 * extension[firstHospital] ^short = "Whether this was the first hospital attended"
 * extension[requiredPostAcuteCare] ^short = "Whether post-acute care was required or applicable"
 * extension[emsPrenotification] ^short = "Whether EMS prenotified the receiving hospital"
+* extension[dischargeFacilityType] ^short = "Type of facility or transfer destination after discharge"
 * extension[dischargeDepartmentService] ^short = "Discharge department, service or facility type"

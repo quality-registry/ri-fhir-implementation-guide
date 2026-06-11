@@ -511,6 +511,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^experimental = false
 * ^caseSensitive = false
 * #no-finding "No Finding"
+* #atrial-fibrillation-flutter "Atrial fibrillation/flutter"
 
 CodeSystem: IchTreatmentCS
 Id: ich-treatment-cs
@@ -900,6 +901,17 @@ Description: "Allowed coded values for StrokeType"
 * include SCT#230690007 "Cerebrovascular accident (disorder)"
 * include SCT#373068000 "Undetermined (qualifier value)"
 
+ValueSet: StrokeDiagnosisCodeVS
+Id: stroke-diagnosis-code-vs
+Title: "Stroke Diagnosis Code ValueSet"
+Description: "Allowed coded values for final stroke episode diagnosis, including stroke types and stroke mimics."
+* ^url = "http://tecnomod-um.org/ValueSet/stroke-diagnosis-code-vs"
+* ^status = #active
+* ^experimental = false
+
+* include codes from valueset StrokeTypeVS
+* include codes from valueset MimicsDiagnosisVS
+
 ValueSet: StrokeEtiologyVS
 Id: stroke-etiology-vs
 Title: "StrokeEtiology ValueSet"
@@ -1235,6 +1247,16 @@ Description: "Allowed coded values for Nimodipinetiming"
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
+ValueSet: MedicationAdministrationNotDoneReasonVS
+Id: medication-administration-not-done-reason-vs
+Title: "Medication Administration Not Done Reason ValueSet"
+Description: "Reasons why a medication administration was not performed."
+* ^url = "http://tecnomod-um.org/ValueSet/medication-administration-not-done-reason-vs"
+* ^status = #active
+* ^experimental = false
+
+* include codes from valueset NotMedicationReasonVS
+* include codes from valueset NoAnticoagulantReasonVS
 
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
@@ -1460,10 +1482,11 @@ Description: "Allowed coded values for AssessmentContext"
 ValueSet: SpecificFindingVS
 Id: specific-finding-vs
 Title: "SpecificFinding ValueSet"
-Description: "Allowed coded values for SpecificFinding"
+Description: "Allowed coded values for specific stroke-related findings."
 * ^url = "http://tecnomod-um.org/ValueSet/specific-finding-vs"
 * ^status = #active
 * ^experimental = false
+
 * include MticiCodeCS#mTICI "mTICI"
 * include SCT#371863001 "Perfusion finding (finding)"
 * include SCT#787044009 "Stenosis of bilateral carotid arteries (disorder)"
@@ -1478,7 +1501,21 @@ Description: "Allowed coded values for SpecificFinding"
 * include SCT#230690007 "Cerebrovascular accident (disorder)"
 * include SCT#230706003 "Hemorrhagic cerebral infarction (disorder)"
 * include SpecificFindingCS#no-finding "No Finding"
-* include SCT#49436004 "Atrial fibrillation (disorder)"
+* include SpecificFindingCS#atrial-fibrillation-flutter "Atrial fibrillation/flutter"
+
+
+ValueSet: SpecificFindingValueVS
+Id: specific-finding-value-vs
+Title: "Specific Finding Value ValueSet"
+Description: "Allowed coded values used as Observation.valueCodeableConcept for specific finding observations."
+* ^url = "http://tecnomod-um.org/ValueSet/specific-finding-value-vs"
+* ^status = #active
+* ^experimental = false
+
+* include codes from valueset MTiciScoreVS
+* include codes from valueset AtrialFibrillationOrFlutterVS
+* include codes from valueset CarotidStenosisLevelVS
+* include codes from valueset HemorrhagicTransformationTypeVS
 
 ValueSet: IchTreatmentVS
 Id: ich-treatment-vs

@@ -77,43 +77,88 @@ Profile: SpecificFindingObservationProfile
 Parent: BaseStrokeObservation
 Id: specific-finding-observation-profile
 Title: "Specific Finding Observation Profile"
-Description: "Observation profile for specific clinical, imaging or procedural findings including mTICI, bleeding volume, carotid stenosis, occlusion and atrial fibrillation/flutter."
+Description: "Observation profile for specific stroke-related clinical, imaging and procedural findings including mTICI, bleeding volume, carotid stenosis, artery occlusion, atrial fibrillation/flutter and post-treatment findings."
 
 * ^url = "http://tecnomod-um.org/StructureDefinition/specific-finding-observation-profile"
 * insert RESQProfileMetadata
 
+* obeys specific-finding-must-have-result
 * obeys mtici-value-must-use-mtici-score-vs
+* obeys blood-volume-must-be-quantity-ml
+* obeys carotid-stenosis-value-rule
+* obeys artery-occlusion-must-have-bodystructure
 * obeys af-flutter-value-must-use-af-flutter-vs
+* obeys hemorrhagic-transformation-value-rule
 
-* category 0..* MS
+* status 1..1 MS
+* status = #final
+
+* subject 1..1 MS
+* encounter 1..1 MS
+
+* category 1..* MS
+* category ^short = "Observation category, such as exam, procedure or laboratory"
 
 * code 1..1 MS
 * code from SpecificFindingVS (extensible)
-* code ^short = "Specific stroke finding"
+* code ^short = "Specific stroke-related finding"
 
 * value[x] 0..1 MS
-* value[x] only boolean or integer or CodeableConcept or Quantity
+* value[x] only boolean or CodeableConcept or Quantity
 * value[x] ^short = "Finding value"
 
-* valueCodeableConcept from MTiciScoreVS
-* valueCodeableConcept from AtrialFibrillationOrFlutterVS
-* valueCodeableConcept ^short = "Coded finding value, such as mTICI score or atrial fibrillation/flutter status"
+* valueBoolean MS
+* valueBoolean ^short = "Presence or absence of the finding"
+
+* valueCodeableConcept MS
+* valueCodeableConcept from SpecificFindingValueVS (extensible)
+* valueCodeableConcept ^short = "Coded finding value, such as mTICI score, AF/flutter status, carotid stenosis level or hemorrhagic transformation type"
+
+* valueQuantity MS
+* valueQuantity ^short = "Quantitative finding value, such as bleeding volume"
+* valueQuantity.value 1..1 MS
+* valueQuantity.system 1..1 MS
+* valueQuantity.code 1..1 MS
+* valueQuantity.unit 0..1 MS
+
+* bodySite 0..1 MS
+* bodySite ^short = "Anatomical site when a simple coded body site is sufficient"
 
 * bodyStructure 0..1 MS
 * bodyStructure only Reference(RESQBodyStructureProfile)
-* bodyStructure ^short = "Anatomical structure associated with the finding"
+* bodyStructure ^short = "Patient-specific anatomical structure associated with the finding"
 
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
+
+Invariant: specific-finding-must-have-result
+Description: "A specific finding observation should have either a value or a dataAbsentReason."
+Severity: #error
+Expression: "value.exists() or dataAbsentReason.exists()"
 
 Invariant: mtici-value-must-use-mtici-score-vs
 Description: "If Observation.code is mTICI, valueCodeableConcept must belong to MTiciScoreVS."
 Severity: #error
-Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/specific-finding-cs' and code = 'mtici').exists().not() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/mtici-score-vs')"
+Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/mtici-code-cs' and code = 'mTICI').exists().not() or (value.ofType(CodeableConcept).exists() and value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/mtici-score-vs'))"
 
-Invariant: af-flutter-value-must-use-af-flutter-vs
-Description: "If Observation.code is atrial fibrillation/flutter, valueCodeableConcept must belong to AtrialFibrillationOrFlutterVS."
+Invariant: blood-volume-must-be-quantity-ml
+Description: "If Observation.code is blood volume, valueQuantity must be expressed in UCUM milliliters."
 Severity: #error
-Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/specific-finding-cs' and code = 'atrial-fibrillation-flutter').exists().not() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/atrial-fibrillation-or-flutter-vs')"
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '16086006').exists().not() or (value.ofType(Quantity).exists() and value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = 'mL')"
+
+Invariant: carotid-stenosis-value-rule
+Description: "If Observation.code is carotid stenosis, the value must be either a boolean presence/absence value or a coded carotid stenosis level."
+Severity: #error
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and (code = '64586002' or code = '787044009')).exists().not() or value.ofType(boolean).exists() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/carotid-stenosis-level-vs')"
+
+Invariant: artery-occlusion-must-have-bodystructure
+Description: "If Observation.code is artery occlusion, valueBoolean must be true and bodyStructure must be present."
+Severity: #error
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '2929001').exists().not() or (value.ofType(boolean) = true and bodyStructure.exists())"
+
+Invariant: hemorrhagic-transformation-value-rule
+Description: "If Observation.code is hemorrhagic transformation, the value must be either a boolean presence/absence value or a coded hemorrhagic transformation type."
+Severity: #error
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '230706003').exists().not() or value.ofType(boolean).exists() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/hemorrhagic-transformation-type-vs')"
 
 
 Profile: TimingMetricObservationProfile
