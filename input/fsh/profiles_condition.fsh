@@ -62,10 +62,10 @@ Description: "Hemorrhagic bleeding reason extension should only be present when 
 Severity: #error
 Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
 
-Invariant: hemorrhagic-bleeding-reason-only-for-hemorrhagic-stroke
-Description: "Hemorrhagic bleeding reason extension should only be present when the diagnosis code is hemorrhagic stroke or subarachnoid hemorrhage."
-Severity: #error
-Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
+Invariant: tia-should-have-evidence
+Description: "If the diagnosis is transient ischemic attack, diagnostic evidence should preferably reference the observed symptoms."
+Severity: #warning
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '266257000').exists().not() or evidence.exists()"
 
 Invariant: wakeup-stroke-true-should-have-onset
 Description: "If wake-up stroke is true, onsetDateTime should be populated with the last-known-well or sleep timestamp."

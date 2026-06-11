@@ -160,6 +160,11 @@ Description: "If Observation.code is hemorrhagic transformation, the value must 
 Severity: #error
 Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '230706003').exists().not() or value.ofType(boolean).exists() or value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/hemorrhagic-transformation-type-vs')"
 
+Invariant: af-flutter-value-must-use-af-flutter-vs
+Description: "If Observation.code is atrial fibrillation/flutter status, valueCodeableConcept must belong to AtrialFibrillationOrFlutterVS."
+Severity: #error
+Expression: "code.coding.where(system = 'http://tecnomod-um.org/CodeSystem/specific-finding-cs' and code = 'atrial-fibrillation-flutter').exists().not() or (value.ofType(CodeableConcept).exists() and value.ofType(CodeableConcept).memberOf('http://tecnomod-um.org/ValueSet/atrial-fibrillation-or-flutter-vs'))"
+
 
 Profile: TimingMetricObservationProfile
 Parent: BaseStrokeObservation
