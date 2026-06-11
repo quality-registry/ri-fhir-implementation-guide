@@ -3,6 +3,7 @@ Alias: FHIR = http://hl7.org/fhir
 Alias: HL7SD = http://hl7.org/fhir/StructureDefinition
 Alias: RESQ = http://tecnomod-um.org
 Alias: ConditionClinicalCS = http://terminology.hl7.org/CodeSystem/condition-clinical
+Alias: ConditionCategoryCS = http://terminology.hl7.org/CodeSystem/condition-category
 Alias: ConditionVerificationCS = http://terminology.hl7.org/CodeSystem/condition-ver-status
 Alias: FHIRBoolCS = http://hl7.org/fhir/bool
 Alias: FHIRInHospitalCS = http://hl7.org/fhir/in-hospital

@@ -34,6 +34,7 @@ Usage: #example
 * verificationStatus = ConditionVerificationCS#confirmed "Confirmed"
 * code = SCT#422504002 "Ischemic stroke (disorder)"
 * extension[wakeupStroke].valueBoolean = false
+* category = ConditionCategoryCS#encounter-diagnosis "Encounter Diagnosis"
 
 Instance: ExampleDoorToNeedle
 InstanceOf: TimingMetricObservationProfile

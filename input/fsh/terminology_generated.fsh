@@ -1247,17 +1247,6 @@ Description: "Allowed coded values for Nimodipinetiming"
 * include TimingCS#within-24-hours "Within 24 Hours"
 * include SCT#281381003 "More than 24 hours after admission (qualifier value)"
 
-ValueSet: MedicationAdministrationNotDoneReasonVS
-Id: medication-administration-not-done-reason-vs
-Title: "Medication Administration Not Done Reason ValueSet"
-Description: "Reasons why a medication administration was not performed."
-* ^url = "http://tecnomod-um.org/ValueSet/medication-administration-not-done-reason-vs"
-* ^status = #active
-* ^experimental = false
-
-* include codes from valueset NotMedicationReasonVS
-* include codes from valueset NoAnticoagulantReasonVS
-
 ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
 Title: "ParacetamolOnFever ValueSet"

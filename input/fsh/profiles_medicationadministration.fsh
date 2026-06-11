@@ -39,8 +39,12 @@ Description: "Generic MedicationAdministration profile for acute stroke treatmen
 * dosage.dose 0..1 MS
 
 * statusReason 0..* MS
-* statusReason from MedicationAdministrationNotDoneReasonVS (extensible)
+* statusReason from NotMedicationReasonVS (extensible)
 * statusReason ^short = "Reason medication was not given or status rationale"
+
+* extension contains
+    RequiredPostAcuteCareExt named requiredPostAcuteCare 0..1 MS and
+    AssessmentTimingExt named assessmentTiming 0..1 MS
 
 * extension[requiredPostAcuteCare] ^short = "Whether the medication relates to post-acute care"
 * extension[assessmentTiming] ^short = "Timing category for medication administration"

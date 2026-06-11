@@ -49,9 +49,7 @@ Description: "Condition profile for the index stroke diagnosis. It captures stro
   and HemorrhagicStrokeBleedingReasonExt named hemorrhagicStrokeBleedingReason 0..* MS
   and WakeupStrokeExt named wakeupStroke 1..1 MS
 * extension[ischemicStrokeEtiology] ^short = "Known ischemic stroke etiology"
-* extension[ischemicStrokeEtiologyKnown] ^short = "Known/unknown state for ischemic etiology"
 * extension[hemorrhagicStrokeBleedingReason] ^short = "Known hemorrhagic bleeding reason"
-* extension[hemorrhagicStrokeBleedingReasonFound] ^short = "Known/unknown state for bleeding reason"
 * extension[wakeupStroke] ^short = "Wake-up stroke indicator"
 
 Invariant: ischemic-etiology-only-for-ischemic-stroke
