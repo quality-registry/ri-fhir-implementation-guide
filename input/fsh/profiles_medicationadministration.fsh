@@ -135,9 +135,7 @@ Description: "MedicationAdministration profile for anticoagulant reversal treatm
 * obeys anticoagulant-reversal-status-reason-only-when-not-done
 
 * medication 1..1 MS
-* medication.concept 1..1 MS
-* medication.reference 0..0
-* medication.concept from AnticoagulantReversalMedicationVS (extensible)
+* medication from AnticoagulantReversalVS (extensible)
 * medication ^short = "Anticoagulant reversal medication or substance"
 
 * status 1..1 MS

@@ -335,7 +335,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * ^experimental = false
 * ^caseSensitive = false
 * #Not-Consent "Patient or family did not consent"
-* #Cost of drug "Cost of drug"
+* #Cost-of-drug "Cost of drug"
 * #Not-Available "Drug not available"
 * #Not-Licensed "Antidote not licenced for specific indication"
 * #Not-Criteria "Not met criteria for specific agent"
