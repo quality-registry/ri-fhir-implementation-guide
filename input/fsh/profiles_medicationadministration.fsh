@@ -121,3 +121,46 @@ Description: "MedicationAdministration profile for nimodipine in the subarachnoi
 
 * extension[assessmentTiming] 0..1 MS
 * extension[assessmentTiming].valueCodeableConcept from NimodipinetimingVS (required)
+
+Profile: AnticoagulantReversalMedicationAdministrationProfile
+Parent: StrokeMedicationAdministrationProfile
+Id: anticoagulant-reversal-medication-administration-profile
+Title: "Anticoagulant Reversal MedicationAdministration Profile"
+Description: "MedicationAdministration profile for anticoagulant reversal treatment in the acute stroke pathway, including completed and not-done reversal administrations."
+
+* ^url = "http://tecnomod-um.org/StructureDefinition/anticoagulant-reversal-medication-administration-profile"
+* insert RESQProfileMetadata
+
+* obeys anticoagulant-reversal-not-done-must-have-status-reason
+* obeys anticoagulant-reversal-status-reason-only-when-not-done
+
+* medication 1..1 MS
+* medication.concept 1..1 MS
+* medication.reference 0..0
+* medication.concept from AnticoagulantReversalMedicationVS (extensible)
+* medication ^short = "Anticoagulant reversal medication or substance"
+
+* status 1..1 MS
+* status ^short = "Completed if reversal was administered; not-done if reversal was indicated/considered but not administered"
+
+* occurence[x] 1..1 MS
+* occurence[x] only dateTime or Period
+* occurence[x] ^short = "Date/time or interval when reversal was administered or considered not done"
+
+* reason 0..* MS
+* reason only CodeableReference(Condition)
+* reason ^short = "Clinical reason for anticoagulant reversal, such as hemorrhagic stroke, bleeding, anticoagulant use or coagulation-related observation"
+
+* statusReason 0..* MS
+* statusReason from NotMedicationReasonCS (extensible)
+* statusReason ^short = "Reason anticoagulant reversal was not administered"
+
+Invariant: anticoagulant-reversal-not-done-must-have-status-reason
+Description: "If anticoagulant reversal was not done, a statusReason must be provided."
+Severity: #error
+Expression: "status != 'not-done' or statusReason.exists()"
+
+Invariant: anticoagulant-reversal-status-reason-only-when-not-done
+Description: "statusReason should only be present when anticoagulant reversal was not done."
+Severity: #warning
+Expression: "statusReason.exists().not() or status = 'not-done'"
