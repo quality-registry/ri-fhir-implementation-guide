@@ -96,6 +96,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #icu-stroke "ICU / Stroke Unit"
 * #monitored "Monitored Bed"
 * #standard "Standard Bed"
+* #unknown "Unknown"
 
 CodeSystem: BrainImagingTypeCS
 Id: brain-imaging-type-cs
@@ -513,15 +514,16 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #no-finding "No Finding"
 * #atrial-fibrillation-flutter "Atrial fibrillation/flutter"
 
-CodeSystem: IchTreatmentCS
-Id: ich-treatment-cs
-Title: "IchTreatmentCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/ich-treatment-cs."
-* ^url = "http://tecnomod-um.org/CodeSystem/ich-treatment-cs"
+CodeSystem: StrokeTreatmentCS
+Id: stroke-treatment-cs
+Title: "StrokeTreatmentCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/stroke-treatment-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/stroke-treatment-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
 * #other "Other Treatment"
+* #min-invasive "Minimally Invasive Procedure"
 
 CodeSystem: StrokeCircumstanceCodesCS
 Id: stroke-circumstance-codes-cs
@@ -795,6 +797,7 @@ Description: "Allowed coded values for Medications"
 * include SCT#387502003 "Nimodipine (substance)"
 * include MedicationCS#none-medication "No Medication"
 * include SCT#372912004 "Substance with 3-hydroxy-3-methylglutaryl-coenzyme A reductase inhibitor mechanism of action (substance)"
+* include MedicationCS#other "Other Medication"
 
 
 ValueSet: IvtApplicationDepartmentVS
@@ -847,6 +850,7 @@ Description: "Allowed coded values for HospitalizedIn"
 * include InitialCareIntensityCS#icu-stroke "ICU / Stroke Unit"
 * include InitialCareIntensityCS#monitored "Monitored Bed"
 * include InitialCareIntensityCS#standard "Standard Bed"
+* include InitialCareIntensityCS#unknown "Unknown"
 
 ValueSet: INRmodeVS
 Id: inrmode-vs
@@ -1071,6 +1075,7 @@ Description: "Allowed coded values for ProcedureNotDoneReason"
 * include StrokeProcNotDoneReasonCS#lesion-developed "Lesion Developed"
 * include StrokeProcNotDoneReasonCS#previous-bleeding "Previous Bleeding"
 * include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
+* include SCT#385432009 "Not applicable (qualifier value)"
 
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
@@ -1505,11 +1510,11 @@ Description: "Allowed coded values used as Observation.valueCodeableConcept for 
 * include codes from valueset CarotidStenosisLevelVS
 * include codes from valueset HemorrhagicTransformationTypeVS
 
-ValueSet: IchTreatmentVS
-Id: ich-treatment-vs
-Title: "IchTreatment ValueSet"
-Description: "Allowed coded values for IchTreatment"
-* ^url = "http://tecnomod-um.org/ValueSet/ich-treatment-vs"
+ValueSet: StrokeTreatmentVS
+Id: stroke-treatment-vs
+Title: "StrokeTreatment ValueSet"
+Description: "Allowed coded values for StrokeTreatment"
+* ^url = "http://tecnomod-um.org/ValueSet/stroke-treatment-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1288015005 "Decompressive craniectomy (procedure)"
@@ -1521,7 +1526,8 @@ Description: "Allowed coded values for IchTreatment"
 * include SCT#21147007 "Closure by clip (procedure)"
 * include SCT#1230010003 "Percutaneous transluminal procedure on blood vessel (procedure)"
 * include SCT#182764009 "Anticoagulant therapy (procedure)"
-* include IchTreatmentCS#other "Other Treatment"
+* include StrokeTreatmentCS#other "Other Treatment"
+* include StrokeTreatmentCS#min-invasive "Minimally Invasive Procedure"
 
 
 ValueSet: StrokeTreatmentProcedureVS
@@ -1532,7 +1538,7 @@ Description: "Allowed coded values for PostStrokeProcedures"
 * ^status = #active
 * ^experimental = false
 * include codes from valueset PostStrokeProceduresVS
-* include codes from valueset IchTreatmentVS
+* include codes from valueset StrokeTreatmentVS
 
 
 ValueSet: StrokeCircumstanceVS
