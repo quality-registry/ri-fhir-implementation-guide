@@ -1758,3 +1758,34 @@ Description: "Allowed values for the Procedure timing context extension."
 * ^status = #active
 * ^experimental = false
 * include codes from system ProcedureTimingContextCS
+
+ValueSet: RESQStrokeDischargeDocumentTypeVS
+Id: resq-stroke-discharge-document-type-vs
+Title: "RESQ Stroke Discharge Document Type ValueSet"
+Description: "Allowed document type code for the RESQ Stroke Hospital Discharge Summary Composition."
+* ^url = "http://tecnomod-um.org/ValueSet/resq-stroke-discharge-document-type-vs"
+* ^status = #active
+* ^experimental = false
+* LOINC#34105-7 "Hospital Discharge summary"
+
+ValueSet: RESQStrokeDischargeSectionCodeVS
+Id: resq-stroke-discharge-section-code-vs
+Title: "RESQ Stroke Discharge Section Code ValueSet"
+Description: "Allowed LOINC section codes for the RESQ Stroke Hospital Discharge Summary Composition."
+* ^url = "http://tecnomod-um.org/ValueSet/resq-stroke-discharge-section-code-vs"
+* ^status = #active
+* ^experimental = false
+
+* LOINC#67851-6 "Admission evaluation note"
+* LOINC#11329-0 "History of general health Narrative"
+* LOINC#11450-4 "Problem list - Reported"
+* LOINC#8648-8 "Hospital course note"
+* LOINC#11535-2 "Hospital discharge diagnosis Narrative"
+* LOINC#10185-7 "Hospital discharge procedures"
+* LOINC#87232-5 "Medication administration brief"
+* LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* LOINC#8716-3 "Vital signs note"
+* LOINC#47420-5 "Functional status assessment note"
+* LOINC#8650-4 "Hospital discharge disposition note"
+* LOINC#75311-1 "Discharge medications Narrative"
+* LOINC#18776-5 "Plan of care note"
