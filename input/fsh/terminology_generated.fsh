@@ -1766,7 +1766,7 @@ Description: "Allowed document type code for the RESQ Stroke Hospital Discharge 
 * ^url = "http://tecnomod-um.org/ValueSet/resq-stroke-discharge-document-type-vs"
 * ^status = #active
 * ^experimental = false
-* LOINC#34105-7 "Hospital Discharge summary"
+* LOINC#18842-5 "Discharge summary"
 
 ValueSet: RESQStrokeDischargeSectionCodeVS
 Id: resq-stroke-discharge-section-code-vs
@@ -1775,7 +1775,6 @@ Description: "Allowed LOINC section codes for the RESQ Stroke Hospital Discharge
 * ^url = "http://tecnomod-um.org/ValueSet/resq-stroke-discharge-section-code-vs"
 * ^status = #active
 * ^experimental = false
-
 * LOINC#67851-6 "Admission evaluation note"
 * LOINC#11329-0 "History of general health Narrative"
 * LOINC#11450-4 "Problem list - Reported"

@@ -44,6 +44,11 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 * type from RESQStrokeDischargeDocumentTypeVS (required)
 * type = LOINC#34105-7 "Hospital Discharge summary"
 
+* identifier 1..1 MS
+* identifier.system 1..1 MS
+* identifier.system = "https://stroke.qualityregistry.org/"
+* identifier.value 1..1 MS
+
 * subject 1..1 MS
 * subject only Reference(Patient)
 
