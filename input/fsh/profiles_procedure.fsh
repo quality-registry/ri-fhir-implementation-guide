@@ -19,8 +19,8 @@ Description: "Procedure profile for brain imaging performed in the stroke pathwa
 * code 0..1 MS
 * code from ImagingTypeVS (extensible)
 * code ^short = "Brain imaging type"
-* category 0..* MS
-* category = ObservationCategoryCS#imaging
+* category 0..*
+* category = SCT#103693007 "Diagnostic procedure"
 * occurrence[x] 0..1 MS
 * occurrence[x] only dateTime
 * occurrence[x] ^short = "Imaging date/time"
