@@ -399,7 +399,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #D2G "Door to Groin"
 * #"D2G<=90" "Door to Groin <= 90 Minutes"
 * #"D2G<=120" "Door to Groin <= 120 Minutes"
-* #D2D "Door to Door"
+* #Door2Door "Door to Door"
+* #Door2Discharge "Door to Discharge"
 * #D2N "Door to Needle"
 * #"D2N<=45" "Door to Needle <= 45 Minutes"
 * #"D2N<=60" "Door to Needle <= 60 Minutes"
@@ -619,6 +620,18 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #telyse "Telyse (Cipla)"
 * #tenepact "Tenepact (Glenmark Pharmaceuticals)"
 * #other "Other"
+
+
+CodeSystem: StrokeDischargeSummarySectionCS
+Id: stroke-discharge-summary-section-cs
+Title: "StrokeDischargeSummarySectionCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://tecnomod-um.org/CodeSystem/stroke-discharge-summary-section-cs."
+* ^url = "http://tecnomod-um.org/CodeSystem/stroke-discharge-summary-section-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #treatment-timings "Treatment Timings"
+
 
 ValueSet: SexVS
 Id: sex-vs
@@ -1584,7 +1597,8 @@ Description: "Allowed coded values for TimingMetricCodes"
 * include TimingMetricCodesCS#D2G "Door to Groin"
 * include TimingMetricCodesCS#"D2G<=90" "Door to Groin <= 90 Minutes"
 * include TimingMetricCodesCS#"D2G<=120" "Door to Groin <= 120 Minutes"
-* include TimingMetricCodesCS#D2D "Door to Door"
+* include TimingMetricCodesCS#Door2Door "Door to Door"
+* include TimingMetricCodesCS#Door2Discharge "Door to Discharge"
 * include TimingMetricCodesCS#D2N "Door to Needle"
 * include TimingMetricCodesCS#"D2N<=45" "Door to Needle <= 45 Minutes"
 * include TimingMetricCodesCS#"D2N<=60" "Door to Needle <= 60 Minutes"
@@ -1788,3 +1802,8 @@ Description: "Allowed LOINC section codes for the RESQ Stroke Hospital Discharge
 * LOINC#8650-4 "Hospital discharge disposition note"
 * LOINC#75311-1 "Discharge medications Narrative"
 * LOINC#18776-5 "Plan of care note"
+* LOINC#75310-3 "Health concerns Document"
+* LOINC#48765-2 "Allergies and adverse reactions Document"
+* LOINC#46240-8 "History of Hospitalizations+Outpatient visits Narrative"
+* SCT#866144008 "Encounter note (record artifact)"
+
