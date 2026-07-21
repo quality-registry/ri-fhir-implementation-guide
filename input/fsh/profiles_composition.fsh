@@ -135,8 +135,8 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // Required section
 // -------------------------------------------------------
 
-* section[hospitalCourse].title = "Hospital Course"
-* section[hospitalCourse].code = LOINC#8648-8 "Hospital course note"
+* section[hospitalCourse].title = "Course of Encounter"
+* section[hospitalCourse].code = LOINC#8648-8 "Course of Encounter"
 * section[hospitalCourse].entry only Reference(Condition or Observation or Procedure or MedicationAdministration or DiagnosticReport)
 
 

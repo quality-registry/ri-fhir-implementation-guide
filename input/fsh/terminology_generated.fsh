@@ -341,7 +341,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #Not-Licensed "Antidote not licenced for specific indication"
 * #Not-Criteria "Not met criteria for specific agent"
 * #Forgot "Patient did not use anticoagulant before ICH (forgot to take a pill)"
-* #Not-Reported "Reason for not giving anticoagulant reversal not reported"
+* #not-reported "Reason for not giving anticoagulant reversal not reported"
 * #not-required "Not Required"
 
 
@@ -709,6 +709,7 @@ Description: "Allowed coded values for AdmissionPathway"
 * include StrokeArrivalModeCS#another-hosp "Another Hospital"
 * include StrokeArrivalModeCS#priv-transport-gp "Private Transportation from GP"
 * include StrokeArrivalModeCS#in-hospital-stroke "In-Hospital Stroke"
+* include StrokeArrivalModeCS#ems-home "patient arrived by EMS/ambulance from home/scene"
 
 ValueSet: CarotidEndarterectomyTimingVS
 Id: carotid-endarterectomy-timing-vs
@@ -1760,6 +1761,8 @@ Description: "Allowed coded values for NotMedicationReason"
 * include NotMedicationReasonCS#Not-Licensed "Medication not licensed"
 * include NotMedicationReasonCS#Not-Criteria "Patient does not meet criteria for medication"
 * include NotMedicationReasonCS#Forgot "Patient forgot to take medication"
+* include NotMedicationReasonCS#not-required "Medication not required"
+* include NotMedicationReasonCS#not-reported "Reason for not taking medication not reported"
 
 
 

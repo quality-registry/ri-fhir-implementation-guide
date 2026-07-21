@@ -150,7 +150,7 @@ Description: "MedicationAdministration profile for anticoagulant reversal treatm
 * reason ^short = "Clinical reason for anticoagulant reversal, such as hemorrhagic stroke, bleeding, anticoagulant use or coagulation-related observation"
 
 * statusReason 0..* MS
-* statusReason from NotMedicationReasonCS (extensible)
+* statusReason from NotMedicationReasonVS (extensible)
 * statusReason ^short = "Reason anticoagulant reversal was not administered"
 
 Invariant: anticoagulant-reversal-not-done-must-have-status-reason
