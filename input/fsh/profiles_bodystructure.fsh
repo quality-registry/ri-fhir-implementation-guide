@@ -7,7 +7,7 @@ Parent: BodyStructure
 Id: resq-body-structure-profile
 Title: "RESQ BodyStructure Profile"
 Description: "BodyStructure profile for anatomical structures relevant to stroke, such as occluded arteries, stenosis sites and laterality-specific findings."
-* ^url = "http://tecnomod-um.org/StructureDefinition/resq-body-structure-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/resq-body-structure-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Allows observations and reports to reference a normalized anatomical site instead of repeating less structured body-site information."
 * patient 1..1 MS

@@ -27,7 +27,7 @@ Parent: Composition
 Id: resq-stroke-discharge-composition
 Title: "RESQ Stroke Hospital Discharge Composition"
 Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge Summary document."
-* ^url = "http://tecnomod-um.org/StructureDefinition/resq-stroke-discharge-composition"
+* ^url = "http://qualityregistry.org/StructureDefinition/resq-stroke-discharge-composition"
 * ^name = "RESQStrokeDischargeComposition"
 * ^status = #active
 * ^version = "1.0.0"
@@ -172,7 +172,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[significantResults].title = "Significant Results"
-* section[significantResults].code = LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* section[significantResults].code = LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative" 
 * section[significantResults].entry only Reference(Observation or DiagnosticReport)
 
 

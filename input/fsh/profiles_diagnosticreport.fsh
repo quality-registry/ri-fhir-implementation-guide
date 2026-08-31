@@ -7,7 +7,7 @@ Parent: DiagnosticReport
 Id: stroke-imaging-diagnostic-report-profile
 Title: "Stroke Imaging DiagnosticReport Profile"
 Description: "DiagnosticReport profile for brain, carotid and follow-up imaging reports in the stroke pathway."
-* ^url = "http://tecnomod-um.org/StructureDefinition/stroke-imaging-diagnostic-report-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/stroke-imaging-diagnostic-report-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Aggregates imaging observations and coded conclusions so imaging evidence can be referenced from procedures and clinical findings."
 * insert RESQDiagnosticReportCore
@@ -24,7 +24,7 @@ Parent: DiagnosticReport
 Id: mechanical-thrombectomy-diagnostic-report-profile
 Title: "Mechanical Thrombectomy DiagnosticReport Profile"
 Description: "DiagnosticReport profile for thrombectomy outcome, especially mTICI reperfusion results."
-* ^url = "http://tecnomod-um.org/StructureDefinition/mechanical-thrombectomy-diagnostic-report-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/mechanical-thrombectomy-diagnostic-report-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Collects procedure outcome observations after mechanical thrombectomy."
 * insert RESQDiagnosticReportCore

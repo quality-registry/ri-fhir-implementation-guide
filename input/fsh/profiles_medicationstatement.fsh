@@ -7,7 +7,7 @@ Parent: MedicationStatement
 Id: prior-medication-statement-profile
 Title: "Prior MedicationStatement Profile"
 Description: "MedicationStatement profile for medication taken before stroke onset, including adherence state when captured by the registry."
-* ^url = "http://tecnomod-um.org/StructureDefinition/prior-medication-statement-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/prior-medication-statement-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Represents relevant pre-stroke medications and adherence as patient-reported or recorded medication use."
 * status 1..1 MS

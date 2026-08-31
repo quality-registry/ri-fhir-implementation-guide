@@ -7,7 +7,7 @@ Parent: Condition
 Id: stroke-diagnosis-condition-profile
 Title: "Stroke Diagnosis Condition Profile"
 Description: "Condition profile for the index stroke diagnosis. It captures stroke type, onset timing, body site, diagnostic evidence and stroke-specific classification extensions such as ischemic etiology, hemorrhagic bleeding reason and wake-up stroke status."
-* ^url = "http://tecnomod-um.org/StructureDefinition/stroke-diagnosis-condition-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/stroke-diagnosis-condition-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Represents the principal clinical diagnosis around which the registry episode is organized."
 * insert RESQPatientSubject
@@ -55,12 +55,12 @@ Description: "Condition profile for the index stroke diagnosis. It captures stro
 Invariant: ischemic-etiology-only-for-ischemic-stroke
 Description: "Ischemic stroke etiology extension should only be present when the diagnosis code is ischemic stroke."
 Severity: #error
-Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and code = '422504002').exists()"
+Expression: "extension.where(url = 'http://qualityregistry.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and code = '422504002').exists()"
 
 Invariant: hemorrhagic-bleeding-reason-only-for-hemorrhagic-stroke
 Description: "Hemorrhagic bleeding reason extension should only be present when the diagnosis code is hemorrhagic stroke or subarachnoid hemorrhage."
 Severity: #error
-Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
+Expression: "extension.where(url = 'http://qualityregistry.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not() or code.coding.where(system = 'http://snomed.info/sct' and (code = '274100004' or code = '21454007')).exists()"
 
 Invariant: tia-should-have-evidence
 Description: "If the diagnosis is transient ischemic attack, diagnostic evidence should preferably reference the observed symptoms."
@@ -70,12 +70,12 @@ Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '266
 Invariant: wakeup-stroke-true-should-have-onset
 Description: "If wake-up stroke is true, onsetDateTime should be populated with the last-known-well or sleep timestamp."
 Severity: #warning
-Expression: "extension.where(url = 'http://tecnomod-um.org/StructureDefinition/wakeup-stroke-ext').value.ofType(boolean) != true or onset.exists()"
+Expression: "extension.where(url = 'http://qualityregistry.org/StructureDefinition/wakeup-stroke-ext').value.ofType(boolean) != true or onset.exists()"
 
 Invariant: mimic-diagnosis-should-not-have-stroke-specific-extensions
 Description: "If the diagnosis code belongs to MimicsDiagnosisVS, stroke-specific etiology or hemorrhagic bleeding reason extensions should not be present."
 Severity: #error
-Expression: "code.memberOf('http://tecnomod-um.org/ValueSet/mimics-diagnosis-vs').not() or (extension.where(url = 'http://tecnomod-um.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() and extension.where(url = 'http://tecnomod-um.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not())"
+Expression: "code.memberOf('http://qualityregistry.org/ValueSet/mimics-diagnosis-vs').not() or (extension.where(url = 'http://qualityregistry.org/StructureDefinition/ischemic-stroke-etiology-ext').exists().not() and extension.where(url = 'http://qualityregistry.org/StructureDefinition/hemorrhagic-stroke-bleeding-reason-ext').exists().not())"
 
 
 
@@ -85,7 +85,7 @@ Parent: Condition
 Id: stroke-risk-factor-condition-profile
 Title: "Stroke Risk Factor Condition Profile"
 Description: "Condition profile for pre-existing or episode-relevant risk factors captured in the RES-Q registry."
-* ^url = "http://tecnomod-um.org/StructureDefinition/stroke-risk-factor-condition-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/stroke-risk-factor-condition-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Represents comorbidities and clinical risk factors used in stroke quality measurement and outcome analysis."
 * insert RESQPatientSubject
@@ -104,7 +104,7 @@ Parent: Condition
 Id: post-stroke-complication-condition-profile
 Title: "Post-Stroke Complication Condition Profile"
 Description: "Condition profile for complications occurring after the index stroke, including complications relevant to post-acute care and registry outcome tracking."
-* ^url = "http://tecnomod-um.org/StructureDefinition/post-stroke-complication-condition-profile"
+* ^url = "http://qualityregistry.org/StructureDefinition/post-stroke-complication-condition-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Records clinically meaningful post-stroke complications as conditions linked to the stroke encounter."
 * insert RESQPatientSubject

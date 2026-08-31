@@ -1,5 +1,5 @@
 id: RESQFHIRIG
-canonical: http://tecnomod-um.org
+canonical: http://qualityregistry.org
 name: RESQStrokeIG
 title: RESQ Stroke Registry Implementation Guide
 status: draft
@@ -9,7 +9,7 @@ copyrightYear: 2026
 releaseLabel: ci-build
 publisher:
   name: Tecnomod / Universidad de Murcia
-  url: http://tecnomod-um.org
+  url: http://qualityregistry.org
 jurisdiction: urn:iso:std:iso:3166#ES "Spain"
 dependencies:
   hl7.fhir.uv.extensions.r5: 5.2.0
