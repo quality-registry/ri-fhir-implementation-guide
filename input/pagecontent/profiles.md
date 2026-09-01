@@ -54,6 +54,15 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | [Stroke VTE Prophylaxis Procedure](StructureDefinition-stroke-vte-procedure-profile.html) | VTE prophylaxis in the stroke pathway. |
 | [Stroke Treatment Procedure](StructureDefinition-stroke-treatment-procedure-profile.html) | Broader treatment and rehabilitation procedures. |
 
+## Patient-Reported Outcomes {#patient-reported-outcomes}
+
+| Profile | Why it exists |
+| --- | --- |
+| [Patient Reported Outcome Questionnaires](StructureDefinition-patient-reported-outcome-questionnaires.html) | Fixes the shape shared by the four registry instruments: a fully identified and versioned definition, a coded instrument identifier, and a flat list of coded, required, non-repeating questions. |
+| [Patient Reported Outcome Questionnaire Responses](StructureDefinition-patient-reported-outcome-questionnaire-responses.html) | Constrains answers to the shape the registry collects, restricts the answered questionnaire to the four defined here, and flags skipped questions rather than omitting them. |
+
+The four instrument definitions themselves are published as definitional `Questionnaire` instances: [mRS](Questionnaire-mrs-questionnaire.html), [PHQ-9](Questionnaire-phq9-questionnaire.html), [SF-SIS](Questionnaire-sf-sis-questionnaire.html) and [SF-NEADL](Questionnaire-sf-neadl-questionnaire.html).
+
 ## Reports
 
 | Resource | Profiles |

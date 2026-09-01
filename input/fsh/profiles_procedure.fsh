@@ -171,6 +171,6 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
 
 Invariant: stroke-treatment-poststroke-timing-required
-Description: "If Procedure.code belongs to PostStrokeProceduresVS, procedureTimingContext must be present with AssessmentContextCS#post-stroke."
+Description: "If Procedure.code belongs to PostStrokeProceduresVS, procedureTimingContext must be present with AssessmentContextCS#post-acute-care."
 Severity: #error
-Expression: "code.memberOf('http://qualityregistry.org/ValueSet/post-stroke-procedures-vs').not() or extension.where(url = 'http://qualityregistry.org/StructureDefinition/procedure-timing-context-ext').value.ofType(CodeableConcept).coding.where(system = 'http://qualityregistry.org/CodeSystem/assessment-context-cs' and code = 'post-stroke').exists()"
+Expression: "code.memberOf('http://qualityregistry.org/ValueSet/post-stroke-procedures-vs').not() or extension.where(url = 'http://qualityregistry.org/StructureDefinition/procedure-timing-context-ext').value.ofType(CodeableConcept).coding.where(system = 'http://qualityregistry.org/CodeSystem/assessment-context-cs' and code = 'post-acute-care').exists()"

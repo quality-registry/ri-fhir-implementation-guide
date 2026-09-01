@@ -11,6 +11,7 @@ The IG exposes registry enumerations as computable FHIR terminology. Local CodeS
 | Observations and scores | [FunctionalScore ValueSet](ValueSet-functional-score-vs.html), [MRsScore ValueSet](ValueSet-mrs-score-vs.html), [GlasgowComaScale ValueSet](ValueSet-glasgow-coma-scale-vs.html), [TimingMetricCodes ValueSet](ValueSet-timing-metric-codes-vs.html) |
 | Procedures | [PerforationProcedures ValueSet](ValueSet-perforation-procedures-vs.html), [VteProcedures ValueSet](ValueSet-vte-procedures-vs.html), [ProcedureNotDoneReason ValueSet](ValueSet-procedure-not-done-reason-vs.html) |
 | Medication | [Medications ValueSet](ValueSet-medications-vs.html), [DischargeMedication ValueSet](ValueSet-discharge-medication-vs.html), [NotMedicationReason ValueSet](ValueSet-not-medication-reason-vs.html), [AdherenceCodes ValueSet](ValueSet-adherence-codes-vs.html) |
+| Patient-reported outcomes | [SfSisAnswers ValueSet](ValueSet-sf-sis-answers-vs.html), [Phq9Answers ValueSet](ValueSet-phq9-answers-vs.html), [SfNeadlAnswers ValueSet](ValueSet-sf-neadl-answers-vs.html), [RESQQuestionnaireCode ValueSet](ValueSet-resq-questionnaire-code-vs.html) |
 | Anatomy and measurements | [BodySites ValueSet](ValueSet-body-sites-vs.html), [Laterality ValueSet](ValueSet-laterality-vs.html), [UnitofMeasurement ValueSet](ValueSet-unitof-measurement-vs.html) |
 
 ## Binding Approach
