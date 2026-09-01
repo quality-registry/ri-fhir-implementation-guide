@@ -163,7 +163,7 @@ Extension: QuestionnaireSkippedItemExt
 Id: questionnaire-skipped-item-ext
 Title: "Questionnaire item skipped"
 Description: "Flags a questionnaire response item that the respondent skipped, distinguishing a deliberate skip from an item that was never presented. Replaces the legacy URL https://stroke.qualityregistry.org/fhir/StructureDefinition/questionnaire-skipped-item emitted by the RES-Q questionnaire service."
-* ^url = "http://tecnomod-um.org/StructureDefinition/questionnaire-skipped-item-ext"
+* ^url = "http://qualityregistry.org/StructureDefinition/questionnaire-skipped-item-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "QuestionnaireResponse.item"
 * value[x] only boolean
@@ -173,7 +173,7 @@ Extension: SelfReportedExt
 Id: self-reported-ext
 Title: "Self-reported value"
 Description: "Indicates that the value was reported by the patient rather than measured or recorded by a clinician or device. Registry analyses commonly need to separate self-reported vital signs, such as a blood pressure the patient quotes from home monitoring, from values measured during the stroke pathway."
-* ^url = "http://tecnomod-um.org/StructureDefinition/self-reported-ext"
+* ^url = "http://qualityregistry.org/StructureDefinition/self-reported-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Observation"
 * value[x] only boolean

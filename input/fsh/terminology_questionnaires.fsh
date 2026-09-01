@@ -16,7 +16,7 @@ CodeSystem: SfSisAnswersCS
 Id: sf-sis-answers-cs
 Title: "SfSisAnswers CodeSystem"
 Description: "Answer scale shared by every item of the short-form Stroke Impact Scale questionnaire. Replaces the legacy system https://qualityregistry.org/fhir/code-system/sf-sis-answers published by the RES-Q questionnaire service."
-* ^url = "http://tecnomod-um.org/CodeSystem/sf-sis-answers-cs"
+* ^url = "http://qualityregistry.org/CodeSystem/sf-sis-answers-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -30,7 +30,7 @@ CodeSystem: SupplementalQuestionsCS
 Id: supplemental-questions-cs
 Title: "SupplementalQuestions CodeSystem"
 Description: "Local question codes for the two questionnaire items that have no suitable SNOMED CT concept. Replaces the legacy system https://qualityregistry.org/fhir/code-system/supplemental-questions published by the RES-Q questionnaire service."
-* ^url = "http://tecnomod-um.org/CodeSystem/supplemental-questions-cs"
+* ^url = "http://qualityregistry.org/CodeSystem/supplemental-questions-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -41,7 +41,7 @@ CodeSystem: RESQQuestionnairesCS
 Id: resq-questionnaires-cs
 Title: "RESQQuestionnaires CodeSystem"
 Description: "Identifies the RES-Q questionnaire instruments that have no SNOMED CT or LOINC concept. Used both as Questionnaire.code and as Observation.code for the derived summary score. Replaces the legacy system https://qualityregistry.org/fhir/code-system/questionnaires published by the RES-Q questionnaire service."
-* ^url = "http://tecnomod-um.org/CodeSystem/resq-questionnaires-cs"
+* ^url = "http://qualityregistry.org/CodeSystem/resq-questionnaires-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -57,7 +57,7 @@ ValueSet: SfSisAnswersVS
 Id: sf-sis-answers-vs
 Title: "SfSisAnswers ValueSet"
 Description: "Allowed answers for every item of the short-form Stroke Impact Scale questionnaire."
-* ^url = "http://tecnomod-um.org/ValueSet/sf-sis-answers-vs"
+* ^url = "http://qualityregistry.org/ValueSet/sf-sis-answers-vs"
 * ^status = #active
 * ^experimental = false
 * include codes from system SfSisAnswersCS
@@ -66,7 +66,7 @@ ValueSet: Phq9AnswersVS
 Id: phq9-answers-vs
 Title: "Phq9Answers ValueSet"
 Description: "Allowed answers for every item of the PHQ-9 questionnaire, weighted 0 to 3."
-* ^url = "http://tecnomod-um.org/ValueSet/phq9-answers-vs"
+* ^url = "http://qualityregistry.org/ValueSet/phq9-answers-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#260353006 "Not at all"
@@ -78,7 +78,7 @@ ValueSet: SfNeadlAnswersVS
 Id: sf-neadl-answers-vs
 Title: "SfNeadlAnswers ValueSet"
 Description: "Allowed answers for every item of the short-form Nottingham Extended Activities of Daily Living questionnaire, weighted 1 to 4."
-* ^url = "http://tecnomod-um.org/ValueSet/sf-neadl-answers-vs"
+* ^url = "http://qualityregistry.org/ValueSet/sf-neadl-answers-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#371151008 "Unable to do"
@@ -90,7 +90,7 @@ ValueSet: RESQQuestionnaireCodeVS
 Id: resq-questionnaire-code-vs
 Title: "RESQQuestionnaireCode ValueSet"
 Description: "Codes identifying the four patient-reported questionnaires collected by the RES-Q registry, as used in Questionnaire.code."
-* ^url = "http://tecnomod-um.org/ValueSet/resq-questionnaire-code-vs"
+* ^url = "http://qualityregistry.org/ValueSet/resq-questionnaire-code-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#840352000 "Modified Rankin Scale"

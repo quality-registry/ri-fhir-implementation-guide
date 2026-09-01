@@ -54,7 +54,7 @@ Usage: #example
 // Answers are taken from the documented RES-Q questionnaire service payloads in
 // docs/example_requests.md. Note that valueCoding.system for the SF-SIS answers is
 // the code system defined by this guide
-// (http://tecnomod-um.org/CodeSystem/sf-sis-answers-cs); the service currently sends
+// (http://qualityregistry.org/CodeSystem/sf-sis-answers-cs); the service currently sends
 // the legacy https://qualityregistry.org/fhir/code-system/sf-sis-answers instead.
 //
 // The SNOMED CT answer displays are the registry labels as the service sends them;
