@@ -155,3 +155,46 @@ Description: "Patient-reported SF-NEADL response with all five items answered."
 * item[3].answer.valueCoding = SCT#371157007 "Independent with difficulty"
 * item[4].linkId = "sfneadl_q5"
 * item[4].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+
+// ----------------------------------------------------------------------------
+// Example self-reported medication note
+//
+// Values are taken from the questionnaire service's own MedicationStatement test
+// fixture (apps/questionnaire_app/tests/test_medication.py), with two deliberate
+// departures:
+//
+//   1. The fixture sends medication.codable.coding SCT#318341000 alongside the
+//      text. This profile prohibits the Coding, so only the text is carried.
+//   2. The fixture also sends medication.ingredient (Atorvastatin, 20 mg). Ingredients
+//      belong to a Medication resource, which this profile forbids by closing
+//      medication.reference, so they are not carried as a separate element. Nothing
+//      is lost: the strength is already part of the text the patient wrote, which by
+//      convention reads name + strength + form, as it does here.
+//
+// The encounter is deliberately absent, which is the normal case for these notes.
+// ----------------------------------------------------------------------------
+
+Instance: ExampleSelfReportedMedicationNote
+InstanceOf: SelfReportedMedicationNotes
+Usage: #example
+Title: "ExampleSelfReportedMedicationNote"
+Description: "Patient-reported statin taken one tablet each evening for two months."
+* identifier[0].system = "http://qualityregistry.org/identifier/medication-statement-resource-id"
+* identifier[0].value = "medication-001"
+* status = #recorded
+* subject = Reference(ExampleRESQPatient)
+* informationSource = Reference(ExampleRESQPatient)
+* medication.concept.text = "Atorvastatin 20 mg tablet"
+* dateAsserted = "2026-01-20T07:17:19.921Z"
+* effectivePeriod.start = "2026-01-20"
+* effectivePeriod.end = "2026-03-20"
+* dosage[0].asNeeded = false
+* dosage[0].timing.repeat.frequency = 1
+* dosage[0].timing.repeat.period = 1
+* dosage[0].timing.repeat.periodUnit = #d
+* dosage[0].timing.repeat.when[0] = #EVE
+* dosage[0].doseAndRate[0].doseQuantity.value = 1
+* dosage[0].doseAndRate[0].doseQuantity.system = "http://qualityregistry.org/CodeSystem/dose-form-unit-cs"
+* dosage[0].doseAndRate[0].doseQuantity.code = #tablet
+* dosage[0].doseAndRate[0].doseQuantity.unit = "Tablet"
+* note[0].text = "Take after dinner"

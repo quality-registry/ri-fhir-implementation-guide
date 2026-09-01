@@ -9,9 +9,9 @@ This guide describes how RES-Q stroke registry data is represented in HL7 FHIR R
     <p>The model turns one stroke episode into a connected resource graph: a patient and encounter anchor the record, while diagnoses, observations, procedures, medications, reports and follow-up resources describe the clinical pathway.</p>
   </div>
   <div class="resq-stat-grid">
-    <a class="resq-stat" href="profiles.html"><strong>48</strong><span>Profiles</span></a>
+    <a class="resq-stat" href="profiles.html"><strong>49</strong><span>Profiles</span></a>
     <a class="resq-stat" href="extensions.html"><strong>16</strong><span>Extensions</span></a>
-    <a class="resq-stat" href="terminology.html"><strong>127</strong><span>Terminology artifacts</span></a>
+    <a class="resq-stat" href="terminology.html"><strong>130</strong><span>Terminology artifacts</span></a>
     <a class="resq-stat" href="resource-map.html"><strong>17</strong><span>FHIR resource types</span></a>
   </div>
 </div>

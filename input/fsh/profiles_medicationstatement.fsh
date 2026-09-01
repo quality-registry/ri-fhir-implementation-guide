@@ -27,7 +27,7 @@ Profile: SelfReportedMedicationNotes
 Parent: MedicationStatement
 Id: self-reported-medication-notes
 Title: "Self-Reported Medication Notes"
-Description: "MedicationStatement profile for medication a patient reports taking, as captured by the RES-Q questionnaire service alongside the patient-reported outcome questionnaires. The medication is carried as free text only, because the patient names the drug rather than selecting a coded product. Records the dose, the times of day the medication is taken, and the date range over which it was taken."
+Description: "MedicationStatement profile for medication a patient reports taking, as captured by the RES-Q questionnaire service alongside the patient-reported outcome questionnaires. The medication is carried as free text only, because the patient writes what they take rather than selecting a coded product; that text is expected to carry the drug name together with its strength and form, for example \"Aspirin 50 mg tablet\". Records the dose, the times of day the medication is taken, and the date range over which it was taken."
 * ^url = "http://qualityregistry.org/StructureDefinition/self-reported-medication-notes"
 * insert RESQProfileMetadata
 * ^purpose = "Captures patient-reported medication use with enough dosing and timing detail to be interpretable, without asserting a coded medication the patient never selected."
@@ -52,7 +52,8 @@ Description: "MedicationStatement profile for medication a patient reports takin
 * medication 1..1 MS
 * medication.concept 1..1 MS
 * medication.concept.text 1..1 MS
-* medication.concept.text ^short = "Medication as the patient named it"
+* medication.concept.text ^short = "Medication as the patient wrote it, including strength and form"
+* medication.concept.text ^definition = "The medication exactly as the patient wrote it. By convention this single string carries the drug name, its strength and its form together, for example \"Aspirin 50 mg tablet\". Strength is therefore not modelled separately: it would require a Medication resource with an ingredient, and this profile closes medication.reference. Do not attempt to parse this text into a coded product."
 * medication.concept.coding 0..0
 * medication.concept.coding ^definition = "Prohibited. This profile carries patient-reported medication as text only; use PriorMedicationStatementProfile when a coded medication is available."
 * medication.reference 0..0
@@ -90,7 +91,7 @@ Description: "MedicationStatement profile for medication a patient reports takin
 * dosage.timing.repeat.when ^short = "Times of day the medication is taken"
 * dosage.doseAndRate 0..1 MS
 * dosage.doseAndRate.dose[x] 1..1 MS
-* dosage.doseAndRate.dose[x] only Quantity
+* dosage.doseAndRate.dose[x] only SimpleQuantity
 * dosage.doseAndRate.doseQuantity from DoseFormUnitVS (required)
 * dosage.doseAndRate.doseQuantity.value 1..1 MS
 * dosage.doseAndRate.doseQuantity.system 1..1 MS

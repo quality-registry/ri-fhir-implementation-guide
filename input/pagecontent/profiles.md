@@ -73,6 +73,6 @@ The four instrument definitions themselves are published as definitional `Questi
 
 | Resource | Profiles |
 | --- | --- |
-| `MedicationStatement` | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html) |
+| `MedicationStatement` | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html), [Self-Reported Medication Notes](StructureDefinition-self-reported-medication-notes.html) |
 | `MedicationRequest` | [Discharge MedicationRequest](StructureDefinition-discharge-medication-request-profile.html) |
 | `MedicationAdministration` | [Stroke MedicationAdministration](StructureDefinition-stroke-medication-administration-profile.html), [Paracetamol on Fever](StructureDefinition-paracetamol-on-fever-medicationAdministration-profile.html), [Insulin on Hyperglycemia](StructureDefinition-insulin-on-hyperglycemia-medicationAdministration-profile.html), [Nimodipine](StructureDefinition-nimodipine-medicationAdministration-profile.html) |

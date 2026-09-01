@@ -61,3 +61,5 @@ Alias: VteProceduresCS = http://qualityregistry.org/CodeSystem/vte-procedures-cs
 Alias: YesNoNotRequiredCS = http://qualityregistry.org/CodeSystem/yes-no-not-required-cs
 Alias: StrokeRegistryIdSystem = https://stroke.qualityregistry.org
 Alias: ItemWeight = http://hl7.org/fhir/StructureDefinition/itemWeight
+
+Alias: EventTimingCS = http://hl7.org/fhir/event-timing
