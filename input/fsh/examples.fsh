@@ -175,7 +175,7 @@ Description: "Patient-reported SF-NEADL response with all five items answered."
 // ----------------------------------------------------------------------------
 
 Instance: ExampleSelfReportedMedicationNote
-InstanceOf: SelfReportedMedicationNotes
+InstanceOf: SelfReportedMedicationStatementProfile
 Usage: #example
 Title: "ExampleSelfReportedMedicationNote"
 Description: "Patient-reported statin taken one tablet each evening for two months."

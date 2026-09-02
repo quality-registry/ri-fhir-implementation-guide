@@ -30,9 +30,6 @@ Description: "Observation profile for vital signs in the acute stroke pathway, e
 * component.value[x] 1..1 MS
 * component.value[x] only Quantity
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
-  and SelfReportedExt named selfReported 0..1 MS
-* extension[selfReported] ^short = "Value reported by the patient rather than measured"
-* extension[selfReported] ^definition = "True when the patient supplied the value, for example quoting a home blood-pressure reading. Absent means the registry did not record how the value was obtained; false means it was measured or device-recorded."
 
 Profile: FunctionalScoreObservationProfile
 Parent: BaseStrokeObservation
