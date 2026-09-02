@@ -9,6 +9,7 @@ Title: "Stroke Imaging Procedure Profile"
 Description: "Procedure profile for brain imaging performed in the stroke pathway, with optional report linkage and timing context."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-imaging-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * ^purpose = "Represents acute or follow-up neuroimaging procedures used to diagnose, treat or monitor stroke."
 * status 1..1 MS
 * status ^short = "Imaging procedure status"
@@ -36,6 +37,7 @@ Title: "Stroke Carotid Imaging Procedure Profile"
 Description: "Procedure profile for carotid imaging used in post-stroke assessment."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-carotid-imaging-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * status 1..1 MS
 * statusReason 0..1 MS
 * statusReason from ProcedureNotDoneReasonVS (extensible)
@@ -55,6 +57,7 @@ Title: "Stroke Carotid Endarterectomy Procedure Profile"
 Description: "Procedure profile for carotid endarterectomy and its timing window in the RES-Q pathway."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-carotid-endarterectomy-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * status 1..1 MS
 * statusReason 0..1 MS
 * statusReason from ProcedureNotDoneReasonVS (extensible)
@@ -76,6 +79,7 @@ Title: "Stroke Reperfusion Procedure Profile"
 Description: "Procedure profile for acute reperfusion interventions, including thrombolysis and mechanical thrombectomy. It supports reason, not-done reason, location, occurrence, complications and timing context."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-mechanical-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * ^purpose = "Captures key acute reperfusion procedures and non-performance reasons for quality metrics."
 * status 1..1 MS
 * insert RESQPatientSubject
@@ -107,6 +111,7 @@ Title: "Stroke Swallowing Screening Procedure Profile"
 Description: "Procedure profile for swallowing screening, including screening type, not-done reason, performer role and timing context."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-swallow-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * status 1..1 MS
 * insert RESQPatientSubject
 * insert RESQEncounterContext
@@ -141,6 +146,7 @@ Title: "Stroke VTE Prophylaxis Procedure Profile"
 Description: "Procedure profile for venous thromboembolism prophylaxis used in the stroke pathway."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-vte-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * status 1..1 MS
 * insert RESQPatientSubject
 * insert RESQEncounterContext
@@ -155,6 +161,7 @@ Title: "Stroke Treatment Procedure Profile"
 Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, craniectomy, therapy, smoking cessation and shunt procedures not given a dedicated meta.profile in the Python builders."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-treatment-procedure-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * status 1..1 MS
 * insert RESQPatientSubject
 * insert RESQEncounterContext

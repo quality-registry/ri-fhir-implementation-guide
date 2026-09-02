@@ -9,6 +9,7 @@ Title: "Patient Reported Outcome Questionnaire Responses"
 Description: "Patient-reported answers to one of the four RES-Q questionnaires (mRS, PHQ-9, SF-SIS, SF-NEADL). The profile mirrors the flat answer model of the RES-Q questionnaire service: every response item carries at most one answer, items are never nested, and an item the respondent skipped is flagged with an extension instead of being omitted. Responses are collected during patient intake and at three-month follow-up, so they are not tied to a hospital encounter."
 * ^url = "http://qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaire-responses"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * ^purpose = "Constrains patient-reported questionnaire answers to the shape the registry actually collects, so that responses can be validated against the four published Questionnaire definitions and consumed as evidence for the derived functional-outcome scores."
 * insert RESQPatientSubject
 * obeys resq-qr-item-answer-or-skipped

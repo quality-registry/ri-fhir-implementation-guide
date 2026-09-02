@@ -23,6 +23,7 @@ menu:
   Guide:
     Resource Map: resource-map.html
     Modeling Decisions: modeling.html
+    Data Exchange: exchange.html
   Resources:
     Profiles: profiles.html
     Extensions: extensions.html

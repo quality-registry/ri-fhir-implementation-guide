@@ -28,6 +28,7 @@ Id: resq-stroke-discharge-composition
 Title: "RESQ Stroke Hospital Discharge Composition"
 Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge Summary document."
 * ^url = "http://qualityregistry.org/StructureDefinition/resq-stroke-discharge-composition"
+* insert RESQSubmittedProfile
 * ^name = "RESQStrokeDischargeComposition"
 * ^status = #active
 * ^version = "1.0.0"

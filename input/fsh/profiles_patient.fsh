@@ -9,6 +9,7 @@ Title: "RESQ Patient Profile"
 Description: "Patient profile for RES-Q stroke registry submissions. The registry patient is intentionally pseudonymized: the profile requires a stable registry identifier and represents sex/gender using a SNOMED CT coded extension because the source ETL does not populate Patient.gender. Age is represented as an Observation in the registry model rather than as a Patient extension."
 * ^url = "http://qualityregistry.org/StructureDefinition/resq-patient-profile"
 * insert RESQProfileMetadata
+* insert RESQSubmittedProfile
 * ^purpose = "Provides a minimal, privacy-preserving patient anchor for all RES-Q stroke resources while retaining a coded sex/gender data element required for registry analytics."
 * identifier 1..* MS
 * identifier ^short = "Stable registry patient identifier"
