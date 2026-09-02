@@ -7,7 +7,7 @@ Parent: QuestionnaireResponse
 Id: patient-reported-outcome-questionnaire-responses
 Title: "Patient Reported Outcome Questionnaire Responses"
 Description: "Patient-reported answers to one of the four RES-Q questionnaires (mRS, PHQ-9, SF-SIS, SF-NEADL). The profile mirrors the flat answer model of the RES-Q questionnaire service: every response item carries at most one answer, items are never nested, and an item the respondent skipped is flagged with an extension instead of being omitted. Responses are collected during patient intake and at three-month follow-up, so they are not tied to a hospital encounter."
-* ^url = "http://qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaire-responses"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaire-responses"
 * insert RESQProfileMetadata
 * ^purpose = "Constrains patient-reported questionnaire answers to the shape the registry actually collects, so that responses can be validated against the four published Questionnaire definitions and consumed as evidence for the derived functional-outcome scores."
 * insert RESQPatientSubject
@@ -45,9 +45,9 @@ Description: "Patient-reported answers to one of the four RES-Q questionnaires (
 Invariant: resq-qr-item-answer-or-skipped
 Description: "A response item SHALL either carry an answer or be flagged as skipped."
 Severity: #error
-Expression: "item.all(answer.exists() or extension('http://qualityregistry.org/StructureDefinition/questionnaire-skipped-item-ext').exists())"
+Expression: "item.all(answer.exists() or extension('http://fhir.qualityregistry.org/StructureDefinition/questionnaire-skipped-item-ext').exists())"
 
 Invariant: prom-qr-known-questionnaire
 Description: "The response SHALL answer one of the four patient-reported outcome questionnaires defined by this implementation guide. The canonical is matched exactly, so a version-suffixed canonical such as ...mrs-questionnaire|1.0.0 does not satisfy this constraint; the registry questionnaire service sends unversioned canonicals."
 Severity: #error
-Expression: "questionnaire in ('http://qualityregistry.org/Questionnaire/mrs-questionnaire' | 'http://qualityregistry.org/Questionnaire/phq9-questionnaire' | 'http://qualityregistry.org/Questionnaire/sf-sis-questionnaire' | 'http://qualityregistry.org/Questionnaire/sf-neadl-questionnaire')"
+Expression: "questionnaire in ('http://fhir.qualityregistry.org/Questionnaire/mrs-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/phq9-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/sf-sis-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/sf-neadl-questionnaire')"

@@ -7,7 +7,7 @@ Parent: Questionnaire
 Id: patient-reported-outcome-questionnaires
 Title: "Patient Reported Outcome Questionnaires"
 Description: "Questionnaire profile for the patient-reported outcome instruments collected by the RES-Q stroke registry. The profile fixes the shape shared by all four instruments as the registry operates them: a fully identified and versioned definition, a coded instrument identifier, and a flat list of coded, required, non-repeating questions. Nesting and repeating questions are prohibited because the registry source model supports neither."
-* ^url = "http://qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaires"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaires"
 * insert RESQProfileMetadata
 * ^purpose = "Ensures every patient-reported outcome instrument published for the registry is individually addressable, versioned and coded, so that a QuestionnaireResponse can be resolved to an unambiguous definition and its answers scored consistently."
 * obeys prom-coding-item-has-answer-option

@@ -13,7 +13,7 @@
 // 1019431000000105). None of the three exists in the International Edition this
 // guide validates against, so they are replaced here by International concepts,
 // and glucose and LDL now use the same codes as in-hospital analytics in
-// AnaliticsCodesVS. The questionnaire service must be migrated onto these codes
+// AnalyticsCodesVS. The questionnaire service must be migrated onto these codes
 // for the two sides to agree at source.
 //
 // Body mass index is absent on purpose. The questionnaire service has no BMI
@@ -24,7 +24,7 @@ ValueSet: SelfReportedSignsVS
 Id: self-reported-signs-vs
 Title: "SelfReportedSigns ValueSet"
 Description: "Measurements a patient reports about themselves through the RES-Q questionnaire service: blood pressure and its components, glucose, LDL cholesterol, glycated haemoglobin, weight and height."
-* ^url = "http://qualityregistry.org/ValueSet/self-reported-signs-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/self-reported-signs-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#75367002 "Blood pressure (observable entity)"
@@ -40,7 +40,7 @@ ValueSet: SelfReportedScoresVS
 Id: self-reported-scores-vs
 Title: "SelfReportedScores ValueSet"
 Description: "Summary scores derived from the four patient-reported questionnaires the RES-Q questionnaire service collects. mRS and PHQ-9 have SNOMED CT concepts; the two short-form instruments do not, and reuse the local questionnaire codes that also identify the Questionnaire itself."
-* ^url = "http://qualityregistry.org/ValueSet/self-reported-scores-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/self-reported-scores-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1255866005 "Modified Rankin Scale score (observable entity)"

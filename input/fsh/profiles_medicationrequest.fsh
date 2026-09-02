@@ -7,7 +7,7 @@ Parent: MedicationRequest
 Id: discharge-medication-request-profile
 Title: "Discharge MedicationRequest Profile"
 Description: "MedicationRequest profile for medications prescribed or recommended at discharge after the index stroke encounter."
-* ^url = "http://qualityregistry.org/StructureDefinition/discharge-medication-request-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/discharge-medication-request-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Captures discharge medication orders needed for quality reporting and secondary prevention analysis."
 * status 1..1 MS

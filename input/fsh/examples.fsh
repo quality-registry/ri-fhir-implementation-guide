@@ -54,7 +54,7 @@ Usage: #example
 // Answers are taken from the documented RES-Q questionnaire service payloads in
 // docs/example_requests.md. Note that valueCoding.system for the SF-SIS answers is
 // the code system defined by this guide
-// (http://qualityregistry.org/CodeSystem/sf-sis-answers-cs); the service currently sends
+// (http://fhir.qualityregistry.org/CodeSystem/sf-sis-answers-cs); the service currently sends
 // the legacy https://qualityregistry.org/fhir/code-system/sf-sis-answers instead.
 //
 // The SNOMED CT answer displays are valid designations of their codes, which differ
@@ -179,7 +179,7 @@ InstanceOf: SelfReportedMedicationStatementProfile
 Usage: #example
 Title: "ExampleSelfReportedMedicationNote"
 Description: "Patient-reported statin taken one tablet each evening for two months."
-* identifier[0].system = "http://qualityregistry.org/identifier/medication-statement-resource-id"
+* identifier[0].system = "http://fhir.qualityregistry.org/identifier/medication-statement-resource-id"
 * identifier[0].value = "medication-001"
 * status = #recorded
 * subject = Reference(ExampleRESQPatient)
@@ -194,7 +194,7 @@ Description: "Patient-reported statin taken one tablet each evening for two mont
 * dosage[0].timing.repeat.periodUnit = #d
 * dosage[0].timing.repeat.when[0] = #EVE
 * dosage[0].doseAndRate[0].doseQuantity.value = 1
-* dosage[0].doseAndRate[0].doseQuantity.system = "http://qualityregistry.org/CodeSystem/dose-form-unit-cs"
+* dosage[0].doseAndRate[0].doseQuantity.system = "http://fhir.qualityregistry.org/CodeSystem/dose-form-unit-cs"
 * dosage[0].doseAndRate[0].doseQuantity.code = #tablet
 * dosage[0].doseAndRate[0].doseQuantity.unit = "Tablet"
 * note[0].text = "Take after dinner"

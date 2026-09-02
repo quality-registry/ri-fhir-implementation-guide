@@ -34,7 +34,7 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | [Glasgow Coma Scale Observation](StructureDefinition-glasgow-coma-scale-observation-profile.html) | Specialized GCS score binding. |
 | [Specific Finding Observation](StructureDefinition-specific-finding-observation-profile.html) | Imaging, procedure and clinical findings such as mTICI or stenosis. |
 | [Timing Metric Observation](StructureDefinition-timing-metric-observation-profile.html) | Door-to-needle, onset-to-door and related process metrics. |
-| [Analytics Observation](StructureDefinition-analitics-observation-profile.html) | Laboratory and analytics values such as glucose, LDL and INR. |
+| [Analytics Observation](StructureDefinition-analytics-observation-profile.html) | Laboratory and analytics values such as glucose, LDL and INR. |
 | [Fever Observation](StructureDefinition-fever-observation-profile.html) | Fever indicator or temperature value. |
 | [Hyperglycemia Observation](StructureDefinition-hyperglycemia-observation-profile.html) | Hyperglycemia checks and values. |
 | [Glucose >= 10 Observation](StructureDefinition-glucose-ge10-observation-profile.html) | Boolean glucose threshold indicator. |
