@@ -12,8 +12,6 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | `Location` | [RESQ Location](StructureDefinition-resq-location-profile.html), [Hospitalized Location](StructureDefinition-hospitalized-location-profile.html) |
 | `BodyStructure` | [RESQ BodyStructure](StructureDefinition-resq-body-structure-profile.html) |
 | `PractitionerRole` | [RESQ PractitionerRole](StructureDefinition-resq-practitioner-role-profile.html) |
-| `Appointment` | [Three-Month Follow-up Appointment](StructureDefinition-follow-up-appointment-profile.html) |
-| `Communication` | [Three-Month Contact Communication](StructureDefinition-three-month-communication-profile.html) |
 
 ## Conditions
 
@@ -75,4 +73,4 @@ The four instrument definitions themselves are published as definitional `Questi
 | --- | --- |
 | `MedicationStatement` | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html), [Self-Reported Medication Notes](StructureDefinition-self-reported-medication-notes.html) |
 | `MedicationRequest` | [Discharge MedicationRequest](StructureDefinition-discharge-medication-request-profile.html) |
-| `MedicationAdministration` | [Stroke MedicationAdministration](StructureDefinition-stroke-medication-administration-profile.html), [Paracetamol on Fever](StructureDefinition-paracetamol-on-fever-medicationAdministration-profile.html), [Insulin on Hyperglycemia](StructureDefinition-insulin-on-hyperglycemia-medicationAdministration-profile.html), [Nimodipine](StructureDefinition-nimodipine-medicationAdministration-profile.html) |
+| `MedicationAdministration` | [Stroke MedicationAdministration](StructureDefinition-stroke-medication-administration-profile.html), [Paracetamol on Fever](StructureDefinition-paracetamol-on-fever-medication-administration-profile.html), [Insulin on Hyperglycemia](StructureDefinition-insulin-on-hyperglycemia-medication-administration-profile.html), [Nimodipine](StructureDefinition-nimodipine-medication-administration-profile.html) |

@@ -17,8 +17,6 @@ The RES-Q IG models one registry case as a connected set of FHIR resources. The 
 | `MedicationRequest` | Medication prescribed at discharge | [Discharge MedicationRequest](StructureDefinition-discharge-medication-request-profile.html) |
 | `MedicationAdministration` | Acute or post-acute medication administrations | [MedicationAdministration profiles](profiles.html#medications) |
 | `PractitionerRole` | Performer category for screening procedures | [RESQ PractitionerRole](StructureDefinition-resq-practitioner-role-profile.html) |
-| `Appointment` | Three-month follow-up appointment | [Follow-up Appointment](StructureDefinition-follow-up-appointment-profile.html) |
-| `Communication` | Three-month contact modality and communication status | [Three-Month Communication](StructureDefinition-three-month-communication-profile.html) |
 
 ## How to Navigate
 
@@ -35,5 +33,5 @@ flowchart TD
   Procedures --> Reports["DiagnosticReport"]
   Reports --> Observations
   Observations --> BodyStructure["BodyStructure where anatomy matters"]
-  Encounter --> FollowUp["Appointment / Communication"]
+  Encounter --> FollowUp["Follow-up Observations"]
 ```

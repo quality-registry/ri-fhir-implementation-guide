@@ -39,7 +39,7 @@ This guide describes how RES-Q stroke registry data is represented in HL7 FHIR R
 
 ## Scope
 
-The IG covers the complete transaction bundle produced by `transform_to_fhir`: `Organization`, `Patient`, `Encounter`, `Location`, `Condition`, `Observation`, `Procedure`, `DiagnosticReport`, `BodyStructure`, `MedicationStatement`, `MedicationRequest`, `MedicationAdministration`, `PractitionerRole`, `Appointment` and `Communication`.
+The IG covers the complete transaction bundle produced by `transform_to_fhir`: `Organization`, `Patient`, `Encounter`, `Location`, `Condition`, `Observation`, `Procedure`, `DiagnosticReport`, `BodyStructure`, `MedicationStatement`, `MedicationRequest`, `MedicationAdministration` and `PractitionerRole`. Three-month follow-up is represented as `Observation` rather than `Appointment`/`Communication`.
 
 ## Resource graph
 
@@ -54,7 +54,7 @@ flowchart LR
   Proc --> Rep["DiagnosticReport"]
   Rep --> Obs
   Enc --> Med["MedicationStatement / Request / Administration"]
-  Enc --> Fu["Appointment / Communication follow-up"]
+  Enc --> Fu["Follow-up observations"]
   Body["BodyStructure"] --> Obs
 ```
 

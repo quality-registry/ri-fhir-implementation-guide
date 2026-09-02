@@ -15,9 +15,7 @@ Extensions carry registry-specific semantics that do not fit cleanly into a stan
 | [Procedure timing context](StructureDefinition-procedure-timing-context-ext.html) | `Procedure` | Adds acute/post-acute or screening-window context. |
 | [Assessment or medication timing](StructureDefinition-assessment-timing-ext.html) | `MedicationAdministration` | Records timing categories for medication-related assessments. |
 | [Ischemic stroke etiology](StructureDefinition-ischemic-stroke-etiology-ext.html) | `Condition` | Captures known ischemic stroke etiology. |
-| [Ischemic stroke etiology known/unknown coded state](StructureDefinition-ischemic-stroke-etiology-known-ext.html) | `Condition` | Captures unknown or undetermined etiology state. |
 | [Hemorrhagic stroke bleeding reason](StructureDefinition-hemorrhagic-stroke-bleeding-reason-ext.html) | `Condition` | Captures known bleeding reason. |
-| [Hemorrhagic stroke bleeding reason found coded state](StructureDefinition-hemorrhagic-stroke-bleeding-reason-found-ext.html) | `Condition` | Captures unknown or undetermined bleeding reason state. |
 | [Wake-up stroke](StructureDefinition-wakeup-stroke-ext.html) | `Condition` | Indicates stroke first noticed after waking. |
 | [Questionnaire item skipped](StructureDefinition-questionnaire-skipped-item-ext.html) | `QuestionnaireResponse.item` | Flags a question the respondent skipped, distinguishing a deliberate skip from a question never presented. |
 | [Self-reported value](StructureDefinition-self-reported-ext.html) | `Observation` | Marks a value as reported by the patient rather than measured or device-recorded. |
