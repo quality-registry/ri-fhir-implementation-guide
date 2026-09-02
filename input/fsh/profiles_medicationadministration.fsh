@@ -9,7 +9,6 @@ Title: "Stroke MedicationAdministration Profile"
 Description: "Generic MedicationAdministration profile for acute stroke treatment medications, including thrombolysis, anticoagulant reversal, IV antihypertensives and other administrations."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-medication-administration-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Records medication administrations that are part of the acute or post-acute stroke treatment pathway."
 * status 1..1 MS
 * status ^short = "Medication administration status"
@@ -68,7 +67,6 @@ Description: "MedicationAdministration profile for paracetamol administered beca
 
 * ^url = "http://qualityregistry.org/StructureDefinition/paracetamol-on-fever-medication-administration-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 
 * medication.concept 1..1 MS
 * medication.reference 0..0
@@ -90,7 +88,6 @@ Description: "MedicationAdministration profile for insulin administered in respo
 
 * ^url = "http://qualityregistry.org/StructureDefinition/insulin-on-hyperglycemia-medication-administration-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 
 * medication.concept 1..1 MS
 * medication.reference 0..0
@@ -112,7 +109,6 @@ Description: "MedicationAdministration profile for nimodipine in the subarachnoi
 
 * ^url = "http://qualityregistry.org/StructureDefinition/nimodipine-medication-administration-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 
 * medication.concept 1..1 MS
 * medication.reference 0..0
@@ -134,7 +130,6 @@ Description: "MedicationAdministration profile for anticoagulant reversal treatm
 
 * ^url = "http://qualityregistry.org/StructureDefinition/anticoagulant-reversal-medication-administration-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 
 * obeys anticoagulant-reversal-not-done-must-have-status-reason
 * obeys anticoagulant-reversal-status-reason-only-when-not-done

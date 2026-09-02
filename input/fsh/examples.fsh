@@ -57,9 +57,9 @@ Usage: #example
 // (http://qualityregistry.org/CodeSystem/sf-sis-answers-cs); the service currently sends
 // the legacy https://qualityregistry.org/fhir/code-system/sf-sis-answers instead.
 //
-// The SNOMED CT answer displays are the registry labels as the service sends them;
-// five of them are not valid designations of their code and are reported by the FHIR
-// validator. See the divergence table in questionnaires.fsh.
+// The SNOMED CT answer displays are valid designations of their codes, which differ
+// from the registry labels the service sends today. See the divergence table in
+// questionnaires.fsh for the mapping.
 // ----------------------------------------------------------------------------
 
 Instance: ExampleMrsResponse
@@ -90,23 +90,23 @@ Description: "Patient-reported PHQ-9 response with all nine items answered."
 * source = Reference(ExampleRESQPatient)
 * authored = "2026-01-14T07:32:49.762Z"
 * item[0].linkId = "phq9_q1"
-* item[0].answer.valueCoding = SCT#260353006 "Not at all"
+* item[0].answer.valueCoding = SCT#260353006 "Nothing at all"
 * item[1].linkId = "phq9_q2"
-* item[1].answer.valueCoding = SCT#5878004 "Several days"
+* item[1].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[2].linkId = "phq9_q3"
-* item[2].answer.valueCoding = SCT#5878004 "Several days"
+* item[2].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[3].linkId = "phq9_q4"
-* item[3].answer.valueCoding = SCT#5878004 "Several days"
+* item[3].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[4].linkId = "phq9_q5"
-* item[4].answer.valueCoding = SCT#5878004 "Several days"
+* item[4].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[5].linkId = "phq9_q6"
-* item[5].answer.valueCoding = SCT#5878004 "Several days"
+* item[5].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[6].linkId = "phq9_q7"
-* item[6].answer.valueCoding = SCT#5878004 "Several days"
+* item[6].answer.valueCoding = SCT#5878004 "Low frequency"
 * item[7].linkId = "phq9_q8"
-* item[7].answer.valueCoding = SCT#255218000 "More than half the days"
+* item[7].answer.valueCoding = SCT#255218000 "Mid-frequency"
 * item[8].linkId = "phq9_q9"
-* item[8].answer.valueCoding = SCT#27732004 "Nearly every day"
+* item[8].answer.valueCoding = SCT#27732004 "High frequency"
 
 Instance: ExampleSfSisResponse
 InstanceOf: PatientReportedOutcomeQuestionnaireResponses
@@ -146,15 +146,15 @@ Description: "Patient-reported SF-NEADL response with all five items answered."
 * source = Reference(ExampleRESQPatient)
 * authored = "2026-01-14T07:32:49.762Z"
 * item[0].linkId = "sfneadl_q1"
-* item[0].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+* item[0].answer.valueCoding = SCT#371157007 "Able with difficulty"
 * item[1].linkId = "sfneadl_q2"
-* item[1].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+* item[1].answer.valueCoding = SCT#371157007 "Able with difficulty"
 * item[2].linkId = "sfneadl_q3"
-* item[2].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+* item[2].answer.valueCoding = SCT#371157007 "Able with difficulty"
 * item[3].linkId = "sfneadl_q4"
-* item[3].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+* item[3].answer.valueCoding = SCT#371157007 "Able with difficulty"
 * item[4].linkId = "sfneadl_q5"
-* item[4].answer.valueCoding = SCT#371157007 "Independent with difficulty"
+* item[4].answer.valueCoding = SCT#371157007 "Able with difficulty"
 
 // ----------------------------------------------------------------------------
 // Example self-reported medication note

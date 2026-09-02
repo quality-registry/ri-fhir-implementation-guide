@@ -1,0 +1,3 @@
+== suppressed messages ==
+
+# Nothing is currently suppressed. This file exists because the IG Publisher registers a default suppressed-ig-messages parameter pointing at it, and reports an error when it is missing. The first line above is mandatory. Blank lines are ignored, a line beginning with "#" is a heading that explains why the messages under it are suppressed, and every other line is the text of a message to suppress.

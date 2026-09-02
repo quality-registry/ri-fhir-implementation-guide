@@ -9,7 +9,6 @@ Title: "Stroke Encounter Profile"
 Description: "Index encounter for an acute stroke episode in the RES-Q registry. It records the patient, completed encounter state, admission and discharge pathway information, hospital locations, first-hospital status, EMS prenotification and post-acute-care applicability."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-encounter-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Acts as the central clinical context for diagnosis, observations, procedures, medication administrations and follow-up resources created for one stroke episode."
 * status 1..1 MS
 * status = #completed

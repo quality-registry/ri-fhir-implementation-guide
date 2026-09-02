@@ -18,12 +18,15 @@ parameters:
     - input/resources
   path-pages:
     - input/pagecontent
+  # This guide is written in English. Without this, the publisher infers a display
+  # language from jurisdiction (ES) and validates every LOINC/SNOMED display against
+  # Spanish designations, reporting correct English displays as errors.
+  i18n-default-lang: en
 menu:
   Home: index.html
   Guide:
     Resource Map: resource-map.html
     Modeling Decisions: modeling.html
-    Data Exchange: exchange.html
   Resources:
     Profiles: profiles.html
     Extensions: extensions.html

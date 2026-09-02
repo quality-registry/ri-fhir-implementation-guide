@@ -9,7 +9,6 @@ Title: "Stroke Imaging DiagnosticReport Profile"
 Description: "DiagnosticReport profile for brain, carotid and follow-up imaging reports in the stroke pathway."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-imaging-diagnostic-report-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Aggregates imaging observations and coded conclusions so imaging evidence can be referenced from procedures and clinical findings."
 * insert RESQDiagnosticReportCore
 * code from ImagingTypeVS (extensible)
@@ -27,7 +26,6 @@ Title: "Mechanical Thrombectomy DiagnosticReport Profile"
 Description: "DiagnosticReport profile for thrombectomy outcome, especially mTICI reperfusion results."
 * ^url = "http://qualityregistry.org/StructureDefinition/mechanical-thrombectomy-diagnostic-report-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Collects procedure outcome observations after mechanical thrombectomy."
 * insert RESQDiagnosticReportCore
 * code from PerforationProceduresVS (extensible)

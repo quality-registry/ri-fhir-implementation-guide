@@ -69,10 +69,10 @@ Description: "Allowed answers for every item of the PHQ-9 questionnaire, weighte
 * ^url = "http://qualityregistry.org/ValueSet/phq9-answers-vs"
 * ^status = #active
 * ^experimental = false
-* include SCT#260353006 "Not at all"
-* include SCT#5878004 "Several days"
-* include SCT#255218000 "More than half the days"
-* include SCT#27732004 "Nearly every day"
+* include SCT#260353006 "Nothing at all"
+* include SCT#5878004 "Low frequency"
+* include SCT#255218000 "Mid-frequency"
+* include SCT#27732004 "High frequency"
 
 ValueSet: SfNeadlAnswersVS
 Id: sf-neadl-answers-vs
@@ -81,10 +81,10 @@ Description: "Allowed answers for every item of the short-form Nottingham Extend
 * ^url = "http://qualityregistry.org/ValueSet/sf-neadl-answers-vs"
 * ^status = #active
 * ^experimental = false
-* include SCT#371151008 "Unable to do"
-* include SCT#371154000 "Needs help"
-* include SCT#371157007 "Independent with difficulty"
-* include SCT#371153006 "Independent without difficulty"
+* include SCT#371151008 "Unable"
+* include SCT#371154000 "Dependent"
+* include SCT#371157007 "Able with difficulty"
+* include SCT#371153006 "Independently able"
 
 ValueSet: RESQQuestionnaireCodeVS
 Id: resq-questionnaire-code-vs

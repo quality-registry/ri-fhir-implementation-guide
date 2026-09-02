@@ -19,20 +19,30 @@
 // KNOWN TERMINOLOGY DEFECTS IN THE SOURCE DATA. Both were found by validating these
 // artifacts against SNOMED CT. They are problems in the questionnaire service data, not
 // authoring mistakes here, and the service must be updated for either to be resolved at
-// source. The wrong display labels (1) are reproduced verbatim so that this guide
-// describes what is actually exchanged; the invalid code (2) is corrected here, because
-// an unknown code cannot be resolved by any consumer.
+// source. Both are corrected in this guide: a Coding.display that is not a designation
+// of its code, and a code that does not exist, are each unresolvable by a consumer.
 //
-// 1. Eight answer codes carry a registry label that is not a valid designation of the
-//    SNOMED CT concept. Code -> label used here -> actual SNOMED CT term:
-//      260353006  "Not at all"                     -> Nothing at all
-//      5878004    "Several days"                   -> Low frequency
-//      255218000  "More than half the days"        -> Mid-frequency
-//      27732004   "Nearly every day"               -> High frequency
-//      371151008  "Unable to do"                   -> Unable
-//      371154000  "Needs help"                     -> Dependent
-//      371157007  "Independent with difficulty"    -> Difficulty / Able with difficulty
-//      371153006  "Independent without difficulty" -> Independent / Independently able
+// 1. CORRECTED HERE. Eight answer codes carry a registry label that is not a valid
+//    designation of the SNOMED CT concept. This guide publishes a valid designation
+//    instead; where SNOMED CT offers several, the one closest in meaning to the registry
+//    label is used. The registry labels are recorded here because they are what the
+//    questionnaire service sends today and what patients are shown on screen, and
+//    because the PHQ-9 and SF-NEADL answer wording is fixed by the instruments.
+//    Code -> label the service sends -> display published here:
+//      260353006  "Not at all"                     -> "Nothing at all"
+//      5878004    "Several days"                   -> "Low frequency"
+//      255218000  "More than half the days"        -> "Mid-frequency"
+//      27732004   "Nearly every day"               -> "High frequency"
+//      371151008  "Unable to do"                   -> "Unable"
+//      371154000  "Needs help"                     -> "Dependent"
+//      371157007  "Independent with difficulty"    -> "Able with difficulty"
+//      371153006  "Independent without difficulty" -> "Independently able"
+//
+//    Note the consequence: a renderer driving a patient-facing form from these
+//    Questionnaire instances will show the SNOMED CT wording, not the instrument
+//    wording. If the instrument wording has to reach the patient, the answers need
+//    codes whose designations carry it -- either the LOINC PHQ-9 answer list, or local
+//    CodeSystems in the style of SfSisAnswersCS in terminology_questionnaires.fsh.
 //
 // 2. CORRECTED HERE. The item code on phq9_q4 is SNOMED CT 250436004 "Fatigue
 //    (finding)" in the source, which is not a valid code in the SNOMED CT
@@ -147,13 +157,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[0].type = #coding
 * item[0].required = true
 * item[0].repeats = false
-* item[0].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[0].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[0].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[0].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[0].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[0].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[0].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[0].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[0].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[0].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[0].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[0].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q2
 * item[1].linkId = "phq9_q2"
@@ -162,13 +172,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[1].type = #coding
 * item[1].required = true
 * item[1].repeats = false
-* item[1].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[1].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[1].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[1].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[1].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[1].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[1].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[1].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[1].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[1].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[1].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[1].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q3
 * item[2].linkId = "phq9_q3"
@@ -177,13 +187,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[2].type = #coding
 * item[2].required = true
 * item[2].repeats = false
-* item[2].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[2].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[2].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[2].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[2].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[2].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[2].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[2].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[2].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[2].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[2].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[2].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q4
 * item[3].linkId = "phq9_q4"
@@ -192,13 +202,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[3].type = #coding
 * item[3].required = true
 * item[3].repeats = false
-* item[3].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[3].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[3].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[3].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[3].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[3].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[3].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[3].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[3].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[3].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[3].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[3].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q5
 * item[4].linkId = "phq9_q5"
@@ -207,13 +217,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[4].type = #coding
 * item[4].required = true
 * item[4].repeats = false
-* item[4].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[4].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[4].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[4].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[4].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[4].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[4].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[4].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[4].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[4].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[4].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[4].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q6
 * item[5].linkId = "phq9_q6"
@@ -222,13 +232,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[5].type = #coding
 * item[5].required = true
 * item[5].repeats = false
-* item[5].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[5].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[5].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[5].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[5].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[5].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[5].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[5].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[5].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[5].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[5].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[5].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q7
 * item[6].linkId = "phq9_q7"
@@ -237,13 +247,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[6].type = #coding
 * item[6].required = true
 * item[6].repeats = false
-* item[6].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[6].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[6].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[6].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[6].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[6].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[6].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[6].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[6].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[6].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[6].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[6].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q8
 * item[7].linkId = "phq9_q8"
@@ -252,13 +262,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[7].type = #coding
 * item[7].required = true
 * item[7].repeats = false
-* item[7].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[7].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[7].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[7].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[7].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[7].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[7].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[7].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[7].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[7].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[7].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[7].answerOption[3].extension[ItemWeight].valueDecimal = 3
 // phq9_q9
 * item[8].linkId = "phq9_q9"
@@ -267,13 +277,13 @@ Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over t
 * item[8].type = #coding
 * item[8].required = true
 * item[8].repeats = false
-* item[8].answerOption[0].valueCoding = SCT#260353006 "Not at all"
+* item[8].answerOption[0].valueCoding = SCT#260353006 "Nothing at all"
 * item[8].answerOption[0].extension[ItemWeight].valueDecimal = 0
-* item[8].answerOption[1].valueCoding = SCT#5878004 "Several days"
+* item[8].answerOption[1].valueCoding = SCT#5878004 "Low frequency"
 * item[8].answerOption[1].extension[ItemWeight].valueDecimal = 1
-* item[8].answerOption[2].valueCoding = SCT#255218000 "More than half the days"
+* item[8].answerOption[2].valueCoding = SCT#255218000 "Mid-frequency"
 * item[8].answerOption[2].extension[ItemWeight].valueDecimal = 2
-* item[8].answerOption[3].valueCoding = SCT#27732004 "Nearly every day"
+* item[8].answerOption[3].valueCoding = SCT#27732004 "High frequency"
 * item[8].answerOption[3].extension[ItemWeight].valueDecimal = 3
 
 Instance: SfSisQuestionnaire
@@ -456,13 +466,13 @@ Description: "Short-form Nottingham Extended Activities of Daily Living Question
 * item[0].type = #coding
 * item[0].required = true
 * item[0].repeats = false
-* item[0].answerOption[0].valueCoding = SCT#371151008 "Unable to do"
+* item[0].answerOption[0].valueCoding = SCT#371151008 "Unable"
 * item[0].answerOption[0].extension[ItemWeight].valueDecimal = 1
-* item[0].answerOption[1].valueCoding = SCT#371154000 "Needs help"
+* item[0].answerOption[1].valueCoding = SCT#371154000 "Dependent"
 * item[0].answerOption[1].extension[ItemWeight].valueDecimal = 2
-* item[0].answerOption[2].valueCoding = SCT#371157007 "Independent with difficulty"
+* item[0].answerOption[2].valueCoding = SCT#371157007 "Able with difficulty"
 * item[0].answerOption[2].extension[ItemWeight].valueDecimal = 3
-* item[0].answerOption[3].valueCoding = SCT#371153006 "Independent without difficulty"
+* item[0].answerOption[3].valueCoding = SCT#371153006 "Independently able"
 * item[0].answerOption[3].extension[ItemWeight].valueDecimal = 4
 // sfneadl_q2
 * item[1].linkId = "sfneadl_q2"
@@ -471,13 +481,13 @@ Description: "Short-form Nottingham Extended Activities of Daily Living Question
 * item[1].type = #coding
 * item[1].required = true
 * item[1].repeats = false
-* item[1].answerOption[0].valueCoding = SCT#371151008 "Unable to do"
+* item[1].answerOption[0].valueCoding = SCT#371151008 "Unable"
 * item[1].answerOption[0].extension[ItemWeight].valueDecimal = 1
-* item[1].answerOption[1].valueCoding = SCT#371154000 "Needs help"
+* item[1].answerOption[1].valueCoding = SCT#371154000 "Dependent"
 * item[1].answerOption[1].extension[ItemWeight].valueDecimal = 2
-* item[1].answerOption[2].valueCoding = SCT#371157007 "Independent with difficulty"
+* item[1].answerOption[2].valueCoding = SCT#371157007 "Able with difficulty"
 * item[1].answerOption[2].extension[ItemWeight].valueDecimal = 3
-* item[1].answerOption[3].valueCoding = SCT#371153006 "Independent without difficulty"
+* item[1].answerOption[3].valueCoding = SCT#371153006 "Independently able"
 * item[1].answerOption[3].extension[ItemWeight].valueDecimal = 4
 // sfneadl_q3
 * item[2].linkId = "sfneadl_q3"
@@ -486,13 +496,13 @@ Description: "Short-form Nottingham Extended Activities of Daily Living Question
 * item[2].type = #coding
 * item[2].required = true
 * item[2].repeats = false
-* item[2].answerOption[0].valueCoding = SCT#371151008 "Unable to do"
+* item[2].answerOption[0].valueCoding = SCT#371151008 "Unable"
 * item[2].answerOption[0].extension[ItemWeight].valueDecimal = 1
-* item[2].answerOption[1].valueCoding = SCT#371154000 "Needs help"
+* item[2].answerOption[1].valueCoding = SCT#371154000 "Dependent"
 * item[2].answerOption[1].extension[ItemWeight].valueDecimal = 2
-* item[2].answerOption[2].valueCoding = SCT#371157007 "Independent with difficulty"
+* item[2].answerOption[2].valueCoding = SCT#371157007 "Able with difficulty"
 * item[2].answerOption[2].extension[ItemWeight].valueDecimal = 3
-* item[2].answerOption[3].valueCoding = SCT#371153006 "Independent without difficulty"
+* item[2].answerOption[3].valueCoding = SCT#371153006 "Independently able"
 * item[2].answerOption[3].extension[ItemWeight].valueDecimal = 4
 // sfneadl_q4
 * item[3].linkId = "sfneadl_q4"
@@ -501,13 +511,13 @@ Description: "Short-form Nottingham Extended Activities of Daily Living Question
 * item[3].type = #coding
 * item[3].required = true
 * item[3].repeats = false
-* item[3].answerOption[0].valueCoding = SCT#371151008 "Unable to do"
+* item[3].answerOption[0].valueCoding = SCT#371151008 "Unable"
 * item[3].answerOption[0].extension[ItemWeight].valueDecimal = 1
-* item[3].answerOption[1].valueCoding = SCT#371154000 "Needs help"
+* item[3].answerOption[1].valueCoding = SCT#371154000 "Dependent"
 * item[3].answerOption[1].extension[ItemWeight].valueDecimal = 2
-* item[3].answerOption[2].valueCoding = SCT#371157007 "Independent with difficulty"
+* item[3].answerOption[2].valueCoding = SCT#371157007 "Able with difficulty"
 * item[3].answerOption[2].extension[ItemWeight].valueDecimal = 3
-* item[3].answerOption[3].valueCoding = SCT#371153006 "Independent without difficulty"
+* item[3].answerOption[3].valueCoding = SCT#371153006 "Independently able"
 * item[3].answerOption[3].extension[ItemWeight].valueDecimal = 4
 // sfneadl_q5
 * item[4].linkId = "sfneadl_q5"
@@ -516,11 +526,11 @@ Description: "Short-form Nottingham Extended Activities of Daily Living Question
 * item[4].type = #coding
 * item[4].required = true
 * item[4].repeats = false
-* item[4].answerOption[0].valueCoding = SCT#371151008 "Unable to do"
+* item[4].answerOption[0].valueCoding = SCT#371151008 "Unable"
 * item[4].answerOption[0].extension[ItemWeight].valueDecimal = 1
-* item[4].answerOption[1].valueCoding = SCT#371154000 "Needs help"
+* item[4].answerOption[1].valueCoding = SCT#371154000 "Dependent"
 * item[4].answerOption[1].extension[ItemWeight].valueDecimal = 2
-* item[4].answerOption[2].valueCoding = SCT#371157007 "Independent with difficulty"
+* item[4].answerOption[2].valueCoding = SCT#371157007 "Able with difficulty"
 * item[4].answerOption[2].extension[ItemWeight].valueDecimal = 3
-* item[4].answerOption[3].valueCoding = SCT#371153006 "Independent without difficulty"
+* item[4].answerOption[3].valueCoding = SCT#371153006 "Independently able"
 * item[4].answerOption[3].extension[ItemWeight].valueDecimal = 4

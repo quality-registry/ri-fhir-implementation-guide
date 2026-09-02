@@ -9,7 +9,6 @@ Title: "Prior MedicationStatement Profile"
 Description: "MedicationStatement profile for medication taken before stroke onset, including adherence state when captured by the registry."
 * ^url = "http://qualityregistry.org/StructureDefinition/prior-medication-statement-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Represents relevant pre-stroke medications and adherence as patient-reported or recorded medication use."
 * status 1..1 MS
 * status = #recorded
@@ -31,7 +30,6 @@ Title: "Self-Reported Medication Notes"
 Description: "MedicationStatement profile for medication a patient reports taking, as captured by the RES-Q questionnaire service alongside the patient-reported outcome questionnaires. The medication is carried as free text only, because the patient writes what they take rather than selecting a coded product; that text is expected to carry the drug name together with its strength and form, for example \"Aspirin 50 mg tablet\". Records the dose, the times of day the medication is taken, and the date range over which it was taken."
 * ^url = "http://qualityregistry.org/StructureDefinition/self-reported-medication-notes"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Captures patient-reported medication use with enough dosing and timing detail to be interpretable, without asserting a coded medication the patient never selected."
 * obeys smn-effective-end-after-start
 

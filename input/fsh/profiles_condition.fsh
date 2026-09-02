@@ -9,7 +9,6 @@ Title: "Stroke Diagnosis Condition Profile"
 Description: "Condition profile for the index stroke diagnosis. It captures stroke type, onset timing, body site, diagnostic evidence and stroke-specific classification extensions such as ischemic etiology, hemorrhagic bleeding reason and wake-up stroke status."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-diagnosis-condition-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Represents the principal clinical diagnosis around which the registry episode is organized."
 * insert RESQPatientSubject
 * insert RESQEncounterContext
@@ -88,7 +87,6 @@ Title: "Stroke Risk Factor Condition Profile"
 Description: "Condition profile for pre-existing or episode-relevant risk factors captured in the RES-Q registry."
 * ^url = "http://qualityregistry.org/StructureDefinition/stroke-risk-factor-condition-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Represents comorbidities and clinical risk factors used in stroke quality measurement and outcome analysis."
 * insert RESQPatientSubject
 * insert RESQEncounterContext
@@ -108,7 +106,6 @@ Title: "Post-Stroke Complication Condition Profile"
 Description: "Condition profile for complications occurring after the index stroke, including complications relevant to post-acute care and registry outcome tracking."
 * ^url = "http://qualityregistry.org/StructureDefinition/post-stroke-complication-condition-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Records clinically meaningful post-stroke complications as conditions linked to the stroke encounter."
 * insert RESQPatientSubject
 * insert RESQEncounterContext

@@ -9,7 +9,6 @@ Title: "Discharge MedicationRequest Profile"
 Description: "MedicationRequest profile for medications prescribed or recommended at discharge after the index stroke encounter."
 * ^url = "http://qualityregistry.org/StructureDefinition/discharge-medication-request-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * ^purpose = "Captures discharge medication orders needed for quality reporting and secondary prevention analysis."
 * status 1..1 MS
 * status = #active

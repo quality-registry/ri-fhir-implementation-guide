@@ -4,7 +4,7 @@ Everything on this page is regenerated on each build of the guide, so the conten
 
 ## FHIR package
 
-The NPM-style FHIR package is what validators, IG publishers and most FHIR tooling expect. It contains every StructureDefinition, ValueSet, CodeSystem, ActorDefinition and CapabilityStatement in this guide.
+The NPM-style FHIR package is what validators, IG publishers and most FHIR tooling expect. It contains every StructureDefinition, ValueSet and CodeSystem in this guide.
 
 | Download | |
 | --- | --- |
@@ -18,7 +18,7 @@ java -jar validator_cli.jar my-bundle.json -version 5.0 -ig package.tgz
 
 ## Definitions
 
-The conformance resources on their own — profiles, extensions, value sets, code systems, actors and capability statements — without the examples or the rendered pages.
+The conformance resources on their own — profiles, extensions, value sets and code systems — without the examples or the rendered pages.
 
 | Format | Download |
 | --- | --- |

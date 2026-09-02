@@ -19,7 +19,6 @@ Title: "Vital Sign Observation Profile"
 Description: "Observation profile for vital signs in the acute stroke pathway, especially blood pressure components."
 * ^url = "http://qualityregistry.org/StructureDefinition/vital-sign-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * category 1..* MS
 * category = ObservationCategoryCS#vital-signs
 * category ^short = "Vital signs category"
@@ -42,7 +41,6 @@ Title: "Functional Score Observation Profile"
 Description: "Observation profile for functional or severity scores such as mRS, NIHSS, ASPECTS, Hunt-Hess, ABCD2, CHA2DS2-VASc and THRIVE."
 * ^url = "http://qualityregistry.org/StructureDefinition/functional-score-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * category 0..* MS
 * category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
 * code 1..1 MS
@@ -60,7 +58,6 @@ Title: "Glasgow Coma Score Observation Profile"
 Description: "Specialized functional score profile for Glasgow Coma Score values captured by the registry."
 * ^url = "http://qualityregistry.org/StructureDefinition/glasgow-coma-score-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code = SCT#248241002 "Glasgow coma score (observable entity)"
 * value[x] 1..1 MS
 * value[x] only integer
@@ -72,7 +69,6 @@ Title: "Glasgow Coma Scale Observation Profile"
 Description: "Specialized functional score profile for Glasgow Coma Scale component values captured by the registry."
 * ^url = "http://qualityregistry.org/StructureDefinition/glasgow-coma-scale-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code = SCT#386557006 "Glasgow coma scale finding (finding)"
 * value[x] 1..1 MS
 * value[x] only CodeableConcept
@@ -88,7 +84,6 @@ Description: "Observation profile for specific stroke-related clinical, imaging 
 
 * ^url = "http://qualityregistry.org/StructureDefinition/specific-finding-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 
 * obeys specific-finding-must-have-result
 * obeys mtici-value-must-use-mtici-score-vs
@@ -181,7 +176,6 @@ Title: "Timing Metric Observation Profile"
 Description: "Observation profile for stroke time metrics and process indicators such as door-to-needle, door-to-groin, onset-to-door and related measures."
 * ^url = "http://qualityregistry.org/StructureDefinition/timing-metric-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQRegistryDerivedProfile
 * code 1..1 MS
 * code from TimingMetricCodesVS (required)
 * code ^short = "Timing or process metric"
@@ -199,7 +193,6 @@ Title: "Analytics Observation Profile"
 Description: "Laboratory/analytics observation profile for glucose, cholesterol, INR and related findings. The id preserves the original spelling used in the Python profile URL."
 * ^url = "http://qualityregistry.org/StructureDefinition/analitics-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * category 0..* MS
 * code 1..1 MS
 * code from AnaliticsCodesVS (extensible)
@@ -219,7 +212,6 @@ Title: "Fever Observation Profile"
 Description: "Observation profile for fever presence or temperature values during the stroke pathway."
 * ^url = "http://qualityregistry.org/StructureDefinition/fever-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean or Quantity
 * value[x] ^short = "Fever indicator or temperature measurement"
@@ -232,7 +224,6 @@ Title: "Hyperglycemia Observation Profile"
 Description: "Observation profile for hyperglycemia monitoring, checks and measured values."
 * ^url = "http://qualityregistry.org/StructureDefinition/hyperglycemia-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean or Quantity or integer
 * value[x] ^short = "Hyperglycemia indicator or measured value"
@@ -245,7 +236,6 @@ Title: "Glucose >= 10 Observation Profile"
 Description: "Boolean observation profile indicating whether glucose was greater than or equal to 10 mmol/L."
 * ^url = "http://qualityregistry.org/StructureDefinition/glucose-ge10-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from AnaliticsCodesVS (extensible)
 * value[x] only boolean
 * valueBoolean 1..1 MS
@@ -258,7 +248,6 @@ Title: "Highest Hyperglycemia Value Observation Profile"
 Description: "Observation profile for the highest recorded hyperglycemia value in the relevant stroke care interval."
 * ^url = "http://qualityregistry.org/StructureDefinition/highest-hyperglycemia-value-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code = AnalyticsCodesCS#highest-hyperglycemia-value "Highest Hyperglycemia Value"
 * value[x] only Quantity
 * valueQuantity 1..1 MS
@@ -272,7 +261,6 @@ Title: "Systolic Blood Pressure Highest Value Observation Profile"
 Description: "Observation profile for the highest recorded systolic blood pressure value in the relevant stroke care interval."
 * ^url = "http://qualityregistry.org/StructureDefinition/highest-systolic-blood-pressure-value-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code = VitalSignsCS#highest-sys-bp "Highest Systolic Blood Pressure"
 * value[x] only Quantity
 * valueQuantity 1..1 MS
@@ -287,7 +275,6 @@ Title: "TIA Clinical Symptoms Observation Profile"
 Description: "Observation profile for TIA clinical symptoms and their recorded values."
 * ^url = "http://qualityregistry.org/StructureDefinition/tia-clinical-symptoms-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from TiaClinicalSymptomsVS (extensible)
 * value[x] 0..1 MS
 * value[x] only Quantity or CodeableConcept or boolean
@@ -300,7 +287,6 @@ Title: "Patient Ventilated Observation Profile"
 Description: "Observation profile for recording whether the patient was ventilated in acute or post-acute care."
 * ^url = "http://qualityregistry.org/StructureDefinition/patient-ventilated-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code = SCT#40617009 "Artificial ventilation (regime/therapy)"
 * value[x] only boolean
 * valueBoolean 1..1 MS
@@ -315,7 +301,6 @@ Title: "No Anticoagulant Discharge Reason Observation Profile"
 Description: "Observation profile for recording the reason for not prescribing anticoagulants at discharge after ischemic stroke or TIA."
 * ^url = "http://qualityregistry.org/StructureDefinition/no-anticoagulant-discharge-reason-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from NotMedicationReasonVS (extensible)
 * value[x] only CodeableConcept
 * value[x] ^short = "Reason for no anticoagulant prescription at discharge"
@@ -328,7 +313,6 @@ Title: "Three-Month Contact Mode Observation Profile"
 Description: "Observation profile for the modality used to obtain three-month follow-up information."
 * ^url = "http://qualityregistry.org/StructureDefinition/three-month-contact-mode-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from ThreeMonthContactModeVS (required)
 * code ^short = "Three-month contact mode"
 
@@ -339,5 +323,4 @@ Title: "Appointment Management Observation Profile"
 Description: "Observation profile for recording whether a three-month follow-up appointment was scheduled or attended."
 * ^url = "http://qualityregistry.org/StructureDefinition/appointment-management-observation-profile"
 * insert RESQProfileMetadata
-* insert RESQSubmittedProfile
 * code from ManagementAppointmentVS (extensible)
