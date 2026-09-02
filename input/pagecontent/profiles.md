@@ -26,6 +26,9 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | Profile | Why it exists |
 | --- | --- |
 | [Base Stroke Observation](StructureDefinition-base-stroke-observation.html) | Shared subject, encounter, status and code constraints for registry observations. |
+| [Base Self-Reported Observation](StructureDefinition-base-self-reported-observation.html) | Shared scaffold for patient-reported observations. Unlike the base above it does not require an encounter and does not fix status to final. |
+| [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html) | Blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height as the patient reports them. |
+| [Self-Reported Functional Scores](StructureDefinition-self-reported-functional-scores-profile.html) | Summary score of a patient-reported questionnaire, linked to the QuestionnaireResponse it was derived from. |
 | [Vital Sign Observation](StructureDefinition-vital-sign-observation-profile.html) | Blood pressure and other vital signs using components. |
 | [Functional Score Observation](StructureDefinition-functional-score-observation-profile.html) | NIHSS, mRS, ASPECTS and other severity or outcome scales. |
 | [Glasgow Coma Scale Observation](StructureDefinition-glasgow-coma-scale-observation-profile.html) | Specialized GCS score binding. |

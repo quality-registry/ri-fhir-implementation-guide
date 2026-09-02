@@ -8,9 +8,10 @@ fhirVersion: 5.0.0
 copyrightYear: 2026
 releaseLabel: ci-build
 publisher:
-  name: Tecnomod / Universidad de Murcia
+  name: "Health Management Institute z.ú"
   url: http://qualityregistry.org
-jurisdiction: urn:iso:std:iso:3166#ES "Spain"
+# jurisdiction = urn:iso:std:iso:3166#EU "European Union"
+jurisdiction: urn:iso:std:iso:3166#CZ "Czechia"
 dependencies:
   hl7.fhir.uv.extensions.r5: 5.2.0
 parameters:
@@ -19,8 +20,8 @@ parameters:
   path-pages:
     - input/pagecontent
   # This guide is written in English. Without this, the publisher infers a display
-  # language from jurisdiction (ES) and validates every LOINC/SNOMED display against
-  # Spanish designations, reporting correct English displays as errors.
+  # language from the jurisdiction and validates every LOINC/SNOMED display against
+  # that language's designations, reporting correct English displays as errors.
   i18n-default-lang: en
 menu:
   Home: index.html

@@ -198,3 +198,64 @@ Description: "Patient-reported statin taken one tablet each evening for two mont
 * dosage[0].doseAndRate[0].doseQuantity.code = #tablet
 * dosage[0].doseAndRate[0].doseQuantity.unit = "Tablet"
 * note[0].text = "Take after dinner"
+
+// ----------------------------------------------------------------------------
+// Example patient-reported observations
+//
+// Values and shapes are taken from the RES-Q questionnaire service payloads in
+// docs/example_requests.md. None of them carries an encounter, and all are
+// posted as registered, which is what BaseSelfReportedObservation allows.
+//
+// The two vital-sign examples cover both branches of srvs-value-or-component:
+// blood pressure carries components and no top-level value, glucose the reverse.
+//
+// valueQuantity.system here is the correct UCUM canonical http://unitsofmeasure.org,
+// which is also what the questionnaire service sends. Older examples in this file
+// use the IG's UCUM alias https://ucum.org/ucum, which does not resolve.
+// ----------------------------------------------------------------------------
+
+Instance: ExampleSelfReportedBloodPressure
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedBloodPressure"
+Description: "Blood pressure the patient reports from home monitoring, carried as systolic and diastolic components with no top-level value."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#75367002 "Blood pressure (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
+* component[0].valueQuantity.value = 120
+* component[0].valueQuantity.unit = "mmHg"
+* component[0].valueQuantity.system = "http://unitsofmeasure.org"
+* component[0].valueQuantity.code = #mm[Hg]
+* component[1].code = SCT#271650006 "Diastolic blood pressure (observable entity)"
+* component[1].valueQuantity.value = 80
+* component[1].valueQuantity.unit = "mmHg"
+* component[1].valueQuantity.system = "http://unitsofmeasure.org"
+* component[1].valueQuantity.code = #mm[Hg]
+
+Instance: ExampleSelfReportedGlucose
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedGlucose"
+Description: "Glucose level the patient reports, carried as a single value with no components."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#33747003 "Glucose measurement, blood (procedure)"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueQuantity.value = 1.8
+* valueQuantity.unit = "milligrams per deciliter"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #mg/dL
+
+Instance: ExampleSelfReportedMrsScore
+InstanceOf: SelfReportedFunctionalScoresProfile
+Usage: #example
+Title: "ExampleSelfReportedMrsScore"
+Description: "Modified Rankin Scale score computed from the patient's own answers, linked back to the QuestionnaireResponse it was derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#1255866005 "Modified Rankin Scale score (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueInteger = 1
+* derivedFrom = Reference(ExampleMrsResponse)

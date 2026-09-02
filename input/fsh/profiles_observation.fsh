@@ -321,3 +321,95 @@ Description: "Observation profile for recording whether a three-month follow-up 
 * ^url = "http://qualityregistry.org/StructureDefinition/appointment-management-observation-profile"
 * insert RESQProfileMetadata
 * code from ManagementAppointmentVS (extensible)
+
+// -----------------------------------------------------------------------------
+// Patient-reported observations
+//
+// Posted by the RES-Q questionnaire service rather than produced inside the
+// stroke pathway. They cannot descend from BaseStrokeObservation because that
+// profile requires an encounter and FHIR profiling only narrows constraints, so
+// they carry their own base instead.
+//
+// KNOWN DIVERGENCE FROM THE SOURCE DATA. Status is fixed to #final here, to
+// match VitalSignObservationProfile and FunctionalScoreObservationProfile. The
+// questionnaire service posts every one of these observations with
+// status = registered (all 11 payloads in its docs/example_requests.md), so a
+// payload taken straight from the service will not validate against these
+// profiles until either the service sends final or the registry sets it on
+// ingest.
+// -----------------------------------------------------------------------------
+
+Profile: BaseSelfReportedObservation
+Parent: Observation
+Id: base-self-reported-observation
+Title: "Base Self-Reported Observation Profile"
+Description: "Base profile for observations a patient reports about themselves through the RES-Q questionnaire service. Unlike BaseStrokeObservation it does not require an encounter, because self-reported data is collected outside the hospital episode."
+* ^url = "http://qualityregistry.org/StructureDefinition/base-self-reported-observation"
+* insert RESQProfileMetadata
+* ^purpose = "Provides the common scaffold for patient-reported measurements and questionnaire scores: a registry identifier, the reporting patient, and an optional link to the stroke episode."
+* identifier 0..* MS
+* identifier ^short = "Registry identifier of the reported observation"
+* status 1..1 MS
+* status = #final
+* status ^short = "Final registry observation"
+* status ^definition = "Fixed to final, matching the in-hospital observation profiles. Note that the questionnaire service currently posts these observations with status registered; see the note above this profile."
+* code 1..1 MS
+* code ^short = "Reported observation concept"
+* insert RESQPatientSubject
+* encounter 0..1 MS
+* encounter only Reference(StrokeEncounterProfile)
+* encounter ^short = "Index stroke encounter, when the report can be tied to one"
+* encounter ^definition = "Optional, unlike the in-hospital observations. Patient-reported data is collected outside the encounter and the questionnaire service sends no encounter at all."
+* effective[x] 0..1 MS
+* effective[x] ^short = "When the reported value applies"
+* issued 0..1 MS
+* issued ^short = "When the report was received by the registry"
+
+Profile: SelfReportedVitalSignsProfile
+Parent: BaseSelfReportedObservation
+Id: self-reported-vital-signs-profile
+Title: "Self-Reported Vital Signs Profile"
+Description: "Observation profile for measurements a patient reports about themselves: blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height. Blood pressure arrives as a single observation with systolic and diastolic components; every other measurement carries a single value. Glucose and LDL cholesterol use the same SNOMED CT concepts as in-hospital analytics; what distinguishes a patient-reported value is the profile it conforms to, not the code."
+* ^url = "http://qualityregistry.org/StructureDefinition/self-reported-vital-signs-profile"
+* insert RESQProfileMetadata
+* ^purpose = "Records measurements supplied by the patient with enough structure to be compared against values measured in hospital, while keeping them distinguishable from them."
+* obeys srvs-value-or-component
+* category 0..* MS
+* category ^short = "Observation category, where the registry records one"
+* category ^definition = "Deliberately not fixed to vital-signs: glucose, LDL cholesterol and glycated haemoglobin are laboratory results rather than vital signs, and this profile covers both."
+* code from SelfReportedSignsVS (extensible)
+* code ^short = "Reported measurement"
+* value[x] 0..1 MS
+* value[x] only Quantity
+* value[x] ^short = "Reported value, for measurements that carry one directly"
+* component 0..* MS
+* component ^short = "Component measurements, used for blood pressure"
+* component.code 1..1 MS
+* component.code from SelfReportedSignsVS (extensible)
+* component.value[x] 1..1 MS
+* component.value[x] only Quantity
+
+Profile: SelfReportedFunctionalScoresProfile
+Parent: BaseSelfReportedObservation
+Id: self-reported-functional-scores-profile
+Title: "Self-Reported Functional Scores Profile"
+Description: "Observation profile for the summary score of a patient-reported questionnaire: mRS, PHQ-9, short-form NEADL or short-form SIS. The score is always derived from the QuestionnaireResponse that produced it, which derivedFrom records."
+* ^url = "http://qualityregistry.org/StructureDefinition/self-reported-functional-scores-profile"
+* insert RESQProfileMetadata
+* ^purpose = "Publishes the computed score of a patient-reported instrument as a queryable Observation, while keeping the individual answers reachable through the response it was derived from."
+* category 0..* MS
+* code 1..1 MS
+* code from SelfReportedScoresVS (required)
+* code ^short = "Questionnaire instrument the score belongs to"
+* value[x] 1..1 MS
+* value[x] only integer or Quantity
+* value[x] ^short = "Computed summary score"
+* derivedFrom 1..* MS
+* derivedFrom only Reference(PatientReportedOutcomeQuestionnaireResponses)
+* derivedFrom ^short = "QuestionnaireResponse the score was computed from"
+* derivedFrom ^definition = "Required: a self-reported score is only interpretable alongside the answers it was calculated from, and the questionnaire service sends the response reference with every score it posts."
+
+Invariant: srvs-value-or-component
+Description: "A self-reported measurement must carry either a value or at least one component. Blood pressure uses components and no value; every other reported measurement uses a value and no components."
+Severity: #error
+Expression: "value.exists() or component.exists()"

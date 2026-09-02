@@ -169,12 +169,3 @@ Description: "Flags a questionnaire response item that the respondent skipped, d
 * value[x] only boolean
 * valueBoolean 1..1 MS
 
-Extension: SelfReportedExt
-Id: self-reported-ext
-Title: "Self-reported value"
-Description: "Indicates that the value was reported by the patient rather than measured or recorded by a clinician or device. Registry analyses commonly need to separate self-reported vital signs, such as a blood pressure the patient quotes from home monitoring, from values measured during the stroke pathway."
-* ^url = "http://qualityregistry.org/StructureDefinition/self-reported-ext"
-* ^context[0].type = #element
-* ^context[0].expression = "Observation"
-* value[x] only boolean
-* valueBoolean 1..1 MS

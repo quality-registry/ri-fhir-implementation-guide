@@ -18,4 +18,3 @@ Extensions carry registry-specific semantics that do not fit cleanly into a stan
 | [Hemorrhagic stroke bleeding reason](StructureDefinition-hemorrhagic-stroke-bleeding-reason-ext.html) | `Condition` | Captures known bleeding reason. |
 | [Wake-up stroke](StructureDefinition-wakeup-stroke-ext.html) | `Condition` | Indicates stroke first noticed after waking. |
 | [Questionnaire item skipped](StructureDefinition-questionnaire-skipped-item-ext.html) | `QuestionnaireResponse.item` | Flags a question the respondent skipped, distinguishing a deliberate skip from a question never presented. |
-| [Self-reported value](StructureDefinition-self-reported-ext.html) | `Observation` | Marks a value as reported by the patient rather than measured or device-recorded. |
