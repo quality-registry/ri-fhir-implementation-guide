@@ -1653,6 +1653,11 @@ Description: "Allowed coded values for UnitofMeasurement"
 * include UCUM#mg "milligram"
 * include UCUM#d "day"
 * include UCUM#a "year"
+* include UCUM#1 "1"
+* include UCUM#"mg/dL" "milligram per deciliter"
+* include UCUM#"%" "percent"
+* include UCUM#cm "centimeter"
+* include UCUM#kg "kilogram"
 
 ValueSet: AdherenceCodesVS
 Id: adherence-codes-vs
