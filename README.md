@@ -22,7 +22,14 @@ This IG uses SUSHI to compile the FSH resources and the HL7 FHIR IG Publisher to
 |---|---|---|
 | Java (JDK) | 17 | `java -version` |
 | Node.js | 18 | `node -v` |
+| Ruby | 3.0 | `ruby -v` |
+| Jekyll | 4.0 | `jekyll -v` |
 | curl | any | `curl --version` |
+
+Ruby and Jekyll are required by the build: the IG Publisher shells out to
+`jekyll` to render the narrative pages in `input/pagecontent/` into the final
+site. Without them the run fails at the Jekyll step and `output/` is left
+incomplete.
 
 An internet connection is needed for the `tx.fhir.org` terminology server. When
 offline, the scripts pass `-tx n/a` automatically and the IG still builds, but

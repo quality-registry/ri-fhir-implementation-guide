@@ -8,7 +8,7 @@ fhirVersion: 5.0.0
 copyrightYear: 2026
 releaseLabel: ci-build
 publisher:
-  name: "Health Management Institute z.ú"
+  name: "Health Management Institute z.ú."
   url: http://qualityregistry.org
 # jurisdiction = urn:iso:std:iso:3166#EU "European Union"
 jurisdiction: urn:iso:std:iso:3166#CZ "Czechia"

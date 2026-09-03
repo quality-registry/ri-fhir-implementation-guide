@@ -5,7 +5,7 @@
 RuleSet: RESQProfileMetadata
 * ^status = #active
 * ^experimental = false
-* ^publisher = " Health Management Institute z.ú"
+* ^publisher = "Health Management Institute z.ú."
 // * ^jurisdiction = urn:iso:std:iso:3166#EU "European Union"
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^version = "1.0.0"
