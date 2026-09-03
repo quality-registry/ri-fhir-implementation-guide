@@ -117,7 +117,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[patientHistory].title = "Relevant Patient History"
-* section[patientHistory].code = LOINC#11329-0 "History of general health Narrative"
+* section[patientHistory].code = LOINC#11329-0 "History general Narrative - Reported"
 * section[patientHistory].entry only Reference(MedicationStatement)
 
 
@@ -145,7 +145,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[diagnosticSummary].title = "Diagnostic Summary"
-* section[diagnosticSummary].code = LOINC#11535-2 "Hospital discharge diagnosis Narrative"
+* section[diagnosticSummary].code = LOINC#11535-2 "Hospital discharge diagnosis note"
 * section[diagnosticSummary].entry only Reference(Condition or Observation)
 
 
@@ -154,7 +154,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[significantProcedures].title = "Significant Procedures"
-* section[significantProcedures].code = LOINC#10185-7 "Hospital discharge procedures"
+* section[significantProcedures].code = LOINC#10185-7 "Hospital discharge procedure note"
 * section[significantProcedures].entry only Reference(Procedure)
 
 
@@ -163,7 +163,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[pharmacotherapy].title = "Pharmacotherapy During Hospitalisation"
-* section[pharmacotherapy].code = LOINC#87232-5 "Medication administration brief"
+* section[pharmacotherapy].code = LOINC#87232-5 "Medication administration.brief"
 * section[pharmacotherapy].entry only Reference(MedicationAdministration or MedicationStatement)
 
 
@@ -172,7 +172,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[significantResults].title = "Significant Results"
-* section[significantResults].code = LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative" 
+* section[significantResults].code = LOINC#30954-2 "Relevant diagnostic tests/laboratory data note" 
 * section[significantResults].entry only Reference(Observation or DiagnosticReport)
 
 
@@ -208,7 +208,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 // -------------------------------------------------------
 
 * section[dischargeMedications].title = "Discharge Medications"
-* section[dischargeMedications].code = LOINC#75311-1 "Discharge medications Narrative"
+* section[dischargeMedications].code = LOINC#75311-1 "Discharge medications note"
 * section[dischargeMedications].entry only Reference(MedicationRequest or MedicationStatement)
 
 

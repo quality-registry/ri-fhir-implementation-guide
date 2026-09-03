@@ -652,8 +652,8 @@ Description: "Allowed coded values for OccupationalTherapy"
 * ^url = "http://fhir.qualityregistry.org/ValueSet/occupational-therapy-vs"
 * ^status = #active
 * ^experimental = false
-* include SCT#yes "Yes"
-* include SCT#no "No"
+* include SCT#373066001 "Yes (qualifier value)"
+* include SCT#373067005 "No (qualifier value)"
 * include YesNoNotRequiredCS#not-required "Not Required"
 * include YesNoNotRequiredCS#recommended "Recommended"
 
@@ -704,7 +704,7 @@ Description: "Allowed coded values for AdmissionPathway"
 * ^url = "http://fhir.qualityregistry.org/ValueSet/admission-pathway-vs"
 * ^status = #active
 * ^experimental = false
-* include StrokeArrivalModeCS#ems-gp "EMS from GP"
+* include StrokeArrivalModeCS#ems-gp "patient arrived by EMS/ambulance from general practitioner/outpatient office/community service"
 * include StrokeArrivalModeCS#priv-transport "Private Transportation"
 * include StrokeArrivalModeCS#stroke-center "Stroke Center"
 * include StrokeArrivalModeCS#another-hosp "Another Hospital"
@@ -843,7 +843,7 @@ ValueSet: LocationsVS
 Id: locations-vs
 Title: "Locations ValueSet"
 Description: "Allowed coded values for Locations"
-* ^url = "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/locations-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#ER "Emergency room"
@@ -877,17 +877,6 @@ Description: "Allowed coded values for INRmode"
 * include SCT#15220000 "Laboratory test (procedure)"
 * include SCT#405262001 "Point of care (qualifier value)"
 * include SCT#385660001 "Not done (qualifier value)"
-
-ValueSet: InHospitalVS
-Id: in-hospital-vs
-Title: "InHospital ValueSet"
-Description: "Allowed coded values for InHospital"
-* ^url = "http://fhir.qualityregistry.org/ValueSet/in-hospital-vs"
-* ^status = #active
-* ^experimental = false
-* include FHIRInHospitalCS#false "False"
-* include FHIRInHospitalCS#true "True"
-* include FHIRInHospitalCS#none "None"
 
 ValueSet: ImagingTypeVS
 Id: imaging-type-vs
@@ -1379,16 +1368,6 @@ Description: "Allowed coded values for RiskFactor"
 * include SCT#73430006 "Sleep apnea (disorder)"
 
 
-ValueSet: BoolVS
-Id: bool-vs
-Title: "Bool ValueSet"
-Description: "Allowed coded values for Bool"
-* ^url = "http://fhir.qualityregistry.org/ValueSet/bool-vs"
-* ^status = #active
-* ^experimental = false
-* include FHIRBoolCS#true "True"
-* include FHIRBoolCS#false "False"
-
 // ValueSet: DischargeMedicationVS
 // Id: discharge-medication-vs
 // Title: "DischargeMedication ValueSet"
@@ -1796,17 +1775,17 @@ Description: "Allowed LOINC section codes for the RESQ Stroke Hospital Discharge
 * ^status = #active
 * ^experimental = false
 * LOINC#67851-6 "Admission evaluation note"
-* LOINC#11329-0 "History of general health Narrative"
+* LOINC#11329-0 "History general Narrative - Reported"
 * LOINC#11450-4 "Problem list - Reported"
 * LOINC#8648-8 "Hospital course note"
-* LOINC#11535-2 "Hospital discharge diagnosis Narrative"
-* LOINC#10185-7 "Hospital discharge procedures"
-* LOINC#87232-5 "Medication administration brief"
-* LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* LOINC#11535-2 "Hospital discharge diagnosis note"
+* LOINC#10185-7 "Hospital discharge procedure note"
+* LOINC#87232-5 "Medication administration.brief"
+* LOINC#30954-2 "Relevant diagnostic tests/laboratory data note"
 * LOINC#8716-3 "Vital signs note"
 * LOINC#47420-5 "Functional status assessment note"
 * LOINC#8650-4 "Hospital discharge disposition note"
-* LOINC#75311-1 "Discharge medications Narrative"
+* LOINC#75311-1 "Discharge medications note"
 * LOINC#18776-5 "Plan of care note"
 * LOINC#75310-3 "Health concerns Document"
 * LOINC#48765-2 "Allergies and adverse reactions Document"

@@ -22,7 +22,7 @@ Usage: #example
 * extension[firstHospital].valueReference = Reference(OrganizationExample)
 * extension[requiredPostAcuteCare].valueBoolean = false
 * extension[emsPrenotification].valueBoolean = true
-* admission.admitSource = StrokeArrivalModeCS#ems-gp "EMS from GP"
+* admission.admitSource = StrokeArrivalModeCS#ems-gp "patient arrived by EMS/ambulance from general practitioner/outpatient office/community service"
 * admission.dischargeDisposition = SCT#306689006 "Discharge to home (procedure)"
 
 Instance: ExampleStrokeDiagnosis

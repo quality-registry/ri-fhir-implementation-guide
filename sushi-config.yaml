@@ -13,7 +13,9 @@ publisher:
 # jurisdiction = urn:iso:std:iso:3166#EU "European Union"
 jurisdiction: urn:iso:std:iso:3166#CZ "Czechia"
 dependencies:
-  hl7.fhir.uv.extensions.r5: 5.2.0
+  hl7.fhir.uv.extensions.r5:
+    version: 5.3.0
+    uri: http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions
 parameters:
   path-resource:
     - input/resources
