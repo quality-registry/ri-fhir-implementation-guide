@@ -7,7 +7,7 @@ Parent: Procedure
 Id: stroke-imaging-procedure-profile
 Title: "Stroke Imaging Procedure Profile"
 Description: "Procedure profile for brain imaging performed in the stroke pathway, with optional report linkage and timing context."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-imaging-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-imaging-procedure-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Represents acute or follow-up neuroimaging procedures used to diagnose, treat or monitor stroke."
 * status 1..1 MS
@@ -34,7 +34,7 @@ Parent: Procedure
 Id: stroke-carotid-imaging-procedure-profile
 Title: "Stroke Carotid Imaging Procedure Profile"
 Description: "Procedure profile for carotid imaging used in post-stroke assessment."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-carotid-imaging-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-carotid-imaging-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
 * statusReason 0..1 MS
@@ -53,7 +53,7 @@ Parent: Procedure
 Id: stroke-carotid-endarterectomy-procedure-profile
 Title: "Stroke Carotid Endarterectomy Procedure Profile"
 Description: "Procedure profile for carotid endarterectomy and its timing window in the RES-Q pathway."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-carotid-endarterectomy-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-carotid-endarterectomy-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
 * statusReason 0..1 MS
@@ -74,7 +74,7 @@ Parent: Procedure
 Id: stroke-mechanical-procedure-profile
 Title: "Stroke Reperfusion Procedure Profile"
 Description: "Procedure profile for acute reperfusion interventions, including thrombolysis and mechanical thrombectomy. It supports reason, not-done reason, location, occurrence, complications and timing context."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-mechanical-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-mechanical-procedure-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Captures key acute reperfusion procedures and non-performance reasons for quality metrics."
 * status 1..1 MS
@@ -105,7 +105,7 @@ Parent: Procedure
 Id: stroke-swallow-procedure-profile
 Title: "Stroke Swallowing Screening Procedure Profile"
 Description: "Procedure profile for swallowing screening, including screening type, not-done reason, performer role and timing context."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-swallow-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-swallow-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
 * insert RESQPatientSubject
@@ -127,7 +127,7 @@ Description: "Procedure profile for swallowing screening, including screening ty
 Invariant: stroke-swallow-completed-requires-post-acute-care
 Description: "If the swallowing screening procedure is completed, post-acute care required extension SHALL be present."
 Severity: #error
-Expression: "status != 'completed' or extension.where(url = 'http://qualityregistry.org/StructureDefinition/post-acute-care-required-ext').exists()"
+Expression: "status != 'completed' or extension.where(url = 'http://fhir.qualityregistry.org/StructureDefinition/post-acute-care-required-ext').exists()"
 
 Invariant: stroke-swallow-not-done-requires-status-reason
 Description: "If the swallowing screening procedure was not done, statusReason SHALL be present."
@@ -139,7 +139,7 @@ Parent: Procedure
 Id: stroke-vte-procedure-profile
 Title: "Stroke VTE Prophylaxis Procedure Profile"
 Description: "Procedure profile for venous thromboembolism prophylaxis used in the stroke pathway."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-vte-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-vte-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
 * insert RESQPatientSubject
@@ -153,7 +153,7 @@ Parent: Procedure
 Id: stroke-treatment-procedure-profile
 Title: "Stroke Treatment Procedure Profile"
 Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, craniectomy, therapy, smoking cessation and shunt procedures not given a dedicated meta.profile in the Python builders."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-treatment-procedure-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-treatment-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
 * insert RESQPatientSubject
@@ -171,6 +171,6 @@ Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, cr
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
 
 Invariant: stroke-treatment-poststroke-timing-required
-Description: "If Procedure.code belongs to PostStrokeProceduresVS, procedureTimingContext must be present with AssessmentContextCS#post-stroke."
+Description: "If Procedure.code belongs to PostStrokeProceduresVS, procedureTimingContext must be present with AssessmentContextCS#post-acute-care."
 Severity: #error
-Expression: "code.memberOf('http://qualityregistry.org/ValueSet/post-stroke-procedures-vs').not() or extension.where(url = 'http://qualityregistry.org/StructureDefinition/procedure-timing-context-ext').value.ofType(CodeableConcept).coding.where(system = 'http://qualityregistry.org/CodeSystem/assessment-context-cs' and code = 'post-stroke').exists()"
+Expression: "code.memberOf('http://fhir.qualityregistry.org/ValueSet/post-stroke-procedures-vs').not() or extension.where(url = 'http://fhir.qualityregistry.org/StructureDefinition/procedure-timing-context-ext').value.ofType(CodeableConcept).coding.where(system = 'http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs' and code = 'post-acute-care').exists()"

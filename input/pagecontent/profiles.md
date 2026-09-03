@@ -12,8 +12,6 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | `Location` | [RESQ Location](StructureDefinition-resq-location-profile.html), [Hospitalized Location](StructureDefinition-hospitalized-location-profile.html) |
 | `BodyStructure` | [RESQ BodyStructure](StructureDefinition-resq-body-structure-profile.html) |
 | `PractitionerRole` | [RESQ PractitionerRole](StructureDefinition-resq-practitioner-role-profile.html) |
-| `Appointment` | [Three-Month Follow-up Appointment](StructureDefinition-follow-up-appointment-profile.html) |
-| `Communication` | [Three-Month Contact Communication](StructureDefinition-three-month-communication-profile.html) |
 
 ## Conditions
 
@@ -28,12 +26,15 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | Profile | Why it exists |
 | --- | --- |
 | [Base Stroke Observation](StructureDefinition-base-stroke-observation.html) | Shared subject, encounter, status and code constraints for registry observations. |
+| [Base Self-Reported Observation](StructureDefinition-base-self-reported-observation.html) | Shared scaffold for patient-reported observations. Unlike the base above it does not require an encounter and does not fix status to final. |
+| [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html) | Blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height as the patient reports them. |
+| [Self-Reported Functional Scores](StructureDefinition-self-reported-functional-scores-profile.html) | Summary score of a patient-reported questionnaire, linked to the QuestionnaireResponse it was derived from. |
 | [Vital Sign Observation](StructureDefinition-vital-sign-observation-profile.html) | Blood pressure and other vital signs using components. |
 | [Functional Score Observation](StructureDefinition-functional-score-observation-profile.html) | NIHSS, mRS, ASPECTS and other severity or outcome scales. |
 | [Glasgow Coma Scale Observation](StructureDefinition-glasgow-coma-scale-observation-profile.html) | Specialized GCS score binding. |
 | [Specific Finding Observation](StructureDefinition-specific-finding-observation-profile.html) | Imaging, procedure and clinical findings such as mTICI or stenosis. |
 | [Timing Metric Observation](StructureDefinition-timing-metric-observation-profile.html) | Door-to-needle, onset-to-door and related process metrics. |
-| [Analytics Observation](StructureDefinition-analitics-observation-profile.html) | Laboratory and analytics values such as glucose, LDL and INR. |
+| [Analytics Observation](StructureDefinition-analytics-observation-profile.html) | Laboratory and analytics values such as glucose, LDL and INR. |
 | [Fever Observation](StructureDefinition-fever-observation-profile.html) | Fever indicator or temperature value. |
 | [Hyperglycemia Observation](StructureDefinition-hyperglycemia-observation-profile.html) | Hyperglycemia checks and values. |
 | [Glucose >= 10 Observation](StructureDefinition-glucose-ge10-observation-profile.html) | Boolean glucose threshold indicator. |
@@ -54,6 +55,15 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | [Stroke VTE Prophylaxis Procedure](StructureDefinition-stroke-vte-procedure-profile.html) | VTE prophylaxis in the stroke pathway. |
 | [Stroke Treatment Procedure](StructureDefinition-stroke-treatment-procedure-profile.html) | Broader treatment and rehabilitation procedures. |
 
+## Patient-Reported Outcomes {#patient-reported-outcomes}
+
+| Profile | Why it exists |
+| --- | --- |
+| [Patient Reported Outcome Questionnaires](StructureDefinition-patient-reported-outcome-questionnaires.html) | Fixes the shape shared by the four registry instruments: a fully identified and versioned definition, a coded instrument identifier, and a flat list of coded, required, non-repeating questions. |
+| [Patient Reported Outcome Questionnaire Responses](StructureDefinition-patient-reported-outcome-questionnaire-responses.html) | Constrains answers to the shape the registry collects, restricts the answered questionnaire to the four defined here, and flags skipped questions rather than omitting them. |
+
+The four instrument definitions themselves are published as definitional `Questionnaire` instances: [mRS](Questionnaire-mrs-questionnaire.html), [PHQ-9](Questionnaire-phq9-questionnaire.html), [SF-SIS](Questionnaire-sf-sis-questionnaire.html) and [SF-NEADL](Questionnaire-sf-neadl-questionnaire.html).
+
 ## Reports
 
 | Resource | Profiles |
@@ -64,6 +74,6 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 
 | Resource | Profiles |
 | --- | --- |
-| `MedicationStatement` | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html) |
+| `MedicationStatement` | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html), [Self-Reported MedicationStatement](StructureDefinition-self-reported-medication-statement-profile.html) |
 | `MedicationRequest` | [Discharge MedicationRequest](StructureDefinition-discharge-medication-request-profile.html) |
-| `MedicationAdministration` | [Stroke MedicationAdministration](StructureDefinition-stroke-medication-administration-profile.html), [Paracetamol on Fever](StructureDefinition-paracetamol-on-fever-medicationAdministration-profile.html), [Insulin on Hyperglycemia](StructureDefinition-insulin-on-hyperglycemia-medicationAdministration-profile.html), [Nimodipine](StructureDefinition-nimodipine-medicationAdministration-profile.html) |
+| `MedicationAdministration` | [Stroke MedicationAdministration](StructureDefinition-stroke-medication-administration-profile.html), [Paracetamol on Fever](StructureDefinition-paracetamol-on-fever-medication-administration-profile.html), [Insulin on Hyperglycemia](StructureDefinition-insulin-on-hyperglycemia-medication-administration-profile.html), [Nimodipine](StructureDefinition-nimodipine-medication-administration-profile.html) |

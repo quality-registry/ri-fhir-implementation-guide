@@ -7,7 +7,7 @@ Parent: MedicationAdministration
 Id: stroke-medication-administration-profile
 Title: "Stroke MedicationAdministration Profile"
 Description: "Generic MedicationAdministration profile for acute stroke treatment medications, including thrombolysis, anticoagulant reversal, IV antihypertensives and other administrations."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-medication-administration-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-medication-administration-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Records medication administrations that are part of the acute or post-acute stroke treatment pathway."
 * status 1..1 MS
@@ -65,7 +65,7 @@ Id: paracetamol-on-fever-medication-administration-profile
 Title: "Paracetamol on Fever MedicationAdministration Profile"
 Description: "MedicationAdministration profile for paracetamol administered because of fever."
 
-* ^url = "http://qualityregistry.org/StructureDefinition/paracetamol-on-fever-paracetamol-on-fever-medication-administration-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/paracetamol-on-fever-medication-administration-profile"
 * insert RESQProfileMetadata
 
 * medication.concept 1..1 MS
@@ -86,7 +86,7 @@ Id: insulin-on-hyperglycemia-medication-administration-profile
 Title: "Insulin on Hyperglycemia MedicationAdministration Profile"
 Description: "MedicationAdministration profile for insulin administered in response to hyperglycemia."
 
-* ^url = "http://qualityregistry.org/StructureDefinition/insulin-on-hyperglycemia-medication-administration-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/insulin-on-hyperglycemia-medication-administration-profile"
 * insert RESQProfileMetadata
 
 * medication.concept 1..1 MS
@@ -107,7 +107,7 @@ Id: nimodipine-medication-administration-profile
 Title: "Nimodipine MedicationAdministration Profile"
 Description: "MedicationAdministration profile for nimodipine in the subarachnoid hemorrhage pathway."
 
-* ^url = "http://qualityregistry.org/StructureDefinition/nimodipine-medication-administration-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/nimodipine-medication-administration-profile"
 * insert RESQProfileMetadata
 
 * medication.concept 1..1 MS
@@ -128,7 +128,7 @@ Id: anticoagulant-reversal-medication-administration-profile
 Title: "Anticoagulant Reversal MedicationAdministration Profile"
 Description: "MedicationAdministration profile for anticoagulant reversal treatment in the acute stroke pathway, including completed and not-done reversal administrations."
 
-* ^url = "http://qualityregistry.org/StructureDefinition/anticoagulant-reversal-medication-administration-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/anticoagulant-reversal-medication-administration-profile"
 * insert RESQProfileMetadata
 
 * obeys anticoagulant-reversal-not-done-must-have-status-reason

@@ -5,8 +5,8 @@
 CodeSystem: YesNoNotRequiredCS
 Id: yes-no-not-required-cs
 Title: "YesNoNotRequiredCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/yes-no-not-required-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/yes-no-not-required-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/yes-no-not-required-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/yes-no-not-required-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -16,8 +16,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ThreeMonthContactModeCS
 Id: three-month-contact-mode-cs
 Title: "ThreeMonthContactModeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/three-month-contact-mode-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/three-month-contact-mode-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/three-month-contact-mode-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/three-month-contact-mode-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -29,8 +29,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeArrivalModeCS
 Id: stroke-arrival-mode-cs
 Title: "StrokeArrivalModeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-arrival-mode-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-arrival-mode-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-arrival-mode-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-arrival-mode-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -45,8 +45,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: CarotidEndarterectomyTimingCS
 Id: carotid-endarterectomy-timing-cs
 Title: "CarotidEndarterectomyTimingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -57,8 +57,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MedicationCS
 Id: medication-cs
 Title: "MedicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/medication-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/medication-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/medication-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/medication-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -75,8 +75,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: HemorrhagicTransformationTypeCS
 Id: hemorrhagic-transformation-type-cs
 Title: "HemorrhagicTransformationTypeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -88,8 +88,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: InitialCareIntensityCS
 Id: initial-care-intensity-cs
 Title: "InitialCareIntensityCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/initial-care-intensity-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/initial-care-intensity-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -101,8 +101,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: BrainImagingTypeCS
 Id: brain-imaging-type-cs
 Title: "BrainImagingTypeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/brain-imaging-type-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/brain-imaging-type-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/brain-imaging-type-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/brain-imaging-type-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -117,8 +117,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeEtiologyCS
 Id: stroke-etiology-cs
 Title: "StrokeEtiologyCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-etiology-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-etiology-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -128,8 +128,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeEtiologyOtherCS
 Id: stroke-etiology-other-cs
 Title: "StrokeEtiologyOtherCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-etiology-other-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-etiology-other-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-other-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-other-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -142,8 +142,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeMimicsDiagnosisCS
 Id: stroke-mimics-diagnosis-cs
 Title: "StrokeMimicsDiagnosisCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -152,8 +152,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: HemorrhagicStrokeBleedingReasonCS
 Id: hemorrhagic-stroke-bleeding-reason-cs
 Title: "HemorrhagicStrokeBleedingReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -162,8 +162,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: VteProceduresCS
 Id: vte-procedures-cs
 Title: "VteProceduresCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/vte-procedures-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/vte-procedures-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/vte-procedures-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/vte-procedures-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -172,8 +172,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeProcNotDoneReasonCS
 Id: stroke-proc-not-done-reason-cs
 Title: "StrokeProcNotDoneReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -208,8 +208,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokePostStrokeComplicationCS
 Id: stroke-post-stroke-complication-cs
 Title: "StrokePostStrokeComplicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -219,8 +219,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SwallowScreenTimeCS
 Id: swallow-screen-time-cs
 Title: "SwallowScreenTimeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/swallow-screen-time-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/swallow-screen-time-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -229,8 +229,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ProcedureTimingContextCS
 Id: procedure-timing-context-cs
 Title: "ProcedureTimingContextCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/procedure-timing-context-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/procedure-timing-context-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/procedure-timing-context-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/procedure-timing-context-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -240,8 +240,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SwallowProceduresCS
 Id: swallow-procedures-cs
 Title: "SwallowProceduresCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/swallow-procedures-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/swallow-procedures-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -252,8 +252,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeDischargeDestinationCS
 Id: stroke-discharge-destination-cs
 Title: "StrokeDischargeDestinationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-discharge-destination-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-discharge-destination-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-destination-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-destination-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -263,8 +263,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: DischargeDeptCS
 Id: discharge-dept-cs
 Title: "DischargeDeptCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/discharge-dept-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/discharge-dept-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/discharge-dept-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/discharge-dept-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -276,8 +276,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: FirstContactPlaceCS
 Id: first-contact-place-cs
 Title: "FirstContactPlaceCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/first-contact-place-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/first-contact-place-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/first-contact-place-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/first-contact-place-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -289,8 +289,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MticiScoreCS
 Id: mtici-score-cs
 Title: "MticiScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/mtici-score-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/mtici-score-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -305,8 +305,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ManagementAppointmentCS
 Id: management-appointment-cs
 Title: "ManagementAppointmentCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/management-appointment-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/management-appointment-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/management-appointment-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/management-appointment-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -318,8 +318,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TimingCS
 Id: timing-cs
 Title: "TimingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/timing-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/timing-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/timing-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/timing-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -330,8 +330,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: NotMedicationReasonCS
 Id: not-medication-reason-cs
 Title: "NotMedicationReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/not-medication-reason-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/not-medication-reason-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -348,8 +348,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: RiskFactorCS
 Id: risk-factor-cs
 Title: "RiskFactorCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/risk-factor-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/risk-factor-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/risk-factor-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/risk-factor-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -358,8 +358,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: DischargeMedicationCS
 Id: discharge-medication-cs
 Title: "DischargeMedicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/discharge-medication-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/discharge-medication-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/discharge-medication-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/discharge-medication-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -379,8 +379,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: InsulinHyperglycemiaTimeCS
 Id: insulin-hyperglycemia-time-cs
 Title: "InsulinHyperglycemiaTimeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -390,8 +390,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TimingMetricCodesCS
 Id: timing-metric-codes-cs
 Title: "TimingMetricCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/timing-metric-codes-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/timing-metric-codes-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/timing-metric-codes-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/timing-metric-codes-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -406,6 +406,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #"D2N<=60" "Door to Needle <= 60 Minutes"
 * #D2ICH-Evac "Door to ICH Evacuation"
 * #D2I "Door to Imaging"
+* #I2N "Imaging to Needle"
 * #D2IV-Antihypertensive "Door to IV Antihypertensive"
 * #"D2SysBP<140" "Door to Systolic Blood Pressure < 140 mmHg"
 * #D2R "Door to Reperfusion"
@@ -426,8 +427,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MrsScoreCS
 Id: mrs-score-cs
 Title: "MrsScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/mrs-score-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/mrs-score-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mrs-score-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/mrs-score-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -442,8 +443,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: FunctionalScoreCS
 Id: functional-score-cs
 Title: "FunctionalScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/functional-score-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/functional-score-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/functional-score-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/functional-score-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -454,8 +455,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: AssessmentContextCS
 Id: assessment-context-cs
 Title: "AssessmentContextCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/assessment-context-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/assessment-context-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -465,7 +466,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #admission "Admission"
 * #72-hours "72 Hours After Admission"
 * #first-48-hours "First 48 Hours After Admission"
-* #post-stroke "Post-Stroke"
+* #post-acute-care "Post-Acute Care"
 * #last-10-years "During Last 10 Years"
 * #discharge-or-7-days "Discharge or 7 Days After Admission"
 * #unknown "Unknown/Not Applicable"
@@ -476,8 +477,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MticiCodeCS
 Id: mtici-code-cs
 Title: "MticiCodeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/mtici-code-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/mtici-code-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -486,8 +487,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: PerfusionVolumeCS
 Id: perfusion-volume-cs
 Title: "PerfusionVolumeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/perfusion-volume-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/perfusion-volume-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/perfusion-volume-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/perfusion-volume-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -497,8 +498,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: OldInfarctCS
 Id: old-infarct-cs
 Title: "OldInfarctCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/old-infarct-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/old-infarct-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/old-infarct-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/old-infarct-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -507,8 +508,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SpecificFindingCS
 Id: specific-finding-cs
 Title: "SpecificFindingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/specific-finding-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/specific-finding-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/specific-finding-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/specific-finding-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -518,8 +519,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeTreatmentCS
 Id: stroke-treatment-cs
 Title: "StrokeTreatmentCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-treatment-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-treatment-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-treatment-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-treatment-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -529,8 +530,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeCircumstanceCodesCS
 Id: stroke-circumstance-codes-cs
 Title: "StrokeCircumstanceCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -540,8 +541,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: LocationCS
 Id: location-cs
 Title: "LocationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/location-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/location-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/location-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/location-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -552,8 +553,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SymptomsCS
 Id: symptoms-cs
 Title: "SymptomsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/symptoms-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/symptoms-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/symptoms-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/symptoms-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -562,8 +563,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TiaSymptomDurationCS
 Id: tia-symptom-duration-cs
 Title: "TiaSymptomDurationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/tia-symptom-duration-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/tia-symptom-duration-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/tia-symptom-duration-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/tia-symptom-duration-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -574,8 +575,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ThrombectomyComplicationsCS
 Id: thrombectomy-complications-cs
 Title: "ThrombectomyComplicationsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/thrombectomy-complications-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/thrombectomy-complications-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/thrombectomy-complications-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/thrombectomy-complications-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -584,8 +585,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: AnalyticsCodesCS
 Id: analytics-codes-cs
 Title: "AnalyticsCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/analytics-codes-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/analytics-codes-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -595,8 +596,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: VitalSignsCS
 Id: vital-signs-cs
 Title: "VitalSignsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/vital-signs-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/vital-signs-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/vital-signs-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/vital-signs-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -606,8 +607,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TenecteplaseBrandCS
 Id: tenecteplase-brand-cs
 Title: "TenecteplaseBrandCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/tenecteplase-brand-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/tenecteplase-brand-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/tenecteplase-brand-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/tenecteplase-brand-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -625,8 +626,8 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeDischargeSummarySectionCS
 Id: stroke-discharge-summary-section-cs
 Title: "StrokeDischargeSummarySectionCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs."
-* ^url = "http://qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs"
+Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
@@ -637,7 +638,7 @@ ValueSet: SexVS
 Id: sex-vs
 Title: "Sex ValueSet"
 Description: "Allowed coded values for Sex"
-* ^url = "http://qualityregistry.org/ValueSet/sex-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/sex-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#248153007 "Male (finding)"
@@ -648,11 +649,11 @@ ValueSet: OccupationalTherapyVS
 Id: occupational-therapy-vs
 Title: "OccupationalTherapy ValueSet"
 Description: "Allowed coded values for OccupationalTherapy"
-* ^url = "http://qualityregistry.org/ValueSet/occupational-therapy-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/occupational-therapy-vs"
 * ^status = #active
 * ^experimental = false
-* include SCT#yes "Yes"
-* include SCT#no "No"
+* include SCT#373066001 "Yes (qualifier value)"
+* include SCT#373067005 "No (qualifier value)"
 * include YesNoNotRequiredCS#not-required "Not Required"
 * include YesNoNotRequiredCS#recommended "Recommended"
 
@@ -660,7 +661,7 @@ ValueSet: ThreeMonthContactModeVS
 Id: three-month-contact-mode-vs
 Title: "ThreeMonthContactMode ValueSet"
 Description: "Allowed coded values for ThreeMonthContactMode"
-* ^url = "http://qualityregistry.org/ValueSet/three-month-contact-mode-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/three-month-contact-mode-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#466583009 "Video conferencing telemedicine system (physical object)"
@@ -674,7 +675,7 @@ ValueSet: ManagementAppointmentVS
 Id: management-appointment-vs
 Title: "ManagementAppointment ValueSet"
 Description: "Allowed coded values for ManagementAppointment"
-* ^url = "http://qualityregistry.org/ValueSet/management-appointment-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/management-appointment-vs"
 * ^status = #active
 * ^experimental = false
 * include ManagementAppointmentCS#scheduled "Scheduled"
@@ -686,7 +687,7 @@ ValueSet: AdmissionDepartmentVS
 Id: admission-department-vs
 Title: "AdmissionDepartment ValueSet"
 Description: "Allowed coded values for AdmissionDepartment"
-* ^url = "http://qualityregistry.org/ValueSet/admission-department-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/admission-department-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#NCCS "Neurology critical care and stroke unit"
@@ -700,10 +701,10 @@ ValueSet: AdmissionPathwayVS
 Id: admission-pathway-vs
 Title: "AdmissionPathway ValueSet"
 Description: "Allowed coded values for AdmissionPathway"
-* ^url = "http://qualityregistry.org/ValueSet/admission-pathway-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/admission-pathway-vs"
 * ^status = #active
 * ^experimental = false
-* include StrokeArrivalModeCS#ems-gp "EMS from GP"
+* include StrokeArrivalModeCS#ems-gp "patient arrived by EMS/ambulance from general practitioner/outpatient office/community service"
 * include StrokeArrivalModeCS#priv-transport "Private Transportation"
 * include StrokeArrivalModeCS#stroke-center "Stroke Center"
 * include StrokeArrivalModeCS#another-hosp "Another Hospital"
@@ -715,7 +716,7 @@ ValueSet: CarotidEndarterectomyTimingVS
 Id: carotid-endarterectomy-timing-vs
 Title: "CarotidEndarterectomyTiming ValueSet"
 Description: "Allowed coded values for CarotidEndarterectomyTiming"
-* ^url = "http://qualityregistry.org/ValueSet/carotid-endarterectomy-timing-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/carotid-endarterectomy-timing-vs"
 * ^status = #active
 * ^experimental = false
 * include CarotidEndarterectomyTimingCS#in-24-hours "Carotid endarterectomy in 24 hours"
@@ -726,7 +727,7 @@ ValueSet: AnticoagulantReversalVS
 Id: anticoagulant-reversal-vs
 Title: "AnticoagulantReversal ValueSet"
 Description: "Allowed coded values for AnticoagulantReversal"
-* ^url = "http://qualityregistry.org/ValueSet/anticoagulant-reversal-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/anticoagulant-reversal-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#783678000 "Andexanet alfa (substance)"
@@ -744,7 +745,7 @@ ValueSet: CarotidStenosisLevelVS
 Id: carotid-stenosis-level-vs
 Title: "CarotidStenosisLevel ValueSet"
 Description: "Allowed coded values for CarotidStenosisLevel"
-* ^url = "http://qualityregistry.org/ValueSet/carotid-stenosis-level-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/carotid-stenosis-level-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1255665007 "Moderate (qualifier value)"
@@ -756,7 +757,7 @@ ValueSet: GCSScoreVS
 Id: gcsscore-vs
 Title: "GCSScore ValueSet"
 Description: "Allowed coded values for GCSScore"
-* ^url = "http://qualityregistry.org/ValueSet/gcsscore-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/gcsscore-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#24484000 "Severe (qualifier value)"
@@ -767,7 +768,7 @@ ValueSet: HemorrhagicTransformationTypeVS
 Id: hemorrhagic-transformation-type-vs
 Title: "HemorrhagicTransformationType ValueSet"
 Description: "Allowed coded values for HemorrhagicTransformationType"
-* ^url = "http://qualityregistry.org/ValueSet/hemorrhagic-transformation-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/hemorrhagic-transformation-type-vs"
 * ^status = #active
 * ^experimental = false
 * include HemorrhagicTransformationTypeCS#hi-type-1 "HI type 1"
@@ -779,7 +780,7 @@ ValueSet: MedicationsVS
 Id: medications-vs
 Title: "Medications ValueSet"
 Description: "Allowed coded values for Medications"
-* ^url = "http://qualityregistry.org/ValueSet/medications-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/medications-vs"
 * ^status = #active
 * ^experimental = false
 * include MedicationCS#antidiabetic "Any Antidiabetic"
@@ -818,7 +819,7 @@ ValueSet: IvtApplicationDepartmentVS
 Id: ivt-application-department-vs
 Title: "IvtApplicationDepartment ValueSet"
 Description: "Allowed coded values for IvtApplicationDepartment"
-* ^url = "http://qualityregistry.org/ValueSet/ivt-application-department-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/ivt-application-department-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#HRAD "radiology unit"
@@ -830,7 +831,7 @@ ValueSet: IvtDrugVS
 Id: ivt-drug-vs
 Title: "IvtDrug ValueSet"
 Description: "Allowed coded values for IvtDrug"
-* ^url = "http://qualityregistry.org/ValueSet/ivt-drug-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/ivt-drug-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#387152000 "Alteplase (substance)"
@@ -842,7 +843,7 @@ ValueSet: LocationsVS
 Id: locations-vs
 Title: "Locations ValueSet"
 Description: "Allowed coded values for Locations"
-* ^url = "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/locations-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#ER "Emergency room"
@@ -858,7 +859,7 @@ ValueSet: HospitalizedInVS
 Id: hospitalized-in-vs
 Title: "HospitalizedIn ValueSet"
 Description: "Allowed coded values for HospitalizedIn"
-* ^url = "http://qualityregistry.org/ValueSet/hospitalized-in-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/hospitalized-in-vs"
 * ^status = #active
 * ^experimental = false
 * include InitialCareIntensityCS#icu-stroke "ICU / Stroke Unit"
@@ -870,29 +871,18 @@ ValueSet: INRmodeVS
 Id: inrmode-vs
 Title: "INRmode ValueSet"
 Description: "Allowed coded values for INRmode"
-* ^url = "http://qualityregistry.org/ValueSet/inrmode-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/inrmode-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#15220000 "Laboratory test (procedure)"
 * include SCT#405262001 "Point of care (qualifier value)"
 * include SCT#385660001 "Not done (qualifier value)"
 
-ValueSet: InHospitalVS
-Id: in-hospital-vs
-Title: "InHospital ValueSet"
-Description: "Allowed coded values for InHospital"
-* ^url = "http://qualityregistry.org/ValueSet/in-hospital-vs"
-* ^status = #active
-* ^experimental = false
-* include FHIRInHospitalCS#false "False"
-* include FHIRInHospitalCS#true "True"
-* include FHIRInHospitalCS#none "None"
-
 ValueSet: ImagingTypeVS
 Id: imaging-type-vs
 Title: "ImagingType ValueSet"
 Description: "Allowed coded values for ImagingType"
-* ^url = "http://qualityregistry.org/ValueSet/imaging-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/imaging-type-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#396205005 "Computed tomography of brain without radiopaque contrast (procedure)"
@@ -907,7 +897,7 @@ ValueSet: StrokeTypeVS
 Id: stroke-type-vs
 Title: "StrokeType ValueSet"
 Description: "Allowed coded values for StrokeType"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-type-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#422504002 "Ischemic stroke (disorder)"
@@ -922,7 +912,7 @@ ValueSet: StrokeDiagnosisCodeVS
 Id: stroke-diagnosis-code-vs
 Title: "Stroke Diagnosis Code ValueSet"
 Description: "Allowed coded values for final stroke episode diagnosis, including stroke types and stroke mimics."
-* ^url = "http://qualityregistry.org/ValueSet/stroke-diagnosis-code-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-diagnosis-code-vs"
 * ^status = #active
 * ^experimental = false
 
@@ -933,7 +923,7 @@ ValueSet: StrokeEtiologyVS
 Id: stroke-etiology-vs
 Title: "StrokeEtiology ValueSet"
 Description: "Allowed coded values for StrokeEtiology"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-etiology-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-etiology-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#413758000 "Cardioembolic stroke (disorder)"
@@ -951,7 +941,7 @@ ValueSet: StrokeEtiologyOtherVS
 Id: stroke-etiology-other-vs
 Title: "StrokeEtiologyOther ValueSet"
 Description: "Allowed coded values for StrokeEtiologyOther"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-etiology-other-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-etiology-other-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#31996006 "Vasculitis (disorder)"
@@ -974,7 +964,7 @@ ValueSet: MimicsDiagnosisVS
 Id: mimics-diagnosis-vs
 Title: "MimicsDiagnosis ValueSet"
 Description: "Allowed coded values for MimicsDiagnosis"
-* ^url = "http://qualityregistry.org/ValueSet/mimics-diagnosis-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/mimics-diagnosis-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#37796009 "Migraine (disorder)"
@@ -988,7 +978,7 @@ ValueSet: BleedingReasonVS
 Id: bleeding-reason-vs
 Title: "BleedingReason ValueSet"
 Description: "Allowed coded values for BleedingReason"
-* ^url = "http://qualityregistry.org/ValueSet/bleeding-reason-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/bleeding-reason-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#128609009 "Intracranial aneurysm (disorder)"
@@ -1006,7 +996,7 @@ ValueSet: AtrialFibrillationOrFlutterVS
 Id: atrial-fibrillation-or-flutter-vs
 Title: "AtrialFibrillationOrFlutter ValueSet"
 Description: "Allowed coded values for AtrialFibrillationOrFlutter"
-* ^url = "http://qualityregistry.org/ValueSet/atrial-fibrillation-or-flutter-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/atrial-fibrillation-or-flutter-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#410515003 "Known present (qualifier value)"
@@ -1018,7 +1008,7 @@ ValueSet: VteProceduresVS
 Id: vte-procedures-vs
 Title: "VteProcedures ValueSet"
 Description: "Allowed coded values for VteProcedures"
-* ^url = "http://qualityregistry.org/ValueSet/vte-procedures-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/vte-procedures-vs"
 * ^status = #active
 * ^experimental = false
 * include VteProceduresCS#vte-proc "Thromboembolism intervention"
@@ -1035,7 +1025,7 @@ Description: "Allowed coded values for VteProcedures"
 // Id: observation-methods-vs
 // Title: "ObservationMethods ValueSet"
 // Description: "Allowed coded values for ObservationMethods"
-// * ^url = "http://qualityregistry.org/ValueSet/observation-methods-vs"
+// * ^url = "http://fhir.qualityregistry.org/ValueSet/observation-methods-vs"
 // * ^status = #active
 // * ^experimental = false
 // * include SCT#15220000 "Laboratory test (procedure)"
@@ -1047,7 +1037,7 @@ Description: "Allowed coded values for VteProcedures"
 // Id: specific-finding-value-codeableconcept-vs
 // Title: "Specific Finding Value CodeableConcept ValueSet"
 // Description: "Allowed coded values for specific finding observations."
-// * ^url = "http://qualityregistry.org/ValueSet/specific-finding-value-codeableconcept-vs"
+// * ^url = "http://fhir.qualityregistry.org/ValueSet/specific-finding-value-codeableconcept-vs"
 // * ^status = #active
 
 // * include codes from valueset MTiciScoreVS
@@ -1057,7 +1047,7 @@ ValueSet: ProcedureNotDoneReasonVS
 Id: procedure-not-done-reason-vs
 Title: "ProcedureNotDoneReason ValueSet"
 Description: "Allowed coded values for ProcedureNotDoneReason"
-* ^url = "http://qualityregistry.org/ValueSet/procedure-not-done-reason-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/procedure-not-done-reason-vs"
 * ^status = #active
 * ^experimental = false
 * include StrokeProcNotDoneReasonCS#done-elsewhere "Performed Elsewhere"
@@ -1095,7 +1085,7 @@ ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
 Title: "PostStrokeProcedures ValueSet"
 Description: "Allowed coded values for PostStrokeProcedures"
-* ^url = "http://qualityregistry.org/ValueSet/post-stroke-procedures-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/post-stroke-procedures-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#722138006 "Physiotherapy (qualifier value)"
@@ -1108,7 +1098,7 @@ ValueSet: PostNeurosurgeryImagingVS
 Id: post-neurosurgery-imaging-vs
 Title: "PostNeurosurgeryImaging ValueSet"
 Description: "Allowed coded values for PostNeurosurgeryImaging"
-* ^url = "http://qualityregistry.org/ValueSet/post-neurosurgery-imaging-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/post-neurosurgery-imaging-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#396205005 "Computed tomography of brain without radiopaque contrast (procedure)"
@@ -1119,7 +1109,7 @@ ValueSet: PostRecanalizationImagingVS
 Id: post-recanalization-imaging-vs
 Title: "PostRecanalizationImaging ValueSet"
 Description: "Allowed coded values for PostRecanalizationImaging"
-* ^url = "http://qualityregistry.org/ValueSet/post-recanalization-imaging-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/post-recanalization-imaging-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#396205005 "Computed tomography of brain without radiopaque contrast (procedure)"
@@ -1130,7 +1120,7 @@ ValueSet: PostStrokeComplicationsVS
 Id: post-stroke-complications-vs
 Title: "PostStrokeComplications ValueSet"
 Description: "Allowed coded values for PostStrokeComplications"
-* ^url = "http://qualityregistry.org/ValueSet/post-stroke-complications-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/post-stroke-complications-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#233604007 "Pneumonia (disorder)"
@@ -1147,7 +1137,7 @@ ValueSet: SwallowingScreeningDoneVS
 Id: swallowing-screening-done-vs
 Title: "SwallowingScreeningDone ValueSet"
 Description: "Allowed coded values for SwallowingScreeningDone"
-* ^url = "http://qualityregistry.org/ValueSet/swallowing-screening-done-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/swallowing-screening-done-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#385658003 "Done (qualifier value)"
@@ -1158,7 +1148,7 @@ ValueSet: ScreeningPerformerVS
 Id: screening-performer-vs
 Title: "ScreeningPerformer ValueSet"
 Description: "Allowed coded values for ScreeningPerformer"
-* ^url = "http://qualityregistry.org/ValueSet/screening-performer-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/screening-performer-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#106292003 "Professional nurse (occupation)"
@@ -1170,7 +1160,7 @@ ValueSet: SwallowingScreeningTimingVS
 Id: swallowing-screening-timing-vs
 Title: "SwallowingScreeningTiming ValueSet"
 Description: "Allowed coded values for SwallowingScreeningTiming"
-* ^url = "http://qualityregistry.org/ValueSet/swallowing-screening-timing-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/swallowing-screening-timing-vs"
 * ^status = #active
 * ^experimental = false
 * include SwallowScreenTimeCS#T4H "Within 4 Hours"
@@ -1181,7 +1171,7 @@ ValueSet: SwallowingScreeningTypeVS
 Id: swallowing-screening-type-vs
 Title: "SwallowingScreeningType ValueSet"
 Description: "Allowed coded values for SwallowingScreeningType"
-* ^url = "http://qualityregistry.org/ValueSet/swallowing-screening-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/swallowing-screening-type-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1290000005 "Assessment using Gugging Swallowing Screen (procedure)"
@@ -1194,7 +1184,7 @@ ValueSet: DischargeDestinationVS
 Id: discharge-destination-vs
 Title: "DischargeDestination ValueSet"
 Description: "Allowed coded values for DischargeDestination"
-* ^url = "http://qualityregistry.org/ValueSet/discharge-destination-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/discharge-destination-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#306689006 "Discharge to home (procedure)"
@@ -1208,7 +1198,7 @@ ValueSet: DischargeFacilityDepartmentVS
 Id: discharge-facility-department-vs
 Title: "DischargeFacilityDepartment ValueSet"
 Description: "Allowed coded values for DischargeFacilityDepartment"
-* ^url = "http://qualityregistry.org/ValueSet/discharge-facility-department-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/discharge-facility-department-vs"
 * ^status = #active
 * ^experimental = false
 * include DischargeDeptCS#acute "Acute Rehabilitation"
@@ -1220,7 +1210,7 @@ ValueSet: DischargeFacilityTypeVS
 Id: discharge-facility-type-vs
 Title: "DischargeFacilityType ValueSet"
 Description: "Allowed coded values for DischargeFacilityType"
-* ^url = "http://qualityregistry.org/ValueSet/discharge-facility-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/discharge-facility-type-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#37729005 "Patient transfer, in-hospital (procedure)"
@@ -1232,7 +1222,7 @@ ValueSet: FirstContactPlaceVS
 Id: first-contact-place-vs
 Title: "FirstContactPlace ValueSet"
 Description: "Allowed coded values for FirstContactPlace"
-* ^url = "http://qualityregistry.org/ValueSet/first-contact-place-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/first-contact-place-vs"
 * ^status = #active
 * ^experimental = false
 * include V3RoleCode#HRAD "radiology unit"
@@ -1244,7 +1234,7 @@ ValueSet: MTiciScoreVS
 Id: mtici-score-vs
 Title: "MTiciScore ValueSet"
 Description: "Allowed coded values for MTiciScore"
-* ^url = "http://qualityregistry.org/ValueSet/mtici-score-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/mtici-score-vs"
 * ^status = #active
 * ^experimental = false
 * include MticiScoreCS#0 "Grade 0: No perfusion"
@@ -1259,7 +1249,7 @@ ValueSet: NimodipinetimingVS
 Id: nimodipinetiming-vs
 Title: "Nimodipinetiming ValueSet"
 Description: "Allowed coded values for Nimodipinetiming"
-* ^url = "http://qualityregistry.org/ValueSet/nimodipinetiming-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/nimodipinetiming-vs"
 * ^status = #active
 * ^experimental = false
 * include TimingCS#within-24-hours "Within 24 Hours"
@@ -1269,7 +1259,7 @@ ValueSet: ParacetamolOnFeverVS
 Id: paracetamol-on-fever-vs
 Title: "ParacetamolOnFever ValueSet"
 Description: "Allowed coded values for ParacetamolOnFever"
-* ^url = "http://qualityregistry.org/ValueSet/paracetamol-on-fever-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/paracetamol-on-fever-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#385658003 "Done (qualifier value)"
@@ -1280,7 +1270,7 @@ ValueSet: ParacetamolOnFeverTimingVS
 Id: paracetamol-on-fever-timing-vs
 Title: "ParacetamolOnFeverTiming ValueSet"
 Description: "Allowed coded values for ParacetamolOnFeverTiming"
-* ^url = "http://qualityregistry.org/ValueSet/paracetamol-on-fever-timing-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/paracetamol-on-fever-timing-vs"
 * ^status = #active
 * ^experimental = false
 * include TimingCS#within-1-hours "Within 1 Hour"
@@ -1290,7 +1280,7 @@ ValueSet: TenecteplaseBrandVS
 Id: tenecteplase-brand-vs
 Title: "TenecteplaseBrand ValueSet"
 Description: "Allowed coded values for TenecteplaseBrand"
-* ^url = "http://qualityregistry.org/ValueSet/tenecteplase-brand-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/tenecteplase-brand-vs"
 * ^status = #active
 * ^experimental = false
 * include TenecteplaseBrandCS#metalyse "Metalyse (Boehringer Ingelheim International)"
@@ -1307,7 +1297,7 @@ ValueSet: LateralityVS
 Id: laterality-vs
 Title: "Laterality ValueSet"
 Description: "Allowed coded values for Laterality"
-* ^url = "http://qualityregistry.org/ValueSet/laterality-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/laterality-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#7771000 "Left (qualifier value)"
@@ -1330,7 +1320,7 @@ ValueSet: BodySitesVS
 Id: body-sites-vs
 Title: "BodySites ValueSet"
 Description: "Allowed coded values for BodySites"
-* ^url = "http://qualityregistry.org/ValueSet/body-sites-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/body-sites-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#60176003 "Structure of anterior cerebral artery (body structure)"
@@ -1355,7 +1345,7 @@ ValueSet: RiskFactorVS
 Id: risk-factor-vs
 Title: "RiskFactor ValueSet"
 Description: "Allowed coded values for RiskFactor"
-* ^url = "http://qualityregistry.org/ValueSet/risk-factor-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/risk-factor-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#49436004 "Atrial fibrillation (disorder)"
@@ -1378,21 +1368,11 @@ Description: "Allowed coded values for RiskFactor"
 * include SCT#73430006 "Sleep apnea (disorder)"
 
 
-ValueSet: BoolVS
-Id: bool-vs
-Title: "Bool ValueSet"
-Description: "Allowed coded values for Bool"
-* ^url = "http://qualityregistry.org/ValueSet/bool-vs"
-* ^status = #active
-* ^experimental = false
-* include FHIRBoolCS#true "True"
-* include FHIRBoolCS#false "False"
-
 // ValueSet: DischargeMedicationVS
 // Id: discharge-medication-vs
 // Title: "DischargeMedication ValueSet"
 // Description: "Allowed coded values for DischargeMedication"
-// * ^url = "http://qualityregistry.org/ValueSet/discharge-medication-vs"
+// * ^url = "http://fhir.qualityregistry.org/ValueSet/discharge-medication-vs"
 // * ^status = #active
 // * ^experimental = false
 // * include DischargeMedicationCS#antiplatelet "any Antiplatelet"
@@ -1412,7 +1392,7 @@ ValueSet: InsulinOnHyperglycemiaTimingVS
 Id: insulin-on-hyperglycemia-timing-vs
 Title: "InsulinOnHyperglycemiaTiming ValueSet"
 Description: "Allowed coded values for InsulinOnHyperglycemiaTiming"
-* ^url = "http://qualityregistry.org/ValueSet/insulin-on-hyperglycemia-timing-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/insulin-on-hyperglycemia-timing-vs"
 * ^status = #active
 * ^experimental = false
 * include InsulinHyperglycemiaTimeCS#T1H "Within 1 Hour"
@@ -1422,7 +1402,7 @@ ValueSet: VitalSignsVS
 Id: vital-signs-vs
 Title: "VitalSigns ValueSet"
 Description: "Allowed coded values for VitalSigns"
-* ^url = "http://qualityregistry.org/ValueSet/vital-signs-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/vital-signs-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#271649006 "Systolic blood pressure (observable entity)"
@@ -1435,7 +1415,7 @@ ValueSet: MRsScoreVS
 Id: mrs-score-vs
 Title: "MRsScore ValueSet"
 Description: "Allowed coded values for MRsScore"
-* ^url = "http://qualityregistry.org/ValueSet/mrs-score-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/mrs-score-vs"
 * ^status = #active
 * ^experimental = false
 * include MrsScoreCS#0 "No symptoms at all"
@@ -1450,7 +1430,7 @@ ValueSet: FunctionalScoreVS
 Id: functional-score-vs
 Title: "FunctionalScore ValueSet"
 Description: "Allowed coded values for FunctionalScore"
-* ^url = "http://qualityregistry.org/ValueSet/functional-score-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/functional-score-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1255866005 "Modified Rankin Scale score (observable entity)"
@@ -1469,7 +1449,7 @@ ValueSet: AssessmentContextVS
 Id: assessment-context-vs
 Title: "AssessmentContext ValueSet"
 Description: "Allowed coded values for AssessmentContext"
-* ^url = "http://qualityregistry.org/ValueSet/assessment-context-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/assessment-context-vs"
 * ^status = #active
 * ^experimental = false
 * include AssessmentContextCS#pre-stroke "Pre-stroke"
@@ -1478,7 +1458,7 @@ Description: "Allowed coded values for AssessmentContext"
 * include AssessmentContextCS#admission "Admission"
 * include AssessmentContextCS#72-hours "72 Hours After Admission"
 * include AssessmentContextCS#first-48-hours "First 48 Hours After Admission"
-* include AssessmentContextCS#post-stroke "Post-Stroke"
+* include AssessmentContextCS#post-acute-care "Post-Acute Care"
 * include AssessmentContextCS#last-10-years "During Last 10 Years"
 * include AssessmentContextCS#discharge-or-7-days "Discharge or 7 Days After Admission"
 * include AssessmentContextCS#unknown "Unknown/Not Applicable"
@@ -1490,7 +1470,7 @@ ValueSet: SpecificFindingVS
 Id: specific-finding-vs
 Title: "SpecificFinding ValueSet"
 Description: "Allowed coded values for specific stroke-related findings."
-* ^url = "http://qualityregistry.org/ValueSet/specific-finding-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/specific-finding-vs"
 * ^status = #active
 * ^experimental = false
 
@@ -1515,7 +1495,7 @@ ValueSet: SpecificFindingValueVS
 Id: specific-finding-value-vs
 Title: "Specific Finding Value ValueSet"
 Description: "Allowed coded values used as Observation.valueCodeableConcept for specific finding observations."
-* ^url = "http://qualityregistry.org/ValueSet/specific-finding-value-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/specific-finding-value-vs"
 * ^status = #active
 * ^experimental = false
 
@@ -1528,7 +1508,7 @@ ValueSet: StrokeTreatmentVS
 Id: stroke-treatment-vs
 Title: "StrokeTreatment ValueSet"
 Description: "Allowed coded values for StrokeTreatment"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-treatment-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-treatment-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#1288015005 "Decompressive craniectomy (procedure)"
@@ -1548,7 +1528,7 @@ ValueSet: StrokeTreatmentProcedureVS
 Id: stroke-treatment-procedure-vs
 Title: "PostStrokeProcedures ValueSet"
 Description: "Allowed coded values for PostStrokeProcedures"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-treatment-procedure-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-treatment-procedure-vs"
 * ^status = #active
 * ^experimental = false
 * include codes from valueset PostStrokeProceduresVS
@@ -1559,7 +1539,7 @@ ValueSet: StrokeCircumstanceVS
 Id: stroke-circumstance-vs
 Title: "StrokeCircumstance ValueSet"
 Description: "Allowed coded values for StrokeCircumstance"
-* ^url = "http://qualityregistry.org/ValueSet/stroke-circumstance-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/stroke-circumstance-vs"
 * ^status = #active
 * ^experimental = false
 * include StrokeCircumstanceCodesCS#wake-up "Wake Up Stroke"
@@ -1569,7 +1549,7 @@ ValueSet: PostAcuteCareVS
 Id: post-acute-care-vs
 Title: "PostAcuteCare ValueSet"
 Description: "Allowed coded values for PostAcuteCare"
-* ^url = "http://qualityregistry.org/ValueSet/post-acute-care-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/post-acute-care-vs"
 * ^status = #active
 * ^experimental = false
 * include ProcedureTimingContextCS#post-acute "Acute Phase (<24h)"
@@ -1580,7 +1560,7 @@ ValueSet: PerforationProceduresVS
 Id: perforation-procedures-vs
 Title: "PerforationProcedures ValueSet"
 Description: "Allowed coded values for PerforationProcedures"
-* ^url = "http://qualityregistry.org/ValueSet/perforation-procedures-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/perforation-procedures-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#472191000119101 "Thrombolysis of cerebral artery by intravenous infusion (procedure)"
@@ -1592,7 +1572,7 @@ ValueSet: TimingMetricCodesVS
 Id: timing-metric-codes-vs
 Title: "TimingMetricCodes ValueSet"
 Description: "Allowed coded values for TimingMetricCodes"
-* ^url = "http://qualityregistry.org/ValueSet/timing-metric-codes-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/timing-metric-codes-vs"
 * ^status = #active
 * ^experimental = false
 * include TimingMetricCodesCS#D2G "Door to Groin"
@@ -1605,6 +1585,7 @@ Description: "Allowed coded values for TimingMetricCodes"
 * include TimingMetricCodesCS#"D2N<=60" "Door to Needle <= 60 Minutes"
 * include TimingMetricCodesCS#D2ICH-Evac "Door to ICH Evacuation"
 * include TimingMetricCodesCS#D2I "Door to Imaging"
+* include TimingMetricCodesCS#I2N "Imaging to Needle"
 * include TimingMetricCodesCS#D2IV-Antihypertensive "Door to IV Antihypertensive"
 * include TimingMetricCodesCS#"D2SysBP<140" "Door to Systolic Blood Pressure < 140 mmHg"
 * include TimingMetricCodesCS#D2R "Door to Reperfusion"
@@ -1627,7 +1608,7 @@ ValueSet: TiaClinicalSymptomsVS
 Id: tia-clinical-symptoms-vs
 Title: "TiaClinicalSymptoms ValueSet"
 Description: "Allowed coded values for TiaClinicalSymptoms"
-* ^url = "http://qualityregistry.org/ValueSet/tia-clinical-symptoms-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/tia-clinical-symptoms-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#26544005 "Muscle weakness (finding)"
@@ -1638,7 +1619,7 @@ ValueSet: TiaSymptomDurationVS
 Id: tia-symptom-duration-vs
 Title: "TiaSymptomDuration ValueSet"
 Description: "Allowed coded values for TiaSymptomDuration"
-* ^url = "http://qualityregistry.org/ValueSet/tia-symptom-duration-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/tia-symptom-duration-vs"
 * ^status = #active
 * ^experimental = false
 * include TiaSymptomDurationCS#duration-lt-10-minutes "Duration < 10 Minutes"
@@ -1649,7 +1630,7 @@ ValueSet: ThrombectomyComplicationsVS
 Id: thrombectomy-complications-vs
 Title: "ThrombectomyComplications ValueSet"
 Description: "Allowed coded values for ThrombectomyComplications"
-* ^url = "http://qualityregistry.org/ValueSet/thrombectomy-complications-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/thrombectomy-complications-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#307312008 "Perforation of artery (disorder)"
@@ -1662,21 +1643,22 @@ ValueSet: UnitofMeasurementVS
 Id: unitof-measurement-vs
 Title: "UnitofMeasurement ValueSet"
 Description: "Allowed coded values for UnitofMeasurement"
-* ^url = "http://qualityregistry.org/ValueSet/unitof-measurement-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/unitof-measurement-vs"
 * ^status = #active
 * ^experimental = false
-* include UCUMLocal#min "minute"
-* include UCUMLocal#"mm[Hg]" "millimeter Mercury column"
-* include UCUMLocal#"mmol/L" "millimole per liter"
-* include UCUMLocal#mL "milliliter"
-* include UCUMLocal#mg "milligram"
-* include UCUMLocal#d "day"
+* include UCUM#min "minute"
+* include UCUM#"mm[Hg]" "millimeter Mercury column"
+* include UCUM#"mmol/L" "millimole per liter"
+* include UCUM#mL "milliliter"
+* include UCUM#mg "milligram"
+* include UCUM#d "day"
+* include UCUM#a "year"
 
 ValueSet: AdherenceCodesVS
 Id: adherence-codes-vs
 Title: "AdherenceCodes ValueSet"
 Description: "Allowed coded values for AdherenceCodes"
-* ^url = "http://qualityregistry.org/ValueSet/adherence-codes-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/adherence-codes-vs"
 * ^status = #active
 * ^experimental = false
 * include MedicationStatementAdherenceCS#taking "Taking"
@@ -1687,7 +1669,7 @@ ValueSet: ClinicalStatusCodesVS
 Id: clinical-status-codes-vs
 Title: "ClinicalStatusCodes ValueSet"
 Description: "Allowed coded values for ClinicalStatusCodes"
-* ^url = "http://qualityregistry.org/ValueSet/clinical-status-codes-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/clinical-status-codes-vs"
 * ^status = #active
 * ^experimental = false
 * include ConditionClinicalCS#active "Active"
@@ -1695,11 +1677,11 @@ Description: "Allowed coded values for ClinicalStatusCodes"
 * include ConditionClinicalCS#remission "Remission"
 * include ConditionClinicalCS#unknown "Unknown"
 
-ValueSet: AnaliticsCodesVS
-Id: analitics-codes-vs
-Title: "AnaliticsCodes ValueSet"
-Description: "Allowed coded values for AnaliticsCodes"
-* ^url = "http://qualityregistry.org/ValueSet/analitics-codes-vs"
+ValueSet: AnalyticsCodesVS
+Id: analytics-codes-vs
+Title: "AnalyticsCodes ValueSet"
+Description: "Allowed coded values for AnalyticsCodes"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/analytics-codes-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#33747003 "Glucose measurement, blood (procedure)"
@@ -1720,7 +1702,7 @@ ValueSet: GlasgowComaScaleVS
 Id: glasgow-coma-scale-vs
 Title: "GlasgowComaScale ValueSet"
 Description: "Allowed coded values for GlasgowComaScale"
-* ^url = "http://qualityregistry.org/ValueSet/glasgow-coma-scale-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/glasgow-coma-scale-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#26394007 "Glasgow coma scale, 3 (finding)"
@@ -1743,7 +1725,7 @@ ValueSet: NotMedicationReasonVS
 Id: not-medication-reason-vs
 Title: "NotMedicationReason ValueSet"
 Description: "Allowed coded values for NotMedicationReason"
-* ^url = "http://qualityregistry.org/ValueSet/not-medication-reason-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/not-medication-reason-vs"
 * ^status = #active
 * ^experimental = false
 * include SCT#609328004 "Allergy disposition (finding)"
@@ -1771,7 +1753,7 @@ ValueSet: ProcedureTimingContextVS
 Id: procedure-timing-context-vs
 Title: "Procedure Timing Context ValueSet"
 Description: "Allowed values for the Procedure timing context extension."
-* ^url = "http://qualityregistry.org/ValueSet/procedure-timing-context-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/procedure-timing-context-vs"
 * ^status = #active
 * ^experimental = false
 * include codes from system ProcedureTimingContextCS
@@ -1780,7 +1762,7 @@ ValueSet: RESQStrokeDischargeDocumentTypeVS
 Id: resq-stroke-discharge-document-type-vs
 Title: "RESQ Stroke Discharge Document Type ValueSet"
 Description: "Allowed document type code for the RESQ Stroke Hospital Discharge Summary Composition."
-* ^url = "http://qualityregistry.org/ValueSet/resq-stroke-discharge-document-type-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/resq-stroke-discharge-document-type-vs"
 * ^status = #active
 * ^experimental = false
 * LOINC#18842-5 "Discharge summary"
@@ -1789,21 +1771,21 @@ ValueSet: RESQStrokeDischargeSectionCodeVS
 Id: resq-stroke-discharge-section-code-vs
 Title: "RESQ Stroke Discharge Section Code ValueSet"
 Description: "Allowed LOINC section codes for the RESQ Stroke Hospital Discharge Summary Composition."
-* ^url = "http://qualityregistry.org/ValueSet/resq-stroke-discharge-section-code-vs"
+* ^url = "http://fhir.qualityregistry.org/ValueSet/resq-stroke-discharge-section-code-vs"
 * ^status = #active
 * ^experimental = false
 * LOINC#67851-6 "Admission evaluation note"
-* LOINC#11329-0 "History of general health Narrative"
+* LOINC#11329-0 "History general Narrative - Reported"
 * LOINC#11450-4 "Problem list - Reported"
 * LOINC#8648-8 "Hospital course note"
-* LOINC#11535-2 "Hospital discharge diagnosis Narrative"
-* LOINC#10185-7 "Hospital discharge procedures"
-* LOINC#87232-5 "Medication administration brief"
-* LOINC#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* LOINC#11535-2 "Hospital discharge diagnosis note"
+* LOINC#10185-7 "Hospital discharge procedure note"
+* LOINC#87232-5 "Medication administration.brief"
+* LOINC#30954-2 "Relevant diagnostic tests/laboratory data note"
 * LOINC#8716-3 "Vital signs note"
 * LOINC#47420-5 "Functional status assessment note"
 * LOINC#8650-4 "Hospital discharge disposition note"
-* LOINC#75311-1 "Discharge medications Narrative"
+* LOINC#75311-1 "Discharge medications note"
 * LOINC#18776-5 "Plan of care note"
 * LOINC#75310-3 "Health concerns Document"
 * LOINC#48765-2 "Allergies and adverse reactions Document"

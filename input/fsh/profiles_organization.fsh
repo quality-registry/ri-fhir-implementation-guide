@@ -7,7 +7,7 @@ Parent: Organization
 Id: stroke-registry-organization-profile
 Title: "Stroke Registry Organization Profile"
 Description: "Organization profile for hospitals or registry participants contributing RES-Q stroke data. The profile requires an active organization, a display name and a registry-scoped identifier."
-* ^url = "http://qualityregistry.org/StructureDefinition/stroke-registry-organization-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-registry-organization-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Identifies the care organization or hospital associated with registry encounters and submitted data."
 * active 1..1 MS
