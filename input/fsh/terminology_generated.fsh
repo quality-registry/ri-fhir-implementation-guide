@@ -1667,13 +1667,13 @@ Description: "Allowed coded values for UnitofMeasurement"
 * ^url = "http://fhir.qualityregistry.org/ValueSet/unitof-measurement-vs"
 * ^status = #active
 * ^experimental = false
-* include UCUMLocal#min "minute"
-* include UCUMLocal#"mm[Hg]" "millimeter Mercury column"
-* include UCUMLocal#"mmol/L" "millimole per liter"
-* include UCUMLocal#mL "milliliter"
-* include UCUMLocal#mg "milligram"
-* include UCUMLocal#d "day"
-* include UCUMLocal#a "year"
+* include UCUM#min "minute"
+* include UCUM#"mm[Hg]" "millimeter Mercury column"
+* include UCUM#"mmol/L" "millimole per liter"
+* include UCUM#mL "milliliter"
+* include UCUM#mg "milligram"
+* include UCUM#d "day"
+* include UCUM#a "year"
 
 ValueSet: AdherenceCodesVS
 Id: adherence-codes-vs

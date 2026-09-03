@@ -44,7 +44,7 @@ Usage: #example
 * encounter = Reference(ExampleStrokeEncounter)
 * code = TimingMetricCodesCS#D2N "Door to Needle"
 * valueQuantity.value = 38
-* valueQuantity.system = "https://ucum.org/ucum"
+* valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #min
 * valueQuantity.unit = "minute"
 
@@ -209,9 +209,8 @@ Description: "Patient-reported statin taken one tablet each evening for two mont
 // The two vital-sign examples cover both branches of srvs-value-or-component:
 // blood pressure carries components and no top-level value, glucose the reverse.
 //
-// valueQuantity.system here is the correct UCUM canonical http://unitsofmeasure.org,
-// which is also what the questionnaire service sends. Older examples in this file
-// use the IG's UCUM alias https://ucum.org/ucum, which does not resolve.
+// valueQuantity.system is the UCUM canonical http://unitsofmeasure.org, which is
+// also what the questionnaire service sends.
 // ----------------------------------------------------------------------------
 
 Instance: ExampleSelfReportedBloodPressure

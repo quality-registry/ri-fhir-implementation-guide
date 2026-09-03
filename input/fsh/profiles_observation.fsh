@@ -143,7 +143,7 @@ Expression: "code.coding.where(system = 'http://fhir.qualityregistry.org/CodeSys
 Invariant: blood-volume-must-be-quantity-ml
 Description: "If Observation.code is blood volume, valueQuantity must be expressed in UCUM milliliters."
 Severity: #error
-Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '16086006').exists().not() or (value.ofType(Quantity).exists() and value.ofType(Quantity).system = 'https://ucum.org/ucum' and value.ofType(Quantity).code = 'mL')"
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '16086006').exists().not() or (value.ofType(Quantity).exists() and value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = 'mL')"
 
 Invariant: carotid-stenosis-value-rule
 Description: "If Observation.code is carotid stenosis, the value must be either a boolean presence/absence value or a coded carotid stenosis level."
