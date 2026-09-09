@@ -47,10 +47,12 @@ Description: "Length of the look-back window over which self-reported readings w
 * #30-day "30-day window"
 * #30-day ^definition = "Averaged over the 30 days preceding the end of the observation period."
 
-// Codes are kept verbatim in the upper-case form the calculating service emits,
-// rather than normalized to the kebab-case used elsewhere in this guide, so the
-// registry payloads and the published terminology agree at source. caseSensitive
-// is true here for the same reason: the codes are exact.
+// The calculating service emits these codes in an upper-case, underscore-separated
+// form (WITHIN_ESC_TREATMENT_TARGET and so on). They are normalized here to the
+// kebab-case every other local CodeSystem in this guide uses, and caseSensitive is
+// false to match, following the precedent set for the questionnaire service's
+// observation codes in terminology_selfreported.fsh. The calculating service must
+// be migrated onto these codes for the two sides to agree at source.
 CodeSystem: BloodPressureRiskStatusCS
 Id: blood-pressure-risk-status-cs
 Title: "BloodPressureRiskStatus CodeSystem"
@@ -58,26 +60,25 @@ Description: "Overall risk assessment of a derived blood-pressure average. Each 
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/blood-pressure-risk-status-cs"
 * ^status = #active
 * ^experimental = false
-* ^caseSensitive = true
-* #WITHIN_ESC_TREATMENT_TARGET "Within ESC treatment target"
-* #WITHIN_ESC_TREATMENT_TARGET ^definition = "The averaged blood pressure lies within the European Society of Cardiology treatment target for this patient."
-* #ABOVE_ESC_TREATMENT_TARGET "Above ESC treatment target"
-* #ABOVE_ESC_TREATMENT_TARGET ^definition = "The averaged blood pressure exceeds the European Society of Cardiology treatment target for this patient."
-* #ABOVE_HOME_HYPERTENSION_THRESHOLD "Above home hypertension threshold"
-* #ABOVE_HOME_HYPERTENSION_THRESHOLD ^definition = "The averaged blood pressure exceeds the diagnostic threshold for hypertension applied to home measurements, which is lower than the office threshold."
-* #REPEATED_SEVERE_ELEVATION "Repeated severe elevation"
-* #REPEATED_SEVERE_ELEVATION ^definition = "Severely elevated readings occurred repeatedly within the averaging window, warranting clinical attention regardless of the average itself."
-* #TARGET_ADJUSTED_FOR_AGE "Target adjusted for age"
-* #TARGET_ADJUSTED_FOR_AGE ^definition = "The treatment target the average was assessed against was adjusted for the patient's age. The adjusted numeric target is not carried on the resource; this code is the only record that an adjustment was applied."
-* #INSUFFICIENT_DATA "Insufficient data"
-* #INSUFFICIENT_DATA ^definition = "Too few readings were reported in the window for the average to support a risk assessment. The averages and the time-in-range percentage are still computed and present."
+* ^caseSensitive = false
+* #within-esc-treatment-target "Within ESC treatment target"
+* #within-esc-treatment-target ^definition = "The averaged blood pressure lies within the European Society of Cardiology treatment target for this patient."
+* #above-esc-treatment-target "Above ESC treatment target"
+* #above-esc-treatment-target ^definition = "The averaged blood pressure exceeds the European Society of Cardiology treatment target for this patient."
+* #above-home-hypertension-threshold "Above home hypertension threshold"
+* #above-home-hypertension-threshold ^definition = "The averaged blood pressure exceeds the diagnostic threshold for hypertension applied to home measurements, which is lower than the office threshold."
+* #repeated-severe-elevation "Repeated severe elevation"
+* #repeated-severe-elevation ^definition = "Severely elevated readings occurred repeatedly within the averaging window, warranting clinical attention regardless of the average itself."
+* #target-adjusted-for-age "Target adjusted for age"
+* #target-adjusted-for-age ^definition = "The treatment target the average was assessed against was adjusted for the patient's age. The adjusted numeric target is not carried on the resource; this code is the only record that an adjustment was applied."
+* #insufficient-data "Insufficient data"
+* #insufficient-data ^definition = "Too few readings were reported in the window for the average to support a risk assessment. The averages and the time-in-range percentage are still computed and present."
 
 // The two analyte status enumerations. They are separate CodeSystems, one per
-// analyte, so each can evolve on its own; WITHIN_TARGET, ABOVE_OPTIMAL_TARGET
-// and ABOVE_RECOMMENDED_TARGET therefore appear in both, as distinct concepts
-// in distinct systems rather than as one shared code. Codes are kept verbatim
-// in the upper-case form the calculating service emits, and caseSensitive is
-// true, as in BloodPressureRiskStatusCS.
+// analyte, so each can evolve on its own; within-target, above-optimal-target
+// and above-recommended-target therefore appear in both, as distinct concepts
+// in distinct systems rather than as one shared code. Codes are normalized to
+// kebab-case and caseSensitive is false, as in BloodPressureRiskStatusCS.
 CodeSystem: GlucoseRiskStatusCS
 Id: glucose-risk-status-cs
 Title: "GlucoseRiskStatus CodeSystem"
@@ -85,17 +86,17 @@ Description: "Assessment of a patient's glucose control, derived from their late
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/glucose-risk-status-cs"
 * ^status = #active
 * ^experimental = false
-* ^caseSensitive = true
-* #GLUCOSE_VALUE_MISSING "Glucose value missing"
-* #GLUCOSE_VALUE_MISSING ^definition = "No self-reported glucose reading is available to assess."
-* #BELOW_TARGET_HYPOGLYCEMIA_RISK "Below target, hypoglycemia risk"
-* #BELOW_TARGET_HYPOGLYCEMIA_RISK ^definition = "The latest reading is below the target range, putting the patient at risk of hypoglycemia."
-* #WITHIN_TARGET "Within target"
-* #WITHIN_TARGET ^definition = "The latest reading lies within the target range."
-* #ABOVE_OPTIMAL_TARGET "Above optimal target"
-* #ABOVE_OPTIMAL_TARGET ^definition = "The latest reading exceeds the optimal target but not the recommended treatment target."
-* #ABOVE_RECOMMENDED_TARGET "Above recommended target"
-* #ABOVE_RECOMMENDED_TARGET ^definition = "The latest reading exceeds the recommended treatment target."
+* ^caseSensitive = false
+* #glucose-value-missing "Glucose value missing"
+* #glucose-value-missing ^definition = "No self-reported glucose reading is available to assess."
+* #below-target-hypoglycemia-risk "Below target, hypoglycemia risk"
+* #below-target-hypoglycemia-risk ^definition = "The latest reading is below the target range, putting the patient at risk of hypoglycemia."
+* #within-target "Within target"
+* #within-target ^definition = "The latest reading lies within the target range."
+* #above-optimal-target "Above optimal target"
+* #above-optimal-target ^definition = "The latest reading exceeds the optimal target but not the recommended treatment target."
+* #above-recommended-target "Above recommended target"
+* #above-recommended-target ^definition = "The latest reading exceeds the recommended treatment target."
 
 CodeSystem: CholesterolRiskStatusCS
 Id: cholesterol-risk-status-cs
@@ -104,15 +105,15 @@ Description: "Assessment of a patient's LDL cholesterol control, derived from th
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/cholesterol-risk-status-cs"
 * ^status = #active
 * ^experimental = false
-* ^caseSensitive = true
-* #LDL_VALUE_MISSING "LDL value missing"
-* #LDL_VALUE_MISSING ^definition = "No self-reported LDL cholesterol reading is available to assess."
-* #WITHIN_TARGET "Within target"
-* #WITHIN_TARGET ^definition = "The latest reading lies within the target range."
-* #ABOVE_OPTIMAL_TARGET "Above optimal target"
-* #ABOVE_OPTIMAL_TARGET ^definition = "The latest reading exceeds the optimal target but not the recommended treatment target."
-* #ABOVE_RECOMMENDED_TARGET "Above recommended target"
-* #ABOVE_RECOMMENDED_TARGET ^definition = "The latest reading exceeds the recommended treatment target."
+* ^caseSensitive = false
+* #ldl-value-missing "LDL value missing"
+* #ldl-value-missing ^definition = "No self-reported LDL cholesterol reading is available to assess."
+* #within-target "Within target"
+* #within-target ^definition = "The latest reading lies within the target range."
+* #above-optimal-target "Above optimal target"
+* #above-optimal-target ^definition = "The latest reading exceeds the optimal target but not the recommended treatment target."
+* #above-recommended-target "Above recommended target"
+* #above-recommended-target ^definition = "The latest reading exceeds the recommended treatment target."
 
 // Observation.code for the two derived profiles. They are deliberately two
 // value sets rather than one: each profile binds only its own, so a measurement

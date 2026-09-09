@@ -373,6 +373,8 @@ Description: "Observation profile for measurements a patient reports about thems
 * insert RESQProfileMetadata
 * ^purpose = "Records measurements supplied by the patient with enough structure to be compared against values measured in hospital, while keeping them distinguishable from them."
 * obeys srvs-value-or-component
+* obeys srvs-glucose-status-must-use-glucose-vs
+* obeys srvs-ldl-status-must-use-cholesterol-vs
 * category 0..* MS
 * category ^short = "Observation category, where the registry records one"
 * category ^definition = "Deliberately not fixed to vital-signs: glucose, LDL cholesterol and glycated haemoglobin are laboratory results rather than vital signs, and this profile covers both."
@@ -386,6 +388,11 @@ Description: "Observation profile for measurements a patient reports about thems
 // its statuses are bound to SelfReportedValueAggregationProfile instead and are
 // not accepted here. Repeating, because one reported observation can carry more
 // than one measurement and each of them can be assessed.
+//
+// The binding below spans both analyte systems, so on its own it would let an
+// LDL verdict sit on a glucose reading. srvs-glucose-status-must-use-glucose-vs
+// and srvs-ldl-status-must-use-cholesterol-vs narrow it to the analyte the code
+// names, in the same guard-clause form as mtici-value-must-use-mtici-score-vs.
 * interpretation 0..* MS
 * interpretation from SelfReportedReadingStatusVS (required)
 * interpretation ^short = "Registry assessment of the reported measurements"
@@ -420,6 +427,16 @@ Invariant: srvs-value-or-component
 Description: "A self-reported measurement must carry either a value or at least one component. Blood pressure uses components and no value; every other reported measurement uses a value and no components."
 Severity: #error
 Expression: "value.exists() or component.exists()"
+
+Invariant: srvs-glucose-status-must-use-glucose-vs
+Description: "If Observation.code is glucose, every Observation.interpretation must belong to GlucoseRiskStatusVS."
+Severity: #error
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '33747003').exists().not() or interpretation.all(memberOf('http://fhir.qualityregistry.org/ValueSet/glucose-risk-status-vs'))"
+
+Invariant: srvs-ldl-status-must-use-cholesterol-vs
+Description: "If Observation.code is LDL cholesterol, every Observation.interpretation must belong to CholesterolRiskStatusVS."
+Severity: #error
+Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '372361000119104').exists().not() or interpretation.all(memberOf('http://fhir.qualityregistry.org/ValueSet/cholesterol-risk-status-vs'))"
 
 // -----------------------------------------------------------------------------
 // Derived observations

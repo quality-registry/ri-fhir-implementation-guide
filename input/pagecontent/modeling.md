@@ -51,15 +51,16 @@ proportion of readings that fell within target.
 | Parent is `BaseSelfReportedObservation`, not `BaseStrokeObservation` | The inputs are self-reported and carry no encounter, so neither can anything derived from them. |
 | `code` is bound to its own value set | [ValueAggregation](ValueSet-self-reported-value-aggregation-vs.html) holds the calculated concepts and is kept apart from [SelfReportedSigns](ValueSet-self-reported-signs-vs.html), which holds only the readings, so a derived resource cannot carry a reading concept and a reading cannot carry a derived concept. |
 | The verdict is `interpretation`, not a resource of its own | A control status is an interpretation of the data it was made from. Putting it on the aggregation keeps figures and verdict in one retrieval, and `interpretation` is `0..1` because the assessment is a single statement. |
-| Each profile binds `interpretation` to its own value set | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) on the aggregation, [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) on the readings, so neither can carry the other's verdict. Both bindings are required, because the calculating service emits exactly these codes. |
+| Each profile binds `interpretation` to its own value set | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) on the aggregation, [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) on the readings, so neither profile can carry the other's verdict. Both bindings are required, because the calculating service emits exactly these codes. |
+| Two invariants narrow the readings binding to the analyte | `SelfReportedReadingStatus` spans both analyte systems, so the binding alone would let an LDL verdict sit on a glucose reading. `srvs-glucose-status-must-use-glucose-vs` and `srvs-ldl-status-must-use-cholesterol-vs` restrict `interpretation` to the system matching `Observation.code`, in the same guard-clause form the specific-finding profile already uses for coded values. |
 | A figure is carried in either `value[x]` or components | The same choice `SelfReportedVitalSignsProfile` makes for the readings: several figures belonging to one aggregation go in components, as blood pressure is represented everywhere else in this guide, and a single derived number goes straight in `value[x]`. An invariant requires one of the two. |
 | Components are `0..*`, bound to a value set and left unsliced | Consistent with the other component-bearing observation profiles. The unit each concept carries is stated as an invariant, as in the specific-finding profile, rather than as a fixed slice. Those invariants are conditional, so they bite only on a component that is present. |
 | Time in range is one figure for the blood pressure as a whole | A reading counts as in range only when systolic and diastolic are both within target. A combined figure cannot be recomputed from separate systolic and diastolic percentages, so the combined form is the one recorded. |
 | Time in range uses a local code | SNOMED CT International has no concept for blood-pressure time in range. |
 | An aggregation references every reading it used | A calculated figure is only auditable if its inputs are reachable, so `derivedFrom` is `1..*`. |
 | The window is both a coded extension and `effectivePeriod` | `effectivePeriod` carries the actual calendar days, which is what makes the figures reproducible; the extension carries 7-day / 14-day / 30-day as a code so consumers can select one window without date arithmetic. The two must agree - 7, 14 or 30 days counted inclusively - but no invariant enforces it, because FHIRPath has no portable way to express the length of a `Period`. The extension is `0..1`, since an aggregation that is not windowed has no window to state. |
-| The numeric target is not carried anywhere | `TARGET_ADJUSTED_FOR_AGE` records that an age-adjusted target was applied, but not what it was. `Observation.referenceRange` is deliberately left unused. |
-| Status codes keep their upper-case form | They are written verbatim as the calculating service emits them, rather than normalized to the kebab-case used elsewhere, so payloads and published terminology agree at source. |
+| The numeric target is not carried anywhere | `target-adjusted-for-age` records that an age-adjusted target was applied, but not what it was. `Observation.referenceRange` is deliberately left unused. |
+| Status codes are normalized to kebab-case | The calculating service emits them in an upper-case, underscore-separated form, but every other local CodeSystem in this guide uses lower-case kebab-case and `caseSensitive = false`. The codes are normalized on the way in, as the questionnaire service's observation codes already are, and the service must be migrated onto them for the two sides to agree at source. |
 
 ### Control statuses
 
@@ -84,14 +85,14 @@ itself. `0..*` there because one reported observation can carry more than one
 measurement; `0..1` on the aggregation, which states one figure or one set of
 figures.
 
-The three enumerations are separate CodeSystems, so `WITHIN_TARGET`,
-`ABOVE_OPTIMAL_TARGET` and `ABOVE_RECOMMENDED_TARGET` appear in more than one as
+The three enumerations are separate CodeSystems, so `within-target`,
+`above-optimal-target` and `above-recommended-target` appear in more than one as
 distinct concepts in distinct systems rather than as one shared code. That keeps
 each subject free to change its own list, and lets the two bindings above be
 assembled from whole systems rather than from hand-picked codes.
 
-Each enumeration carries its own no-data code - `INSUFFICIENT_DATA` for blood
-pressure, `GLUCOSE_VALUE_MISSING` and `LDL_VALUE_MISSING` for the analytes. They
+Each enumeration carries its own no-data code - `insufficient-data` for blood
+pressure, `glucose-value-missing` and `ldl-value-missing` for the analytes. They
 mean the same thing: there was nothing to assess.
 
 ## Extensions

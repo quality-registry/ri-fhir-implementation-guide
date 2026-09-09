@@ -242,7 +242,7 @@ Description: "Glucose level the patient reports, carried as a single value with 
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
 * issued = "2026-01-20T07:17:19.921Z"
-* interpretation = GlucoseRiskStatusCS#BELOW_TARGET_HYPOGLYCEMIA_RISK "Below target, hypoglycemia risk"
+* interpretation = GlucoseRiskStatusCS#below-target-hypoglycemia-risk "Below target, hypoglycemia risk"
 * valueQuantity.value = 1.8
 * valueQuantity.unit = "milligrams per deciliter"
 * valueQuantity.system = "http://unitsofmeasure.org"
@@ -282,7 +282,7 @@ Description: "Thirty-day average of the patient's self-reported blood pressure, 
 * effectivePeriod.start = "2025-12-22"
 * effectivePeriod.end = "2026-01-20"
 * issued = "2026-01-21T02:00:00.000Z"
-* interpretation = BloodPressureRiskStatusCS#ABOVE_ESC_TREATMENT_TARGET "Above ESC treatment target"
+* interpretation = BloodPressureRiskStatusCS#above-esc-treatment-target "Above ESC treatment target"
 * derivedFrom[0] = Reference(ExampleSelfReportedBloodPressure)
 * derivedFrom[1] = Reference(ExampleSelfReportedBloodPressureLater)
 * component[0].code = SCT#314440001 "Average systolic blood pressure (observable entity)"
@@ -330,7 +330,7 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
-* interpretation = CholesterolRiskStatusCS#ABOVE_RECOMMENDED_TARGET "Above recommended target"
+* interpretation = CholesterolRiskStatusCS#above-recommended-target "Above recommended target"
 * valueQuantity.value = 3.4
 * valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
