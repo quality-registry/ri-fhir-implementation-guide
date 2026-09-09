@@ -169,3 +169,14 @@ Description: "Flags a questionnaire response item that the respondent skipped, d
 * value[x] only boolean
 * valueBoolean 1..1 MS
 
+Extension: AveragingWindowExt
+Id: averaging-window-ext
+Title: "Averaging window"
+Description: "Which of the three fixed look-back windows an aggregated value expresses: 7, 14 or 30 days. Observation.effectivePeriod carries the actual calendar dates the readings were drawn from; this extension carries the window as a code so that consumers can select all 30-day aggregations without date arithmetic."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/averaging-window-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "Observation"
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1 MS
+* valueCodeableConcept from AveragingWindowVS (required)
+* valueCodeableConcept ^short = "7-day, 14-day or 30-day averaging window"

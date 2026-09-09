@@ -237,11 +237,12 @@ Instance: ExampleSelfReportedGlucose
 InstanceOf: SelfReportedVitalSignsProfile
 Usage: #example
 Title: "ExampleSelfReportedGlucose"
-Description: "Glucose level the patient reports, carried as a single value with no components."
+Description: "Glucose level the patient reports, carried as a single value with no components, with the registry's assessment of it."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
 * issued = "2026-01-20T07:17:19.921Z"
+* interpretation = GlucoseRiskStatusCS#BELOW_TARGET_HYPOGLYCEMIA_RISK "Below target, hypoglycemia risk"
 * valueQuantity.value = 1.8
 * valueQuantity.unit = "milligrams per deciliter"
 * valueQuantity.system = "http://unitsofmeasure.org"
@@ -258,3 +259,79 @@ Description: "Modified Rankin Scale score computed from the patient's own answer
 * issued = "2026-01-20T07:17:19.921Z"
 * valueInteger = 1
 * derivedFrom = Reference(ExampleMrsResponse)
+
+// ----------------------------------------------------------------------------
+// Example derived observation
+//
+// A 30-day average calculated from the patient's own readings, with the
+// registry's assessment of those figures in interpretation. Only two source
+// readings are referenced here because the guide defines only two self-reported
+// blood-pressure examples; a real 30-day average would reference many more.
+// ----------------------------------------------------------------------------
+
+Instance: ExampleSelfReportedBloodPressureAverage30Day
+InstanceOf: SelfReportedValueAggregationProfile
+Usage: #example
+Title: "ExampleSelfReportedBloodPressureAverage30Day"
+Description: "Thirty-day average of the patient's self-reported blood pressure, with the proportion of readings that fell within target and the registry's assessment of those figures."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#723232008 "Average blood pressure (observable entity)"
+* category = ObservationCategoryCS#vital-signs
+* extension[averagingWindow].valueCodeableConcept = AveragingWindowCS#30-day "30-day window"
+* effectivePeriod.start = "2025-12-22"
+* effectivePeriod.end = "2026-01-20"
+* issued = "2026-01-21T02:00:00.000Z"
+* interpretation = BloodPressureRiskStatusCS#ABOVE_ESC_TREATMENT_TARGET "Above ESC treatment target"
+* derivedFrom[0] = Reference(ExampleSelfReportedBloodPressure)
+* derivedFrom[1] = Reference(ExampleSelfReportedBloodPressureLater)
+* component[0].code = SCT#314440001 "Average systolic blood pressure (observable entity)"
+* component[0].valueQuantity.value = 128.5
+* component[0].valueQuantity.unit = "mmHg"
+* component[0].valueQuantity.system = "http://unitsofmeasure.org"
+* component[0].valueQuantity.code = #mm[Hg]
+* component[1].code = SCT#314453003 "Average diastolic blood pressure (observable entity)"
+* component[1].valueQuantity.value = 83
+* component[1].valueQuantity.unit = "mmHg"
+* component[1].valueQuantity.system = "http://unitsofmeasure.org"
+* component[1].valueQuantity.code = #mm[Hg]
+* component[2].code = DerivedObservationCS#bp-time-in-range "Blood pressure time in range"
+* component[2].valueQuantity.value = 50
+* component[2].valueQuantity.unit = "%"
+* component[2].valueQuantity.system = "http://unitsofmeasure.org"
+* component[2].valueQuantity.code = #"%"
+
+Instance: ExampleSelfReportedBloodPressureLater
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedBloodPressureLater"
+Description: "A second self-reported blood-pressure reading, above target, so the derived average has more than one input to reference."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#75367002 "Blood pressure (observable entity)"
+* issued = "2026-01-18T07:05:11.000Z"
+* component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
+* component[0].valueQuantity.value = 137
+* component[0].valueQuantity.unit = "mmHg"
+* component[0].valueQuantity.system = "http://unitsofmeasure.org"
+* component[0].valueQuantity.code = #mm[Hg]
+* component[1].code = SCT#271650006 "Diastolic blood pressure (observable entity)"
+* component[1].valueQuantity.value = 86
+* component[1].valueQuantity.unit = "mmHg"
+* component[1].valueQuantity.system = "http://unitsofmeasure.org"
+* component[1].valueQuantity.code = #mm[Hg]
+
+Instance: ExampleSelfReportedLdlCholesterol
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedLdlCholesterol"
+Description: "LDL cholesterol level the patient reports, carried as a single value with no components, with the registry's assessment of it."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* interpretation = CholesterolRiskStatusCS#ABOVE_RECOMMENDED_TARGET "Above recommended target"
+* valueQuantity.value = 3.4
+* valueQuantity.unit = "millimoles per litre"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #mmol/L

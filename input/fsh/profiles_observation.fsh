@@ -19,9 +19,8 @@ Title: "Vital Sign Observation Profile"
 Description: "Observation profile for vital signs in the acute stroke pathway, especially blood pressure components."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/vital-sign-observation-profile"
 * insert RESQProfileMetadata
-* category 1..* MS
-* category = ObservationCategoryCS#vital-signs
-* category ^short = "Vital signs category"
+* category 0..* MS
+* category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
 * code from VitalSignsVS (extensible)
 * component 1..* MS
 * component ^short = "Vital-sign component such as systolic or diastolic blood pressure"
@@ -369,7 +368,7 @@ Profile: SelfReportedVitalSignsProfile
 Parent: BaseSelfReportedObservation
 Id: self-reported-vital-signs-profile
 Title: "Self-Reported Vital Signs Profile"
-Description: "Observation profile for measurements a patient reports about themselves: blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height. Blood pressure arrives as a single observation with systolic and diastolic components; every other measurement carries a single value. Glucose and LDL cholesterol use the same SNOMED CT concepts as in-hospital analytics; what distinguishes a patient-reported value is the profile it conforms to, not the code."
+Description: "Observation profile for measurements a patient reports about themselves: blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height. Blood pressure arrives as a single observation with systolic and diastolic components; every other measurement carries a single value. Glucose and LDL cholesterol use the same SNOMED CT concepts as in-hospital analytics; what distinguishes a patient-reported value is the profile it conforms to, not the code. Observation.interpretation carries the registry's assessment of the reported measurements, where it has made one."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/self-reported-vital-signs-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Records measurements supplied by the patient with enough structure to be compared against values measured in hospital, while keeping them distinguishable from them."
@@ -382,6 +381,14 @@ Description: "Observation profile for measurements a patient reports about thems
 * value[x] 0..1 MS
 * value[x] only Quantity
 * value[x] ^short = "Reported value, for measurements that carry one directly"
+// The registry's assessment of the reading itself, which is how glucose and LDL
+// cholesterol are judged. Blood pressure is judged only from an aggregate, so
+// its statuses are bound to SelfReportedValueAggregationProfile instead and are
+// not accepted here. Repeating, because one reported observation can carry more
+// than one measurement and each of them can be assessed.
+* interpretation 0..* MS
+* interpretation from SelfReportedReadingStatusVS (required)
+* interpretation ^short = "Registry assessment of the reported measurements"
 * component 0..* MS
 * component ^short = "Component measurements, used for blood pressure"
 * component.code 1..1 MS
@@ -413,3 +420,101 @@ Invariant: srvs-value-or-component
 Description: "A self-reported measurement must carry either a value or at least one component. Blood pressure uses components and no value; every other reported measurement uses a value and no components."
 Severity: #error
 Expression: "value.exists() or component.exists()"
+
+// -----------------------------------------------------------------------------
+// Derived observations
+//
+// Values the registry produces from self-reported data rather than receiving
+// from the patient or the hospital. They descend from BaseSelfReportedObservation
+// because their inputs are self-reported and, like their inputs, they carry no
+// encounter: the readings behind them are collected outside any hospital episode.
+//
+// One profile covers them all: SelfReportedValueAggregationProfile carries
+// the figures the registry calculated, whatever the analyte. Following
+// SelfReportedVitalSignsProfile, a figure that stands on its own is carried in
+// Observation.value and a set of figures belonging to one aggregation is carried
+// in components, so blood pressure uses components and a single derived number
+// uses a value.
+//
+// Because Observation.code is bound to its own value set, a derived resource
+// cannot carry a reading concept and a reading cannot carry a derived concept.
+// -----------------------------------------------------------------------------
+
+Profile: SelfReportedValueAggregationProfile
+Parent: BaseSelfReportedObservation
+Id: self-reported-value-aggregation-profile
+Title: "Self-Reported Value Aggregation Profile"
+Description: "Figures the registry calculates from a patient's self-reported readings, carried alongside a reference to every reading they were computed from. A single calculated figure is carried directly in Observation.value; several figures belonging to one aggregation are carried as components, as blood pressure is everywhere else in this guide. Observation.interpretation carries the registry's assessment of those figures. The aggregation the guide currently describes is blood pressure over a fixed look-back window of 7, 14 or 30 days: average systolic pressure, average diastolic pressure, and the proportion of readings that fell within target."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/self-reported-value-aggregation-profile"
+* insert RESQProfileMetadata
+* ^purpose = "Publishes a calculated summary of self-reported data as a queryable resource, while keeping every reading it was computed from reachable through derivedFrom so the figures can be audited or recomputed."
+
+* obeys sva-value-or-component
+* obeys sva-pressure-units
+* obeys sva-time-in-range-percentage
+
+* code from SelfReportedValueAggregationVS (extensible)
+* code ^short = "Calculated measurement concept"
+
+* category 0..* MS
+* category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
+
+// A calculated figure that stands on its own is carried here; a set of figures
+// belonging to one aggregation is carried in components instead, as blood pressure
+// is everywhere else in this guide. Which of the two is used is left to the
+// figure, exactly as in SelfReportedVitalSignsProfile, and sva-value-or-component
+// requires one of them.
+* value[x] 0..1 MS
+* value[x] only Quantity
+* value[x] ^short = "Calculated value, for aggregations that carry one directly"
+
+// The registry's judgement about the figures this resource carries. It is an
+// interpretation of the data, not a measurement of its own, so it lives here
+// rather than in a resource of its own. Which enumeration applies follows from
+// the analysed subject; the binding accepts any of the three.
+* interpretation 0..1 MS
+* interpretation from SelfReportedAggregationStatusVS (required)
+* interpretation ^short = "Registry assessment of the aggregated readings"
+
+* effective[x] 1..1 MS
+* effective[x] only Period
+* effective[x] ^short = "Period the analysed readings were drawn from"
+
+// Optional: effectivePeriod already carries the calendar days the figures cover.
+// The coded window exists so that consumers can select all 30-day aggregations
+// without date arithmetic, and an aggregation that is not windowed omits it.
+* extension contains AveragingWindowExt named averagingWindow 0..1 MS
+* extension[averagingWindow] ^short = "Averaging window this aggregation expresses"
+
+* derivedFrom 1..* MS
+* derivedFrom only Reference(SelfReportedVitalSignsProfile)
+* derivedFrom ^short = "Reported readings the figures were calculated from"
+
+// Components are bound to a value set and left unsliced, as in
+// VitalSignObservationProfile and SelfReportedVitalSignsProfile. The unit each
+// concept carries is stated as an invariant, following
+// SpecificFindingObservationProfile; those invariants are conditional, so each
+// bites only on a component that is actually present.
+* component 0..* MS
+* component ^short = "Calculated figures, used for blood pressure"
+* component.code 1..1 MS
+* component.code from SelfReportedValueAggregationVS (extensible)
+* component.code ^short = "Calculated figure concept"
+* component.value[x] 1..1 MS
+* component.value[x] only Quantity
+* component.value[x] ^short = "Calculated value"
+
+Invariant: sva-value-or-component
+Description: "A value aggregation must carry either a value or at least one component. Blood pressure aggregations use components and no value; an aggregation that produces a single figure uses a value and no components."
+Severity: #error
+Expression: "value.exists() or component.exists()"
+
+Invariant: sva-pressure-units
+Description: "The average systolic and average diastolic components must be expressed in UCUM millimetres of mercury."
+Severity: #error
+Expression: "component.where(code.coding.where(system = 'http://snomed.info/sct' and (code = '314440001' or code = '314453003')).exists()).all(value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = 'mm[Hg]' and value.ofType(Quantity).value.exists())"
+
+Invariant: sva-time-in-range-percentage
+Description: "The time-in-range component must be a UCUM percentage between 0 and 100."
+Severity: #error
+Expression: "component.where(code.coding.where(system = 'http://fhir.qualityregistry.org/CodeSystem/derived-observation-cs' and code = 'bp-time-in-range').exists()).all(value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = '%' and value.ofType(Quantity).value >= 0 and value.ofType(Quantity).value <= 100)"

@@ -30,6 +30,70 @@ The model uses three medication resources because the registry captures three di
 | `MedicationRequest` | Discharge medication orders or recommendations. |
 | `MedicationAdministration` | Medication actually administered as part of acute or post-acute stroke care. |
 
+## Derived Values
+
+The registry calculates figures from a patient's self-reported readings. Each
+calculation is published as its own Observation rather than folded into the
+readings, so it can be queried directly and the reasoning stays auditable.
+
+One profile covers them all, whatever the analyte:
+
+| Profile | States |
+| --- | --- |
+| [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html) | Figures the registry calculated from self-reported readings |
+
+The aggregation the guide currently describes is blood pressure over a fixed
+look-back window: average systolic pressure, average diastolic pressure, and the
+proportion of readings that fell within target.
+
+| Decision | Why |
+| --- | --- |
+| Parent is `BaseSelfReportedObservation`, not `BaseStrokeObservation` | The inputs are self-reported and carry no encounter, so neither can anything derived from them. |
+| `code` is bound to its own value set | [ValueAggregation](ValueSet-self-reported-value-aggregation-vs.html) holds the calculated concepts and is kept apart from [SelfReportedSigns](ValueSet-self-reported-signs-vs.html), which holds only the readings, so a derived resource cannot carry a reading concept and a reading cannot carry a derived concept. |
+| The verdict is `interpretation`, not a resource of its own | A control status is an interpretation of the data it was made from. Putting it on the aggregation keeps figures and verdict in one retrieval, and `interpretation` is `0..1` because the assessment is a single statement. |
+| Each profile binds `interpretation` to its own value set | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) on the aggregation, [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) on the readings, so neither can carry the other's verdict. Both bindings are required, because the calculating service emits exactly these codes. |
+| A figure is carried in either `value[x]` or components | The same choice `SelfReportedVitalSignsProfile` makes for the readings: several figures belonging to one aggregation go in components, as blood pressure is represented everywhere else in this guide, and a single derived number goes straight in `value[x]`. An invariant requires one of the two. |
+| Components are `0..*`, bound to a value set and left unsliced | Consistent with the other component-bearing observation profiles. The unit each concept carries is stated as an invariant, as in the specific-finding profile, rather than as a fixed slice. Those invariants are conditional, so they bite only on a component that is present. |
+| Time in range is one figure for the blood pressure as a whole | A reading counts as in range only when systolic and diastolic are both within target. A combined figure cannot be recomputed from separate systolic and diastolic percentages, so the combined form is the one recorded. |
+| Time in range uses a local code | SNOMED CT International has no concept for blood-pressure time in range. |
+| An aggregation references every reading it used | A calculated figure is only auditable if its inputs are reachable, so `derivedFrom` is `1..*`. |
+| The window is both a coded extension and `effectivePeriod` | `effectivePeriod` carries the actual calendar days, which is what makes the figures reproducible; the extension carries 7-day / 14-day / 30-day as a code so consumers can select one window without date arithmetic. The two must agree - 7, 14 or 30 days counted inclusively - but no invariant enforces it, because FHIRPath has no portable way to express the length of a `Period`. The extension is `0..1`, since an aggregation that is not windowed has no window to state. |
+| The numeric target is not carried anywhere | `TARGET_ADJUSTED_FOR_AGE` records that an age-adjusted target was applied, but not what it was. `Observation.referenceRange` is deliberately left unused. |
+| Status codes keep their upper-case form | They are written verbatim as the calculating service emits them, rather than normalized to the kebab-case used elsewhere, so payloads and published terminology agree at source. |
+
+### Control statuses
+
+Alongside the figures, the registry judges how well a patient controls their
+blood pressure, glucose and LDL cholesterol. The judgement is not a resource of
+its own: it is an interpretation of the data it was made from, so it is carried
+in `Observation.interpretation`.
+
+Which profile carries it follows from what the judgement is about, and the two
+value sets keep the split enforceable:
+
+| Judgement about | Lives on | Bound to |
+| --- | --- | --- |
+| Aggregated blood pressure | [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html), `0..1` | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) |
+| A glucose or LDL reading | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html), `0..*` | [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) |
+
+Blood pressure appears only on the aggregation because its codes are statements
+about an aggregate: they speak of the average and of repeated elevation across a
+window, neither of which a single reading can support. Glucose and LDL
+cholesterol are judged from the latest reading, so they sit on the reading
+itself. `0..*` there because one reported observation can carry more than one
+measurement; `0..1` on the aggregation, which states one figure or one set of
+figures.
+
+The three enumerations are separate CodeSystems, so `WITHIN_TARGET`,
+`ABOVE_OPTIMAL_TARGET` and `ABOVE_RECOMMENDED_TARGET` appear in more than one as
+distinct concepts in distinct systems rather than as one shared code. That keeps
+each subject free to change its own list, and lets the two bindings above be
+assembled from whole systems rather than from hand-picked codes.
+
+Each enumeration carries its own no-data code - `INSUFFICIENT_DATA` for blood
+pressure, `GLUCOSE_VALUE_MISSING` and `LDL_VALUE_MISSING` for the analytes. They
+mean the same thing: there was nothing to assess.
+
 ## Extensions
 
 Extensions are used only where the base FHIR resource lacks an appropriate element or the source builder already emits a stable extension URL. Examples include first-hospital status, EMS prenotification, wake-up stroke, timing context and post-acute-care relevance.
