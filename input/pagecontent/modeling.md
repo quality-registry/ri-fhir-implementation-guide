@@ -85,15 +85,24 @@ itself. `0..*` there because one reported observation can carry more than one
 measurement; `0..1` on the aggregation, which states one figure or one set of
 figures.
 
-The three enumerations are separate CodeSystems, so `within-target`,
-`above-optimal-target` and `above-recommended-target` appear in more than one as
-distinct concepts in distinct systems rather than as one shared code. That keeps
-each subject free to change its own list, and lets the two bindings above be
-assembled from whole systems rather than from hand-picked codes.
+The three enumerations are separate CodeSystems, one per subject, so each is
+free to change its own list and the two bindings above can be assembled from
+whole systems rather than from hand-picked codes. Every code carries its subject
+as a prefix - `bp-`, `glucose-`, `ldl-` - so an assessment that recurs across
+subjects is spelled out separately in each: `glucose-within-target` and
+`ldl-within-target`, never a bare `within-target` disambiguated only by its
+system URL. A code therefore stays meaningful on its own in logs, queries and
+generated enumerations, and the union in `SelfReportedReadingStatus` contains no
+two members that differ only by system.
 
-Each enumeration carries its own no-data code - `insufficient-data` for blood
-pressure, `glucose-value-missing` and `ldl-value-missing` for the analytes. They
-mean the same thing: there was nothing to assess.
+Each enumeration carries its own no-data code, and the three are deliberately
+not synonyms. `bp-insufficient-data` means the averages and the time-in-range
+percentage were computed and are present, but too few readings backed them for a
+risk verdict to follow; there is data, just not enough of it. `glucose-value-missing`
+and `ldl-value-missing` mean the stronger thing: no reading was available at all,
+so there was nothing to assess. The wording is kept distinct because the two
+situations are distinct - and because the second pair describes an absent value,
+which is what `Observation.dataAbsentReason` exists for.
 
 ## Extensions
 
