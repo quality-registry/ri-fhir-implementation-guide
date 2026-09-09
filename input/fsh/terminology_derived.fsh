@@ -32,21 +32,6 @@ Description: "Local codes for derived observation concepts that have no SNOMED C
 * #bp-time-in-range "Blood pressure time in range"
 * #bp-time-in-range ^definition = "Proportion of the patient's self-reported blood-pressure readings in the averaging window that fell within the treatment target, expressed as a percentage. A reading counts as in range only when its systolic and diastolic values are both within target."
 
-CodeSystem: AveragingWindowCS
-Id: averaging-window-cs
-Title: "AveragingWindow CodeSystem"
-Description: "Length of the look-back window over which self-reported readings were aggregated."
-* ^url = "http://fhir.qualityregistry.org/CodeSystem/averaging-window-cs"
-* ^status = #active
-* ^experimental = false
-* ^caseSensitive = false
-* #7-day "7-day window"
-* #7-day ^definition = "Averaged over the 7 days preceding the end of the observation period."
-* #14-day "14-day window"
-* #14-day ^definition = "Averaged over the 14 days preceding the end of the observation period."
-* #30-day "30-day window"
-* #30-day ^definition = "Averaged over the 30 days preceding the end of the observation period."
-
 // The calculating service emits these codes in an upper-case, underscore-separated
 // form (WITHIN_ESC_TREATMENT_TARGET and so on). They are normalized here to the
 // kebab-case every other local CodeSystem in this guide uses, and caseSensitive is
@@ -177,12 +162,3 @@ Description: "Every assessment the registry can record against a self-reported r
 * ^experimental = false
 * include codes from system GlucoseRiskStatusCS
 * include codes from system CholesterolRiskStatusCS
-
-ValueSet: AveragingWindowVS
-Id: averaging-window-vs
-Title: "AveragingWindow ValueSet"
-Description: "The three look-back windows over which self-reported readings are aggregated."
-* ^url = "http://fhir.qualityregistry.org/ValueSet/averaging-window-vs"
-* ^status = #active
-* ^experimental = false
-* include codes from system AveragingWindowCS

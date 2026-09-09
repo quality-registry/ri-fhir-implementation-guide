@@ -169,14 +169,41 @@ Description: "Flags a questionnaire response item that the respondent skipped, d
 * value[x] only boolean
 * valueBoolean 1..1 MS
 
+// The window is carried as a Duration rather than a code so that any look-back
+// length can be stated, not only the three the registry happened to calculate
+// first. Duration is FHIR's Quantity specialization for time: its own invariant
+// drt-1 requires a UCUM system whenever a code is present, and its unit binding
+// is the UCUM time units, so the datatype already says most of what a coded
+// window said. Observation.effectivePeriod still carries the actual calendar
+// dates the readings were drawn from; this extension carries the nominal window,
+// so that consumers can select all 30-day aggregations without date arithmetic.
 Extension: AveragingWindowExt
 Id: averaging-window-ext
 Title: "Averaging window"
-Description: "Which of the three fixed look-back windows an aggregated value expresses: 7, 14 or 30 days. Observation.effectivePeriod carries the actual calendar dates the readings were drawn from; this extension carries the window as a code so that consumers can select all 30-day aggregations without date arithmetic."
+Description: "The look-back window an aggregated value expresses, as a whole number of UCUM time units: 30 days, 12 weeks, 6 months. Observation.effectivePeriod carries the actual calendar dates the readings were drawn from; this extension carries the nominal window so that consumers can select all 30-day aggregations without date arithmetic."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/averaging-window-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Observation"
-* value[x] only CodeableConcept
-* valueCodeableConcept 1..1 MS
-* valueCodeableConcept from AveragingWindowVS (required)
-* valueCodeableConcept ^short = "7-day, 14-day or 30-day averaging window"
+* value[x] only Duration
+* valueDuration 1..1 MS
+* valueDuration ^short = "Length of the averaging window, for example 30 days"
+* valueDuration obeys avw-whole-number
+// Duration leaves value, system and code all optional and drt-1 only bites when
+// a code is present. A window is useless without all three, so each is required
+// here and the system is pinned to UCUM rather than merely constrained by drt-1.
+// Assigned as a pattern rather than with (exactly), because eld-24 recommends
+// pattern[x] over fixed[x] and the two are equivalent for a uri primitive.
+* valueDuration.value 1..1 MS
+* valueDuration.value ^short = "Whole number of units, for example 30"
+* valueDuration.system 1..1 MS
+* valueDuration.system = "http://unitsofmeasure.org"
+* valueDuration.code 1..1 MS
+* valueDuration.code ^short = "UCUM time unit, for example d, wk or mo"
+// A window is an exact length. "More than 30 days" is not a window a consumer
+// could group aggregations by, so the comparator is removed.
+* valueDuration.comparator 0..0
+
+Invariant: avw-whole-number
+Description: "An averaging window must be a positive whole number of units. Quantity.value is a decimal in FHIR and cannot be retyped to an integer, so the whole-number requirement is stated here instead."
+Severity: #error
+Expression: "value > 0 and value = value.truncate()"

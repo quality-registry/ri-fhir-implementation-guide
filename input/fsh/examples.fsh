@@ -278,7 +278,10 @@ Description: "Thirty-day average of the patient's self-reported blood pressure, 
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#723232008 "Average blood pressure (observable entity)"
 * category = ObservationCategoryCS#vital-signs
-* extension[averagingWindow].valueCodeableConcept = AveragingWindowCS#30-day "30-day window"
+* extension[averagingWindow].valueDuration.value = 30
+* extension[averagingWindow].valueDuration.unit = "days"
+* extension[averagingWindow].valueDuration.system = "http://unitsofmeasure.org"
+* extension[averagingWindow].valueDuration.code = #d
 * effectivePeriod.start = "2025-12-22"
 * effectivePeriod.end = "2026-01-20"
 * issued = "2026-01-21T02:00:00.000Z"

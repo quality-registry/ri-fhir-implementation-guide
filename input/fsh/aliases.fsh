@@ -15,7 +15,6 @@ Alias: UCUM = http://unitsofmeasure.org
 Alias: V3ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias: V3RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: AnalyticsCodesCS = http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs
-Alias: AveragingWindowCS = http://fhir.qualityregistry.org/CodeSystem/averaging-window-cs
 Alias: BloodPressureRiskStatusCS = http://fhir.qualityregistry.org/CodeSystem/blood-pressure-risk-status-cs
 Alias: CholesterolRiskStatusCS = http://fhir.qualityregistry.org/CodeSystem/cholesterol-risk-status-cs
 Alias: DerivedObservationCS = http://fhir.qualityregistry.org/CodeSystem/derived-observation-cs
