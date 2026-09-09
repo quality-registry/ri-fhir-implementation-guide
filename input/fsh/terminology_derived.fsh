@@ -183,12 +183,3 @@ Description: "The three look-back windows over which self-reported readings are 
 * ^status = #active
 * ^experimental = false
 * include codes from system AveragingWindowCS
-
-ValueSet: BloodPressureRiskStatusVS
-Id: blood-pressure-risk-status-vs
-Title: "BloodPressureRiskStatus ValueSet"
-Description: "Assessments of a patient's blood-pressure control."
-* ^url = "http://fhir.qualityregistry.org/ValueSet/blood-pressure-risk-status-vs"
-* ^status = #active
-* ^experimental = false
-* include codes from system BloodPressureRiskStatusCS
