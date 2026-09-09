@@ -461,7 +461,7 @@ Profile: SelfReportedValueAggregationProfile
 Parent: BaseSelfReportedObservation
 Id: self-reported-value-aggregation-profile
 Title: "Self-Reported Value Aggregation Profile"
-Description: "Figures the registry calculates from a patient's self-reported readings, carried alongside a reference to every reading they were computed from. A single calculated figure is carried directly in Observation.value; several figures belonging to one aggregation are carried as components, as blood pressure is everywhere else in this guide. Observation.interpretation carries the registry's assessment of those figures. The aggregation the guide currently describes is blood pressure over a fixed look-back window of 7, 14 or 30 days: average systolic pressure, average diastolic pressure, and the proportion of readings that fell within target."
+Description: "Figures the registry calculates from a patient's self-reported readings, carried alongside a reference to every reading they were computed from. A single calculated figure is carried directly in Observation.value; several figures belonging to one aggregation are carried as components, as blood pressure is everywhere else in this guide. Observation.interpretation carries the registry's assessment of those figures."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/self-reported-value-aggregation-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Publishes a calculated summary of self-reported data as a queryable resource, while keeping every reading it was computed from reachable through derivedFrom so the figures can be audited or recomputed."
@@ -482,7 +482,7 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 // figure, exactly as in SelfReportedVitalSignsProfile, and sva-value-or-component
 // requires one of them.
 * value[x] 0..1 MS
-* value[x] only Quantity
+* value[x] only Quantity or integer
 * value[x] ^short = "Calculated value, for aggregations that carry one directly"
 
 // The registry's judgement about the figures this resource carries. It is an
