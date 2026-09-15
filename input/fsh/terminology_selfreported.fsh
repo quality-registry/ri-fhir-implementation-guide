@@ -23,7 +23,7 @@
 ValueSet: SelfReportedSignsVS
 Id: self-reported-signs-vs
 Title: "SelfReportedSigns ValueSet"
-Description: "Measurements a patient reports about themselves through the RES-Q questionnaire service: blood pressure and its components, glucose, LDL cholesterol, glycated haemoglobin, weight and height."
+Description: "Measurements a patient reports about themselves through the RES-Q questionnaire service: blood pressure and its components, glucose, LDL cholesterol, glycated haemoglobin, weight and height. Concepts the registry derives from these readings are kept separately, in SelfReportedValueAggregationVS."
 * ^url = "http://fhir.qualityregistry.org/ValueSet/self-reported-signs-vs"
 * ^status = #active
 * ^experimental = false

@@ -12,6 +12,7 @@ Extensions carry registry-specific semantics that do not fit cleanly into a stan
 | [Discharge department or service](StructureDefinition-discharge-department-service-ext.html) | `Encounter` | Captures discharge department/service or facility type. |
 | [Initial care intensity](StructureDefinition-initial-care-intensity-ext.html) | `Location` | Captures ICU/stroke unit, monitored bed or standard bed context. |
 | [Observation timing context](StructureDefinition-observation-timing-context-ext.html) | `Observation` | Adds timing context such as admission, discharge, prestroke or follow-up. |
+| [Averaging window](StructureDefinition-averaging-window-ext.html) | `Observation` | States the look-back window an aggregated value expresses, as a whole number of UCUM time units. |
 | [Procedure timing context](StructureDefinition-procedure-timing-context-ext.html) | `Procedure` | Adds acute/post-acute or screening-window context. |
 | [Assessment or medication timing](StructureDefinition-assessment-timing-ext.html) | `MedicationAdministration` | Records timing categories for medication-related assessments. |
 | [Ischemic stroke etiology](StructureDefinition-ischemic-stroke-etiology-ext.html) | `Condition` | Captures known ischemic stroke etiology. |
