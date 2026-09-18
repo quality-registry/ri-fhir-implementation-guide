@@ -52,10 +52,7 @@
 //
 // All other item codes and answer codes verify cleanly.
 //
-// Each instance carries two identifiers: the service resource_id used to address
-// the questionnaire over the REST API, and the legacy qualityregistry.org
-// canonical the service publishes today, retained for traceability while the
-// service is migrated onto the URLs published here.
+// Each instance is addressed by its canonical URL and version alone;
 // ----------------------------------------------------------------------------
 
 Instance: MrsQuestionnaire
@@ -63,12 +60,8 @@ InstanceOf: PatientReportedOutcomeQuestionnaires
 Usage: #definition
 Title: "mRS Questionnaire"
 Description: "Modified Rankin Scale Questionnaire. A five-item decision tree of yes/no questions. The mRS score is the outcome of the path taken through the enableWhen conditions, not a sum of answer weights, so it is stated here rather than as itemWeight on answer options (FHIR boolean items have no answerOption to weight): mrs_q2 no gives 2; mrs_q3 yes gives 0 and no gives 1; mrs_q4 yes gives 3; mrs_q5 yes gives 4 and no gives 5."
-* id = "mrs-questionnaire"
-* url = "http://fhir.qualityregistry.org/Questionnaire/mrs-questionnaire"
-* identifier[0].system = "http://fhir.qualityregistry.org/identifier/questionnaire-resource-id"
-* identifier[0].value = "mrs_001"
-* identifier[1].system = "urn:ietf:rfc:3986"
-* identifier[1].value = "https://qualityregistry.org/questionnaires/mrs"
+* id = "mrs"
+* url = "http://fhir.qualityregistry.org/Questionnaire/mrs"
 * version = "1.0.0"
 * name = "MRSQuestionnaire"
 * status = #active
@@ -137,12 +130,8 @@ InstanceOf: PatientReportedOutcomeQuestionnaires
 Usage: #definition
 Title: "PHQ-9 Questionnaire"
 Description: "Patient Health Questionnaire-9. Nine items, each scored 0-3 over the same four SNOMED CT frequency answers, giving a total of 0-27."
-* id = "phq9-questionnaire"
-* url = "http://fhir.qualityregistry.org/Questionnaire/phq9-questionnaire"
-* identifier[0].system = "http://fhir.qualityregistry.org/identifier/questionnaire-resource-id"
-* identifier[0].value = "phq9_001"
-* identifier[1].system = "urn:ietf:rfc:3986"
-* identifier[1].value = "https://qualityregistry.org/questionnaires/phq-9"
+* id = "phq9"
+* url = "http://fhir.qualityregistry.org/Questionnaire/phq9"
 * version = "1.0.0"
 * name = "PHQ9Questionnaire"
 * status = #active
@@ -291,12 +280,8 @@ InstanceOf: PatientReportedOutcomeQuestionnaires
 Usage: #definition
 Title: "SF-SIS Questionnaire"
 Description: "Short-form Stroke Impact Scale Questionnaire. Eight items, each scored 1-5. Note that the shared answer scale is worded as a difficulty scale (\"Could not do it at all\" to \"Not difficult at all\") while sfsis_q3 (\"how often did you feel...\") and sfsis_q8 (\"how much of the time...\") are frequency stems; this mismatch is present in the source instrument as operated by the registry and is reproduced here rather than silently reworded."
-* id = "sf-sis-questionnaire"
-* url = "http://fhir.qualityregistry.org/Questionnaire/sf-sis-questionnaire"
-* identifier[0].system = "http://fhir.qualityregistry.org/identifier/questionnaire-resource-id"
-* identifier[0].value = "sf-sis_001"
-* identifier[1].system = "urn:ietf:rfc:3986"
-* identifier[1].value = "https://qualityregistry.org/questionnaires/sf-sis"
+* id = "sf-sis"
+* url = "http://fhir.qualityregistry.org/Questionnaire/sf-sis"
 * version = "1.0.0"
 * name = "SFSISQuestionnaire"
 * status = #active
@@ -446,12 +431,8 @@ InstanceOf: PatientReportedOutcomeQuestionnaires
 Usage: #definition
 Title: "SF-NEADL Questionnaire"
 Description: "Short-form Nottingham Extended Activities of Daily Living Questionnaire. Five items, each scored 1-4 over the same four SNOMED CT independence answers."
-* id = "sf-neadl-questionnaire"
-* url = "http://fhir.qualityregistry.org/Questionnaire/sf-neadl-questionnaire"
-* identifier[0].system = "http://fhir.qualityregistry.org/identifier/questionnaire-resource-id"
-* identifier[0].value = "sf-neadl_001"
-* identifier[1].system = "urn:ietf:rfc:3986"
-* identifier[1].value = "https://qualityregistry.org/questionnaires/sf-neadl"
+* id = "sf-neadl"
+* url = "http://fhir.qualityregistry.org/Questionnaire/sf-neadl"
 * version = "1.0.0"
 * name = "SFNEADLQuestionnaire"
 * status = #active

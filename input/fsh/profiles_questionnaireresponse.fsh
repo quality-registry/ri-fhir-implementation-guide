@@ -16,7 +16,7 @@ Description: "Patient-reported answers to one of the four RES-Q questionnaires (
 * questionnaire 1..1 MS
 * questionnaire only Canonical(PatientReportedOutcomeQuestionnaires)
 * questionnaire ^short = "Canonical URL of the RES-Q questionnaire answered"
-* questionnaire ^definition = "Resolves to one of the four questionnaires published by this guide: MrsQuestionnaire, Phq9Questionnaire, SfSisQuestionnaire or SfNeadlQuestionnaire. The service addresses questionnaires by its own resource_id, which is carried on each Questionnaire as an identifier."
+* questionnaire ^definition = "Resolves to one of the four questionnaires published by this guide: MrsQuestionnaire, Phq9Questionnaire, SfSisQuestionnaire or SfNeadlQuestionnaire. The canonical MAY carry a version suffix, such as .../Questionnaire/mrs|1.0.0, to pin the response to the exact instrument definition it was collected against."
 * status 1..1 MS
 * status ^short = "Response lifecycle status"
 * authored 1..1 MS
@@ -48,6 +48,6 @@ Severity: #error
 Expression: "item.all(answer.exists() or extension('http://fhir.qualityregistry.org/StructureDefinition/questionnaire-skipped-item-ext').exists())"
 
 Invariant: prom-qr-known-questionnaire
-Description: "The response SHALL answer one of the four patient-reported outcome questionnaires defined by this implementation guide. The canonical is matched exactly, so a version-suffixed canonical such as ...mrs-questionnaire|1.0.0 does not satisfy this constraint; the registry questionnaire service sends unversioned canonicals."
+Description: "The response SHALL answer one of the four patient-reported outcome questionnaires defined by this implementation guide. A version suffix such as .../Questionnaire/mrs|1.0.0 is permitted: the canonical is matched on the part before the suffix, so versioned and unversioned canonicals both satisfy this constraint."
 Severity: #error
-Expression: "questionnaire in ('http://fhir.qualityregistry.org/Questionnaire/mrs-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/phq9-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/sf-sis-questionnaire' | 'http://fhir.qualityregistry.org/Questionnaire/sf-neadl-questionnaire')"
+Expression: "questionnaire.split('|').first() in ('http://fhir.qualityregistry.org/Questionnaire/mrs' | 'http://fhir.qualityregistry.org/Questionnaire/phq9' | 'http://fhir.qualityregistry.org/Questionnaire/sf-sis' | 'http://fhir.qualityregistry.org/Questionnaire/sf-neadl')"

@@ -6,16 +6,17 @@ Profile: PatientReportedOutcomeQuestionnaires
 Parent: Questionnaire
 Id: patient-reported-outcome-questionnaires
 Title: "Patient Reported Outcome Questionnaires"
-Description: "Questionnaire profile for the patient-reported outcome instruments collected by the RES-Q stroke registry. The profile fixes the shape shared by all four instruments as the registry operates them: a fully identified and versioned definition, a coded instrument identifier, and a flat list of coded, required, non-repeating questions. Nesting and repeating questions are prohibited because the registry source model supports neither."
+Description: "Questionnaire profile for the patient-reported outcome instruments collected by the RES-Q stroke registry. The profile fixes the shape shared by all four instruments as the registry operates them: a versioned definition addressed by its canonical URL, a coded instrument identifier, and a flat list of coded, required, non-repeating questions. Nesting and repeating questions are prohibited because the registry source model supports neither."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/patient-reported-outcome-questionnaires"
 * insert RESQProfileMetadata
-* ^purpose = "Ensures every patient-reported outcome instrument published for the registry is individually addressable, versioned and coded, so that a QuestionnaireResponse can be resolved to an unambiguous definition and its answers scored consistently."
+* ^purpose = "Ensures every patient-reported outcome instrument published for the registry is individually addressable, versioned and coded, so that a QuestionnaireResponse can be resolved to an unambiguous definition by canonical URL and version and its answers scored consistently."
 * obeys prom-coding-item-has-answer-option
 * url 1..1 MS
 * url ^short = "Canonical URL of this instrument"
-* identifier 1..* MS
-* identifier ^short = "Registry identifiers for this instrument"
-* identifier ^definition = "Carries the questionnaire service resource_id used to address the instrument over the REST API, and the legacy canonical URL the service published before this guide."
+* url ^definition = "The instrument is addressed by this canonical URL, optionally version-suffixed with Questionnaire.version, rather than by a business identifier."
+* identifier 0..0
+* identifier ^short = "Not used by this registry profile"
+* identifier ^definition = "The registry addresses an instrument by its canonical URL and version, so no business identifier is exchanged."
 * version 1..1 MS
 * version ^short = "Business version of the instrument"
 * name 1..1 MS
