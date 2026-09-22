@@ -4,7 +4,7 @@ This is the repository of the RES-Q FHIR Implementation Guide.
 
 ## Published site
 
-The Implementation Guide is published automatically at:
+The Implementation Guide is published at:
 
 - **Canonical URL**: <http://fhir.qualityregistry.org>
 
