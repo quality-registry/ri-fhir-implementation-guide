@@ -5,8 +5,13 @@ This is the repository of the RES-Q FHIR Implementation Guide.
 ## Published site
 
 The Implementation Guide is published automatically at:
-- **Custom URL**: https://www.tecnomod-um.org
-- **GitHub Pages URL**: https://tecnomod-um.github.io/RESQFHIR-IG
+
+- **Canonical URL**: <http://fhir.qualityregistry.org>
+
+> **Note**: `CNAME` still contains `www.tecnomod-um.org`, inherited from the
+> upstream repository, and does not match the canonical URL above. It also is
+> not copied into `output/`, so the custom domain is dropped on every Pages
+> deploy. This needs fixing before the custom domain will work.
 
 ## DNS configuration
 
@@ -15,6 +20,64 @@ For information about setting up the custom domain, see [DNS_SETUP.md](DNS_SETUP
 ## Development
 
 This IG uses SUSHI to compile the FSH resources and the HL7 FHIR IG Publisher to generate the website.
+
+### Building with Docker (no local toolchain needed)
+
+The `Dockerfile` is a two-stage build. Stage 1 carries the whole toolchain —
+JDK 17, Node, Ruby, Jekyll and `publisher.jar` — and runs the same build
+documented below. Stage 2 copies only `output/` into `nginx:alpine`, so none of
+the build tooling ships.
+
+Stage 1 copies in only the build inputs: `sushi-config.yaml`, `ig.ini`,
+`input/`, the two `package*.json` files and the `_updatePublisher.sh` /
+`_genonce.sh` scripts. Anything else the build comes to need must be added to
+the `COPY` lines.
+
+```bash
+docker build -t ri-fhir-implementation-guide:local .
+```
+
+The image serves on port 8080 and runs as the unprivileged `nginx` user:
+
+```bash
+docker run --rm -p 8080:8080 \
+  --read-only --tmpfs /tmp \
+  --cap-drop ALL --security-opt no-new-privileges \
+  ri-fhir-implementation-guide:local
+```
+
+Then open <http://localhost:8080>. `GET /healthz` returns `ok` and is the
+endpoint for a readiness probe; the image ships no `HEALTHCHECK` because
+`nginx:alpine` contains neither `curl` nor `wget`.
+
+Only `/tmp` needs to be a tmpfs: [docker/nginx.conf](docker/nginx.conf) moves
+the pid file and all five of nginx's temp paths there, and sends the access and
+error logs to stdout/stderr.
+
+The Publisher is downloaded during the build by `_updatePublisher.sh -y`, the
+same script used locally, so the image always gets HL7's latest release. Two
+builds of the same commit can therefore differ if HL7 publishes a release in
+between.
+
+#### Read-only behaviour
+
+The site is copied in owned by `root` at mode `444`, and the image runs as the
+unprivileged `nginx` user. A default `docker run` therefore cannot modify the
+served content or anything under `/etc/nginx`, with no runtime flags required.
+
+`--read-only` covers the remaining case: a container started explicitly as root
+(`--user 0`) would otherwise be able to write into Docker's writable layer. No
+image setting can prevent that, since runtime flags override image metadata, so
+where this is deployed the guarantee belongs in the platform config — in
+Kubernetes, `securityContext.readOnlyRootFilesystem: true` together with
+`runAsNonRoot: true`.
+
+The Dockerfile has no `EXPOSE`; the listening port is set by `listen 8080` in
+[docker/nginx.conf](docker/nginx.conf) and published by the deployment config.
+
+`.github/workflows/docker-build.yaml` runs this build on every push to `main`
+and `develop` and pushes the image to the Azure Container Registry, tagged with
+both the commit SHA and the branch name.
 
 ### Prerequisites
 
