@@ -75,8 +75,6 @@ Description: "Assessment of a patient's glucose control, derived from their late
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
-* #glucose-value-missing "Glucose value missing"
-* #glucose-value-missing ^definition = "No self-reported glucose reading is available to assess."
 * #glucose-below-target-hypoglycemia-risk "Glucose below target, hypoglycemia risk"
 * #glucose-below-target-hypoglycemia-risk ^definition = "The latest reading is below the target range, putting the patient at risk of hypoglycemia."
 * #glucose-within-target "Glucose within target"
@@ -94,8 +92,6 @@ Description: "Assessment of a patient's LDL cholesterol control, derived from th
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = false
-* #ldl-value-missing "LDL cholesterol value missing"
-* #ldl-value-missing ^definition = "No self-reported LDL cholesterol reading is available to assess."
 * #ldl-within-target "LDL cholesterol within target"
 * #ldl-within-target ^definition = "The latest reading lies within the target range."
 * #ldl-above-optimal-target "LDL cholesterol above optimal target"
