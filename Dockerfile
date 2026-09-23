@@ -19,18 +19,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /ig
 
-# publisher.jar is not in the repository, so it is downloaded here with the
-# project's own _updatePublisher.sh. It lands in input-cache/, where
-# _genonce.sh looks for it.
+# publisher.jar is not in the repository, so it is downloaded here. The version
+# is pinned and the download is checksum-verified: the build must run a known
+# artifact, never whatever "latest" happens to resolve to at build time.
 #
-# -y is required. Without a TTY the script's confirmation prompts read as
-# empty, and it skips the download while still exiting 0; the failure would
-# only surface later, in _genonce.sh. -y also refreshes the _*.sh scripts from
-# HL7, which is why they are copied in before this runs.
+# To upgrade, bump both values together. The digest for a release is shown by:
+#   curl -sL https://api.github.com/repos/HL7/fhir-ig-publisher/releases/tags/<version> \
+#     | grep -A2 '"name": "publisher.jar"'
+#
+# _updatePublisher.sh is deliberately not used here: it can only fetch the
+# latest release, and it also overwrites the _*.sh scripts from a moving branch
+# and then runs them. Both are unpinned code paths.
 #
 # Separate layer so that editing FSH does not re-download the jar.
-COPY _updatePublisher.sh _genonce.sh ./
-RUN bash _updatePublisher.sh -y
+ARG IG_PUBLISHER_VERSION=2.3.4
+ARG IG_PUBLISHER_SHA256=970922c12eb583bfb4cb6121584b922a236d5904e36413e3545d2fbc248f8e2b
+RUN mkdir -p input-cache \
+ && curl -fSL -o input-cache/publisher.jar \
+      "https://github.com/HL7/fhir-ig-publisher/releases/download/${IG_PUBLISHER_VERSION}/publisher.jar" \
+ && echo "${IG_PUBLISHER_SHA256}  input-cache/publisher.jar" | sha256sum -c -
 
 # Dependencies before sources, so npm ci is cached across FSH edits.
 COPY package.json package-lock.json ./
@@ -38,10 +45,9 @@ RUN npm ci --ignore-scripts
 
 # The build inputs, listed explicitly. Anything added at the repository root
 # that the build needs must be added here too, or it will not be present.
-#
-# _genonce.sh is not copied again: _updatePublisher.sh above already refreshed
-# it, and re-copying would revert that.
-COPY sushi-config.yaml ig.ini ./
+# _genonce.sh is the repository's own copy, under version control and reviewable
+# in diffs, rather than one fetched at build time.
+COPY sushi-config.yaml ig.ini _genonce.sh ./
 COPY input/ ./input/
 
 # -no-sushi because the Publisher expects a global `sushi` executable, while
@@ -59,21 +65,27 @@ RUN npx fsh-sushi . --log-level info \
 ###############################################################################
 # Stage 2 - serve. Only output/ crosses over; the JDK, Ruby, Node and the
 # publisher jar stay behind in the build stage.
+#
+# Chainguard nginx is distroless: no shell, no package manager, no curl. That
+# rules out RUN steps here, which is why file ownership and modes are applied
+# in the build stage above. It runs as non-root uid 65532 and starts nginx
+# directly, so no entrypoint override is needed.
+#
+# The tag is deliberately :latest. Chainguard rebuilds these images for CVE
+# patches and does not retain older digests on the free tier, so pinning by
+# digest would freeze security updates and eventually break the build.
 ###############################################################################
-FROM nginx:1.27-alpine AS serve
+FROM cgr.dev/chainguard/nginx:latest AS serve
 
 LABEL org.opencontainers.image.title="RESQ Stroke Registry Implementation Guide" \
       org.opencontainers.image.description="Static FHIR IG site served by nginx"
 
+# Replaces the stock config, which logs to files under /var/log/nginx and puts
+# the pid in /run. docker/nginx.conf keeps every writable path in /tmp.
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
-# Arrives owned by root at 555/444 from the build stage. Combined with USER
-# nginx below, the server cannot modify the content it serves, with or without
-# the --read-only runtime flag.
+# Owned by root at 555/444 from the build stage, world-readable, so uid 65532
+# can serve it but nothing in the container can modify it.
 COPY --from=build /ig/output /usr/share/nginx/html
 
-USER nginx
-
-# The stock /docker-entrypoint.sh rewrites files under /etc/nginx on startup,
-# which fails on a read-only root filesystem. Start nginx directly instead.
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+USER 65532

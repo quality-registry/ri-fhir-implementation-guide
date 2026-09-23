@@ -25,8 +25,13 @@ This IG uses SUSHI to compile the FSH resources and the HL7 FHIR IG Publisher to
 
 The `Dockerfile` is a two-stage build. Stage 1 carries the whole toolchain —
 JDK 17, Node, Ruby, Jekyll and `publisher.jar` — and runs the same build
-documented below. Stage 2 copies only `output/` into `nginx:alpine`, so none of
-the build tooling ships.
+documented below. Stage 2 copies only `output/` into a Chainguard nginx image,
+so none of the build tooling ships.
+
+The runtime image is distroless: it contains no shell, package manager or
+`curl`, and runs as the non-root uid 65532. That means it cannot be `exec`ed
+into for debugging — inspect it with `docker cp` or `docker export`, and read
+the logs with `docker logs`.
 
 Stage 1 copies in only the build inputs: `sushi-config.yaml`, `ig.ini`,
 `input/`, the two `package*.json` files and the `_updatePublisher.sh` /
@@ -37,7 +42,7 @@ the `COPY` lines.
 docker build -t ri-fhir-implementation-guide:local .
 ```
 
-The image serves on port 8080 and runs as the unprivileged `nginx` user:
+The image serves on port 8080 and runs as a non-root user:
 
 ```bash
 docker run --rm -p 8080:8080 \
@@ -47,23 +52,38 @@ docker run --rm -p 8080:8080 \
 ```
 
 Then open <http://localhost:8080>. `GET /healthz` returns `ok` and is the
-endpoint for a readiness probe; the image ships no `HEALTHCHECK` because
-`nginx:alpine` contains neither `curl` nor `wget`.
+endpoint for a readiness probe; the image ships no `HEALTHCHECK` because it
+contains neither `curl` nor `wget` to run one with.
 
 Only `/tmp` needs to be a tmpfs: [docker/nginx.conf](docker/nginx.conf) moves
 the pid file and all five of nginx's temp paths there, and sends the access and
 error logs to stdout/stderr.
 
-The Publisher is downloaded during the build by `_updatePublisher.sh -y`, the
-same script used locally, so the image always gets HL7's latest release. Two
-builds of the same commit can therefore differ if HL7 publishes a release in
-between.
+The Publisher version is pinned in the `Dockerfile` and the download is
+verified against a SHA-256 checksum, so the build always runs a known artifact
+rather than whatever `latest` resolves to. To upgrade, bump both
+`IG_PUBLISHER_VERSION` and `IG_PUBLISHER_SHA256` together; the digest for a
+release comes from:
+
+```bash
+curl -sL https://api.github.com/repos/HL7/fhir-ig-publisher/releases/tags/2.3.4 \
+  | grep -A2 '"name": "publisher.jar"'
+```
+
+The container build does not use `_updatePublisher.sh`. That script can only
+fetch the latest release, and it also overwrites the `_*.sh` scripts from a
+moving branch and then runs them. The local workflow below still uses it.
+
+The base image is tagged `:latest` on purpose. Chainguard rebuilds these
+images to pick up CVE fixes and does not keep older digests available on the
+free tier, so pinning by digest would both freeze security updates and
+eventually break the build when the digest is garbage-collected.
 
 #### Read-only behaviour
 
-The site is copied in owned by `root` at mode `444`, and the image runs as the
-unprivileged `nginx` user. A default `docker run` therefore cannot modify the
-served content or anything under `/etc/nginx`, with no runtime flags required.
+The site is copied in owned by `root` at mode `444`, and the image runs as
+uid 65532. A default `docker run` therefore cannot modify the served content or
+anything under `/etc/nginx`, with no runtime flags required.
 
 `--read-only` covers the remaining case: a container started explicitly as root
 (`--user 0`) would otherwise be able to write into Docker's writable layer. No
