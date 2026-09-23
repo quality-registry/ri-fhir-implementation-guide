@@ -95,14 +95,10 @@ system URL. A code therefore stays meaningful on its own in logs, queries and
 generated enumerations, and the union in `SelfReportedReadingStatus` contains no
 two members that differ only by system.
 
-Each enumeration carries its own no-data code, and the three are deliberately
-not synonyms. `bp-insufficient-data` means the averages and the time-in-range
-percentage were computed and are present, but too few readings backed them for a
-risk verdict to follow; there is data, just not enough of it. `glucose-value-missing`
-and `ldl-value-missing` mean the stronger thing: no reading was available at all,
-so there was nothing to assess. The wording is kept distinct because the two
-situations are distinct - and because the second pair describes an absent value,
-which is what `Observation.dataAbsentReason` exists for.
+Only the blood-pressure enumeration has a no-data code. `bp-insufficient-data`
+means the averages and the time-in-range percentage were computed and are
+present, but too few readings backed them for a risk verdict to follow; there is
+data, just not enough of it, and that is itself a judgement about the aggregate.
 
 ## Extensions
 
