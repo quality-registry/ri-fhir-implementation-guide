@@ -34,7 +34,7 @@ into for debugging — inspect it with `docker cp` or `docker export`, and read
 the logs with `docker logs`.
 
 Stage 1 copies in only the build inputs: `sushi-config.yaml`, `ig.ini`,
-`input/`, the two `package*.json` files and the `_updatePublisher.sh` /
+`input/`, the two `package*.json` files and the `_get_publisher.sh` /
 `_genonce.sh` scripts. Anything else the build comes to need must be added to
 the `COPY` lines.
 
@@ -59,11 +59,12 @@ Only `/tmp` needs to be a tmpfs: [docker/nginx.conf](docker/nginx.conf) moves
 the pid file and all five of nginx's temp paths there, and sends the access and
 error logs to stdout/stderr.
 
-The Publisher version is pinned in the `Dockerfile` and the download is
-verified against a SHA-256 checksum, so the build always runs a known artifact
-rather than whatever `latest` resolves to. To upgrade, bump both
-`IG_PUBLISHER_VERSION` and `IG_PUBLISHER_SHA256` together; the digest for a
-release comes from:
+The Publisher version is pinned in the `Dockerfile` and downloaded by
+`_get_publisher.sh`, which the container build always calls with a SHA-256
+checksum, so the build runs a known artifact rather than whatever `latest`
+resolves to. The build fails if the checksum does not match, or if
+`IG_PUBLISHER_SHA256` is empty. To upgrade, bump both `IG_PUBLISHER_VERSION` and
+`IG_PUBLISHER_SHA256` together; the digest for a release comes from:
 
 ```bash
 curl -sL https://api.github.com/repos/HL7/fhir-ig-publisher/releases/tags/2.3.4 \
@@ -74,10 +75,13 @@ The container build does not use `_updatePublisher.sh`. That script can only
 fetch the latest release, and it also overwrites the `_*.sh` scripts from a
 moving branch and then runs them. The local workflow below still uses it.
 
-The base image is tagged `:latest` on purpose. Chainguard rebuilds these
-images to pick up CVE fixes and does not keep older digests available on the
-free tier, so pinning by digest would both freeze security updates and
-eventually break the build when the digest is garbage-collected.
+The Chainguard base image is pinned by digest, so every build uses the same
+base. Chainguard rebuilds `:latest` frequently to ship CVE fixes, so the digest
+in the `Dockerfile` needs bumping regularly. The current digest comes from:
+
+```bash
+docker buildx imagetools inspect cgr.dev/chainguard/nginx:latest
+```
 
 #### Read-only behaviour
 
@@ -125,8 +129,10 @@ without terminology validation.
 npm ci
 
 # 2. Download the IG Publisher to input-cache/publisher.jar (~240 MB).
-#    Only needed the first time, or to update it.
-./_updatePublisher.sh
+#    Only needed the first time, or to update it. Use the version pinned in
+#    the Dockerfile to match the container build; the checksum is optional.
+./_get_publisher.sh 2.3.4 970922c12eb583bfb4cb6121584b922a236d5904e36413e3545d2fbc248f8e2b
+#    Or, for HL7's latest release and scripts:  ./_updatePublisher.sh
 
 # 3. Compile FSH -> fsh-generated/resources/ and generate the site in output/
 npx fsh-sushi . && bash _genonce.sh -no-sushi
@@ -157,7 +163,8 @@ npx fsh-sushi .
 
 | Script | What it does |
 |---|---|
-| `_updatePublisher.sh` | Downloads or updates `publisher.jar`. It also self-updates the `_*.sh` / `_*.bat` scripts themselves from the HL7 repository. |
+| `_get_publisher.sh` | Downloads a specific `publisher.jar` release: `./_get_publisher.sh <version> [sha256]`. With a checksum, a mismatching download is discarded. Used by the container build. |
+| `_updatePublisher.sh` | Downloads or updates `publisher.jar` to the latest release. It also self-updates the `_*.sh` / `_*.bat` scripts themselves from the HL7 repository. |
 | `_genonce.sh` | A single Publisher run. Extra arguments are passed straight through to `java -jar`. |
 | `_gencontinuous.sh` | Rebuilds in a loop whenever a file changes. |
 | `_build.sh` | HL7's newer script with an interactive menu, which wraps the ones above. |

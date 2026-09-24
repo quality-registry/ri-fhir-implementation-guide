@@ -19,13 +19,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /ig
 
-# publisher.jar is not in the repository, so it is downloaded here. The version
-# is pinned and the download is checksum-verified: the build must run a known
-# artifact, never whatever "latest" happens to resolve to at build time.
+# publisher.jar is not in the repository, so _get_publisher.sh downloads it
+# into input-cache/, where _genonce.sh looks for it. The version is pinned and
+# the checksum is mandatory here: the build must run a known artifact, never
+# whatever "latest" resolves to. The script itself treats the checksum as
+# optional for local use, so the empty case is rejected before calling it.
 #
-# To upgrade, bump both values together. The digest for a release is shown by:
-#   curl -sL https://api.github.com/repos/HL7/fhir-ig-publisher/releases/tags/<version> \
-#     | grep -A2 '"name": "publisher.jar"'
+# To upgrade, bump both values together; see _get_publisher.sh for how to find
+# the digest of a release.
 #
 # _updatePublisher.sh is deliberately not used here: it can only fetch the
 # latest release, and it also overwrites the _*.sh scripts from a moving branch
@@ -34,10 +35,8 @@ WORKDIR /ig
 # Separate layer so that editing FSH does not re-download the jar.
 ARG IG_PUBLISHER_VERSION=2.3.4
 ARG IG_PUBLISHER_SHA256=970922c12eb583bfb4cb6121584b922a236d5904e36413e3545d2fbc248f8e2b
-RUN mkdir -p input-cache \
- && curl -fSL -o input-cache/publisher.jar \
-      "https://github.com/HL7/fhir-ig-publisher/releases/download/${IG_PUBLISHER_VERSION}/publisher.jar" \
- && echo "${IG_PUBLISHER_SHA256}  input-cache/publisher.jar" | sha256sum -c -
+COPY _get_publisher.sh ./
+RUN bash _get_publisher.sh "${IG_PUBLISHER_VERSION}" "${IG_PUBLISHER_SHA256}"
 
 # Dependencies before sources, so npm ci is cached across FSH edits.
 COPY package.json package-lock.json ./
@@ -71,13 +70,11 @@ RUN npx fsh-sushi . --log-level info \
 # in the build stage above. It runs as non-root uid 65532 and starts nginx
 # directly, so no entrypoint override is needed.
 #
-# The tag is deliberately :latest. Chainguard rebuilds these images for CVE
-# patches and does not retain older digests on the free tier, so pinning by
-# digest would freeze security updates and eventually break the build.
+# Pinned by digest so every build uses the same base image.
 ###############################################################################
-FROM cgr.dev/chainguard/nginx:latest AS serve
+FROM cgr.dev/chainguard/nginx:latest@sha256:51048009c0db8c584a3746a98368295fa2c13ad1b29e5c846a5d3da9dd9b35c4 AS serve
 
-LABEL org.opencontainers.image.title="RESQ Stroke Registry Implementation Guide" \
+LABEL org.opencontainers.image.title="RESQ Implementation Guide" \
       org.opencontainers.image.description="Static FHIR IG site served by nginx"
 
 # Replaces the stock config, which logs to files under /var/log/nginx and puts
