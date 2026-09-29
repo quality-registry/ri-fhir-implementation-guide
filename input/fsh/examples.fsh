@@ -264,9 +264,8 @@ Description: "Modified Rankin Scale score computed from the patient's own answer
 // Example derived observation
 //
 // A 30-day average calculated from the patient's own readings, with the
-// registry's assessment of those figures in interpretation. Only two source
-// readings are referenced here because the guide defines only two self-reported
-// blood-pressure examples; a real 30-day average would reference many more.
+// registry's assessment of those figures in interpretation. The measurement
+// count is 2 to match the guide's two self-reported blood-pressure examples.
 // ----------------------------------------------------------------------------
 
 Instance: ExampleSelfReportedBloodPressureAverage30Day
@@ -286,8 +285,7 @@ Description: "Thirty-day average of the patient's self-reported blood pressure, 
 * effectivePeriod.end = "2026-01-20"
 * issued = "2026-01-21T02:00:00.000Z"
 * interpretation = BloodPressureRiskStatusCS#bp-above-esc-treatment-target "Blood pressure above ESC treatment target"
-* derivedFrom[0] = Reference(ExampleSelfReportedBloodPressure)
-* derivedFrom[1] = Reference(ExampleSelfReportedBloodPressureLater)
+* extension[numberOfMeasurements].valueInteger = 2
 * component[0].code = SCT#314440001 "Average systolic blood pressure (observable entity)"
 * component[0].valueQuantity.value = 128.5
 * component[0].valueQuantity.unit = "mmHg"

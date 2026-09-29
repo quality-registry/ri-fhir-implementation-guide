@@ -176,11 +176,11 @@ Description: "Flags a questionnaire response item that the respondent skipped, d
 // is the UCUM time units, so the datatype already says most of what a coded
 // window said. Observation.effectivePeriod still carries the actual calendar
 // dates the readings were drawn from; this extension carries the nominal window,
-// so that consumers can select all 30-day aggregations without date arithmetic.
+// so that consumers can select aggregations by window length without date arithmetic.
 Extension: AveragingWindowExt
 Id: averaging-window-ext
 Title: "Averaging window"
-Description: "The look-back window an aggregated value expresses, as a whole number of UCUM time units: 30 days, 12 weeks, 6 months. Observation.effectivePeriod carries the actual calendar dates the readings were drawn from; this extension carries the nominal window so that consumers can select all 30-day aggregations without date arithmetic."
+Description: "The look-back window an aggregated value expresses, as a whole number of UCUM time units: 30 days, 12 weeks, 6 months. Observation.effectivePeriod carries the actual calendar dates the readings were drawn from; this extension carries the nominal window so that consumers can select aggregations by window length without date arithmetic."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/averaging-window-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Observation"
@@ -207,3 +207,15 @@ Invariant: avw-whole-number
 Description: "An averaging window must be a positive whole number of units. Quantity.value is a decimal in FHIR and cannot be retyped to an integer, so the whole-number requirement is stated here instead."
 Severity: #error
 Expression: "value > 0 and value = value.truncate()"
+
+// The count of readings behind an aggregated value.
+Extension: NumberOfMeasurementsExt
+Id: number-of-measurements-ext
+Title: "Number of measurements"
+Description: "The number of self-reported readings an aggregated value was calculated from."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/number-of-measurements-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "Observation"
+* value[x] only integer
+* valueInteger 1..1 MS
+* valueInteger ^short = "Number of readings the aggregation was calculated from"
