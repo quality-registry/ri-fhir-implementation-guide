@@ -498,8 +498,8 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 * effective[x] ^short = "Period the analysed readings were drawn from"
 
 // effectivePeriod carries the calendar days the figures cover; the nominal
-// window exists so that consumers can select all 30-day aggregations without
-// date arithmetic.
+// window exists so that consumers can select aggregations by window length
+// without date arithmetic.
 * extension contains AveragingWindowExt named averagingWindow 1..1 MS
 * extension[averagingWindow] ^short = "Averaging window this aggregation expresses"
 
