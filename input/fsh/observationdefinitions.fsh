@@ -140,6 +140,14 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 // description. sva-bp-under-85-interpretation and sva-bp-85-plus-interpretation
 // on SelfReportedValueAggregationProfile enforce it on the Observation.
 //
+// The table in each description is also the machine-readable form of the rules.
+// The interpretation-rules comment above it (hidden when the markdown is rendered)
+// names the SNOMED CT code of the component in each value column, in order. Each
+// row is one rule: the component ranges, "or" / "and" between them, and the
+// interpretation code first in the last column. Rows are read from the top and
+// the first one met applies. A range is written "≥ low", "< high" or
+// "≥ low and < high", following the band convention of this guide.
+//
 // One definition per age group rather than one with age-qualified bands, so an
 // aggregation can name the table it was assessed against in
 // Observation.instantiatesCanonical. The bands still carry qualifiedValue.age
@@ -161,6 +169,7 @@ Description: "The criteria used to assess a patient's aggregated self-reported b
 * description = """
 The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients under 85 years old. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.
 
+<!-- interpretation-rules: 314440001 314453003 -->
 | Mean SBP (mmHg) | | Mean DBP (mmHg) | Interpretation |
 | --- | --- | --- | --- |
 | ≥ 135 | or | ≥ 85 | HU Significantly high: above home hypertension threshold |
@@ -253,6 +262,7 @@ Description: "The criteria used to assess a patient's aggregated self-reported b
 * description = """
 The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients aged 85 years and over. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.
 
+<!-- interpretation-rules: 314440001 314453003 -->
 | Mean SBP (mmHg) | | Mean DBP (mmHg) | Interpretation |
 | --- | --- | --- | --- |
 | ≥ 140 | or | ≥ 85 | HU Significantly high: above home hypertension threshold |
