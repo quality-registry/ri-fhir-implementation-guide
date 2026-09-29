@@ -219,3 +219,23 @@ Description: "The number of self-reported readings an aggregated value was calcu
 * value[x] only integer
 * valueInteger 1..1 MS
 * valueInteger ^short = "Number of readings the aggregation was calculated from"
+
+// R5 ObservationDefinition.qualifiedValue says which range a value falls into
+// but not what that range means: rangeCategory only distinguishes reference,
+// critical and absolute ranges. This extension carries the interpretation flag
+// an Observation receives when its value falls within the range, so a set of
+// qualifiedValues can state a complete low / normal / high / critical-high scale.
+// FHIR R6 adds qualifiedValue.interpretation for the same purpose.
+Extension: QualifiedValueInterpretationExt
+Id: qualified-value-interpretation-ext
+Title: "Qualified value interpretation"
+Description: "The interpretation an Observation receives when its value falls within this qualified range of an ObservationDefinition."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "ObservationDefinition.qualifiedValue"
+* ^context[1].type = #element
+* ^context[1].expression = "ObservationDefinition.component.qualifiedValue"
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1 MS
+* valueCodeableConcept from http://hl7.org/fhir/ValueSet/observation-interpretation (extensible)
+* valueCodeableConcept ^short = "Interpretation for values within this range"

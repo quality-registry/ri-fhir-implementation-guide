@@ -242,11 +242,12 @@ Description: "Glucose level the patient reports, carried as a single value with 
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
 * issued = "2026-01-20T07:17:19.921Z"
-* interpretation = GlucoseRiskStatusCS#glucose-below-target-hypoglycemia-risk "Glucose below target, hypoglycemia risk"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-glucose-assessment"
+* interpretation = ObservationInterpretationCS#L "Low"
 * valueQuantity.value = 1.8
-* valueQuantity.unit = "milligrams per deciliter"
+* valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code = #mg/dL
+* valueQuantity.code = #mmol/L
 
 Instance: ExampleSelfReportedMrsScore
 InstanceOf: SelfReportedFunctionalScoresProfile
@@ -284,7 +285,8 @@ Description: "Thirty-day average of the patient's self-reported blood pressure, 
 * effectivePeriod.start = "2025-12-22"
 * effectivePeriod.end = "2026-01-20"
 * issued = "2026-01-21T02:00:00.000Z"
-* interpretation = BloodPressureRiskStatusCS#bp-above-esc-treatment-target "Blood pressure above ESC treatment target"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-under-85"
+* interpretation = ObservationInterpretationCS#H "High"
 * extension[numberOfMeasurements].valueInteger = 2
 * component[0].code = SCT#314440001 "Average systolic blood pressure (observable entity)"
 * component[0].valueQuantity.value = 128.5
@@ -331,7 +333,8 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
-* interpretation = CholesterolRiskStatusCS#ldl-above-recommended-target "LDL cholesterol above recommended target"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-ldl-cholesterol-assessment"
+* interpretation = ObservationInterpretationCS#HH "Critical high"
 * valueQuantity.value = 3.4
 * valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
