@@ -2,7 +2,7 @@ name: Build and push a Docker container to GitHub Container Registry
 
 on:
   push:
-    branches: [ "main", "develop", "gh-container-registry" ]
+    branches: [ "main", "develop" ]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  APP_NAME: "ri-fhir-implementation-guide"
+  APP_NAME: "fhir-implementation-guide"
   DOCKER_BUILDKIT: 1
 
 jobs:
@@ -35,6 +35,5 @@ jobs:
           docker build \
             --label org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }} \
             -t $IMAGE:${{ github.sha }} \
-            -t $IMAGE:${{ github.ref_name }} \
             .
           docker push --all-tags $IMAGE
