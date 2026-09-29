@@ -461,10 +461,10 @@ Profile: SelfReportedValueAggregationProfile
 Parent: BaseSelfReportedObservation
 Id: self-reported-value-aggregation-profile
 Title: "Self-Reported Value Aggregation Profile"
-Description: "Figures the registry calculates from a patient's self-reported readings, carried alongside a reference to every reading they were computed from. A single calculated figure is carried directly in Observation.value; several figures belonging to one aggregation are carried as components, as blood pressure is everywhere else in this guide. Observation.interpretation carries the registry's assessment of those figures."
+Description: "Figures the registry calculates from a patient's self-reported readings, carried alongside the number of readings they were computed from. A single calculated figure is carried directly in Observation.value; several figures belonging to one aggregation are carried as components, as blood pressure is everywhere else in this guide. Observation.interpretation carries the registry's assessment of those figures."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/self-reported-value-aggregation-profile"
 * insert RESQProfileMetadata
-* ^purpose = "Publishes a calculated summary of self-reported data as a queryable resource, while keeping every reading it was computed from reachable through derivedFrom so the figures can be audited or recomputed."
+* ^purpose = "Publishes a calculated summary of self-reported data as a queryable resource, together with the number of readings it was computed from."
 
 * obeys sva-value-or-component
 * obeys sva-pressure-units
@@ -503,9 +503,8 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 * extension contains AveragingWindowExt named averagingWindow 0..1 MS
 * extension[averagingWindow] ^short = "Averaging window this aggregation expresses"
 
-* derivedFrom 1..* MS
-* derivedFrom only Reference(SelfReportedVitalSignsProfile)
-* derivedFrom ^short = "Reported readings the figures were calculated from"
+* extension contains NumberOfMeasurementsExt named numberOfMeasurements 1..1 MS
+* extension[numberOfMeasurements] ^short = "Number of readings the aggregation was calculated from"
 
 // Components are bound to a value set and left unsliced, as in
 // VitalSignObservationProfile and SelfReportedVitalSignsProfile. The unit each

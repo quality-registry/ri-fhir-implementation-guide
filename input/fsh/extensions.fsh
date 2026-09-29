@@ -207,3 +207,15 @@ Invariant: avw-whole-number
 Description: "An averaging window must be a positive whole number of units. Quantity.value is a decimal in FHIR and cannot be retyped to an integer, so the whole-number requirement is stated here instead."
 Severity: #error
 Expression: "value > 0 and value = value.truncate()"
+
+// The count of readings behind an aggregated value.
+Extension: NumberOfMeasurementsExt
+Id: number-of-measurements-ext
+Title: "Number of measurements"
+Description: "The number of self-reported readings an aggregated value was calculated from."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/number-of-measurements-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "Observation"
+* value[x] only integer
+* valueInteger 1..1 MS
+* valueInteger ^short = "Number of readings the aggregation was calculated from"
