@@ -55,19 +55,27 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 // interpretation flags can read it without registry-specific terminology. The
 // analyte the flag applies to is already given by Observation.code.
 //
+// HU / LU mark values significantly outside the target; HH / LL are kept for
+// critical values only. LU and LL are included for symmetry and are not
+// currently produced by any assessment.
+//
 // IND covers data that was assessed but supports no verdict, such as too few
-// blood-pressure readings in the window. IE (insufficient evidence) is not used:
+// blood-pressure readings in the window, or values the registry declines to
+// interpret because of low confidence in them. IE (insufficient evidence) is not used:
 // HL7 defines it for antimicrobial susceptibility only. When no assessment was
 // made at all, interpretation is simply absent.
 ValueSet: SelfReportedInterpretationVS
 Id: self-reported-interpretation-vs
 Title: "SelfReportedInterpretation ValueSet"
-Description: "Assessments the registry can record against self-reported readings and the figures aggregated from them, drawn from the HL7 ObservationInterpretation code system: critical high, high, normal and low, plus indeterminate for data from which no assessment can be made."
+Description: "Assessments the registry can record against self-reported readings and the figures aggregated from them, drawn from the HL7 ObservationInterpretation code system: critical high, significantly high, high, normal, low, significantly low and critical low, plus indeterminate for data that is not interpreted."
 * ^url = "http://fhir.qualityregistry.org/ValueSet/self-reported-interpretation-vs"
 * ^status = #active
 * ^experimental = false
 * include ObservationInterpretationCS#HH "Critical high"
+* include ObservationInterpretationCS#HU "Significantly high"
 * include ObservationInterpretationCS#H "High"
 * include ObservationInterpretationCS#N "Normal"
 * include ObservationInterpretationCS#L "Low"
+* include ObservationInterpretationCS#LU "Significantly low"
+* include ObservationInterpretationCS#LL "Critical low"
 * include ObservationInterpretationCS#IND "Indeterminate"

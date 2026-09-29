@@ -34,7 +34,7 @@ The criteria the registry applies to a self-reported glucose reading to set its 
 | < 4.0 | L Low | Below optimal level, risk of hypoglycemia |
 | ≥ 4.0 and < 7.0 | N Normal | Optimal level |
 | ≥ 7.0 and < 10.0 | H High | Above optimal level |
-| ≥ 10.0 | HH Critical high | Above recommended level |
+| ≥ 10.0 | HU Significantly high | Above recommended level |
 """
 // Authored rather than generated: the Publisher's default narrative prints url
 // as a hyperlink, which does not resolve because the canonical is not served.
@@ -46,7 +46,7 @@ The criteria the registry applies to a self-reported glucose reading to set its 
 <tr><td>&lt; 4.0</td><td>L Low</td><td>Below optimal level, risk of hypoglycemia</td></tr>
 <tr><td>&#8805; 4.0 and &lt; 7.0</td><td>N Normal (reference range)</td><td>Optimal level</td></tr>
 <tr><td>&#8805; 7.0 and &lt; 10.0</td><td>H High</td><td>Above optimal level</td></tr>
-<tr><td>&#8805; 10.0</td><td>HH Critical high (critical range)</td><td>Above recommended level</td></tr>
+<tr><td>&#8805; 10.0</td><td>HU Significantly high</td><td>Above recommended level</td></tr>
 </table>
 </div>"""
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
@@ -72,9 +72,8 @@ The criteria the registry applies to a self-reported glucose reading to set its 
 * qualifiedValue[2].range.high = 10.0 'mmol/L' "mmol/L"
 
 * qualifiedValue[3].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* qualifiedValue[3].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* qualifiedValue[3].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * qualifiedValue[3].extension[0].valueCodeableConcept.text = "Above recommended level"
-* qualifiedValue[3].rangeCategory = #critical
 * qualifiedValue[3].range.low = 10.0 'mmol/L' "mmol/L"
 
 Instance: SelfReportedLdlCholesterolAssessment
@@ -95,7 +94,7 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 | --- | --- | --- |
 | < 1.40 | N Normal | Optimal level |
 | ≥ 1.40 and < 1.80 | H High | Above optimal level |
-| ≥ 1.80 | HH Critical high | Above recommended level |
+| ≥ 1.80 | HU Significantly high | Above recommended level |
 """
 // Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
@@ -105,7 +104,7 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 <tr><th>LDL cholesterol (mmol/L)</th><th>Interpretation</th><th>Meaning</th></tr>
 <tr><td>&lt; 1.40</td><td>N Normal (reference range)</td><td>Optimal level</td></tr>
 <tr><td>&#8805; 1.40 and &lt; 1.80</td><td>H High</td><td>Above optimal level</td></tr>
-<tr><td>&#8805; 1.80</td><td>HH Critical high (critical range)</td><td>Above recommended level</td></tr>
+<tr><td>&#8805; 1.80</td><td>HU Significantly high</td><td>Above recommended level</td></tr>
 </table>
 </div>"""
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
@@ -125,9 +124,8 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 * qualifiedValue[1].range.high = 1.80 'mmol/L' "mmol/L"
 
 * qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above recommended level"
-* qualifiedValue[2].rangeCategory = #critical
 * qualifiedValue[2].range.low = 1.80 'mmol/L' "mmol/L"
 
 // -----------------------------------------------------------------------------
@@ -161,11 +159,11 @@ Description: "The criteria used to assess a patient's aggregated self-reported b
 * status = #active
 * experimental = false
 * description = """
-The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients under 85 years old. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HH, H, N, L. Each band includes its lower bound and excludes its upper bound.
+The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients under 85 years old. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.
 
 | Mean SBP (mmHg) | | Mean DBP (mmHg) | Interpretation |
 | --- | --- | --- | --- |
-| ≥ 135 | or | ≥ 85 | HH Critical high: above home hypertension threshold |
+| ≥ 135 | or | ≥ 85 | HU Significantly high: above home hypertension threshold |
 | ≥ 130 and < 135 | or | ≥ 80 and < 85 | H High: above ESC treatment target |
 | ≥ 120 and < 130 | and | < 80 | N Normal: within ESC treatment target |
 | < 120 | and | < 80 | L Low: below ESC treatment target |
@@ -175,10 +173,10 @@ Diastolic pressure has no band of its own for N: below 80 mmHg it is banded L, s
 // Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
 * text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
-<p>The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients under 85 years old. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HH, H, N, L. Each band includes its lower bound and excludes its upper bound.</p>
+<p>The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients under 85 years old. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.</p>
 <table class="grid">
 <tr><th>Mean SBP (mmHg)</th><th></th><th>Mean DBP (mmHg)</th><th>Interpretation</th></tr>
-<tr><td>&#8805; 135</td><td>or</td><td>&#8805; 85</td><td>HH Critical high: above home hypertension threshold</td></tr>
+<tr><td>&#8805; 135</td><td>or</td><td>&#8805; 85</td><td>HU Significantly high: above home hypertension threshold</td></tr>
 <tr><td>&#8805; 130 and &lt; 135</td><td>or</td><td>&#8805; 80 and &lt; 85</td><td>H High: above ESC treatment target</td></tr>
 <tr><td>&#8805; 120 and &lt; 130</td><td>and</td><td>&lt; 80</td><td>N Normal: within ESC treatment target</td></tr>
 <tr><td>&lt; 120</td><td>and</td><td>&lt; 80</td><td>L Low: below ESC treatment target</td></tr>
@@ -213,7 +211,7 @@ Diastolic pressure has no band of its own for N: below 80 mmHg it is banded L, s
 * component[0].qualifiedValue[2].range.high = 135 'mm[Hg]' "mmHg"
 
 * component[0].qualifiedValue[3].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* component[0].qualifiedValue[3].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* component[0].qualifiedValue[3].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * component[0].qualifiedValue[3].extension[0].valueCodeableConcept.text = "Above home hypertension threshold"
 * component[0].qualifiedValue[3].age.high = 85 'a' "years"
 * component[0].qualifiedValue[3].range.low = 135 'mm[Hg]' "mmHg"
@@ -236,7 +234,7 @@ Diastolic pressure has no band of its own for N: below 80 mmHg it is banded L, s
 * component[1].qualifiedValue[1].range.high = 85 'mm[Hg]' "mmHg"
 
 * component[1].qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* component[1].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* component[1].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * component[1].qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above home hypertension threshold"
 * component[1].qualifiedValue[2].age.high = 85 'a' "years"
 * component[1].qualifiedValue[2].range.low = 85 'mm[Hg]' "mmHg"
@@ -253,29 +251,29 @@ Description: "The criteria used to assess a patient's aggregated self-reported b
 * status = #active
 * experimental = false
 * description = """
-The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients aged 85 years and over. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HH, H, N, L. Each band includes its lower bound and excludes its upper bound.
+The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients aged 85 years and over. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.
 
 | Mean SBP (mmHg) | | Mean DBP (mmHg) | Interpretation |
 | --- | --- | --- | --- |
-| ≥ 140 | or | ≥ 85 | HH Critical high: above home hypertension threshold |
+| ≥ 140 | or | ≥ 85 | HU Significantly high: above home hypertension threshold |
 | < 140 | and | ≥ 80 and < 85 | H High: above ESC treatment target |
 | ≥ 120 and < 140 | and | < 80 | N Normal: within age-adjusted treatment target |
 | < 120 | and | < 80 | L Low: below ESC treatment target |
 
-The treatment target is adjusted for age: systolic pressure below 140 mmHg is within target, and systolic pressure has no H band, going straight from N to HH at 140 mmHg. Diastolic pressure has no band for N: below 80 mmHg it is banded L, so the overall interpretation is then set by the systolic average.
+The treatment target is adjusted for age: systolic pressure below 140 mmHg is within target, and systolic pressure has no H band, going straight from N to HU at 140 mmHg. Diastolic pressure has no band for N: below 80 mmHg it is banded L, so the overall interpretation is then set by the systolic average.
 """
 // Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
 * text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
-<p>The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients aged 85 years and over. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HH, H, N, L. Each band includes its lower bound and excludes its upper bound.</p>
+<p>The criteria the registry applies to a patient's aggregated self-reported blood pressure to set its Observation.interpretation, for patients aged 85 years and over. Average systolic and average diastolic pressure are each banded on their own, and the overall interpretation is the more severe of the two, in the order HU, H, N, L. Each band includes its lower bound and excludes its upper bound.</p>
 <table class="grid">
 <tr><th>Mean SBP (mmHg)</th><th></th><th>Mean DBP (mmHg)</th><th>Interpretation</th></tr>
-<tr><td>&#8805; 140</td><td>or</td><td>&#8805; 85</td><td>HH Critical high: above home hypertension threshold</td></tr>
+<tr><td>&#8805; 140</td><td>or</td><td>&#8805; 85</td><td>HU Significantly high: above home hypertension threshold</td></tr>
 <tr><td>&lt; 140</td><td>and</td><td>&#8805; 80 and &lt; 85</td><td>H High: above ESC treatment target</td></tr>
 <tr><td>&#8805; 120 and &lt; 140</td><td>and</td><td>&lt; 80</td><td>N Normal: within age-adjusted treatment target</td></tr>
 <tr><td>&lt; 120</td><td>and</td><td>&lt; 80</td><td>L Low: below ESC treatment target</td></tr>
 </table>
-<p>The treatment target is adjusted for age: systolic pressure below 140 mmHg is within target, and systolic pressure has no H band, going straight from N to HH at 140 mmHg. Diastolic pressure has no band for N: below 80 mmHg it is banded L, so the overall interpretation is then set by the systolic average.</p>
+<p>The treatment target is adjusted for age: systolic pressure below 140 mmHg is within target, and systolic pressure has no H band, going straight from N to HU at 140 mmHg. Diastolic pressure has no band for N: below 80 mmHg it is banded L, so the overall interpretation is then set by the systolic average.</p>
 </div>"""
 * code = SCT#723232008 "Average blood pressure (observable entity)"
 
@@ -298,7 +296,7 @@ The treatment target is adjusted for age: systolic pressure below 140 mmHg is wi
 * component[0].qualifiedValue[1].range.high = 140 'mm[Hg]' "mmHg"
 
 * component[0].qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* component[0].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* component[0].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * component[0].qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above home hypertension threshold"
 * component[0].qualifiedValue[2].age.low = 85 'a' "years"
 * component[0].qualifiedValue[2].range.low = 140 'mm[Hg]' "mmHg"
@@ -321,7 +319,7 @@ The treatment target is adjusted for age: systolic pressure below 140 mmHg is wi
 * component[1].qualifiedValue[1].range.high = 85 'mm[Hg]' "mmHg"
 
 * component[1].qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
-* component[1].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HH "Critical high"
+* component[1].qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
 * component[1].qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above home hypertension threshold"
 * component[1].qualifiedValue[2].age.low = 85 'a' "years"
 * component[1].qualifiedValue[2].range.low = 85 'mm[Hg]' "mmHg"

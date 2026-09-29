@@ -224,7 +224,7 @@ Description: "The number of self-reported readings an aggregated value was calcu
 // but not what that range means: rangeCategory only distinguishes reference,
 // critical and absolute ranges. This extension carries the interpretation flag
 // an Observation receives when its value falls within the range, so a set of
-// qualifiedValues can state a complete low / normal / high / critical-high scale.
+// qualifiedValues can state a complete low / normal / high / significantly-high scale.
 // FHIR R6 adds qualifiedValue.interpretation for the same purpose.
 Extension: QualifiedValueInterpretationExt
 Id: qualified-value-interpretation-ext

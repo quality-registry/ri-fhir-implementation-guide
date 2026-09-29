@@ -51,7 +51,7 @@ proportion of readings that fell within target.
 | Parent is `BaseSelfReportedObservation`, not `BaseStrokeObservation` | The inputs are self-reported and carry no encounter, so neither can anything derived from them. |
 | `code` is bound to its own value set | [ValueAggregation](ValueSet-self-reported-value-aggregation-vs.html) holds the calculated concepts and is kept apart from [SelfReportedSigns](ValueSet-self-reported-signs-vs.html), which holds only the readings, so a derived resource cannot carry a reading concept and a reading cannot carry a derived concept. |
 | The verdict is `interpretation`, not a resource of its own | A control status is an interpretation of the data it was made from. Putting it on the aggregation keeps figures and verdict in one retrieval, and `interpretation` is `0..1` because the assessment is a single statement. |
-| `interpretation` uses standard HL7 codes | Both profiles bind `interpretation` (required) to [SelfReportedInterpretation](ValueSet-self-reported-interpretation-vs.html): `HH` critical high, `H` high, `N` normal, `L` low and `IND` indeterminate from the HL7 [ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) code system. Any consumer that understands interpretation flags can read the verdict without registry-specific terminology, and the analyte it applies to is already given by `Observation.code`. |
+| `interpretation` uses standard HL7 codes | Both profiles bind `interpretation` (required) to [SelfReportedInterpretation](ValueSet-self-reported-interpretation-vs.html): `HH` critical high, `HU` significantly high, `H` high, `N` normal, `L` low, `LU` significantly low, `LL` critical low and `IND` indeterminate from the HL7 [ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) code system. Any consumer that understands interpretation flags can read the verdict without registry-specific terminology, and the analyte it applies to is already given by `Observation.code`. |
 | A figure is carried in either `value[x]` or components | The same choice `SelfReportedVitalSignsProfile` makes for the readings: several figures belonging to one aggregation go in components, as blood pressure is represented everywhere else in this guide, and a single derived number goes straight in `value[x]`. An invariant requires one of the two. |
 | Components are `0..*`, bound to a value set and left unsliced | Consistent with the other component-bearing observation profiles. The unit each concept carries is stated as an invariant, as in the specific-finding profile, rather than as a fixed slice. Those invariants are conditional, so they bite only on a component that is present. |
 | Time in range is one figure for the blood pressure as a whole | A reading counts as in range only when systolic and diastolic are both within target. A combined figure cannot be recomputed from separate systolic and diastolic percentages, so the combined form is the one recorded. |
@@ -72,11 +72,14 @@ Both profiles use the same standard HL7 interpretation flags, bound to
 
 | Code | Display |
 | --- | --- |
-| `HH` | Critical high |
+| `HH` | Critical high: reserved for critical values |
+| `HU` | Significantly high |
 | `H` | High |
 | `N` | Normal |
 | `L` | Low |
-| `IND` | Indeterminate: the data was assessed but supports no verdict, for example too few readings in the window |
+| `LU` | Significantly low |
+| `LL` | Critical low: reserved for critical values |
+| `IND` | Indeterminate: the data was assessed but is not interpreted, for example too few readings in the window or low confidence in the values |
 
 | Judgement about | Lives on |
 | --- | --- |
@@ -108,7 +111,7 @@ each band's upper bound equals the next band's lower bound exactly.
 Blood pressure is judged on the systolic and diastolic averages together, which
 an ObservationDefinition cannot state: each component carries its own bands and
 there is no element for combining them. The tables are exactly "the more severe
-of the two component bands", in the order `HH`, `H`, `N`, `L`, so each component
+of the two component bands", in the order `HU`, `H`, `N`, `L`, so each component
 is banded on its own and the combination rule is written in the definition.
 The aggregation profile enforces it:
 

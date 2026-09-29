@@ -334,7 +334,7 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-ldl-cholesterol-assessment"
-* interpretation = ObservationInterpretationCS#HH "Critical high"
+* interpretation = ObservationInterpretationCS#HU "Significantly high"
 * valueQuantity.value = 3.4
 * valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
