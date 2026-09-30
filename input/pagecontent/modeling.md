@@ -51,16 +51,14 @@ proportion of readings that fell within target.
 | Parent is `BaseSelfReportedObservation`, not `BaseStrokeObservation` | The inputs are self-reported and carry no encounter, so neither can anything derived from them. |
 | `code` is bound to its own value set | [ValueAggregation](ValueSet-self-reported-value-aggregation-vs.html) holds the calculated concepts and is kept apart from [SelfReportedSigns](ValueSet-self-reported-signs-vs.html), which holds only the readings, so a derived resource cannot carry a reading concept and a reading cannot carry a derived concept. |
 | The verdict is `interpretation`, not a resource of its own | A control status is an interpretation of the data it was made from. Putting it on the aggregation keeps figures and verdict in one retrieval, and `interpretation` is `0..1` because the assessment is a single statement. |
-| Each profile binds `interpretation` to its own value set | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) on the aggregation, [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) on the readings, so neither profile can carry the other's verdict. Both bindings are required, because the calculating service emits exactly these codes. |
-| Two invariants narrow the readings binding to the analyte | `SelfReportedReadingStatus` spans both analyte systems, so the binding alone would let an LDL verdict sit on a glucose reading. `srvs-glucose-status-must-use-glucose-vs` and `srvs-ldl-status-must-use-cholesterol-vs` restrict `interpretation` to the system matching `Observation.code`, in the same guard-clause form the specific-finding profile already uses for coded values. |
+| `interpretation` uses standard HL7 codes | Both profiles bind `interpretation` (required) to [SelfReportedInterpretation](ValueSet-self-reported-interpretation-vs.html): `HH` critical high, `HU` significantly high, `H` high, `N` normal, `L` low, `LU` significantly low, `LL` critical low and `IND` indeterminate from the HL7 [ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) code system. Any consumer that understands interpretation flags can read the verdict without registry-specific terminology, and the analyte it applies to is already given by `Observation.code`. |
 | A figure is carried in either `value[x]` or components | The same choice `SelfReportedVitalSignsProfile` makes for the readings: several figures belonging to one aggregation go in components, as blood pressure is represented everywhere else in this guide, and a single derived number goes straight in `value[x]`. An invariant requires one of the two. |
 | Components are `0..*`, bound to a value set and left unsliced | Consistent with the other component-bearing observation profiles. The unit each concept carries is stated as an invariant, as in the specific-finding profile, rather than as a fixed slice. Those invariants are conditional, so they bite only on a component that is present. |
 | Time in range is one figure for the blood pressure as a whole | A reading counts as in range only when systolic and diastolic are both within target. A combined figure cannot be recomputed from separate systolic and diastolic percentages, so the combined form is the one recorded. |
 | Time in range uses a local code | SNOMED CT International has no concept for blood-pressure time in range. |
 | An aggregation states how many readings it used | The required `numberOfMeasurements` extension records how many readings the figures were calculated from. |
 | The window is both a `Duration` extension and `effectivePeriod` | `effectivePeriod` carries the actual calendar days, which is what makes the figures reproducible; the extension carries the nominal window as a `Duration` - 30 days, 12 weeks - so consumers can select one window without date arithmetic. `Duration` is used in preference to a fixed code list so that any look-back length can be stated, and because the datatype already requires a UCUM time unit through its own `drt-1` invariant. The two must agree - the window counted inclusively over the period - but no invariant enforces it, because FHIRPath has no portable way to express the length of a `Period`. The extension is `1..1`: every aggregation states its window. |
-| The numeric target is not carried anywhere | `target-adjusted-for-age` records that an age-adjusted target was applied, but not what it was. `Observation.referenceRange` is deliberately left unused. |
-| Status codes are normalized to kebab-case | The calculating service emits them in an upper-case, underscore-separated form, but every other local CodeSystem in this guide uses lower-case kebab-case and `caseSensitive = false`. The codes are normalized on the way in, as the questionnaire service's observation codes already are, and the service must be migrated onto them for the two sides to agree at source. |
+| The numeric target is not carried anywhere | The interpretation flag records how the figures compare with the target, but not what the target was. `Observation.referenceRange` is deliberately left unused. |
 
 ### Control statuses
 
@@ -69,36 +67,62 @@ blood pressure, glucose and LDL cholesterol. The judgement is not a resource of
 its own: it is an interpretation of the data it was made from, so it is carried
 in `Observation.interpretation`.
 
-Which profile carries it follows from what the judgement is about, and the two
-value sets keep the split enforceable:
+Both profiles use the same standard HL7 interpretation flags, bound to
+[SelfReportedInterpretation](ValueSet-self-reported-interpretation-vs.html):
 
-| Judgement about | Lives on | Bound to |
-| --- | --- | --- |
-| Aggregated blood pressure | [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html), `0..1` | [SelfReportedAggregationStatus](ValueSet-self-reported-aggregation-status-vs.html) |
-| A glucose or LDL reading | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html), `0..*` | [SelfReportedReadingStatus](ValueSet-self-reported-reading-status-vs.html) |
+| Code | Display |
+| --- | --- |
+| `HH` | Critical high: reserved for critical values |
+| `HU` | Significantly high |
+| `H` | High |
+| `N` | Normal |
+| `L` | Low |
+| `LU` | Significantly low |
+| `LL` | Critical low: reserved for critical values |
+| `IND` | Indeterminate: the data was assessed but is not interpreted, for example too few readings in the window or low confidence in the values |
 
-Blood pressure appears only on the aggregation because its codes are statements
-about an aggregate: they speak of the average and of repeated elevation across a
-window, neither of which a single reading can support. Glucose and LDL
-cholesterol are judged from the latest reading, so they sit on the reading
-itself. `0..*` there because one reported observation can carry more than one
-measurement; `0..1` on the aggregation, which states one figure or one set of
-figures.
+| Judgement about | Lives on |
+| --- | --- |
+| Aggregated blood pressure | [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html), `0..1` |
+| A glucose or LDL reading | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html), `0..*` |
 
-The three enumerations are separate CodeSystems, one per subject, so each is
-free to change its own list and the two bindings above can be assembled from
-whole systems rather than from hand-picked codes. Every code carries its subject
-as a prefix - `bp-`, `glucose-`, `ldl-` - so an assessment that recurs across
-subjects is spelled out separately in each: `glucose-within-target` and
-`ldl-within-target`, never a bare `within-target` disambiguated only by its
-system URL. A code therefore stays meaningful on its own in logs, queries and
-generated enumerations, and the union in `SelfReportedReadingStatus` contains no
-two members that differ only by system.
+Blood pressure is judged from the aggregate, glucose and LDL cholesterol from
+the latest reading. `0..*` on the reading because one reported observation can
+carry more than one measurement; `0..1` on the aggregation, which states one
+figure or one set of figures. The flag carries no analyte of its own: what it
+applies to is given by `Observation.code`. When no assessment was made at all,
+`interpretation` is left out rather than coded.
 
-Only the blood-pressure enumeration has a no-data code. `bp-insufficient-data`
-means the averages and the time-in-range percentage were computed and are
-present, but too few readings backed them for a risk verdict to follow; there is
-data, just not enough of it, and that is itself a judgement about the aggregate.
+### Assessment criteria
+
+The criteria behind each interpretation are published as ObservationDefinitions,
+one band per `qualifiedValue`, with the interpretation code a band produces in
+the [Qualified value interpretation](StructureDefinition-qualified-value-interpretation-ext.html)
+extension. Every band includes its lower bound and excludes its upper bound, so
+each band's upper bound equals the next band's lower bound exactly.
+
+| Measurement | ObservationDefinition |
+| --- | --- |
+| Glucose reading | [Self-Reported Glucose Assessment](ObservationDefinition-self-reported-glucose-assessment.html) |
+| LDL cholesterol reading | [Self-Reported LDL Cholesterol Assessment](ObservationDefinition-self-reported-ldl-cholesterol-assessment.html) |
+| Aggregated blood pressure, under 85 | [Self-Reported Blood Pressure Assessment, Under 85](ObservationDefinition-self-reported-blood-pressure-assessment-under-85.html) |
+| Aggregated blood pressure, 85 and over | [Self-Reported Blood Pressure Assessment, 85 and Over](ObservationDefinition-self-reported-blood-pressure-assessment-85-plus.html) |
+
+Blood pressure is judged on the systolic and diastolic averages together, which
+an ObservationDefinition cannot state: each component carries its own bands and
+there is no element for combining them. The tables are exactly "the more severe
+of the two component bands", in the order `HU`, `H`, `N`, `L`, so each component
+is banded on its own and the combination rule is written in the definition.
+The aggregation profile enforces it:
+
+| Invariant | Checks |
+| --- | --- |
+| `sva-bp-interpretation-names-definition` | An aggregated blood pressure with an interpretation other than `IND` names the table it was assessed against in `instantiatesCanonical`. |
+| `sva-bp-under-85-interpretation` | Against the under-85 table, the interpretation matches the one recomputed from the two averages. |
+| `sva-bp-85-plus-interpretation` | The same, against the 85-and-over table. |
+
+The patient's age is not on the Observation, so which table applies to a patient
+cannot be checked, only that the interpretation agrees with the table named.
 
 ## Extensions
 
