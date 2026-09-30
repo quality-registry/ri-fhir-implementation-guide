@@ -220,6 +220,20 @@ Description: "The number of self-reported readings an aggregated value was calcu
 * valueInteger 1..1 MS
 * valueInteger ^short = "Number of readings the aggregation was calculated from"
 
+// Whether an aggregation was assessed against the age-adjusted rows of its
+// ObservationDefinition. The patient's age is not carried on the Observation,
+// so this flag is what tells a consumer which rows the interpretation came from.
+Extension: AdjustedInterpretationForAgeExt
+Id: adjusted-interpretation-for-age-ext
+Title: "Adjusted interpretation for age"
+Description: "Whether the interpretation of an aggregated value was assessed against the age-adjusted criteria of its ObservationDefinition: true when the patient was aged 85 years or over, false when under 85. The boundary follows the guide's band convention: under 85 excludes 85, 85 and over includes it."
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/adjusted-interpretation-for-age-ext"
+* ^context[0].type = #element
+* ^context[0].expression = "Observation"
+* value[x] only boolean
+* valueBoolean 1..1 MS
+* valueBoolean ^short = "True when the patient was 85 or over and the age-adjusted criteria applied"
+
 // R5 ObservationDefinition.qualifiedValue says which range a value falls into
 // but not what that range means: rangeCategory only distinguishes reference,
 // critical and absolute ranges. This extension carries the interpretation flag

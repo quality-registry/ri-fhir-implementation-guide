@@ -57,6 +57,7 @@ proportion of readings that fell within target.
 | Time in range is one figure for the blood pressure as a whole | A reading counts as in range only when systolic and diastolic are both within target. A combined figure cannot be recomputed from separate systolic and diastolic percentages, so the combined form is the one recorded. |
 | Time in range uses a local code | SNOMED CT International has no concept for blood-pressure time in range. |
 | An aggregation states how many readings it used | The required `numberOfMeasurements` extension records how many readings the figures were calculated from. |
+| An aggregation states whether its criteria were adjusted for age | The patient's age is not on the Observation, so the required `adjustedInterpretationForAge` boolean extension records which rows of the assessment applied: `true` for patients aged 85 and over, `false` under 85. |
 | The window is both a `Duration` extension and `effectivePeriod` | `effectivePeriod` carries the actual calendar days, which is what makes the figures reproducible; the extension carries the nominal window as a `Duration` - 30 days, 12 weeks - so consumers can select one window without date arithmetic. `Duration` is used in preference to a fixed code list so that any look-back length can be stated, and because the datatype already requires a UCUM time unit through its own `drt-1` invariant. The two must agree - the window counted inclusively over the period - but no invariant enforces it, because FHIRPath has no portable way to express the length of a `Period`. The extension is `1..1`: every aggregation states its window. |
 | The numeric target is not carried anywhere | The interpretation flag records how the figures compare with the target, but not what the target was. `Observation.referenceRange` is deliberately left unused. |
 
@@ -105,24 +106,30 @@ each band's upper bound equals the next band's lower bound exactly.
 | --- | --- |
 | Glucose reading | [Self-Reported Glucose Assessment](ObservationDefinition-self-reported-glucose-assessment.html) |
 | LDL cholesterol reading | [Self-Reported LDL Cholesterol Assessment](ObservationDefinition-self-reported-ldl-cholesterol-assessment.html) |
-| Aggregated blood pressure, under 85 | [Self-Reported Blood Pressure Assessment, Under 85](ObservationDefinition-self-reported-blood-pressure-assessment-under-85.html) |
-| Aggregated blood pressure, 85 and over | [Self-Reported Blood Pressure Assessment, 85 and Over](ObservationDefinition-self-reported-blood-pressure-assessment-85-plus.html) |
+| Aggregated blood pressure | [Self-Reported Blood Pressure Assessment](ObservationDefinition-self-reported-blood-pressure-assessment.html) |
 
 Blood pressure is judged on the systolic and diastolic averages together, which
 an ObservationDefinition cannot state: each component carries its own bands and
-there is no element for combining them. The tables are exactly "the more severe
-of the two component bands", in the order `HU`, `H`, `N`, `L`, so each component
-is banded on its own and the combination rule is written in the definition.
-The aggregation profile enforces it:
+there is no element for combining them. The tables are "the more severe of the
+two component bands", in the order `HU`, `H`, `N`. Diastolic pressure below
+80 mmHg is within target and has no `L` band, so below target the systolic
+average alone decides between `N` and `L`. Each component is banded on its own
+and the combination rule is written in the definition.
 
-| Invariant | Checks |
-| --- | --- |
-| `sva-bp-interpretation-names-definition` | An aggregated blood pressure with an interpretation other than `IND` names the table it was assessed against in `instantiatesCanonical`. |
-| `sva-bp-under-85-interpretation` | Against the under-85 table, the interpretation matches the one recomputed from the two averages. |
-| `sva-bp-85-plus-interpretation` | The same, against the 85-and-over table. |
+One definition covers both age groups: every band carries `qualifiedValue.age`,
+and the assessment table has an age column, with the treatment target adjusted
+for patients aged 85 and over. The aggregation records which rows applied in the
+required [Adjusted interpretation for age](StructureDefinition-adjusted-interpretation-for-age-ext.html)
+extension.
 
-The patient's age is not on the Observation, so which table applies to a patient
-cannot be checked, only that the interpretation agrees with the table named.
+A second table in the same definition states the critical rule: at least two
+individual readings with systolic pressure of 180 mmHg or more, or diastolic
+pressure of 110 mmHg or more, within 48 hours make the interpretation `HH`. It
+counts readings over time, which an ObservationDefinition cannot express, so it
+is published in the definition's table only.
+
+No invariant recomputes the interpretation on the Observation: the criteria are
+published in the definitions, and applying them is left to the registry.
 
 ## Extensions
 

@@ -452,9 +452,6 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 * obeys sva-value-or-component
 * obeys sva-pressure-units
 * obeys sva-time-in-range-percentage
-* obeys sva-bp-interpretation-names-definition
-* obeys sva-bp-under-85-interpretation
-* obeys sva-bp-85-plus-interpretation
 
 * code from SelfReportedValueAggregationVS (extensible)
 * code ^short = "Calculated measurement concept"
@@ -492,6 +489,12 @@ Description: "Figures the registry calculates from a patient's self-reported rea
 * extension contains NumberOfMeasurementsExt named numberOfMeasurements 1..1 MS
 * extension[numberOfMeasurements] ^short = "Number of readings the aggregation was calculated from"
 
+// The patient's age is not on the Observation, so the aggregation states whether
+// it was assessed against the age-adjusted criteria. Required on every
+// aggregation, so a consumer never has to infer it.
+* extension contains AdjustedInterpretationForAgeExt named adjustedInterpretationForAge 1..1 MS
+* extension[adjustedInterpretationForAge] ^short = "Whether the age-adjusted criteria (85 and over) applied"
+
 // Components are bound to a value set and left unsliced, as in
 // VitalSignObservationProfile and SelfReportedVitalSignsProfile. The unit each
 // concept carries is stated as an invariant, following
@@ -520,25 +523,3 @@ Invariant: sva-time-in-range-percentage
 Description: "The time-in-range component must be a UCUM percentage between 0 and 100."
 Severity: #error
 Expression: "component.where(code.coding.where(system = 'http://fhir.qualityregistry.org/CodeSystem/derived-observation-cs' and code = 'bp-time-in-range').exists()).all(value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = '%' and value.ofType(Quantity).value >= 0 and value.ofType(Quantity).value <= 100)"
-
-// ObservationDefinition cannot combine component bands, so the combination the
-// blood-pressure tables use - the more severe of the systolic and diastolic
-// bands - is enforced here instead. The aggregation names the table it was
-// assessed against in instantiatesCanonical; the age that selected the table is
-// not on the Observation, so which table applies to a patient cannot be checked,
-// only that the interpretation agrees with the table named. IND is exempt, as
-// it records that no verdict was reached.
-Invariant: sva-bp-interpretation-names-definition
-Description: "An aggregated blood pressure that carries an interpretation other than IND must name the ObservationDefinition it was assessed against: SelfReportedBloodPressureAssessmentUnder85 or SelfReportedBloodPressureAssessment85Plus."
-Severity: #error
-Expression: "code.coding.where(system = 'http://snomed.info/sct' and code = '723232008').empty() or interpretation.empty() or interpretation.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation' and code = 'IND').exists() or instantiates.ofType(canonical).where($this = 'http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-under-85' or $this = 'http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-85-plus').exists()"
-
-Invariant: sva-bp-under-85-interpretation
-Description: "When assessed against SelfReportedBloodPressureAssessmentUnder85, the interpretation must be HU if mean SBP >= 135 or mean DBP >= 85; otherwise H if mean SBP >= 130 or mean DBP >= 80; otherwise N if mean SBP >= 120; otherwise L."
-Severity: #error
-Expression: "instantiates.ofType(canonical).where($this = 'http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-under-85').empty() or interpretation.empty() or interpretation.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation' and code = 'IND').exists() or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value.empty() or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value.empty() or iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value >= 135 or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value >= 85, 'HU', iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value >= 130 or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value >= 80, 'H', iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value >= 120, 'N', 'L'))) in interpretation.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation').code"
-
-Invariant: sva-bp-85-plus-interpretation
-Description: "When assessed against SelfReportedBloodPressureAssessment85Plus, the interpretation must be HU if mean SBP >= 140 or mean DBP >= 85; otherwise H if mean DBP >= 80; otherwise N if mean SBP >= 120; otherwise L."
-Severity: #error
-Expression: "instantiates.ofType(canonical).where($this = 'http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-85-plus').empty() or interpretation.empty() or interpretation.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation' and code = 'IND').exists() or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value.empty() or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value.empty() or iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value >= 140 or component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value >= 85, 'HU', iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314453003').exists()).value.ofType(Quantity).value >= 80, 'H', iif(component.where(code.coding.where(system = 'http://snomed.info/sct' and code = '314440001').exists()).value.ofType(Quantity).value >= 120, 'N', 'L'))) in interpretation.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation').code"

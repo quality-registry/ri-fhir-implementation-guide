@@ -285,9 +285,10 @@ Description: "Thirty-day average of the patient's self-reported blood pressure, 
 * effectivePeriod.start = "2025-12-22"
 * effectivePeriod.end = "2026-01-20"
 * issued = "2026-01-21T02:00:00.000Z"
-* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment-under-85"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-blood-pressure-assessment"
 * interpretation = ObservationInterpretationCS#H "High"
 * extension[numberOfMeasurements].valueInteger = 2
+* extension[adjustedInterpretationForAge].valueBoolean = false
 * component[0].code = SCT#314440001 "Average systolic blood pressure (observable entity)"
 * component[0].valueQuantity.value = 128.5
 * component[0].valueQuantity.unit = "mmHg"
