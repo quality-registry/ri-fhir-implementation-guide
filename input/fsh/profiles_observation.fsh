@@ -34,9 +34,14 @@ Profile: FunctionalScoreObservationProfile
 Parent: BaseStrokeObservation
 Id: functional-score-observation-profile
 Title: "Functional Score Observation Profile"
-Description: "Observation profile for functional or severity scores such as mRS, NIHSS, ASPECTS, Hunt-Hess, ABCD2, CHA2DS2-VASc and THRIVE."
+Description: "Observation profile for functional or severity scores such as mRS, NIHSS, ASPECTS, Hunt-Hess, ICH score, ABCD2, CHA2DS2-VASc and THRIVE. A score is a whole number carried in valueQuantity with the UCUM unit {score}."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/functional-score-observation-profile"
 * insert RESQProfileMetadata
+// value[x] stays open to integer and CodeableConcept because the Glasgow Coma
+// Score and Scale profiles below derive from this one and narrow it to those
+// types. The score instruments themselves are held to valueQuantity in {score}
+// by functional-score-value-quantity, keyed on Observation.code.
+* obeys functional-score-value-quantity
 * category 0..* MS
 * category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
 * code 1..1 MS
@@ -45,7 +50,26 @@ Description: "Observation profile for functional or severity scores such as mRS,
 * value[x] 0..1 MS
 * value[x] only integer or CodeableConcept or Quantity
 * value[x] ^short = "Recorded score value"
+* valueQuantity MS
+* valueQuantity ^short = "Score value: a whole number in the UCUM unit {score}"
+* valueQuantity.value MS
+* valueQuantity.system MS
+* valueQuantity.code MS
+* interpretation 0..1 MS
+* interpretation from ScoreSeverityInterpretationVS (required)
+* interpretation ^short = "Registry assessment of the severity the score indicates"
+* instantiatesCanonical MS
+* instantiatesCanonical ^short = "ObservationDefinition the interpretation was assessed against"
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
+
+// The score instruments recorded by FunctionalScoreObservationProfile. Every one
+// is an integer scale, carried as a Quantity in {score} so that all scores read
+// the same way whatever the instrument. Age at onset and the Glasgow Coma codes
+// in FunctionalScoreVS are not scores of this kind and are not constrained here.
+Invariant: functional-score-value-quantity
+Description: "If Observation.code is mRS, NIHSS, ASPECTS, Hunt-Hess, ICH score, ABCD2, CHA2DS2-VASc or THRIVE, a value must be a valueQuantity holding a non-negative whole number in the UCUM unit {score}."
+Severity: #error
+Expression: "code.coding.where((system = 'http://snomed.info/sct' and code in ('1255866005' | '450743008' | '1290002002' | '774086001' | '713678009')) or (system = 'http://fhir.qualityregistry.org/CodeSystem/functional-score-cs' and code in ('hunt-hess' | 'ICH-score' | 'thrive'))).exists().not() or value.exists().not() or (value.ofType(Quantity).exists() and value.ofType(Quantity).system = 'http://unitsofmeasure.org' and value.ofType(Quantity).code = '{score}' and value.ofType(Quantity).value >= 0 and (value.ofType(Quantity).value mod 1) = 0)"
 
 Profile: GlasgowComaScoreObservationProfile
 Parent: FunctionalScoreObservationProfile
@@ -400,7 +424,7 @@ Profile: SelfReportedFunctionalScoresProfile
 Parent: BaseSelfReportedObservation
 Id: self-reported-functional-scores-profile
 Title: "Self-Reported Functional Scores Profile"
-Description: "Observation profile for the summary score of a patient-reported questionnaire: mRS, PHQ-9, short-form NEADL or short-form SIS. The score is always derived from the QuestionnaireResponse that produced it, which derivedFrom records."
+Description: "Observation profile for the summary score of a patient-reported questionnaire: mRS, PHQ-9, short-form NEADL or short-form SIS. The score is a whole number carried in valueQuantity with the UCUM unit {score}, and is always derived from the QuestionnaireResponse that produced it, which derivedFrom records."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/self-reported-functional-scores-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Publishes the computed score of a patient-reported instrument as a queryable Observation, while keeping the individual answers reachable through the response it was derived from."
@@ -408,13 +432,30 @@ Description: "Observation profile for the summary score of a patient-reported qu
 * code 1..1 MS
 * code from SelfReportedScoresVS (required)
 * code ^short = "Questionnaire instrument the score belongs to"
+* obeys score-value-whole-number
 * value[x] 1..1 MS
-* value[x] only integer or Quantity
+* value[x] only Quantity
 * value[x] ^short = "Computed summary score"
+* valueQuantity ^short = "Score value: a whole number in the UCUM unit {score}"
+* valueQuantity.value 1..1 MS
+* valueQuantity.system 1..1 MS
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code 1..1 MS
+* valueQuantity.code = #{score}
+* interpretation 0..1 MS
+* interpretation from ScoreSeverityInterpretationVS (required)
+* interpretation ^short = "Registry assessment of the severity the score indicates"
+* instantiatesCanonical MS
+* instantiatesCanonical ^short = "ObservationDefinition the interpretation was assessed against"
 * derivedFrom 1..* MS
 * derivedFrom only Reference(PatientReportedOutcomeQuestionnaireResponses)
 * derivedFrom ^short = "QuestionnaireResponse the score was computed from"
 * derivedFrom ^definition = "Required: a self-reported score is only interpretable alongside the answers it was calculated from, and the questionnaire service sends the response reference with every score it posts."
+
+Invariant: score-value-whole-number
+Description: "A score is a non-negative whole number."
+Severity: #error
+Expression: "value.ofType(Quantity).value.exists() implies (value.ofType(Quantity).value >= 0 and (value.ofType(Quantity).value mod 1) = 0)"
 
 Invariant: srvs-value-or-component
 Description: "A self-reported measurement must carry either a value or at least one component. Blood pressure uses components and no value; every other reported measurement uses a value and no components."

@@ -107,6 +107,8 @@ each band's upper bound equals the next band's lower bound exactly.
 | Glucose reading | [Self-Reported Glucose Assessment](ObservationDefinition-self-reported-glucose-assessment.html) |
 | LDL cholesterol reading | [Self-Reported LDL Cholesterol Assessment](ObservationDefinition-self-reported-ldl-cholesterol-assessment.html) |
 | Aggregated blood pressure | [Self-Reported Blood Pressure Assessment](ObservationDefinition-self-reported-blood-pressure-assessment.html) |
+| mRS score, hospital or patient-reported | [Modified Rankin Scale Severity Assessment](ObservationDefinition-mrs-severity-assessment.html) |
+| PHQ-9 score | [PHQ-9 Severity Assessment](ObservationDefinition-phq9-severity-assessment.html) |
 
 Blood pressure is judged on the systolic and diastolic averages together, which
 an ObservationDefinition cannot state: each component carries its own bands and
@@ -130,6 +132,23 @@ is published in the definition's table only.
 
 No invariant recomputes the interpretation on the Observation: the criteria are
 published in the definitions, and applying them is left to the registry.
+
+## Scores
+
+Every score the registry records, whether captured in hospital
+([Functional Score Observation](StructureDefinition-functional-score-observation-profile.html))
+or computed from a patient-reported questionnaire
+([Self-Reported Functional Scores](StructureDefinition-self-reported-functional-scores-profile.html)),
+is carried the same way, so a consumer reads every score with one rule.
+
+| Decision | Why |
+| --- | --- |
+| A score is a `valueQuantity` in the UCUM unit `{score}` | One representation for every instrument: mRS, NIHSS, ASPECTS, Hunt-Hess, ICH score, ABCD2, CHA2DS2-VASc and THRIVE in hospital, and mRS, PHQ-9, short-form NEADL and short-form SIS reported by the patient. mRS used to be coded from a local code system as well; it is now a number like every other score. `{score}` is a UCUM annotation, so the unit is dimensionless but still states what the number is. |
+| A score is a non-negative whole number | Every instrument is an integer scale. The self-reported profile fixes the unit and an invariant requires a whole number; on the hospital profile, whose `value[x]` stays open because the Glasgow Coma profiles derive from it, the `functional-score-value-quantity` invariant requires the same for each score instrument by its `Observation.code`. |
+| Severity is `interpretation`, using SNOMED CT qualifiers | A score states how severe a condition is, which the HL7 low / normal / high flags cannot express. Both score profiles bind `interpretation` (required) to [ScoreSeverityInterpretation](ValueSet-score-severity-interpretation-vs.html): not significant, mild, mild to moderate, moderate, moderate to severe, severe and dead. |
+| Severity is assessed for mRS and PHQ-9 | Their criteria are published as ObservationDefinitions, listed above, and the scored Observation points to the one it was assessed against in `instantiatesCanonical`. Other scores carry no interpretation. |
+| A definition applies wherever its score is recorded | The definitions are keyed on `Observation.code` alone, so the mRS definition covers the pre-stroke, discharge and three-month hospital scores as well as the patient-reported one. |
+| Score bands are bounded by the ends of the scale | `qualifiedValue` can express only a range, so a band holding the single score n is written, with the half-open convention above, as the range from n to n + 1. Unlike the reading definitions, the outermost bands are bounded too (mRS 0 to 6, PHQ-9 0 to 27), so every band names the exact scores it holds and a score outside the scale is not interpreted. |
 
 ## Extensions
 

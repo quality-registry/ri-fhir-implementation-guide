@@ -79,3 +79,28 @@ Description: "Assessments the registry can record against self-reported readings
 * include ObservationInterpretationCS#LU "Significantly low"
 * include ObservationInterpretationCS#LL "Critical low"
 * include ObservationInterpretationCS#IND "Indeterminate"
+
+// Observation.interpretation on both functional score profiles. The HL7
+// ObservationInterpretation codes above express where a value lies against a
+// target (low / normal / high), which does not fit an ordinal clinical scale such
+// as mRS or PHQ-9: what the registry records for a score is how severe the
+// condition it measures is. SNOMED CT qualifier values express exactly that, so
+// the severity scale is drawn from SNOMED CT rather than from local codes.
+//
+// Not every scale uses every level: PHQ-9 has no mild-to-moderate band, and only
+// mRS has dead. The bands of each scale are stated by its ObservationDefinition
+// in observationdefinitions.fsh.
+ValueSet: ScoreSeverityInterpretationVS
+Id: score-severity-interpretation-vs
+Title: "ScoreSeverityInterpretation ValueSet"
+Description: "Severity levels the registry can record against a functional or patient-reported score, drawn from SNOMED CT: not significant, mild, mild to moderate, moderate, moderate to severe, severe and dead."
+* ^url = "http://fhir.qualityregistry.org/ValueSet/score-severity-interpretation-vs"
+* ^status = #active
+* ^experimental = false
+* include SCT#371928007 "Not significant (qualifier value)"
+* include SCT#255604002 "Mild (qualifier value)"
+* include SCT#371923003 "Mild to moderate (qualifier value)"
+* include SCT#1255665007 "Moderate (qualifier value)"
+* include SCT#371924009 "Moderate to severe (qualifier value)"
+* include SCT#24484000 "Severe (severity modifier) (qualifier value)"
+* include SCT#419099009 "Dead (finding)"

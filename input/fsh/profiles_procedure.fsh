@@ -46,7 +46,7 @@ Description: "Procedure profile for carotid imaging used in post-stroke assessme
 * code ^short = "Carotid imaging type"
 * report 0..* MS
 * report ^short = "Carotid imaging report"
-* extension contains PostAcuteCareRequiredExt named postAcuteCareRequired 1..1 MS
+* extension contains RequiredPostAcuteCareExt named requiredPostAcuteCare 1..1 MS
 
 Profile: StrokeCarotidEndarterectomyProcedureProfile
 Parent: Procedure
@@ -67,7 +67,7 @@ Description: "Procedure profile for carotid endarterectomy and its timing window
 * occurrence[x] only Range
 * occurrence[x] ^short = "Timing range for procedure"
 * report 0..* MS
-* extension contains PostAcuteCareRequiredExt named postAcuteCareRequired 1..1 MS
+* extension contains RequiredPostAcuteCareExt named requiredPostAcuteCare 1..1 MS
 
 Profile: StrokeMechanicalProcedureProfile
 Parent: Procedure
@@ -98,7 +98,7 @@ Description: "Procedure profile for acute reperfusion interventions, including t
 * complication from ThrombectomyComplicationsVS (extensible)
 * complication ^short = "Procedure complication"
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
-  and PostAcuteCareRequiredExt named postAcuteCareRequired 0..1 MS
+  and RequiredPostAcuteCareExt named requiredPostAcuteCare 0..1 MS
 
 Profile: StrokeSwallowProcedureProfile
 Parent: Procedure
@@ -122,12 +122,12 @@ Description: "Procedure profile for swallowing screening, including screening ty
 * performer ^short = "Screening performer"
 * performer.actor only Reference(RESQPractitionerRoleProfile)
 * extension contains ProcedureTimingContextExt named procedureTimingContext 0..1 MS
-  and PostAcuteCareRequiredExt named postAcuteCareRequired 0..1 MS
+  and RequiredPostAcuteCareExt named requiredPostAcuteCare 0..1 MS
 
 Invariant: stroke-swallow-completed-requires-post-acute-care
 Description: "If the swallowing screening procedure is completed, post-acute care required extension SHALL be present."
 Severity: #error
-Expression: "status != 'completed' or extension.where(url = 'http://fhir.qualityregistry.org/StructureDefinition/post-acute-care-required-ext').exists()"
+Expression: "status != 'completed' or extension.where(url = 'http://fhir.qualityregistry.org/StructureDefinition/required-post-acute-care-ext').exists()"
 
 Invariant: stroke-swallow-not-done-requires-status-reason
 Description: "If the swallowing screening procedure was not done, statusReason SHALL be present."

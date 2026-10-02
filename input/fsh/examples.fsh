@@ -48,6 +48,23 @@ Usage: #example
 * valueQuantity.code = #min
 * valueQuantity.unit = "minute"
 
+Instance: ExampleDischargeMrs
+InstanceOf: FunctionalScoreObservationProfile
+Usage: #example
+Title: "ExampleDischargeMrs"
+Description: "Modified Rankin Scale score recorded at discharge, carried as a whole number in the UCUM unit {score}, with the registry's severity assessment of it."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* encounter = Reference(ExampleStrokeEncounter)
+* code = SCT#1255866005 "Modified Rankin Scale score (observable entity)"
+* extension[observationTimingContext].valueCodeableConcept = AssessmentContextCS#discharge "Discharge"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/mrs-severity-assessment"
+* interpretation = SCT#1255665007 "Moderate (qualifier value)"
+* valueQuantity.value = 3
+* valueQuantity.unit = "{score}"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #{score}
+
 // ----------------------------------------------------------------------------
 // Example questionnaire responses
 //
@@ -258,8 +275,30 @@ Description: "Modified Rankin Scale score computed from the patient's own answer
 * subject = Reference(ExampleRESQPatient)
 * code = SCT#1255866005 "Modified Rankin Scale score (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
-* valueInteger = 1
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/mrs-severity-assessment"
+* interpretation = SCT#255604002 "Mild (qualifier value)"
+* valueQuantity.value = 1
+* valueQuantity.unit = "{score}"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #{score}
 * derivedFrom = Reference(ExampleMrsResponse)
+
+Instance: ExampleSelfReportedPhq9Score
+InstanceOf: SelfReportedFunctionalScoresProfile
+Usage: #example
+Title: "ExampleSelfReportedPhq9Score"
+Description: "PHQ-9 score computed from the patient's own answers, with the registry's severity assessment of it, linked back to the QuestionnaireResponse it was derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#720433000 "Patient Health Questionnaire Nine Item score (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/phq9-severity-assessment"
+* interpretation = SCT#1255665007 "Moderate (qualifier value)"
+* valueQuantity.value = 11
+* valueQuantity.unit = "{score}"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #{score}
+* derivedFrom = Reference(ExamplePhq9Response)
 
 // ----------------------------------------------------------------------------
 // Example derived observation
