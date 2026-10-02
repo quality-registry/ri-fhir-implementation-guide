@@ -59,6 +59,11 @@ Description: "statusReason should only be present when status is not-done."
 Severity: #warning
 Expression: "statusReason.exists().not() or status = 'not-done'"
 
+Invariant: medadm-completed-requires-assessment-timing
+Description: "A completed administration SHALL state its timing."
+Severity: #error
+Expression: "status != 'completed' or extension.where(url = 'http://fhir.qualityregistry.org/StructureDefinition/assessment-timing-ext').exists()"
+
 Profile: ParacetamolOnFeverMedicationAdministrationProfile
 Parent: StrokeMedicationAdministrationProfile
 Id: paracetamol-on-fever-medication-administration-profile
@@ -72,12 +77,13 @@ Description: "MedicationAdministration profile for paracetamol administered beca
 * medication.reference 0..0
 * medication.concept = SCT#387517004 "Paracetamol (substance)"
 
+* obeys medadm-completed-requires-assessment-timing
+
 * reason 1..* MS
 * reason only CodeableReference(FeverObservationProfile)
-* reason.concept 0..0
-* reason.reference 1..1 MS
+* reason ^short = "The triggering observation, or the finding itself when no observation was recorded"
 
-* extension[assessmentTiming] 1..1 MS
+* extension[assessmentTiming] 0..1 MS
 * extension[assessmentTiming].valueCodeableConcept from ParacetamolOnFeverTimingVS (required)
 
 Profile: InsulinOnHyperglycemiaMedicationAdministrationProfile
@@ -93,12 +99,13 @@ Description: "MedicationAdministration profile for insulin administered in respo
 * medication.reference 0..0
 * medication.concept = SCT#67866001 "Insulin (substance)"
 
+* obeys medadm-completed-requires-assessment-timing
+
 * reason 1..* MS
 * reason only CodeableReference(HighestHyperglycemiaValueObservationProfile or HyperglycemiaObservationProfile)
-* reason.concept 0..0
-* reason.reference 1..1 MS
+* reason ^short = "The triggering observation, or the finding itself when no observation was recorded"
 
-* extension[assessmentTiming] 1..1 MS
+* extension[assessmentTiming] 0..1 MS
 * extension[assessmentTiming].valueCodeableConcept from InsulinOnHyperglycemiaTimingVS (required)
 
 Profile: NimodipineMedicationAdministrationProfile

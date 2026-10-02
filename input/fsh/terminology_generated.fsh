@@ -341,7 +341,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #Not-Licensed "Antidote not licenced for specific indication"
 * #Not-Criteria "Not met criteria for specific agent"
 * #Forgot "Patient did not use anticoagulant before ICH (forgot to take a pill)"
-* #not-reported "Reason for not giving anticoagulant reversal not reported"
+* #not-reported "Reason for not giving medication not reported"
 * #not-required "Not Required"
 
 
