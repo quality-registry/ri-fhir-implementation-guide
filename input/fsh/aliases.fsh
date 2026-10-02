@@ -30,7 +30,6 @@ Alias: IchTreatmentCS = http://fhir.qualityregistry.org/CodeSystem/ich-treatment
 Alias: InitialCareIntensityCS = http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs
 Alias: InsulinHyperglycemiaTimeCS = http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs
 Alias: MedicationCS = http://fhir.qualityregistry.org/CodeSystem/medication-cs
-Alias: MrsScoreCS = http://fhir.qualityregistry.org/CodeSystem/mrs-score-cs
 Alias: MticiCodeCS = http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs
 Alias: MticiScoreCS = http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs
 Alias: NotMedicationReasonCS = http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs

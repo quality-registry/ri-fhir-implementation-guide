@@ -1,11 +1,12 @@
 // -----------------------------------------------------------------------------
 // ObservationDefinitions
 //
-// The criteria the registry applies when it assesses a self-reported reading.
-// Each qualifiedValue is one band of the scale, and
+// The criteria the registry applies when it assesses a self-reported reading
+// or a score. Each qualifiedValue is one band of the scale, and
 // QualifiedValueInterpretationExt names the Observation.interpretation code a
-// reading in that band receives. The bands use the same codes as
-// SelfReportedInterpretationVS.
+// value in that band receives. The reading bands use the same codes as
+// SelfReportedInterpretationVS; the score bands, at the end of this file, use
+// ScoreSeverityInterpretationVS.
 //
 // Bands are half-open: the lower bound is inclusive and the upper bound is
 // exclusive, so each band's range.high equals the next band's range.low exactly
@@ -320,3 +321,179 @@ The critical rule counts readings over time, which an ObservationDefinition cann
 * component[1].qualifiedValue[5].extension[0].valueCodeableConcept.text = "Above home hypertension threshold"
 * component[1].qualifiedValue[5].age.low = 85 'a' "years"
 * component[1].qualifiedValue[5].range.low = 85 'mm[Hg]' "mmHg"
+
+// -----------------------------------------------------------------------------
+// Score severity assessments
+//
+// Ordinal clinical scales are interpreted with the SNOMED CT severity qualifiers
+// collected in ScoreSeverityInterpretationVS rather than with the HL7
+// ObservationInterpretation flags above: a score says how severe a condition is,
+// not whether a value is above or below a target.
+//
+// A score is a whole number, carried as a Quantity in the UCUM unit {score}.
+// qualifiedValue can only express a Range, so a band holding a single score n
+// is written as the half-open range from n to n + 1, the same convention as the
+// other definitions. Unlike them, the outermost bands are bounded by the ends of
+// the scale, so every band names the exact scores it holds and a score outside
+// the scale is not interpreted.
+//
+// Each definition is keyed on Observation.code only, so it applies to the score
+// wherever it is recorded: the mRS definition covers the pre-stroke, discharge
+// and three-month hospital scores as well as the patient-reported one.
+// -----------------------------------------------------------------------------
+
+Instance: MrsSeverityAssessment
+InstanceOf: ObservationDefinition
+Usage: #definition
+Title: "Modified Rankin Scale Severity Assessment"
+Description: "The criteria used to assess the severity a modified Rankin Scale (mRS) score indicates."
+* id = "mrs-severity-assessment"
+* url = "http://fhir.qualityregistry.org/ObservationDefinition/mrs-severity-assessment"
+* name = "MrsSeverityAssessment"
+* title = "Modified Rankin Scale Severity Assessment"
+* status = #active
+* experimental = false
+* description = """
+The criteria the registry applies to a modified Rankin Scale (mRS) score to set its Observation.interpretation. Each mRS grade has a band of its own, from no symptoms to death. The score is a whole number from 0 to 6, carried in valueQuantity with the UCUM unit {score}. As in every definition of this guide, each band includes its lower bound and excludes its upper bound, so for a whole-number score the band from n to n + 1 holds the single score n; the table lists the scores each band holds. A score outside 0 to 6 falls in no band and receives no interpretation.
+
+| mRS score | Interpretation | Meaning |
+| --- | --- | --- |
+| 0 | Not significant | No symptoms at all |
+| 1 | Mild | No significant disability despite symptoms |
+| 2 | Mild to moderate | Slight disability |
+| 3 | Moderate | Moderate disability |
+| 4 | Moderate to severe | Moderately severe disability |
+| 5 | Severe | Severe disability |
+| 6 | Dead | Dead |
+"""
+// Authored rather than generated, for the same reason as the glucose definition.
+* text.status = #generated
+* text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
+<p>Criteria for assessing the severity a modified Rankin Scale (mRS) score (SNOMED CT 1255866005) indicates. The score is a whole number from 0 to 6, in the UCUM unit {score}. Each band includes its lower bound and excludes its upper bound; the table lists the scores each band holds.</p>
+<table class="grid">
+<tr><th>mRS score</th><th>Interpretation</th><th>Meaning</th></tr>
+<tr><td>0</td><td>Not significant (reference range)</td><td>No symptoms at all</td></tr>
+<tr><td>1</td><td>Mild</td><td>No significant disability despite symptoms</td></tr>
+<tr><td>2</td><td>Mild to moderate</td><td>Slight disability</td></tr>
+<tr><td>3</td><td>Moderate</td><td>Moderate disability</td></tr>
+<tr><td>4</td><td>Moderate to severe</td><td>Moderately severe disability</td></tr>
+<tr><td>5</td><td>Severe</td><td>Severe disability</td></tr>
+<tr><td>6</td><td>Dead</td><td>Dead</td></tr>
+</table>
+</div>"""
+* code = SCT#1255866005 "Modified Rankin Scale score (observable entity)"
+* permittedDataType = #Quantity
+* permittedUnit = UCUM#"{score}" "{score}"
+
+* qualifiedValue[0].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[0].extension[0].valueCodeableConcept = SCT#371928007 "Not significant (qualifier value)"
+* qualifiedValue[0].extension[0].valueCodeableConcept.text = "No symptoms at all"
+* qualifiedValue[0].rangeCategory = #reference
+* qualifiedValue[0].range.low = 0 '{score}' "{score}"
+* qualifiedValue[0].range.high = 1 '{score}' "{score}"
+
+* qualifiedValue[1].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[1].extension[0].valueCodeableConcept = SCT#255604002 "Mild (qualifier value)"
+* qualifiedValue[1].extension[0].valueCodeableConcept.text = "No significant disability despite symptoms"
+* qualifiedValue[1].range.low = 1 '{score}' "{score}"
+* qualifiedValue[1].range.high = 2 '{score}' "{score}"
+
+* qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[2].extension[0].valueCodeableConcept = SCT#371923003 "Mild to moderate (qualifier value)"
+* qualifiedValue[2].extension[0].valueCodeableConcept.text = "Slight disability"
+* qualifiedValue[2].range.low = 2 '{score}' "{score}"
+* qualifiedValue[2].range.high = 3 '{score}' "{score}"
+
+* qualifiedValue[3].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[3].extension[0].valueCodeableConcept = SCT#1255665007 "Moderate (qualifier value)"
+* qualifiedValue[3].extension[0].valueCodeableConcept.text = "Moderate disability"
+* qualifiedValue[3].range.low = 3 '{score}' "{score}"
+* qualifiedValue[3].range.high = 4 '{score}' "{score}"
+
+* qualifiedValue[4].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[4].extension[0].valueCodeableConcept = SCT#371924009 "Moderate to severe (qualifier value)"
+* qualifiedValue[4].extension[0].valueCodeableConcept.text = "Moderately severe disability"
+* qualifiedValue[4].range.low = 4 '{score}' "{score}"
+* qualifiedValue[4].range.high = 5 '{score}' "{score}"
+
+* qualifiedValue[5].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[5].extension[0].valueCodeableConcept = SCT#24484000 "Severe (severity modifier) (qualifier value)"
+* qualifiedValue[5].extension[0].valueCodeableConcept.text = "Severe disability"
+* qualifiedValue[5].range.low = 5 '{score}' "{score}"
+* qualifiedValue[5].range.high = 6 '{score}' "{score}"
+
+* qualifiedValue[6].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[6].extension[0].valueCodeableConcept = SCT#419099009 "Dead (finding)"
+* qualifiedValue[6].extension[0].valueCodeableConcept.text = "Dead"
+* qualifiedValue[6].range.low = 6 '{score}' "{score}"
+* qualifiedValue[6].range.high = 7 '{score}' "{score}"
+
+Instance: Phq9SeverityAssessment
+InstanceOf: ObservationDefinition
+Usage: #definition
+Title: "PHQ-9 Severity Assessment"
+Description: "The criteria used to assess the severity a Patient Health Questionnaire-9 (PHQ-9) score indicates."
+* id = "phq9-severity-assessment"
+* url = "http://fhir.qualityregistry.org/ObservationDefinition/phq9-severity-assessment"
+* name = "Phq9SeverityAssessment"
+* title = "PHQ-9 Severity Assessment"
+* status = #active
+* experimental = false
+* description = """
+The criteria the registry applies to a Patient Health Questionnaire-9 (PHQ-9) score to set its Observation.interpretation. The bands follow the PHQ-9 depression severity thresholds of 5, 10, 15 and 20: minimal depression maps to not significant and moderately severe depression to moderate to severe. The score is a whole number from 0 to 27, carried in valueQuantity with the UCUM unit {score}. As in every definition of this guide, each band includes its lower bound and excludes its upper bound, so for a whole-number score the band from n to n + 1 holds the single score n; the table lists the scores each band holds. A score outside 0 to 27 falls in no band and receives no interpretation.
+
+| PHQ-9 score | Interpretation | Meaning |
+| --- | --- | --- |
+| 0–4 | Not significant | Minimal depression |
+| 5–9 | Mild | Mild depression |
+| 10–14 | Moderate | Moderate depression |
+| 15–19 | Moderate to severe | Moderately severe depression |
+| 20–27 | Severe | Severe depression |
+"""
+// Authored rather than generated, for the same reason as the glucose definition.
+* text.status = #generated
+* text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
+<p>Criteria for assessing the severity a Patient Health Questionnaire-9 (PHQ-9) score (SNOMED CT 720433000) indicates. The score is a whole number from 0 to 27, in the UCUM unit {score}. Each band includes its lower bound and excludes its upper bound; the table lists the scores each band holds.</p>
+<table class="grid">
+<tr><th>PHQ-9 score</th><th>Interpretation</th><th>Meaning</th></tr>
+<tr><td>0&#8211;4</td><td>Not significant (reference range)</td><td>Minimal depression</td></tr>
+<tr><td>5&#8211;9</td><td>Mild</td><td>Mild depression</td></tr>
+<tr><td>10&#8211;14</td><td>Moderate</td><td>Moderate depression</td></tr>
+<tr><td>15&#8211;19</td><td>Moderate to severe</td><td>Moderately severe depression</td></tr>
+<tr><td>20&#8211;27</td><td>Severe</td><td>Severe depression</td></tr>
+</table>
+</div>"""
+* code = SCT#720433000 "Patient Health Questionnaire Nine Item score (observable entity)"
+* permittedDataType = #Quantity
+* permittedUnit = UCUM#"{score}" "{score}"
+
+* qualifiedValue[0].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[0].extension[0].valueCodeableConcept = SCT#371928007 "Not significant (qualifier value)"
+* qualifiedValue[0].extension[0].valueCodeableConcept.text = "Minimal depression"
+* qualifiedValue[0].rangeCategory = #reference
+* qualifiedValue[0].range.low = 0 '{score}' "{score}"
+* qualifiedValue[0].range.high = 5 '{score}' "{score}"
+
+* qualifiedValue[1].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[1].extension[0].valueCodeableConcept = SCT#255604002 "Mild (qualifier value)"
+* qualifiedValue[1].extension[0].valueCodeableConcept.text = "Mild depression"
+* qualifiedValue[1].range.low = 5 '{score}' "{score}"
+* qualifiedValue[1].range.high = 10 '{score}' "{score}"
+
+* qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[2].extension[0].valueCodeableConcept = SCT#1255665007 "Moderate (qualifier value)"
+* qualifiedValue[2].extension[0].valueCodeableConcept.text = "Moderate depression"
+* qualifiedValue[2].range.low = 10 '{score}' "{score}"
+* qualifiedValue[2].range.high = 15 '{score}' "{score}"
+
+* qualifiedValue[3].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[3].extension[0].valueCodeableConcept = SCT#371924009 "Moderate to severe (qualifier value)"
+* qualifiedValue[3].extension[0].valueCodeableConcept.text = "Moderately severe depression"
+* qualifiedValue[3].range.low = 15 '{score}' "{score}"
+* qualifiedValue[3].range.high = 20 '{score}' "{score}"
+
+* qualifiedValue[4].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[4].extension[0].valueCodeableConcept = SCT#24484000 "Severe (severity modifier) (qualifier value)"
+* qualifiedValue[4].extension[0].valueCodeableConcept.text = "Severe depression"
+* qualifiedValue[4].range.low = 20 '{score}' "{score}"
+* qualifiedValue[4].range.high = 28 '{score}' "{score}"

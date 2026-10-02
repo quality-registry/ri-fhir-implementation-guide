@@ -424,22 +424,6 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #D2AnticoagulantReversal "Door to Anticoagulant Reversal"
 * #"IV-Antihypertensive-to-SysBP<140" "IV Antihypertensive to Systolic Blood Pressure < 140 mmHg"
 
-CodeSystem: MrsScoreCS
-Id: mrs-score-cs
-Title: "MrsScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mrs-score-cs."
-* ^url = "http://fhir.qualityregistry.org/CodeSystem/mrs-score-cs"
-* ^status = #active
-* ^experimental = false
-* ^caseSensitive = false
-* #0 "No symptoms at all"
-* #1 "No significant disability despite symptoms; able to carry out all usual duties and activities"
-* #2 "Slight disability; unable to carry out all previous activities, but able to look after own affairs without assistance"
-* #3 "Moderate disability; requiring some help, but able to walk without assistance"
-* #4 "Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without assistance"
-* #5 "Severe disability; bedridden, incontinent and requiring constant nursing care and attention"
-* #6 "Dead"
-
 CodeSystem: FunctionalScoreCS
 Id: functional-score-cs
 Title: "FunctionalScoreCs CodeSystem"
@@ -1411,21 +1395,6 @@ Description: "Allowed coded values for VitalSigns"
 * include VitalSignsCS#highest-sys-bp "Highest Systolic Blood Pressure"
 
 
-ValueSet: MRsScoreVS
-Id: mrs-score-vs
-Title: "MRsScore ValueSet"
-Description: "Allowed coded values for MRsScore"
-* ^url = "http://fhir.qualityregistry.org/ValueSet/mrs-score-vs"
-* ^status = #active
-* ^experimental = false
-* include MrsScoreCS#0 "No symptoms at all"
-* include MrsScoreCS#1 "No significant disability despite symptoms; able to carry out all usual duties and activities"
-* include MrsScoreCS#2 "Slight disability; unable to carry out all previous activities, but able to look after own affairs without assistance"
-* include MrsScoreCS#3 "Moderate disability; requiring some help, but able to walk without assistance"
-* include MrsScoreCS#4 "Moderately severe disability; unable to walk without assistance and unable to attend to own bodily needs without assistance"
-* include MrsScoreCS#5 "Severe disability; bedridden, incontinent and requiring constant nursing care and attention"
-* include MrsScoreCS#6 "Dead"
-
 ValueSet: FunctionalScoreVS
 Id: functional-score-vs
 Title: "FunctionalScore ValueSet"
@@ -1657,6 +1626,7 @@ Description: "Allowed coded values for UnitofMeasurement"
 * include UCUM#"%" "percent"
 * include UCUM#cm "centimeter"
 * include UCUM#kg "kilogram"
+* include UCUM#"{score}" "{score}"
 
 ValueSet: AdherenceCodesVS
 Id: adherence-codes-vs
