@@ -7,7 +7,7 @@ Parent: Appointment
 Id: follow-up-appointment-profile
 Title: "Three-Month Follow-up Appointment Profile"
 Description: "Appointment profile for planned or recorded three-month neurology follow-up after the index stroke episode."
-* ^url = "http://qualityregistry.org/StructureDefinition/follow-up-appointment-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/follow-up-appointment-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Documents whether a structured three-month follow-up appointment is part of the stroke pathway and can be referenced from the discharge patient summary plan of care."
 * status 1..1 MS

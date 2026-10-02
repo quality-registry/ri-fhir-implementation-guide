@@ -7,7 +7,7 @@ Parent: Communication
 Id: three-month-communication-profile
 Title: "Three-Month Contact Communication Profile"
 Description: "Communication profile for recording contact with the patient or caregiver at approximately three months after stroke."
-* ^url = "http://qualityregistry.org/StructureDefinition/three-month-communication-profile"
+* ^url = "http://fhir.qualityregistry.org/StructureDefinition/three-month-communication-profile"
 * insert RESQProfileMetadata
 * ^purpose = "Captures follow-up contact status and contact modality for registry outcomes collected outside the acute encounter and referenced from the discharge patient summary plan of care."
 * status 1..1 MS
