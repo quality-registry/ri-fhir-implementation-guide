@@ -358,13 +358,13 @@ The criteria the registry applies to a modified Rankin Scale (mRS) score to set 
 
 | mRS score | Interpretation | Meaning |
 | --- | --- | --- |
-| 0 | Not significant | No symptoms at all |
-| 1 | Mild | No significant disability despite symptoms |
-| 2 | Mild to moderate | Slight disability |
-| 3 | Moderate | Moderate disability |
-| 4 | Moderate to severe | Moderately severe disability |
-| 5 | Severe | Severe disability |
-| 6 | Dead | Dead |
+| 0 | 371928007 Not significant | No symptoms at all |
+| 1 | 255604002 Mild | No significant disability despite symptoms |
+| 2 | 371923003 Mild to moderate | Slight disability |
+| 3 | 1255665007 Moderate | Moderate disability |
+| 4 | 371924009 Moderate to severe | Moderately severe disability |
+| 5 | 24484000 Severe | Severe disability |
+| 6 | 419099009 Dead | Dead |
 """
 // Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
@@ -372,13 +372,13 @@ The criteria the registry applies to a modified Rankin Scale (mRS) score to set 
 <p>Criteria for assessing the severity a modified Rankin Scale (mRS) score (SNOMED CT 1255866005) indicates. The score is a whole number from 0 to 6, in the UCUM unit {score}. Each band includes its lower bound and excludes its upper bound; the table lists the scores each band holds.</p>
 <table class="grid">
 <tr><th>mRS score</th><th>Interpretation</th><th>Meaning</th></tr>
-<tr><td>0</td><td>Not significant (reference range)</td><td>No symptoms at all</td></tr>
-<tr><td>1</td><td>Mild</td><td>No significant disability despite symptoms</td></tr>
-<tr><td>2</td><td>Mild to moderate</td><td>Slight disability</td></tr>
-<tr><td>3</td><td>Moderate</td><td>Moderate disability</td></tr>
-<tr><td>4</td><td>Moderate to severe</td><td>Moderately severe disability</td></tr>
-<tr><td>5</td><td>Severe</td><td>Severe disability</td></tr>
-<tr><td>6</td><td>Dead</td><td>Dead</td></tr>
+<tr><td>0</td><td>371928007 Not significant (reference range)</td><td>No symptoms at all</td></tr>
+<tr><td>1</td><td>255604002 Mild</td><td>No significant disability despite symptoms</td></tr>
+<tr><td>2</td><td>371923003 Mild to moderate</td><td>Slight disability</td></tr>
+<tr><td>3</td><td>1255665007 Moderate</td><td>Moderate disability</td></tr>
+<tr><td>4</td><td>371924009 Moderate to severe</td><td>Moderately severe disability</td></tr>
+<tr><td>5</td><td>24484000 Severe</td><td>Severe disability</td></tr>
+<tr><td>6</td><td>419099009 Dead</td><td>Dead</td></tr>
 </table>
 </div>"""
 * code = SCT#1255866005 "Modified Rankin Scale score (observable entity)"
@@ -444,11 +444,11 @@ The criteria the registry applies to a Patient Health Questionnaire-9 (PHQ-9) sc
 
 | PHQ-9 score | Interpretation | Meaning |
 | --- | --- | --- |
-| 0–4 | Not significant | Minimal depression |
-| 5–9 | Mild | Mild depression |
-| 10–14 | Moderate | Moderate depression |
-| 15–19 | Moderate to severe | Moderately severe depression |
-| 20–27 | Severe | Severe depression |
+| 0–4 | 371928007 Not significant | Minimal depression |
+| 5–9 | 255604002 Mild | Mild depression |
+| 10–14 | 1255665007 Moderate | Moderate depression |
+| 15–19 | 371924009 Moderate to severe | Moderately severe depression |
+| 20–27 | 24484000 Severe | Severe depression |
 """
 // Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
@@ -456,11 +456,11 @@ The criteria the registry applies to a Patient Health Questionnaire-9 (PHQ-9) sc
 <p>Criteria for assessing the severity a Patient Health Questionnaire-9 (PHQ-9) score (SNOMED CT 720433000) indicates. The score is a whole number from 0 to 27, in the UCUM unit {score}. Each band includes its lower bound and excludes its upper bound; the table lists the scores each band holds.</p>
 <table class="grid">
 <tr><th>PHQ-9 score</th><th>Interpretation</th><th>Meaning</th></tr>
-<tr><td>0&#8211;4</td><td>Not significant (reference range)</td><td>Minimal depression</td></tr>
-<tr><td>5&#8211;9</td><td>Mild</td><td>Mild depression</td></tr>
-<tr><td>10&#8211;14</td><td>Moderate</td><td>Moderate depression</td></tr>
-<tr><td>15&#8211;19</td><td>Moderate to severe</td><td>Moderately severe depression</td></tr>
-<tr><td>20&#8211;27</td><td>Severe</td><td>Severe depression</td></tr>
+<tr><td>0&#8211;4</td><td>371928007 Not significant (reference range)</td><td>Minimal depression</td></tr>
+<tr><td>5&#8211;9</td><td>255604002 Mild</td><td>Mild depression</td></tr>
+<tr><td>10&#8211;14</td><td>1255665007 Moderate</td><td>Moderate depression</td></tr>
+<tr><td>15&#8211;19</td><td>371924009 Moderate to severe</td><td>Moderately severe depression</td></tr>
+<tr><td>20&#8211;27</td><td>24484000 Severe</td><td>Severe depression</td></tr>
 </table>
 </div>"""
 * code = SCT#720433000 "Patient Health Questionnaire Nine Item score (observable entity)"
