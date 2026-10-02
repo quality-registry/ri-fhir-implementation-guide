@@ -36,7 +36,7 @@ Description: "Indicates whether emergency medical services prenotified the recei
 Extension: RequiredPostAcuteCareExt
 Id: required-post-acute-care-ext
 Title: "Required post-acute care"
-Description: "Boolean indicator that post-acute care is required or applicable to the resource context. Used by Encounter, Observation and MedicationAdministration builders."
+Description: "Boolean indicator that post-acute care is required or applicable to the resource context. Used by Encounter, Observation, MedicationAdministration and Procedure builders."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/required-post-acute-care-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
@@ -44,16 +44,8 @@ Description: "Boolean indicator that post-acute care is required or applicable t
 * ^context[1].expression = "Observation"
 * ^context[2].type = #element
 * ^context[2].expression = "MedicationAdministration"
-* value[x] only boolean
-* valueBoolean 1..1 MS
-
-Extension: PostAcuteCareRequiredExt
-Id: post-acute-care-required-ext
-Title: "Post-acute care required"
-Description: "Boolean indicator used by Procedure builders to mark post-acute-care relevance. Semantically equivalent to required-post-acute-care-ext but kept because both URLs exist in the codebase."
-* ^url = "http://fhir.qualityregistry.org/StructureDefinition/post-acute-care-required-ext"
-* ^context[0].type = #element
-* ^context[0].expression = "Procedure"
+* ^context[3].type = #element
+* ^context[3].expression = "Procedure"
 * value[x] only boolean
 * valueBoolean 1..1 MS
 

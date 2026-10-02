@@ -7,8 +7,7 @@ Extensions carry registry-specific semantics that do not fit cleanly into a stan
 | [Gender represented with SNOMED CT](StructureDefinition-gender-snomed-ext.html) | `Patient` | Represents sex/gender as a SNOMED CT CodeableConcept. |
 | [First hospital for the stroke episode](StructureDefinition-first-hospital-ext.html) | `Encounter` | Indicates whether the encounter corresponds to the first hospital attended. |
 | [EMS prenotification](StructureDefinition-ems-prenotification-ext.html) | `Encounter` | Records whether EMS prenotified the receiving hospital. |
-| [Required post-acute care](StructureDefinition-required-post-acute-care-ext.html) | `Encounter`, `Observation`, `MedicationAdministration` | Marks post-acute-care relevance or requirement. |
-| [Post-acute care required](StructureDefinition-post-acute-care-required-ext.html) | `Procedure` | Procedure-specific post-acute-care flag preserved from the source builders. |
+| [Required post-acute care](StructureDefinition-required-post-acute-care-ext.html) | `Encounter`, `Observation`, `MedicationAdministration`, `Procedure` | Marks post-acute-care relevance or requirement. |
 | [Discharge department or service](StructureDefinition-discharge-department-service-ext.html) | `Encounter` | Captures discharge department/service or facility type. |
 | [Initial care intensity](StructureDefinition-initial-care-intensity-ext.html) | `Location` | Captures ICU/stroke unit, monitored bed or standard bed context. |
 | [Observation timing context](StructureDefinition-observation-timing-context-ext.html) | `Observation` | Adds timing context such as admission, discharge, prestroke or follow-up. |
