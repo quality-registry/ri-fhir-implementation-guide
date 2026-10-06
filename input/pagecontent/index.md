@@ -65,7 +65,3 @@ flowchart LR
 - `Observation` is used for measurements, scales, laboratory/analytics values, imaging findings, process timings and follow-up indicators.
 - `Procedure` is used for actions performed or considered in care delivery: imaging, reperfusion, swallowing screening, VTE prophylaxis, carotid endarterectomy and other stroke treatments.
 - Medication resources are separated by meaning: prior medication use is `MedicationStatement`, discharge prescriptions are `MedicationRequest`, and administered acute treatment is `MedicationAdministration`.
-
-## Known normalization notes
-
-The legacy Python builders used both `required-post-acute-care-ext` and `post-acute-care-required-ext` for the same flag; the IG keeps only `required-post-acute-care-ext`. The MedicationAdministration builders also contain a typo URL `http://tecnomod-um-org/StructureDefinition/assessment-timing-ext`; the IG normalizes this to `http://fhir.qualityregistry.org/StructureDefinition/assessment-timing-ext`.

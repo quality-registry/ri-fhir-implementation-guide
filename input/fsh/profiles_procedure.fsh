@@ -165,7 +165,7 @@ Profile: StrokeTreatmentProcedureProfile
 Parent: Procedure
 Id: stroke-treatment-procedure-profile
 Title: "Stroke Treatment Procedure Profile"
-Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, craniectomy, therapy, smoking cessation and shunt procedures not given a dedicated meta.profile in the Python builders."
+Description: "Generic treatment and rehabilitation profile for ICH, SAH, CVT, craniectomy, therapy, smoking cessation and shunt procedures that have no dedicated profile."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/stroke-treatment-procedure-profile"
 * insert RESQProfileMetadata
 * status 1..1 MS
