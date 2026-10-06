@@ -11,7 +11,6 @@ The RES-Q IG models one registry case as a connected set of FHIR resources. The 
 | `Condition` | Diagnosis, risk factors and post-stroke complications | [Stroke Diagnosis](StructureDefinition-stroke-diagnosis-condition-profile.html), [Risk Factor](StructureDefinition-stroke-risk-factor-condition-profile.html), [Post-Stroke Complication](StructureDefinition-post-stroke-complication-condition-profile.html) |
 | `Observation` | Scores, vital signs, labs, imaging findings, timings and follow-up indicators | [Observation profiles](profiles.html#observations) |
 | `Procedure` | Imaging, reperfusion, screening, VTE prophylaxis and treatments | [Procedure profiles](profiles.html#procedures) |
-| `DiagnosticReport` | Imaging reports and thrombectomy outcome reports | [Stroke Imaging Report](StructureDefinition-stroke-imaging-diagnostic-report-profile.html), [Mechanical Thrombectomy Report](StructureDefinition-mechanical-thrombectomy-diagnostic-report-profile.html) |
 | `BodyStructure` | Anatomical sites such as occluded arteries and laterality | [RESQ BodyStructure](StructureDefinition-resq-body-structure-profile.html) |
 | `MedicationStatement` | Medication use before stroke onset and adherence | [Prior MedicationStatement](StructureDefinition-prior-medication-statement-profile.html) |
 | `MedicationRequest` | Medication prescribed at discharge | [Discharge MedicationRequest](StructureDefinition-discharge-medication-request-profile.html) |
@@ -30,8 +29,7 @@ flowchart TD
   Encounter --> Observations["Observation profiles"]
   Encounter --> Procedures["Procedure profiles"]
   Encounter --> Medications["Medication resources"]
-  Procedures --> Reports["DiagnosticReport"]
-  Reports --> Observations
+  Observations -->|partOf| Procedures
   Observations --> BodyStructure["BodyStructure where anatomy matters"]
   Encounter --> FollowUp["Follow-up Observations"]
 ```

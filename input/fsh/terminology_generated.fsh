@@ -204,6 +204,17 @@ Description: "Local RESQ stroke registry CodeSystem for system http://fhir.quali
 * #previous-bleeding "Previous Bleeding"
 * #anticoagulant-use "Anticoagulant Use"
 
+CodeSystem: ProcedureStoppedReasonCS
+Id: procedure-stopped-reason-cs
+Title: "ProcedureStoppedReasonCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem with reasons why a started procedure was stopped before completion."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/procedure-stopped-reason-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #occlusion-not-confirmed "Occlusion Not Confirmed" "Angiography was performed but no occlusion requiring thrombectomy was found."
+* #not-completed "Thrombectomy Not Completed" "Thrombectomy was started but stopped before reperfusion could be assessed."
+
 CodeSystem: StrokePostStrokeComplicationCS
 Id: stroke-post-stroke-complication-cs
 Title: "StrokePostStrokeComplicationCs CodeSystem"
@@ -299,7 +310,6 @@ Description: "Local RESQ stroke registry CodeSystem for system http://fhir.quali
 * #2b "Grade 2b: Antegrade reperfusion of more than half of the previously occluded target artery ischemic territory"
 * #2c "Grade 2c: Near complete perfusion except for slow flow or distal emboli in a few distal cortical vessels"
 * #3 "Grade 3: Complete antegrade reperfusion of the previously occluded target artery ischemic territory, with absence of visualized occlusion in all distal branches"
-* #not-confirmed "Occlusion Not Confirmed"
 
 CodeSystem: ManagementAppointmentCS
 Id: management-appointment-cs
@@ -1063,6 +1073,25 @@ Description: "Allowed coded values for ProcedureNotDoneReason"
 * include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
 * include SCT#385432009 "Not applicable (qualifier value)"
 
+ValueSet: ProcedureStoppedReasonVS
+Id: procedure-stopped-reason-vs
+Title: "ProcedureStoppedReason ValueSet"
+Description: "Reasons why a started procedure was stopped (Procedure.status = stopped)."
+* ^url = "http://fhir.qualityregistry.org/ValueSet/procedure-stopped-reason-vs"
+* ^status = #active
+* ^experimental = false
+* include codes from system ProcedureStoppedReasonCS
+
+ValueSet: ReperfusionStatusReasonVS
+Id: reperfusion-status-reason-vs
+Title: "ReperfusionStatusReason ValueSet"
+Description: "Status reasons for reperfusion procedures: not-done reasons (Procedure.status = not-done) and stopped reasons (Procedure.status = stopped)."
+* ^url = "http://fhir.qualityregistry.org/ValueSet/reperfusion-status-reason-vs"
+* ^status = #active
+* ^experimental = false
+* include codes from valueset ProcedureNotDoneReasonVS
+* include codes from valueset ProcedureStoppedReasonVS
+
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
 Title: "PostStrokeProcedures ValueSet"
@@ -1113,6 +1142,7 @@ Description: "Allowed coded values for PostStrokeComplications"
 * include SCT#59282003 "Pulmonary embolism (disorder)"
 * include SCT#161917009 "Recurrence of problem (finding)"
 * include SCT#68566005 "Urinary tract infectious disease (disorder)"
+* include SCT#2776000 "Delirium (disorder)"
 * include StrokePostStrokeComplicationCS#other "Other Post-Stroke Complication"
 
 ValueSet: SwallowingScreeningDoneVS
@@ -1225,7 +1255,6 @@ Description: "Allowed coded values for MTiciScore"
 * include MticiScoreCS#2b "Grade 2b: Antegrade reperfusion of more than half of the previously occluded target artery ischemic territory"
 * include MticiScoreCS#2c "Grade 2c: Near complete perfusion except for slow flow or distal emboli in a few distal cortical vessels"
 * include MticiScoreCS#3 "Grade 3: Complete antegrade reperfusion of the previously occluded target artery ischemic territory, with absence of visualized occlusion in all distal branches"
-* include MticiScoreCS#not-confirmed "Occlusion Not Confirmed"
 
 ValueSet: NimodipinetimingVS
 Id: nimodipinetiming-vs

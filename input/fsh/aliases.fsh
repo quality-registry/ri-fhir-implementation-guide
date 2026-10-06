@@ -45,6 +45,7 @@ Alias: StrokeEtiologyOtherCS = http://fhir.qualityregistry.org/CodeSystem/stroke
 Alias: StrokeMimicsDiagnosisCS = http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs
 Alias: StrokePostStrokeComplicationCS = http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs
 Alias: StrokeProcNotDoneReasonCS = http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs
+Alias: ProcedureStoppedReasonCS = http://fhir.qualityregistry.org/CodeSystem/procedure-stopped-reason-cs
 Alias: SwallowProceduresCS = http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs
 Alias: SwallowScreenTimeCS = http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs
 Alias: SymptomsCS = http://fhir.qualityregistry.org/CodeSystem/symptoms-cs
