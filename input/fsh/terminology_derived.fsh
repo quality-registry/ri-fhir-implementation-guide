@@ -1,10 +1,6 @@
 // -----------------------------------------------------------------------------
 // Terminology for derived (calculated) observations
 //
-// Hand-authored, deliberately kept out of terminology_generated.fsh so a
-// regeneration from enum_models.py cannot clobber it, in the same way as
-// terminology_selfreported.fsh.
-//
 // The averages themselves need no local codes: SNOMED CT International has
 // 314440001 and 314453003 for average systolic and average diastolic blood
 // pressure, both children of 723232008 "Average blood pressure", which is the

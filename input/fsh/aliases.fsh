@@ -1,4 +1,3 @@
-// Auto-generated from enum_models.py and FHIR resource builders.
 Alias: FHIR = http://hl7.org/fhir
 Alias: HL7SD = http://hl7.org/fhir/StructureDefinition
 Alias: RESQ = http://fhir.qualityregistry.org

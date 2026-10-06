@@ -1,9 +1,6 @@
 // -----------------------------------------------------------------------------
 // Terminology for patient-reported observations
 //
-// Hand-authored, deliberately kept out of terminology_generated.fsh so a
-// regeneration from enum_models.py cannot clobber it.
-//
 // The codes below are the ones the RES-Q questionnaire service actually posts,
 // taken from its published observation-code table in docs/example_requests.md
 // and from the worked payload for each code in the same document.
