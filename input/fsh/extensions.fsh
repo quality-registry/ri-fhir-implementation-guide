@@ -112,7 +112,7 @@ Description: "Timing or phase context for procedure execution, such as acute/pos
 Extension: AssessmentTimingExt
 Id: assessment-timing-ext
 Title: "Assessment or medication timing"
-Description: "Timing category used by medication-administration builders, e.g. insulin within one hour or paracetamol timing. The Python code contains a typo variant tecnomod-um-org; this IG normalizes to tecnomod-um.org."
+Description: "Timing category used by medication-administration builders, e.g. insulin within one hour or paracetamol timing."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/assessment-timing-ext"
 * ^context[0].type = #element
 * ^context[0].expression = "MedicationAdministration"
