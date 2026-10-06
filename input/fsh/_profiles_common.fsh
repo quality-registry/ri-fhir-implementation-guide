@@ -39,11 +39,3 @@ RuleSet: RESQProcedureCore
 * insert RESQPatientSubject
 * insert RESQEncounterContext
 
-RuleSet: RESQDiagnosticReportCore
-* status 1..1 MS
-* status = #final
-* status ^short = "Final diagnostic report"
-* code 1..1 MS
-* code ^short = "Report type"
-* insert RESQPatientSubject
-* insert RESQEncounterContext

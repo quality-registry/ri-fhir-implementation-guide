@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
-// CodeSystems and ValueSets generated
+// CodeSystems and ValueSets
 // -----------------------------------------------------------------------------
 
 CodeSystem: YesNoNotRequiredCS
 Id: yes-no-not-required-cs
 Title: "YesNoNotRequiredCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/yes-no-not-required-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/yes-no-not-required-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/yes-no-not-required-cs"
 * ^status = #active
 * ^experimental = false
@@ -16,7 +16,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ThreeMonthContactModeCS
 Id: three-month-contact-mode-cs
 Title: "ThreeMonthContactModeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/three-month-contact-mode-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/three-month-contact-mode-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/three-month-contact-mode-cs"
 * ^status = #active
 * ^experimental = false
@@ -29,7 +29,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeArrivalModeCS
 Id: stroke-arrival-mode-cs
 Title: "StrokeArrivalModeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-arrival-mode-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-arrival-mode-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-arrival-mode-cs"
 * ^status = #active
 * ^experimental = false
@@ -45,7 +45,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: CarotidEndarterectomyTimingCS
 Id: carotid-endarterectomy-timing-cs
 Title: "CarotidEndarterectomyTimingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/carotid-endarterectomy-timing-cs"
 * ^status = #active
 * ^experimental = false
@@ -57,7 +57,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MedicationCS
 Id: medication-cs
 Title: "MedicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/medication-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/medication-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/medication-cs"
 * ^status = #active
 * ^experimental = false
@@ -75,7 +75,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: HemorrhagicTransformationTypeCS
 Id: hemorrhagic-transformation-type-cs
 Title: "HemorrhagicTransformationTypeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-transformation-type-cs"
 * ^status = #active
 * ^experimental = false
@@ -88,7 +88,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: InitialCareIntensityCS
 Id: initial-care-intensity-cs
 Title: "InitialCareIntensityCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/initial-care-intensity-cs"
 * ^status = #active
 * ^experimental = false
@@ -101,7 +101,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: BrainImagingTypeCS
 Id: brain-imaging-type-cs
 Title: "BrainImagingTypeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/brain-imaging-type-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/brain-imaging-type-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/brain-imaging-type-cs"
 * ^status = #active
 * ^experimental = false
@@ -117,7 +117,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeEtiologyCS
 Id: stroke-etiology-cs
 Title: "StrokeEtiologyCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-cs"
 * ^status = #active
 * ^experimental = false
@@ -128,7 +128,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeEtiologyOtherCS
 Id: stroke-etiology-other-cs
 Title: "StrokeEtiologyOtherCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-other-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-other-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-etiology-other-cs"
 * ^status = #active
 * ^experimental = false
@@ -142,7 +142,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeMimicsDiagnosisCS
 Id: stroke-mimics-diagnosis-cs
 Title: "StrokeMimicsDiagnosisCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-mimics-diagnosis-cs"
 * ^status = #active
 * ^experimental = false
@@ -152,7 +152,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: HemorrhagicStrokeBleedingReasonCS
 Id: hemorrhagic-stroke-bleeding-reason-cs
 Title: "HemorrhagicStrokeBleedingReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/hemorrhagic-stroke-bleeding-reason-cs"
 * ^status = #active
 * ^experimental = false
@@ -162,7 +162,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: VteProceduresCS
 Id: vte-procedures-cs
 Title: "VteProceduresCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/vte-procedures-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/vte-procedures-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/vte-procedures-cs"
 * ^status = #active
 * ^experimental = false
@@ -172,7 +172,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeProcNotDoneReasonCS
 Id: stroke-proc-not-done-reason-cs
 Title: "StrokeProcNotDoneReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-proc-not-done-reason-cs"
 * ^status = #active
 * ^experimental = false
@@ -204,10 +204,21 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #previous-bleeding "Previous Bleeding"
 * #anticoagulant-use "Anticoagulant Use"
 
+CodeSystem: ProcedureStoppedReasonCS
+Id: procedure-stopped-reason-cs
+Title: "ProcedureStoppedReasonCs CodeSystem"
+Description: "Local RESQ stroke registry CodeSystem with reasons why a started procedure was stopped before completion."
+* ^url = "http://fhir.qualityregistry.org/CodeSystem/procedure-stopped-reason-cs"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = false
+* #occlusion-not-confirmed "Occlusion Not Confirmed" "Angiography was performed but no occlusion requiring thrombectomy was found."
+* #not-completed "Thrombectomy Not Completed" "Thrombectomy was started but stopped before reperfusion could be assessed."
+
 CodeSystem: StrokePostStrokeComplicationCS
 Id: stroke-post-stroke-complication-cs
 Title: "StrokePostStrokeComplicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-post-stroke-complication-cs"
 * ^status = #active
 * ^experimental = false
@@ -218,7 +229,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SwallowScreenTimeCS
 Id: swallow-screen-time-cs
 Title: "SwallowScreenTimeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/swallow-screen-time-cs"
 * ^status = #active
 * ^experimental = false
@@ -228,7 +239,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ProcedureTimingContextCS
 Id: procedure-timing-context-cs
 Title: "ProcedureTimingContextCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/procedure-timing-context-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/procedure-timing-context-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/procedure-timing-context-cs"
 * ^status = #active
 * ^experimental = false
@@ -239,7 +250,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SwallowProceduresCS
 Id: swallow-procedures-cs
 Title: "SwallowProceduresCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/swallow-procedures-cs"
 * ^status = #active
 * ^experimental = false
@@ -251,7 +262,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeDischargeDestinationCS
 Id: stroke-discharge-destination-cs
 Title: "StrokeDischargeDestinationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-destination-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-destination-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-destination-cs"
 * ^status = #active
 * ^experimental = false
@@ -262,7 +273,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: DischargeDeptCS
 Id: discharge-dept-cs
 Title: "DischargeDeptCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/discharge-dept-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/discharge-dept-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/discharge-dept-cs"
 * ^status = #active
 * ^experimental = false
@@ -275,7 +286,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: FirstContactPlaceCS
 Id: first-contact-place-cs
 Title: "FirstContactPlaceCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/first-contact-place-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/first-contact-place-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/first-contact-place-cs"
 * ^status = #active
 * ^experimental = false
@@ -288,7 +299,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MticiScoreCS
 Id: mtici-score-cs
 Title: "MticiScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/mtici-score-cs"
 * ^status = #active
 * ^experimental = false
@@ -299,12 +310,11 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 * #2b "Grade 2b: Antegrade reperfusion of more than half of the previously occluded target artery ischemic territory"
 * #2c "Grade 2c: Near complete perfusion except for slow flow or distal emboli in a few distal cortical vessels"
 * #3 "Grade 3: Complete antegrade reperfusion of the previously occluded target artery ischemic territory, with absence of visualized occlusion in all distal branches"
-* #not-confirmed "Occlusion Not Confirmed"
 
 CodeSystem: ManagementAppointmentCS
 Id: management-appointment-cs
 Title: "ManagementAppointmentCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/management-appointment-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/management-appointment-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/management-appointment-cs"
 * ^status = #active
 * ^experimental = false
@@ -317,7 +327,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TimingCS
 Id: timing-cs
 Title: "TimingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/timing-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/timing-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/timing-cs"
 * ^status = #active
 * ^experimental = false
@@ -329,7 +339,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: NotMedicationReasonCS
 Id: not-medication-reason-cs
 Title: "NotMedicationReasonCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/not-medication-reason-cs"
 * ^status = #active
 * ^experimental = false
@@ -347,7 +357,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: RiskFactorCS
 Id: risk-factor-cs
 Title: "RiskFactorCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/risk-factor-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/risk-factor-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/risk-factor-cs"
 * ^status = #active
 * ^experimental = false
@@ -357,7 +367,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: DischargeMedicationCS
 Id: discharge-medication-cs
 Title: "DischargeMedicationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/discharge-medication-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/discharge-medication-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/discharge-medication-cs"
 * ^status = #active
 * ^experimental = false
@@ -378,7 +388,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: InsulinHyperglycemiaTimeCS
 Id: insulin-hyperglycemia-time-cs
 Title: "InsulinHyperglycemiaTimeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/insulin-hyperglycemia-time-cs"
 * ^status = #active
 * ^experimental = false
@@ -389,7 +399,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TimingMetricCodesCS
 Id: timing-metric-codes-cs
 Title: "TimingMetricCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/timing-metric-codes-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/timing-metric-codes-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/timing-metric-codes-cs"
 * ^status = #active
 * ^experimental = false
@@ -426,7 +436,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: FunctionalScoreCS
 Id: functional-score-cs
 Title: "FunctionalScoreCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/functional-score-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/functional-score-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/functional-score-cs"
 * ^status = #active
 * ^experimental = false
@@ -438,7 +448,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: AssessmentContextCS
 Id: assessment-context-cs
 Title: "AssessmentContextCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/assessment-context-cs"
 * ^status = #active
 * ^experimental = false
@@ -460,7 +470,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: MticiCodeCS
 Id: mtici-code-cs
 Title: "MticiCodeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs"
 * ^status = #active
 * ^experimental = false
@@ -470,7 +480,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: PerfusionVolumeCS
 Id: perfusion-volume-cs
 Title: "PerfusionVolumeCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/perfusion-volume-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/perfusion-volume-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/perfusion-volume-cs"
 * ^status = #active
 * ^experimental = false
@@ -481,7 +491,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: OldInfarctCS
 Id: old-infarct-cs
 Title: "OldInfarctCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/old-infarct-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/old-infarct-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/old-infarct-cs"
 * ^status = #active
 * ^experimental = false
@@ -491,7 +501,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SpecificFindingCS
 Id: specific-finding-cs
 Title: "SpecificFindingCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/specific-finding-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/specific-finding-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/specific-finding-cs"
 * ^status = #active
 * ^experimental = false
@@ -502,7 +512,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeTreatmentCS
 Id: stroke-treatment-cs
 Title: "StrokeTreatmentCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-treatment-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-treatment-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-treatment-cs"
 * ^status = #active
 * ^experimental = false
@@ -513,7 +523,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeCircumstanceCodesCS
 Id: stroke-circumstance-codes-cs
 Title: "StrokeCircumstanceCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-circumstance-codes-cs"
 * ^status = #active
 * ^experimental = false
@@ -524,7 +534,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: LocationCS
 Id: location-cs
 Title: "LocationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/location-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/location-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/location-cs"
 * ^status = #active
 * ^experimental = false
@@ -536,7 +546,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: SymptomsCS
 Id: symptoms-cs
 Title: "SymptomsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/symptoms-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/symptoms-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/symptoms-cs"
 * ^status = #active
 * ^experimental = false
@@ -546,7 +556,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TiaSymptomDurationCS
 Id: tia-symptom-duration-cs
 Title: "TiaSymptomDurationCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/tia-symptom-duration-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/tia-symptom-duration-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/tia-symptom-duration-cs"
 * ^status = #active
 * ^experimental = false
@@ -558,7 +568,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: ThrombectomyComplicationsCS
 Id: thrombectomy-complications-cs
 Title: "ThrombectomyComplicationsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/thrombectomy-complications-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/thrombectomy-complications-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/thrombectomy-complications-cs"
 * ^status = #active
 * ^experimental = false
@@ -568,7 +578,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: AnalyticsCodesCS
 Id: analytics-codes-cs
 Title: "AnalyticsCodesCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/analytics-codes-cs"
 * ^status = #active
 * ^experimental = false
@@ -579,7 +589,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: VitalSignsCS
 Id: vital-signs-cs
 Title: "VitalSignsCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/vital-signs-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/vital-signs-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/vital-signs-cs"
 * ^status = #active
 * ^experimental = false
@@ -590,7 +600,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: TenecteplaseBrandCS
 Id: tenecteplase-brand-cs
 Title: "TenecteplaseBrandCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/tenecteplase-brand-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/tenecteplase-brand-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/tenecteplase-brand-cs"
 * ^status = #active
 * ^experimental = false
@@ -609,7 +619,7 @@ Description: "Local RESQ stroke registry CodeSystem generated from enum_models.p
 CodeSystem: StrokeDischargeSummarySectionCS
 Id: stroke-discharge-summary-section-cs
 Title: "StrokeDischargeSummarySectionCs CodeSystem"
-Description: "Local RESQ stroke registry CodeSystem generated from enum_models.py for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs."
+Description: "Local RESQ stroke registry CodeSystem for system http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs."
 * ^url = "http://fhir.qualityregistry.org/CodeSystem/stroke-discharge-summary-section-cs"
 * ^status = #active
 * ^experimental = false
@@ -1063,6 +1073,25 @@ Description: "Allowed coded values for ProcedureNotDoneReason"
 * include StrokeProcNotDoneReasonCS#anticoagulant-use "Anticoagulant Use"
 * include SCT#385432009 "Not applicable (qualifier value)"
 
+ValueSet: ProcedureStoppedReasonVS
+Id: procedure-stopped-reason-vs
+Title: "ProcedureStoppedReason ValueSet"
+Description: "Reasons why a started procedure was stopped (Procedure.status = stopped)."
+* ^url = "http://fhir.qualityregistry.org/ValueSet/procedure-stopped-reason-vs"
+* ^status = #active
+* ^experimental = false
+* include codes from system ProcedureStoppedReasonCS
+
+ValueSet: ReperfusionStatusReasonVS
+Id: reperfusion-status-reason-vs
+Title: "ReperfusionStatusReason ValueSet"
+Description: "Status reasons for reperfusion procedures: not-done reasons (Procedure.status = not-done) and stopped reasons (Procedure.status = stopped)."
+* ^url = "http://fhir.qualityregistry.org/ValueSet/reperfusion-status-reason-vs"
+* ^status = #active
+* ^experimental = false
+* include codes from valueset ProcedureNotDoneReasonVS
+* include codes from valueset ProcedureStoppedReasonVS
+
 ValueSet: PostStrokeProceduresVS
 Id: post-stroke-procedures-vs
 Title: "PostStrokeProcedures ValueSet"
@@ -1113,6 +1142,7 @@ Description: "Allowed coded values for PostStrokeComplications"
 * include SCT#59282003 "Pulmonary embolism (disorder)"
 * include SCT#161917009 "Recurrence of problem (finding)"
 * include SCT#68566005 "Urinary tract infectious disease (disorder)"
+* include SCT#2776000 "Delirium (disorder)"
 * include StrokePostStrokeComplicationCS#other "Other Post-Stroke Complication"
 
 ValueSet: SwallowingScreeningDoneVS
@@ -1225,7 +1255,6 @@ Description: "Allowed coded values for MTiciScore"
 * include MticiScoreCS#2b "Grade 2b: Antegrade reperfusion of more than half of the previously occluded target artery ischemic territory"
 * include MticiScoreCS#2c "Grade 2c: Near complete perfusion except for slow flow or distal emboli in a few distal cortical vessels"
 * include MticiScoreCS#3 "Grade 3: Complete antegrade reperfusion of the previously occluded target artery ischemic territory, with absence of visualized occlusion in all distal branches"
-* include MticiScoreCS#not-confirmed "Occlusion Not Confirmed"
 
 ValueSet: NimodipinetimingVS
 Id: nimodipinetiming-vs
@@ -1309,6 +1338,7 @@ Description: "Allowed coded values for BodySites"
 * include SCT#86117002 "Internal carotid artery structure (body structure)"
 * include SCT#59011009 "Structure of basilar artery (body structure)"
 * include SCT#69105007 "Carotid artery structure (body structure)"
+* include SCT#32062004 "Common carotid artery structure (body structure)"
 * include SCT#85234005 "Structure of vertebral artery (body structure)"
 * include SCT#414722000 "Structure of middle cerebral artery M1 segment (body structure)"
 * include SCT#414723005 "Structure of middle cerebral artery M2 segment (body structure)"

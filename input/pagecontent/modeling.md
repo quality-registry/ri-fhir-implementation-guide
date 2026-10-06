@@ -14,11 +14,22 @@ The [Stroke Encounter](StructureDefinition-stroke-encounter-profile.html) is the
 
 `Observation` is used for values, assessments and results: vital signs, functional scores, laboratory values, timing metrics, imaging findings and follow-up indicators. This keeps quantitative and coded results in the FHIR resource designed for measurement and assessment.
 
-## Procedures and Reports
+## Procedures
 
-`Procedure` represents actions performed, planned, not performed or assessed in the pathway. The guide uses dedicated profiles for imaging, reperfusion, swallowing screening, VTE prophylaxis and selected treatments because each group carries different timing, reason, performer, report or not-done semantics.
+`Procedure` represents actions performed, planned, not performed or assessed in the pathway. The guide uses dedicated profiles for imaging, reperfusion, swallowing screening, VTE prophylaxis and selected treatments because each group carries different timing, reason, performer or not-done semantics.
 
-`DiagnosticReport` groups results from imaging and mechanical thrombectomy. Reports link back to observations so consumers can read a report summary while still processing individual findings such as mTICI or carotid stenosis.
+Findings produced by a procedure, such as imaging findings or the mTICI grade, are recorded as Observations that reference the Procedure through `partOf`. A consumer finds every result of a procedure by searching Observations on `partOf`.
+
+### Thrombectomy outcome
+
+The mTICI grade (0, 1, 2a, 2b, 2c, 3) is recorded only for a completed thrombectomy. It is an Observation that references the thrombectomy Procedure through `partOf`. A thrombectomy that started but did not reach a reperfusion grade has no mTICI. It is expressed on the Procedure instead, with separate value sets for the two kinds of status reason: [ProcedureStoppedReasonVS](ValueSet-procedure-stopped-reason-vs.html) for `stopped` and [ProcedureNotDoneReasonVS](ValueSet-procedure-not-done-reason-vs.html) for `not-done`.
+
+| Situation | `Procedure.status` | `Procedure.statusReason` | mTICI |
+| --- | --- | --- | --- |
+| Thrombectomy performed | `completed` | – | grade 0–3, `partOf` the Procedure |
+| Started but not completed | `stopped` | `not-completed` | none |
+| Angiography did not confirm an occlusion | `stopped` | `occlusion-not-confirmed` | none |
+| Thrombectomy not started | `not-done` | not-done reason, e.g. `no-lvo` | none |
 
 ## Medication Resources
 

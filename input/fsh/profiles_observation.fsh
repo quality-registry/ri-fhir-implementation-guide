@@ -107,6 +107,7 @@ Description: "Observation profile for specific stroke-related clinical, imaging 
 
 * obeys specific-finding-must-have-result
 * obeys mtici-value-must-use-mtici-score-vs
+* obeys mtici-must-reference-procedure
 * obeys blood-volume-must-be-quantity-ml
 * obeys carotid-stenosis-value-rule
 * obeys artery-occlusion-must-have-bodystructure
@@ -151,6 +152,10 @@ Description: "Observation profile for specific stroke-related clinical, imaging 
 * bodyStructure only Reference(RESQBodyStructureProfile)
 * bodyStructure ^short = "Patient-specific anatomical structure associated with the finding"
 
+* partOf 0..* MS
+* partOf only Reference(Procedure)
+* partOf ^short = "Procedure this finding results from, such as the imaging procedure or the thrombectomy graded by mTICI"
+
 * extension contains ObservationTimingContextExt named observationTimingContext 0..1 MS
 
 Invariant: specific-finding-must-have-result
@@ -159,9 +164,14 @@ Severity: #error
 Expression: "value.exists() or dataAbsentReason.exists()"
 
 Invariant: mtici-value-must-use-mtici-score-vs
-Description: "If Observation.code is mTICI, valueCodeableConcept must belong to MTiciScoreVS."
+Description: "If Observation.code is mTICI, valueCodeableConcept must be an mTICI grade (0-3) from MTiciScoreVS."
 Severity: #error
 Expression: "code.coding.where(system = 'http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs' and code = 'mTICI').exists().not() or (value.ofType(CodeableConcept).exists() and value.ofType(CodeableConcept).memberOf('http://fhir.qualityregistry.org/ValueSet/mtici-score-vs'))"
+
+Invariant: mtici-must-reference-procedure
+Description: "If Observation.code is mTICI, partOf SHALL reference the completed thrombectomy Procedure that is graded."
+Severity: #error
+Expression: "code.coding.where(system = 'http://fhir.qualityregistry.org/CodeSystem/mtici-code-cs' and code = 'mTICI').exists().not() or partOf.exists()"
 
 Invariant: blood-volume-must-be-quantity-ml
 Description: "If Observation.code is blood volume, valueQuantity must be expressed in UCUM milliliters."

@@ -48,6 +48,37 @@ Usage: #example
 * valueQuantity.code = #min
 * valueQuantity.unit = "minute"
 
+Instance: ExampleThrombectomyCompleted
+InstanceOf: StrokeMechanicalProcedureProfile
+Usage: #example
+Description: "Completed mechanical thrombectomy, graded by the mTICI observation ExampleMtici2b."
+* status = #completed
+* subject = Reference(ExampleRESQPatient)
+* encounter = Reference(ExampleStrokeEncounter)
+* code = SCT#397046001 "Thrombectomy of artery (procedure)"
+
+Instance: ExampleMtici2b
+InstanceOf: SpecificFindingObservationProfile
+Usage: #example
+Description: "mTICI 2b reperfusion grade after a completed thrombectomy."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* encounter = Reference(ExampleStrokeEncounter)
+* category = ObservationCategoryCS#procedure "Procedure"
+* code = MticiCodeCS#mTICI "mTICI"
+* partOf = Reference(ExampleThrombectomyCompleted)
+* valueCodeableConcept = MticiScoreCS#2b "Grade 2b: Antegrade reperfusion of more than half of the previously occluded target artery ischemic territory"
+
+Instance: ExampleThrombectomyOcclusionNotConfirmed
+InstanceOf: StrokeMechanicalProcedureProfile
+Usage: #example
+Description: "Thrombectomy stopped because angiography did not confirm an occlusion; no mTICI is recorded."
+* status = #stopped
+* subject = Reference(ExampleRESQPatient)
+* encounter = Reference(ExampleStrokeEncounter)
+* code = SCT#397046001 "Thrombectomy of artery (procedure)"
+* statusReason = ProcedureStoppedReasonCS#occlusion-not-confirmed "Occlusion Not Confirmed"
+
 Instance: ExampleDischargeMrs
 InstanceOf: FunctionalScoreObservationProfile
 Usage: #example
@@ -379,3 +410,4 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #mmol/L
+

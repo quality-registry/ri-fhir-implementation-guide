@@ -1,9 +1,6 @@
 // -----------------------------------------------------------------------------
 // Terminology for self-reported medication notes
 //
-// Hand-authored, deliberately kept out of terminology_generated.fsh so a
-// regeneration from enum_models.py cannot clobber it.
-//
 // Concept codes are the values the RES-Q questionnaire service stores and sends
 // (apps/questionnaire_app/models.py, DoseUnit and DosageWhen). They are kept
 // verbatim, including the ones that are not UCUM, because they already exist in

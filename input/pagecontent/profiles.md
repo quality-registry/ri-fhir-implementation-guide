@@ -28,10 +28,10 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | [Base Stroke Observation](StructureDefinition-base-stroke-observation.html) | Shared subject, encounter, status and code constraints for registry observations. |
 | [Base Self-Reported Observation](StructureDefinition-base-self-reported-observation.html) | Shared scaffold for patient-reported observations. Unlike the base above it does not require an encounter and does not fix status to final. |
 | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html) | Blood pressure, glucose, LDL cholesterol, glycated haemoglobin, weight and height as the patient reports them, with the registry's assessment of them in interpretation. |
-| [Self-Reported Functional Scores](StructureDefinition-self-reported-functional-scores-profile.html) | Summary score of a patient-reported questionnaire as a whole number in the UCUM unit `{score}`, linked to the QuestionnaireResponse it was derived from, with the registry's severity assessment of mRS and PHQ-9 in interpretation. |
+| [Self-Reported Functional Scores](StructureDefinition-self-reported-functional-scores-profile.html) | Summary score of a patient-reported questionnaire, linked to the QuestionnaireResponse it was derived from, with the registry's severity assessment of mRS and PHQ-9 in interpretation. |
 | [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html) | Figures the registry calculates from self-reported readings, with the number of readings they were derived from, with the registry's assessment in interpretation. |
 | [Vital Sign Observation](StructureDefinition-vital-sign-observation-profile.html) | Blood pressure and other vital signs using components. |
-| [Functional Score Observation](StructureDefinition-functional-score-observation-profile.html) | NIHSS, mRS, ASPECTS and other severity or outcome scales, each score a whole number in the UCUM unit `{score}`, with the registry's severity assessment of mRS in interpretation. |
+| [Functional Score Observation](StructureDefinition-functional-score-observation-profile.html) | NIHSS, mRS, ASPECTS and other functional score outcomes. |
 | [Glasgow Coma Scale Observation](StructureDefinition-glasgow-coma-scale-observation-profile.html) | Specialized GCS score binding. |
 | [Specific Finding Observation](StructureDefinition-specific-finding-observation-profile.html) | Imaging, procedure and clinical findings such as mTICI or stenosis. |
 | [Timing Metric Observation](StructureDefinition-timing-metric-observation-profile.html) | Door-to-needle, onset-to-door and related process metrics. |
@@ -48,7 +48,7 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 
 | Profile | Why it exists |
 | --- | --- |
-| [Stroke Imaging Procedure](StructureDefinition-stroke-imaging-procedure-profile.html) | Brain imaging procedure and related report link. |
+| [Stroke Imaging Procedure](StructureDefinition-stroke-imaging-procedure-profile.html) | Brain imaging procedure; findings reference it through `partOf`. |
 | [Stroke Carotid Imaging Procedure](StructureDefinition-stroke-carotid-imaging-procedure-profile.html) | Carotid imaging in post-stroke assessment. |
 | [Stroke Carotid Endarterectomy Procedure](StructureDefinition-stroke-carotid-endarterectomy-procedure-profile.html) | Carotid intervention and timing window. |
 | [Stroke Reperfusion Procedure](StructureDefinition-stroke-mechanical-procedure-profile.html) | Thrombolysis and mechanical thrombectomy, including not-done reasons. |
@@ -64,12 +64,6 @@ Profiles are grouped below by FHIR resource type. Each link opens the generated 
 | [Patient Reported Outcome Questionnaire Responses](StructureDefinition-patient-reported-outcome-questionnaire-responses.html) | Constrains answers to the shape the registry collects, restricts the answered questionnaire to the four defined here, and flags skipped questions rather than omitting them. |
 
 The four instrument definitions themselves are published as definitional `Questionnaire` instances: [mRS](Questionnaire-mrs.html), [PHQ-9](Questionnaire-phq9.html), [SF-SIS](Questionnaire-sf-sis.html) and [SF-NEADL](Questionnaire-sf-neadl.html).
-
-## Reports
-
-| Resource | Profiles |
-| --- | --- |
-| `DiagnosticReport` | [Stroke Imaging DiagnosticReport](StructureDefinition-stroke-imaging-diagnostic-report-profile.html), [Mechanical Thrombectomy DiagnosticReport](StructureDefinition-mechanical-thrombectomy-diagnostic-report-profile.html) |
 
 ## Medications {#medications}
 

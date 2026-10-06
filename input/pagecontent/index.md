@@ -6,7 +6,7 @@ This guide describes how RES-Q stroke registry data is represented in HL7 FHIR R
   <div>
     <p class="resq-kicker">FHIR R5 implementation guide</p>
     <h2>Stroke registry data, organized as navigable FHIR resources</h2>
-    <p>The model turns one stroke episode into a connected resource graph: a patient and encounter anchor the record, while diagnoses, observations, procedures, medications, reports and follow-up resources describe the clinical pathway.</p>
+    <p>The model turns one stroke episode into a connected resource graph: a patient and encounter anchor the record, while diagnoses, observations, procedures, medications and follow-up resources describe the clinical pathway.</p>
   </div>
   <div class="resq-stat-grid">
     <a class="resq-stat" href="profiles.html"><strong>49</strong><span>Profiles</span></a>
@@ -39,7 +39,7 @@ This guide describes how RES-Q stroke registry data is represented in HL7 FHIR R
 
 ## Scope
 
-The IG covers the complete transaction bundle produced by `transform_to_fhir`: `Organization`, `Patient`, `Encounter`, `Location`, `Condition`, `Observation`, `Procedure`, `DiagnosticReport`, `BodyStructure`, `MedicationStatement`, `MedicationRequest`, `MedicationAdministration` and `PractitionerRole`. Three-month follow-up is represented as `Observation` rather than `Appointment`/`Communication`.
+The IG covers the complete transaction bundle produced by `transform_to_fhir`: `Organization`, `Patient`, `Encounter`, `Location`, `Condition`, `Observation`, `Procedure`, `BodyStructure`, `MedicationStatement`, `MedicationRequest`, `MedicationAdministration` and `PractitionerRole`. Three-month follow-up is represented as `Observation` rather than `Appointment`/`Communication`.
 
 ## Resource graph
 
@@ -51,8 +51,7 @@ flowchart LR
   Enc --> Risk["Risk Factors / Complications"]
   Enc --> Obs["Observations: scores, labs, findings, timing"]
   Enc --> Proc["Procedures: imaging, reperfusion, screening"]
-  Proc --> Rep["DiagnosticReport"]
-  Rep --> Obs
+  Obs -->|partOf| Proc
   Enc --> Med["MedicationStatement / Request / Administration"]
   Enc --> Fu["Follow-up observations"]
   Body["BodyStructure"] --> Obs

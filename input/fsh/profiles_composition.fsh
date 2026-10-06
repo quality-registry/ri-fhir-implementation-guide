@@ -137,7 +137,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 
 * section[hospitalCourse].title = "Hospital Course"
 * section[hospitalCourse].code = LOINC#8648-8 "Hospital course note"
-* section[hospitalCourse].entry only Reference(Condition or Observation or Procedure or MedicationAdministration or DiagnosticReport)
+* section[hospitalCourse].entry only Reference(Condition or Observation or Procedure or MedicationAdministration)
 
 
 // -------------------------------------------------------
@@ -173,7 +173,7 @@ Description: "FHIR R5 Composition profile for the RESQ Stroke Hospital Discharge
 
 * section[significantResults].title = "Significant Results"
 * section[significantResults].code = LOINC#30954-2 "Relevant diagnostic tests/laboratory data note" 
-* section[significantResults].entry only Reference(Observation or DiagnosticReport)
+* section[significantResults].entry only Reference(Observation)
 
 
 // -------------------------------------------------------
