@@ -129,18 +129,6 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 * qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above recommended level"
 * qualifiedValue[2].range.low = 1.80 'mmol/L' "mmol/L"
 
-// -----------------------------------------------------------------------------
-// Body mass index
-//
-// The table in the description is also the machine-readable form of the
-// rules, and the interpretation-rules comment names the SNOMED CT code of its
-// single value column, which here is the reading itself rather than a
-// component. The bands do not depend on age, so there is no age column and no
-// qualifiedValue.age.
-//
-// Each band includes its lower bound and excludes its upper bound.
-// -----------------------------------------------------------------------------
-
 Instance: SelfReportedBmiAssessment
 InstanceOf: ObservationDefinition
 Usage: #definition
@@ -155,23 +143,22 @@ Description: "The criteria used to assess a patient's self-reported body mass in
 * description = """
 The criteria the registry applies to a self-reported body mass index (BMI) to set its Observation.interpretation. The bands follow the WHO adult BMI classification and do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.
 
-<!-- interpretation-rules: 60621009 -->
-| BMI (kg/m²) | Interpretation |
-| --- | --- |
-| < 18.5 | L Low: underweight |
-| ≥ 18.5 and < 25.0 | N Normal: normal weight |
-| ≥ 25.0 and < 30.0 | H High: overweight |
-| ≥ 30.0 | HU Significantly high: obese |
+| BMI (kg/m²) | Interpretation | Meaning |
+| --- | --- | --- |
+| < 18.5 | L Low | Underweight |
+| ≥ 18.5 and < 25.0 | N Normal | Normal weight |
+| ≥ 25.0 and < 30.0 | H High | Overweight |
+| ≥ 30.0 | HU Significantly high | Obese |
 """
 * text.status = #generated
 * text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
-<p>The criteria the registry applies to a self-reported body mass index to set its Observation.interpretation. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
+<p>Criteria for assessing a self-reported body mass index (SNOMED CT 60621009), in kg/m&#178;. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
 <table class="grid">
-<tr><th>BMI (kg/m&#178;)</th><th>Interpretation</th></tr>
-<tr><td>&lt; 18.5</td><td>L Low: underweight</td></tr>
-<tr><td>&#8805; 18.5 and &lt; 25.0</td><td>N Normal: normal weight</td></tr>
-<tr><td>&#8805; 25.0 and &lt; 30.0</td><td>H High: overweight</td></tr>
-<tr><td>&#8805; 30.0</td><td>HU Significantly high: obese</td></tr>
+<tr><th>BMI (kg/m&#178;)</th><th>Interpretation</th><th>Meaning</th></tr>
+<tr><td>&lt; 18.5</td><td>L Low</td><td>Underweight</td></tr>
+<tr><td>&#8805; 18.5 and &lt; 25.0</td><td>N Normal (reference range)</td><td>Normal weight</td></tr>
+<tr><td>&#8805; 25.0 and &lt; 30.0</td><td>H High</td><td>Overweight</td></tr>
+<tr><td>&#8805; 30.0</td><td>HU Significantly high</td><td>Obese</td></tr>
 </table>
 </div>"""
 * code = SCT#60621009 "Body mass index (observable entity)"
