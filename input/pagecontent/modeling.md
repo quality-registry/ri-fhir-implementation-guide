@@ -75,7 +75,7 @@ proportion of readings that fell within target.
 ### Control statuses
 
 Alongside the figures, the registry judges how well a patient controls their
-blood pressure, glucose and LDL cholesterol. The judgement is not a resource of
+blood pressure, glucose, LDL cholesterol and body mass index. The judgement is not a resource of
 its own: it is an interpretation of the data it was made from, so it is carried
 in `Observation.interpretation`.
 
@@ -96,10 +96,10 @@ Both profiles use the same standard HL7 interpretation flags, bound to
 | Judgement about | Lives on |
 | --- | --- |
 | Aggregated blood pressure | [Self-Reported Value Aggregation](StructureDefinition-self-reported-value-aggregation-profile.html), `0..1` |
-| A glucose or LDL reading | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html), `0..*` |
+| A glucose, LDL or BMI reading | [Self-Reported Vital Signs](StructureDefinition-self-reported-vital-signs-profile.html), `0..*` |
 
-Blood pressure is judged from the aggregate, glucose and LDL cholesterol from
-the latest reading. `0..*` on the reading because one reported observation can
+Blood pressure is judged from the aggregate, glucose, LDL cholesterol and body
+mass index from the latest reading. `0..*` on the reading because one reported observation can
 carry more than one measurement; `0..1` on the aggregation, which states one
 figure or one set of figures. The flag carries no analyte of its own: what it
 applies to is given by `Observation.code`. When no assessment was made at all,
@@ -117,6 +117,7 @@ each band's upper bound equals the next band's lower bound exactly.
 | --- | --- |
 | Glucose reading | [Self-Reported Glucose Assessment](ObservationDefinition-self-reported-glucose-assessment.html) |
 | LDL cholesterol reading | [Self-Reported LDL Cholesterol Assessment](ObservationDefinition-self-reported-ldl-cholesterol-assessment.html) |
+| Body mass index reading | [Self-Reported Body Mass Index Assessment](ObservationDefinition-self-reported-bmi-assessment.html) |
 | Aggregated blood pressure | [Self-Reported Blood Pressure Assessment](ObservationDefinition-self-reported-blood-pressure-assessment.html) |
 | mRS score, hospital or patient-reported | [Modified Rankin Scale Severity Assessment](ObservationDefinition-mrs-severity-assessment.html) |
 | PHQ-9 score | [PHQ-9 Severity Assessment](ObservationDefinition-phq9-severity-assessment.html) |

@@ -411,3 +411,50 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #mmol/L
 
+Instance: ExampleSelfReportedWeight
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedWeight"
+Description: "Body weight the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#27113001 "Body weight (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueQuantity.value = 83.9
+* valueQuantity.unit = "kg"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #kg
+
+Instance: ExampleSelfReportedHeight
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedHeight"
+Description: "Body height the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#1153637007 "Body height (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueQuantity.value = 175
+* valueQuantity.unit = "cm"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #cm
+
+// 83.9 kg / (1.75 m)² = 27.4 kg/m²
+Instance: ExampleSelfReportedBmi
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedBmi"
+Description: "Body mass index calculated from the weight and height the patient reports, carried as a single value with no components, with the registry's assessment of it. derivedFrom references the two readings it was calculated from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* code = SCT#60621009 "Body mass index (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* derivedFrom[0] = Reference(ExampleSelfReportedWeight)
+* derivedFrom[1] = Reference(ExampleSelfReportedHeight)
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-bmi-assessment"
+* interpretation = ObservationInterpretationCS#H "High"
+* valueQuantity.value = 27.4
+* valueQuantity.unit = "kg/m2"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #kg/m2
+
