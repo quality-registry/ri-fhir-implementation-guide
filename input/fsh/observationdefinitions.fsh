@@ -163,7 +163,6 @@ The criteria the registry applies to a self-reported body mass index (BMI) to se
 | ≥ 25.0 and < 30.0 | H High: overweight |
 | ≥ 30.0 | HU Significantly high: obese |
 """
-// Authored rather than generated, for the same reason as the glucose definition.
 * text.status = #generated
 * text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
 <p>The criteria the registry applies to a self-reported body mass index to set its Observation.interpretation. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
