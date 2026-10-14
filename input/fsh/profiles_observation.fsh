@@ -423,6 +423,9 @@ Description: "Observation profile for measurements a patient reports about thems
 * interpretation 0..* MS
 * interpretation from SelfReportedInterpretationVS (required)
 * interpretation ^short = "Registry assessment of the reported measurements"
+* derivedFrom 0..* MS
+* derivedFrom only Reference(Observation)
+* derivedFrom ^short = "Measurements the reported value was derived from"
 * component 0..* MS
 * component ^short = "Component measurements, used for blood pressure"
 * component.code 1..1 MS
