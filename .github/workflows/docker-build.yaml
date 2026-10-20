@@ -37,7 +37,7 @@ jobs:
             -t $IMAGE:${{ github.sha }} \
             .
           docker push --all-tags $IMAGE
-  deploy-to-dev:
+  deploy:
     if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
     runs-on: ubuntu-latest
     needs: build
@@ -47,9 +47,9 @@ jobs:
           GH_TOKEN: ${{ secrets.PUSH_EVENT_TO_DEPLOYMENT_PAT }}
 
           CONFIG_REPO: "quality-registry/deployment"
-          ENV_NAME: "ri-dev"
-          VAR_NAME: "FHIR_IMPLEMENTATION_GUIDE_TAG"
-          WORKFLOW_FILE: "ri-dev-cd.yaml"
+          ENV_NAME: "ri-nonprod-public"
+          VAR_NAME: "FHIR_IG_TAG"
+          WORKFLOW_FILE: "ri-fhir-ig-cd.yaml"
         run: |
           echo "Updating variable $VAR_NAME in environment $ENV_NAME"
           gh variable set "$VAR_NAME" \
