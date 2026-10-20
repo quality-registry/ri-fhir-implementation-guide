@@ -47,7 +47,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PUSH_EVENT_TO_DEPLOYMENT_PAT }}
 
           CONFIG_REPO: "quality-registry/deployment"
-          ENV_NAME: "ri-nonprod-public"
+          ENV_NAME: "ri-dev"
           VAR_NAME: "FHIR_IG_TAG"
           WORKFLOW_FILE: "ri-fhir-ig-cd.yaml"
         run: |
