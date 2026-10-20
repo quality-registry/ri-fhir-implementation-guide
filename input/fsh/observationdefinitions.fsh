@@ -152,7 +152,7 @@ The criteria the registry applies to a self-reported body mass index (BMI) to se
 """
 * text.status = #generated
 * text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
-<p>Criteria for assessing a self-reported body mass index (SNOMED CT 60621009), in kg/m&#178;. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
+<p>Criteria for assessing a self-reported body mass index (LOINC 39156-5), in kg/m&#178;. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
 <table class="grid">
 <tr><th>BMI (kg/m&#178;)</th><th>Interpretation</th><th>Meaning</th></tr>
 <tr><td>&lt; 18.5</td><td>L Low</td><td>Underweight</td></tr>
@@ -161,7 +161,7 @@ The criteria the registry applies to a self-reported body mass index (BMI) to se
 <tr><td>&#8805; 30.0</td><td>HU Significantly high</td><td>Obese</td></tr>
 </table>
 </div>"""
-* code = SCT#60621009 "Body mass index (observable entity)"
+* code = LOINC#39156-5 "Body mass index (BMI) [Ratio]"
 * permittedDataType = #Quantity
 * permittedUnit = UCUM#kg/m2 "kilogram / (meter ^ 2)"
 

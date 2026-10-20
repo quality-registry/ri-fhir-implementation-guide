@@ -13,6 +13,10 @@
 // AnalyticsCodesVS. The questionnaire service must be migrated onto these codes
 // for the two sides to agree at source.
 //
+// Body height and body mass index use LOINC rather than SNOMED CT. The validator
+// holds an Observation with either SNOMED CT code to the core bodyheight and bmi
+// vital-signs profiles, and those require the LOINC codes 8302-2 and 39156-5.
+//
 // -----------------------------------------------------------------------------
 
 ValueSet: SelfReportedSignsVS
@@ -29,8 +33,8 @@ Description: "Measurements a patient reports about themselves through the RES-Q 
 * include SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * include SCT#43396009 "Hemoglobin A1c measurement (procedure)"
 * include SCT#27113001 "Body weight (observable entity)"
-* include SCT#1153637007 "Body height (observable entity)"
-* include SCT#60621009 "Body mass index (observable entity)"
+* include LOINC#8302-2 "Body height"
+* include LOINC#39156-5 "Body mass index (BMI) [Ratio]"
 
 ValueSet: SelfReportedScoresVS
 Id: self-reported-scores-vs

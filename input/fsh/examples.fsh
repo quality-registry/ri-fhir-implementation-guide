@@ -290,6 +290,8 @@ Title: "ExampleSelfReportedGlucose"
 Description: "Glucose level the patient reports, carried as a single value with no components, with the registry's assessment of it."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#laboratory
+* effectiveDateTime = "2026-01-20"
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
 * issued = "2026-01-20T07:17:19.921Z"
 * instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-glucose-assessment"
@@ -406,6 +408,8 @@ Title: "ExampleSelfReportedLdlCholesterol"
 Description: "LDL cholesterol level the patient reports, carried as a single value with no components, with the registry's assessment of it."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#laboratory
+* effectiveDateTime = "2026-01-20"
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-ldl-cholesterol-assessment"
@@ -440,8 +444,7 @@ Description: "Body height the patient reports, carried as a single value with no
 * subject = Reference(ExampleRESQPatient)
 * category = ObservationCategoryCS#vital-signs
 * effectiveDateTime = "2026-01-20"
-* code.coding[0] = SCT#1153637007 "Body height (observable entity)"
-* code.coding[1] = LOINC#8302-2 "Body height"
+* code = LOINC#8302-2 "Body height"
 * issued = "2026-01-20T07:17:19.921Z"
 * valueQuantity.value = 175
 * valueQuantity.unit = "cm"
@@ -458,8 +461,7 @@ Description: "Body mass index calculated from the weight and height the patient 
 * subject = Reference(ExampleRESQPatient)
 * category = ObservationCategoryCS#vital-signs
 * effectiveDateTime = "2026-01-20"
-* code.coding[0] = SCT#60621009 "Body mass index (observable entity)"
-* code.coding[1] = LOINC#39156-5 "Body mass index (BMI) [Ratio]"
+* code = LOINC#39156-5 "Body mass index (BMI) [Ratio]"
 * issued = "2026-01-20T07:17:19.921Z"
 * derivedFrom[0] = Reference(ExampleSelfReportedWeight)
 * derivedFrom[1] = Reference(ExampleSelfReportedHeight)
