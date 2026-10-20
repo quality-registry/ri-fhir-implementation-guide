@@ -37,3 +37,29 @@ jobs:
             -t $IMAGE:${{ github.sha }} \
             .
           docker push --all-tags $IMAGE
+  deploy:
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Update Config Repo and Trigger Deployment
+        env:
+          GH_TOKEN: ${{ secrets.PUSH_EVENT_TO_DEPLOYMENT_PAT }}
+
+          CONFIG_REPO: "quality-registry/deployment"
+          ENV_NAME: "ri-dev"
+          VAR_NAME: "FHIR_IG_TAG"
+          WORKFLOW_FILE: "ri-fhir-ig-cd.yaml"
+        run: |
+          echo "Updating variable $VAR_NAME in environment $ENV_NAME"
+          gh variable set "$VAR_NAME" \
+            --env "$ENV_NAME" \
+            --body "${{ github.sha }}" \
+            --repo "$CONFIG_REPO"
+
+          echo "Triggering deployment workflow..."
+          gh workflow run "$WORKFLOW_FILE" \
+            --ref master \
+            --repo "$CONFIG_REPO"
+
+          echo "Deployment triggered successfully!"

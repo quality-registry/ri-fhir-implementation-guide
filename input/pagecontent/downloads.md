@@ -8,7 +8,7 @@ The NPM-style FHIR package is what validators, IG publishers and most FHIR tooli
 
 | Download | |
 | --- | --- |
-| [package.tgz](package.tgz) | FHIR package `RESQFHIRIG#1.0.0`, FHIR R5 |
+| [package.tgz](package.tgz) | FHIR package `RESQFHIRIG#0.2.0-draft`, FHIR R5 |
 
 To validate an instance against this guide with the [HL7 validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator):
 
