@@ -13,9 +13,9 @@
 // AnalyticsCodesVS. The questionnaire service must be migrated onto these codes
 // for the two sides to agree at source.
 //
-// Body height and body mass index use LOINC rather than SNOMED CT. The validator
-// holds an Observation with either SNOMED CT code to the core bodyheight and bmi
-// vital-signs profiles, and those require the LOINC codes 8302-2 and 39156-5.
+// Body height and BMI use LOINC codes instead of SNOMED CT. This is required
+// by the FHIR validator and the standard itself (should be applied to all vital 
+// signs).
 //
 // -----------------------------------------------------------------------------
 
