@@ -3,7 +3,7 @@ canonical: http://fhir.qualityregistry.org
 name: RESQStrokeIG
 title: RESQ Stroke Registry Implementation Guide
 status: draft
-version: 0.2.0
+version: 0.2.0-draft
 fhirVersion: 5.0.0
 copyrightYear: 2026
 releaseLabel: draft
@@ -36,3 +36,4 @@ menu:
     Terminology: terminology.html
   Artifacts: artifacts.html
   Downloads: downloads.html
+  Changelog: changelog.html
