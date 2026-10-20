@@ -268,6 +268,8 @@ Title: "ExampleSelfReportedBloodPressure"
 Description: "Blood pressure the patient reports from home monitoring, carried as systolic and diastolic components with no top-level value."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
 * code = SCT#75367002 "Blood pressure (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
@@ -382,6 +384,8 @@ Title: "ExampleSelfReportedBloodPressureLater"
 Description: "A second self-reported blood-pressure reading, above target, so the derived average has more than one input to reference."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-18"
 * code = SCT#75367002 "Blood pressure (observable entity)"
 * issued = "2026-01-18T07:05:11.000Z"
 * component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
@@ -418,6 +422,8 @@ Title: "ExampleSelfReportedWeight"
 Description: "Body weight the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
 * code = SCT#27113001 "Body weight (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * valueQuantity.value = 83.9
@@ -432,7 +438,10 @@ Title: "ExampleSelfReportedHeight"
 Description: "Body height the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
-* code = SCT#1153637007 "Body height (observable entity)"
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
+* code.coding[0] = SCT#1153637007 "Body height (observable entity)"
+* code.coding[1] = LOINC#8302-2 "Body height"
 * issued = "2026-01-20T07:17:19.921Z"
 * valueQuantity.value = 175
 * valueQuantity.unit = "cm"
@@ -447,7 +456,10 @@ Title: "ExampleSelfReportedBmi"
 Description: "Body mass index calculated from the weight and height the patient reports, carried as a single value with no components, with the registry's assessment of it. derivedFrom references the two readings it was calculated from."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
-* code = SCT#60621009 "Body mass index (observable entity)"
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
+* code.coding[0] = SCT#60621009 "Body mass index (observable entity)"
+* code.coding[1] = LOINC#39156-5 "Body mass index (BMI) [Ratio]"
 * issued = "2026-01-20T07:17:19.921Z"
 * derivedFrom[0] = Reference(ExampleSelfReportedWeight)
 * derivedFrom[1] = Reference(ExampleSelfReportedHeight)
