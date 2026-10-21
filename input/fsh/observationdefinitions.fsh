@@ -129,6 +129,65 @@ The criteria the registry applies to a self-reported LDL cholesterol reading to 
 * qualifiedValue[2].extension[0].valueCodeableConcept.text = "Above recommended level"
 * qualifiedValue[2].range.low = 1.80 'mmol/L' "mmol/L"
 
+Instance: SelfReportedBmiAssessment
+InstanceOf: ObservationDefinition
+Usage: #definition
+Title: "Self-Reported Body Mass Index Assessment"
+Description: "The criteria used to assess a patient's self-reported body mass index."
+* id = "self-reported-bmi-assessment"
+* url = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-bmi-assessment"
+* name = "SelfReportedBmiAssessment"
+* title = "Self-Reported Body Mass Index Assessment"
+* status = #active
+* experimental = false
+* description = """
+The criteria the registry applies to a self-reported body mass index (BMI) to set its Observation.interpretation. The bands follow the WHO adult BMI classification and do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.
+
+| BMI (kg/m²) | Interpretation | Meaning |
+| --- | --- | --- |
+| < 18.5 | L Low | Underweight |
+| ≥ 18.5 and < 25.0 | N Normal | Normal weight |
+| ≥ 25.0 and < 30.0 | H High | Overweight |
+| ≥ 30.0 | HU Significantly high | Obese |
+"""
+* text.status = #generated
+* text.div = """<div xmlns="http://www.w3.org/1999/xhtml">
+<p>Criteria for assessing a self-reported body mass index (SNOMED 60621009), in kg/m&#178;. The bands do not depend on the patient's age. Each band includes its lower bound and excludes its upper bound.</p>
+<table class="grid">
+<tr><th>BMI (kg/m&#178;)</th><th>Interpretation</th><th>Meaning</th></tr>
+<tr><td>&lt; 18.5</td><td>L Low</td><td>Underweight</td></tr>
+<tr><td>&#8805; 18.5 and &lt; 25.0</td><td>N Normal (reference range)</td><td>Normal weight</td></tr>
+<tr><td>&#8805; 25.0 and &lt; 30.0</td><td>H High</td><td>Overweight</td></tr>
+<tr><td>&#8805; 30.0</td><td>HU Significantly high</td><td>Obese</td></tr>
+</table>
+</div>"""
+* code = SCT#60621009 "Body mass index (observable entity)"
+* permittedDataType = #Quantity
+* permittedUnit = UCUM#kg/m2 "kilogram / (meter ^ 2)"
+
+* qualifiedValue[0].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[0].extension[0].valueCodeableConcept = ObservationInterpretationCS#L "Low"
+* qualifiedValue[0].extension[0].valueCodeableConcept.text = "Underweight"
+* qualifiedValue[0].range.high = 18.5 'kg/m2' "kg/m2"
+
+* qualifiedValue[1].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[1].extension[0].valueCodeableConcept = ObservationInterpretationCS#N "Normal"
+* qualifiedValue[1].extension[0].valueCodeableConcept.text = "Normal weight"
+* qualifiedValue[1].rangeCategory = #reference
+* qualifiedValue[1].range.low = 18.5 'kg/m2' "kg/m2"
+* qualifiedValue[1].range.high = 25.0 'kg/m2' "kg/m2"
+
+* qualifiedValue[2].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[2].extension[0].valueCodeableConcept = ObservationInterpretationCS#H "High"
+* qualifiedValue[2].extension[0].valueCodeableConcept.text = "Overweight"
+* qualifiedValue[2].range.low = 25.0 'kg/m2' "kg/m2"
+* qualifiedValue[2].range.high = 30.0 'kg/m2' "kg/m2"
+
+* qualifiedValue[3].extension[0].url = "http://fhir.qualityregistry.org/StructureDefinition/qualified-value-interpretation-ext"
+* qualifiedValue[3].extension[0].valueCodeableConcept = ObservationInterpretationCS#HU "Significantly high"
+* qualifiedValue[3].extension[0].valueCodeableConcept.text = "Obese"
+* qualifiedValue[3].range.low = 30.0 'kg/m2' "kg/m2"
+
 // -----------------------------------------------------------------------------
 // Aggregated blood pressure
 //

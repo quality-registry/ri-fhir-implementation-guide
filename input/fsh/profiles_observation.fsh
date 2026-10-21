@@ -19,8 +19,10 @@ Title: "Vital Sign Observation Profile"
 Description: "Observation profile for vital signs in the acute stroke pathway, especially blood pressure components."
 * ^url = "http://fhir.qualityregistry.org/StructureDefinition/vital-sign-observation-profile"
 * insert RESQProfileMetadata
-* category 0..* MS
+* category 1..* MS
 * category from http://hl7.org/fhir/ValueSet/observation-category (preferred)
+* effective[x] 1..1 MS
+* effective[x] ^short = "When the vital sign was measured"
 * code from VitalSignsVS (extensible)
 * component 1..* MS
 * component ^short = "Vital-sign component such as systolic or diastolic blood pressure"
@@ -407,9 +409,10 @@ Description: "Observation profile for measurements a patient reports about thems
 * insert RESQProfileMetadata
 * ^purpose = "Records measurements supplied by the patient with enough structure to be compared against values measured in hospital, while keeping them distinguishable from them."
 * obeys srvs-value-or-component
-* category 0..* MS
-* category ^short = "Observation category, where the registry records one"
-* category ^definition = "Deliberately not fixed to vital-signs: glucose, LDL cholesterol and glycated haemoglobin are laboratory results rather than vital signs, and this profile covers both."
+* category 1..* MS
+* category ^short = "Observation category: vital-signs or laboratory"
+* category ^definition = "Required, but deliberately not fixed to vital-signs: glucose, LDL cholesterol and glycated haemoglobin are laboratory results rather than vital signs, and this profile covers both."
+* effective[x] 1..1 MS
 * code from SelfReportedSignsVS (extensible)
 * code ^short = "Reported measurement"
 * value[x] 0..1 MS
@@ -423,6 +426,9 @@ Description: "Observation profile for measurements a patient reports about thems
 * interpretation 0..* MS
 * interpretation from SelfReportedInterpretationVS (required)
 * interpretation ^short = "Registry assessment of the reported measurements"
+* derivedFrom 0..* MS
+* derivedFrom only Reference(Observation)
+* derivedFrom ^short = "Measurements the reported value was derived from"
 * component 0..* MS
 * component ^short = "Component measurements, used for blood pressure"
 * component.code 1..1 MS

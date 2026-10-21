@@ -268,6 +268,8 @@ Title: "ExampleSelfReportedBloodPressure"
 Description: "Blood pressure the patient reports from home monitoring, carried as systolic and diastolic components with no top-level value."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
 * code = SCT#75367002 "Blood pressure (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
@@ -288,6 +290,8 @@ Title: "ExampleSelfReportedGlucose"
 Description: "Glucose level the patient reports, carried as a single value with no components, with the registry's assessment of it."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#laboratory
+* effectiveDateTime = "2026-01-20"
 * code = SCT#33747003 "Glucose measurement, blood (procedure)"
 * issued = "2026-01-20T07:17:19.921Z"
 * instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-glucose-assessment"
@@ -382,6 +386,8 @@ Title: "ExampleSelfReportedBloodPressureLater"
 Description: "A second self-reported blood-pressure reading, above target, so the derived average has more than one input to reference."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-18"
 * code = SCT#75367002 "Blood pressure (observable entity)"
 * issued = "2026-01-18T07:05:11.000Z"
 * component[0].code = SCT#271649006 "Systolic blood pressure (observable entity)"
@@ -402,6 +408,8 @@ Title: "ExampleSelfReportedLdlCholesterol"
 Description: "LDL cholesterol level the patient reports, carried as a single value with no components, with the registry's assessment of it."
 * status = #final
 * subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#laboratory
+* effectiveDateTime = "2026-01-20"
 * code = SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * issued = "2026-01-20T07:17:19.921Z"
 * instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-ldl-cholesterol-assessment"
@@ -410,4 +418,57 @@ Description: "LDL cholesterol level the patient reports, carried as a single val
 * valueQuantity.unit = "millimoles per litre"
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #mmol/L
+
+Instance: ExampleSelfReportedWeight
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedWeight"
+Description: "Body weight the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
+* code = SCT#27113001 "Body weight (observable entity)"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueQuantity.value = 83.9
+* valueQuantity.unit = "kg"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #kg
+
+Instance: ExampleSelfReportedHeight
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedHeight"
+Description: "Body height the patient reports, carried as a single value with no components. One of the two inputs the body mass index example is derived from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
+* code = LOINC#8302-2 "Body height"
+* issued = "2026-01-20T07:17:19.921Z"
+* valueQuantity.value = 175
+* valueQuantity.unit = "cm"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #cm
+
+// 83.9 kg / (1.75 m)² = 27.4 kg/m²
+Instance: ExampleSelfReportedBmi
+InstanceOf: SelfReportedVitalSignsProfile
+Usage: #example
+Title: "ExampleSelfReportedBmi"
+Description: "Body mass index calculated from the weight and height the patient reports, carried as a single value with no components, with the registry's assessment of it. derivedFrom references the two readings it was calculated from."
+* status = #final
+* subject = Reference(ExampleRESQPatient)
+* category = ObservationCategoryCS#vital-signs
+* effectiveDateTime = "2026-01-20"
+* code = LOINC#39156-5 "Body mass index (BMI) [Ratio]"
+* issued = "2026-01-20T07:17:19.921Z"
+* derivedFrom[0] = Reference(ExampleSelfReportedWeight)
+* derivedFrom[1] = Reference(ExampleSelfReportedHeight)
+* instantiatesCanonical = "http://fhir.qualityregistry.org/ObservationDefinition/self-reported-bmi-assessment"
+* interpretation = ObservationInterpretationCS#H "High"
+* valueQuantity.value = 27.4
+* valueQuantity.unit = "kg/m2"
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #kg/m2
 
