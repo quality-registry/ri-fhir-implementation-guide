@@ -13,9 +13,8 @@
 // AnalyticsCodesVS. The questionnaire service must be migrated onto these codes
 // for the two sides to agree at source.
 //
-// Body height and BMI use LOINC codes instead of SNOMED CT. This is required
-// by the FHIR validator and the standard itself (should be applied to all vital 
-// signs).
+// Body height and BMI use both LOINC and SNOMED CT codes. LOINC is required
+// by the FHIR validator and the standard's 'Core profiles for Observations'.
 //
 // -----------------------------------------------------------------------------
 
@@ -33,7 +32,9 @@ Description: "Measurements a patient reports about themselves through the RES-Q 
 * include SCT#372361000119104 "Low density lipoprotein cholesterol by direct assay (observable entity)"
 * include SCT#43396009 "Hemoglobin A1c measurement (procedure)"
 * include SCT#27113001 "Body weight (observable entity)"
+* include SCT#1153637007 "Body height (observable entity)"
 * include LOINC#8302-2 "Body height"
+* include SCT#60621009 "Body mass index (observable entity)"
 * include LOINC#39156-5 "Body mass index (BMI) [Ratio]"
 
 ValueSet: SelfReportedScoresVS
